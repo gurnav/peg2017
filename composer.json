@@ -1,0 +1,20 @@
+{
+    "name": "esgiGeographik",
+    "require": {
+        "phpunit/phpunit": "^6.0",
+        "friendsofphp/php-cs-fixer": "^2.0"
+    },
+    "autoload" : {
+        "psr-4" : {
+          "" : "app/",
+          "" : "core/",
+          "" : "models/"
+        }
+      },
+    "authors": [
+        {
+            "name": "Thomas DUDOUX",
+            "email": "thomas.dudoux@gmail.com"
+        }
+    ]
+}
