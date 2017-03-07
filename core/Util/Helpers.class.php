@@ -23,7 +23,7 @@
       if(!file_exists(ROOT.'logs'))
         mkdir(ROOT.'logs');
       if(!file_exists(ROOT.'logs'.DS.'log.txt'))
-        log("***/!\\ This is the log File /!\\***");
+        self::log("***/!\\ This is the log File /!\\***");
     }
 
     // Safe logging writing

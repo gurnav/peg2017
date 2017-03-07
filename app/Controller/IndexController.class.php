@@ -9,7 +9,7 @@
 
   class IndexController extends Controller {
 
-    public function indexAction($params = null) {
+    public function indexAction ($params = null) {
 
       $user = new Users();
       $user->setEmail("thomas.dudoux@gmail.com");

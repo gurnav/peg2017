@@ -1,27 +1,36 @@
 <?php
 
+  /**
+   * Class that is the base of all our models
+   * Allow CRUD operation on models
+   */
+
   namespace Core\Database;
   use \PDO;
 
   class BaseSql {
 
-    private $db;
-    private $table;
-    private $columns = [];
+    private $db; // The database which we are connected
+    private $table; // The table selected
+    private $columns = []; // The colomns tht belongs to the table
 
+
+    /**
+     * The constructor of the BaseSQL class
+     * Connect to the database and setup the table the columns
+     */
     public function __construct() {
       try {
         $this->setDb();
-      } catch( Exception $e ) {
+      } catch (Exception $e) {
         die("Erreur SQL : ".$e->getMessage());
       }
-
       $this->setTable();
       $this->setColumns();
     }
 
     /**
-     * Insert or Update in Database
+     * Insert or Update a model in Database
      */
     public function save() {
       if($this->getId() === -1) {
@@ -48,9 +57,14 @@
       }
     }
 
+    /**
+     * Load an empty object with 1 or multiple elements in the array
+     * that exist in the database
+     * Manage the duplicate with an raised error.
+     * @param $array : Array  which represent the data that we will load from the database
+     * @return Object Which reprensent the loaded model from the database
+     */
     public function populate($array) {
-      // Charge un objet vide a partir d'un élément du tableau
-      // Penser au Duplicata dans la BDD
       $class = get_class($this);
       $class = str_replace(__NAMESPACE__ . '\\', '', $class);
       $class = str_replace('\\', '/', $class);
@@ -59,6 +73,7 @@
         foreach( $array as $item => $value ) {
           $subQuery .= " WHERE ".$item."=".$value." AND";
         }
+        // Delete the last " AND"
         $subQuery = substr($subQuery, 0, -4);
         $query = $this->getDb()->prepare( "SELECT * FROM ".DB_PREFIX.lcfirst($class)
           .$subQuery );
@@ -66,13 +81,13 @@
           $query->execute();
           $rowCount = $query->rowCount();
           if( $rowCount === 1 ) {
-            $result = $query->fectchObject($class);
+            $result = $query->fetch(PDO::FETCH_CLASS, $class);
           } elseif( $rowCount === 0 ) {
-            // Si l'objet n'existe pas dans la base
-            $result = $this;
+            // if the object doesn't exist int the database
+            $result = $this->self;
           } else {
-            // Gestion des duplicatas
-            Helpers::log("Il existe : ".$rowCount." ligness dans la bases,
+            // Manages duplicatas
+            Helpers::log("Il existe : ".$rowCount." lignes dans la bases,
               impossible de charger l'objet du aux duplicatas.");
             die("Une erreur est survenue veuillez contacter l'administrateur du site.");
           }
@@ -87,10 +102,15 @@
       return $result;
     }
 
+
+    /**
+     * Delete an entry from the databse that corresponf to the loaded model
+     * @param id : Int the id of our data
+     */
     public function delete() {
       if ($this->id !== -1) {
         try {
-          $this->getDb()->prepare( "DELETE FROM ". DB_PREFIX."_".get_class($this) ." WHERE id="."$this->id"."; ");
+          $this->getDb()->prepare( "DELETE FROM ". DB_PREFIX."_".lcfirst(get_class($this))." WHERE id="."$this->id".';');
         } catch(Exception $e) {
           Helpers::log($e);
           die($e);
@@ -102,36 +122,59 @@
 
     }
 
+    /**
+     * Set the connection of the database with the given properties
+     * properties are defined by constant
+     * which are DB_DRIVER, DB_HOST, DB_PORT, DB_NAME,
+     * DB_USER, DB_PWD
+     */
     protected function setDb() {
       $this->db = new PDO( DB_DRIVER.":host=".DB_HOST.";port=".DB_PORT.";dbname=".DB_NAME, DB_USER, DB_PWD );
       $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
+    /**
+     * Simple Database Getter
+     */
     protected function getDb() {
       return $this->db;
     }
 
+    /**
+     * Simple Table Getter
+     */
     protected function getTable() {
       return $this->table;
     }
 
+    /**
+     * Dynamically set the Table name from the model name
+     */
     protected function setTable() {
-      // Récupérer le nom de la table dynamiquement
       $arrayName = explode("\\", get_class($this));
       $this->table = DB_PREFIX.strtolower(end($arrayName));
     }
 
+    /**
+     * Simple Columns Getter
+     */
     protected function getColumns() {
       return $this->columns;
     }
 
+    /**
+     * Dynamically set the columns name from the model name
+     */
     protected function setColumns() {
       // Récupérer le nom des colonnes de la table dynamiquement
       $this->columns = array_diff_key(get_class_vars(get_class($this)),
         get_class_vars(get_parent_class($this)));
     }
 
-    protected function unsetColumn($column) {
+    /**
+     * Unset a column name
+     */
+    private function unsetColumn($column) {
       unset($this->columns[$column]);
     }
 

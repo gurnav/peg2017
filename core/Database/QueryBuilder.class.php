@@ -2,6 +2,9 @@
 
   namespace Core\Database;
 
+  /**
+   * Helpers for building Query
+   */
   class QueryBuilder {
 
     private $fields = [];
