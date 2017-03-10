@@ -4,14 +4,14 @@
 
   /**
    * Class Form
-   * Permet de générer un formulaire rapidement et simplement
+   * Easy form generating
    */
   class Form {
 
       /**
        * @var array Données utilisées par le formulaire
        */
-      private $data;
+      private $data; //
 
       /**
        * @var string Tag utilisé pour entourer les champs

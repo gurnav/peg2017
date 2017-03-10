@@ -1,14 +1,16 @@
 <?php
 
+  namespace Core\Database;
+  use \PDO;
+  use Core\Database\QueryBuilder;
+
   /**
    * Class that is the base of all our models
    * Allow CRUD operation on models
    */
-
-  namespace Core\Database;
-  use \PDO;
-
   class BaseSql {
+
+    use QueryBuilder; // use QueryBuilder Traits
 
     private $db; // The database which we are connected
     private $table; // The table selected
@@ -20,6 +22,7 @@
      * Connect to the database and setup the table the columns
      */
     public function __construct() {
+      $this->qb = new QueryBuilder();
       try {
         $this->setDb();
       } catch (Exception $e) {
@@ -33,6 +36,7 @@
      * Insert or Update a model in Database
      */
     public function save() {
+      // If not in Database save it
       if($this->getId() === -1) {
         $sqlCol = null;
         $sqlKey = null;
@@ -45,7 +49,9 @@
         $query = $this->getDb()->prepare( 'INSERT INTO '. $this->getTable(). '('.
         trim($sqlCol, ','). ') VALUES ( '. trim($sqlKey, ',') . ');');
         $query->execute($data);
-      } else {
+      }
+      // If in the database Update it
+      else {
         $sqlCol = null;
         foreach ($this->getColumns() as $column => $value) {
           $data[$column] = $this->$column;

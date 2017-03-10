@@ -2,12 +2,15 @@
 
   namespace Core\Util;
 
+  /**
+   * Class which provide usefull methods
+   */
   class Helpers {
 
     /**
     * Function that help to debug
     * @param $var Var the var to be debugged.
-    * @return printed output of the debug of the variable
+    * @return void
     */
     public static function debugVar($var) {
       echo "<pre>";
@@ -18,6 +21,7 @@
     /**
      * Verify if the log directory exist and if the log file exist
      * To launch Before any Script execution
+     * @return void
      */
     public static function createLogExist() {
       if(!file_exists(ROOT.'logs'))
@@ -26,7 +30,10 @@
         self::log("***/!\\ This is the log File /!\\***");
     }
 
-    // Safe logging writing
+    /**
+     * Safe log Writting
+     * @return void
+     */
     public static function log($msg) {
       $logFile = fopen(ROOT.'logs'.DS.'log.txt', 'a');
       // Locking file to be the only one to write in it
@@ -44,8 +51,11 @@
       }
     }
 
-    // CRON function who zip logfile for storage purpose
-    // Limit Size : 5Mb
+    /**
+     * CRON function who zip logfile for storage purpose
+     * Limit File Size : 5Mb
+     * @return void
+     */
     public static function purgeLog() {
       if( filesize(ROOT.'logs'.DS.'log.txt') > 5242880 ) {
         $zip = new ZipArchive();

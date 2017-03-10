@@ -2,6 +2,9 @@
 
   namespace Core;
 
+  /**
+   * Class who autoload class called
+   */
   class Autoloader {
 
       /**
@@ -14,6 +17,7 @@
       /**
        * Include the files corresponding to our class
        * @param $class : String The name of the class to load
+       * @return void
        */
       static function autoload($class) {
         if (strpos($class, __NAMESPACE__ . '\\') === 0) {

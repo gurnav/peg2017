@@ -2,13 +2,13 @@
 
   namespace Core\Auth;
 
-  use Core\Database\Database;
+  use Core\Database\BaseSql;
 
   class DBAuth {
 
     private $db;
 
-    public function __construct(Database $db) {
+    public function __construct(BaseSql $db) {
       $this->db = $db;
     }
 
@@ -20,11 +20,12 @@
     }
 
     /**
-     * @param $username
-     * @param $password
-     * @return a boolean
+     * @param $username : String
+     * @param $password : String
+     * @return Boolean If the user is logged or not
      */
-    public function login($username, $password) {
+    public function login($username, $password)
+    {
       $user = $this->db->prepare('SELECT * FROM'.DB_PREFIX.'users WHERE username = ?', [$username], null, true);
       var_dump(sha1($password));
       if($user) {
