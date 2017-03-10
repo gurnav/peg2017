@@ -2,41 +2,40 @@
 
   namespace Core\Database;
 
-  /**
+/**
    * Traits for building Query
    */
   trait QueryBuilder
   {
-
-    private $fields = [];
-    private $conditions = [];
-    private $from = [];
-
-
-    public function select()
-    {
-      $this->fields = func_get_args();
-      return $this;
-    }
+      private $fields = [];
+      private $conditions = [];
+      private $from = [];
 
 
-    public function where()
-    {
-      foreach(func_get_args() as $arg) {
-        $this->conditions[] = $arg;
+      public function select()
+      {
+          $this->fields = func_get_args();
+          return $this;
       }
-      return $this;
-    }
 
-    public function from ($table, $alias = null)
-    {
-      if(is_null($alias)) {
-        $this->from[] = $table;
-      } else {
-        $this->from[] = "$table AS $alias";
+
+      public function where()
+      {
+          foreach (func_get_args() as $arg) {
+              $this->conditions[] = $arg;
+          }
+          return $this;
       }
-      return $this;
-    }
+
+      public function from($table, $alias = null)
+      {
+          if (is_null($alias)) {
+              $this->from[] = $table;
+          } else {
+              $this->from[] = "$table AS $alias";
+          }
+          return $this;
+      }
 
     /**
      * Easier Query method who can fetch one or multiple models of the same class
@@ -45,10 +44,10 @@
      * @param $one : Boolean which allow one or multiple retievement
      * @return Object : Model The Object which represent the data
      */
-    public function query ($statement, $class_name = null, $one = false)
+    public function query($statement, $class_name = null, $one = false)
     {
         $req = $this->getDb()->query($statement);
-        if(
+        if (
             strpos($statement, 'UPDATE') === 0 ||
             strpos($statement, 'INSERT') === 0 ||
             strpos($statement, 'DELETE') === 0
@@ -76,23 +75,23 @@
      * @param $one : Boolean which allow one or multiple retievement
      * @return Object : Model The Object which represent the data
      */
-    public function prepare ($statement, $attributes, $class_name = null, $one = false)
+    public function prepare($statement, $attributes, $class_name = null, $one = false)
     {
         $req = $this->getDb()->prepare($statement);
         $res = $req->execute($attributes);
-        if(
+        if (
             strpos($statement, 'UPDATE') === 0 ||
             strpos($statement, 'INSERT') === 0 ||
             strpos($statement, 'DELETE') === 0
         ) {
             return $res;
         }
-        if($class_name === null){
+        if ($class_name === null) {
             $req->setFetchMode(PDO::FETCH_OBJ);
         } else {
             $req->setFetchMode(PDO::FETCH_CLASS, $class_name);
         }
-        if($one) {
+        if ($one) {
             $datas = $req->fetch();
         } else {
             $datas = $req->fetchAll();
@@ -100,11 +99,10 @@
         return $datas;
     }
 
-    public function __toString()
-    {
-      return 'SELECT '. implode(', ', $this->fields)
+      public function __toString()
+      {
+          return 'SELECT '. implode(', ', $this->fields)
         . ' FROM ' . implode(', ', $this->from)
         . ' WHERE ' . implode(' AND ', $this->conditions);
-    }
-
+      }
   }
