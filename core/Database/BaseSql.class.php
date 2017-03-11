@@ -2,7 +2,8 @@
 
   namespace Core\Database;
 
-use \PDO;
+  use \PDO;
+  use Core\Util\Helpers;
   use Core\Database\QueryBuilder;
 
   /**
@@ -11,23 +12,23 @@ use \PDO;
    */
   class BaseSql
   {
-      use QueryBuilder; // use QueryBuilder Traits
 
     private $db; // The database which we are connected
     private $table; // The table selected
-    private $columns = []; // The colomns tht belongs to the table
+    private $columns = []; // The colomns that belongs to the table
 
 
     /**
      * The constructor of the BaseSQL class
      * Connect to the database and setup the table the columns
+     * @return Void
      */
     public function __construct()
     {
         try {
             $this->setDb();
         } catch (Exception $e) {
-            die("Erreur SQL : ".$e->getMessage());
+            die("Error SQL : ".$e->getMessage());
         }
         $this->setTable();
         $this->setColumns();
@@ -35,33 +36,39 @@ use \PDO;
 
     /**
      * Insert or Update a model in Database
+     * TODO REFACTOR
+     * @return Void
      */
     public function save()
     {
+      try {
         // If not in Database save it
-      if ($this->getId() === -1) {
-          $sqlCol = null;
-          $sqlKey = null;
-          $this->unsetColumn('id');
-          foreach ($this->getColumns() as $column => $value) {
-              $data[$column] = $this->$column;
-              $sqlCol .= ','.$column;
-              $sqlKey .= ',:'.$column;
-          }
-          $query = $this->getDb()->prepare('INSERT INTO '. $this->getTable(). '('.
-            trim($sqlCol, ','). ') VALUES ( '. trim($sqlKey, ',') . ');');
-          $query->execute($data);
-      }
-      // If in the database Update it
-      else {
-          $sqlCol = null;
-          foreach ($this->getColumns() as $column => $value) {
+        if ($this->getId() === -1) {
+            $sqlCol = null;
+            $sqlKey = null;
+            $this->unsetColumn('id');
+            foreach ($this->getColumns() as $column => $value) {
+                $data[$column] = $this->$column;
+                $sqlCol .= ','.$column;
+                $sqlKey .= ',:'.$column;
+            }
+            $query = $this->getDb()->prepare('INSERT INTO '. $this->getTable(). '('.
+              trim($sqlCol, ','). ') VALUES ( '. trim($sqlKey, ',') . ');');
+            $query->execute($data);
+        } else {
+          // If in the database Update it
+            $sqlCol = null;
+            foreach ($this->getColumns() as $column => $value) {
               $data[$column] = $this->$column;
               $sqlCol[] .= $column.':='.$column;
-          }
-          $query = $this->getDb()->prepare('UPDATE '. $this->getTable(). ' SET ('.
-            implode(',', $sqlCol). ') WHERE ( id=:id );');
-          $query->execute($data);
+            }
+            $query = $this->getDb()->prepare('UPDATE '. $this->getTable(). ' SET ('.
+              implode(',', $sqlCol). ') WHERE ( id=:id );');
+            $query->execute($data);
+        }
+      } catch (Exception $e) {
+        Helpers::log($e->getMessage());
+        die("An error occured, please contact the site's admnistrator.");
       }
     }
 
@@ -74,39 +81,20 @@ use \PDO;
      */
     public function populate($array)
     {
-        $class = get_class($this);
-        $class = str_replace(__NAMESPACE__ . '\\', '', $class);
-        $class = str_replace('\\', '/', $class);
+        $qb = new QueryBuilder($this->getDb());
 
-        if (file_exists(__DIR__ . '/' . $class . '.class.php')) {
+        $class = Helpers::relativeClassPath($this);
+
+        if (file_exists(ROOT . $class . '.class.php'))
+        {
+          $request = $qb->select('*')->from($this->getTable());
             foreach ($array as $item => $value) {
-                $subQuery .= " WHERE ".$item."=".$value." AND";
+                $request->where($item.'='.$value);
             }
-        // Delete the last " AND"
-        $subQuery = substr($subQuery, 0, -4);
-            $query = $this->getDb()->prepare("SELECT * FROM ".DB_PREFIX.lcfirst($class)
-          .$subQuery);
-            try {
-                $query->execute();
-                $rowCount = $query->rowCount();
-                if ($rowCount === 1) {
-                    $result = $query->fetch(PDO::FETCH_CLASS, $class);
-                } elseif ($rowCount === 0) {
-                    // if the object doesn't exist int the database
-            $result = $this->self;
-                } else {
-                    // Manages duplicatas
-            Helpers::log("Il existe : ".$rowCount." lignes dans la bases,
-              impossible de charger l'objet du aux duplicatas.");
-                    die("Une erreur est survenue veuillez contacter l'administrateur du site.");
-                }
-            } catch (Exception $e) {
-                Helpers::log($e->getMessage());
-                die("Une erreur est survenue veuillez contacter l'administrateur du site.");
-            }
+            $result = $qb->query($request, get_class($this), true);
         } else {
-            Helpers::log("L'objet demandé ". __DIR__ . '/' . $class . ".class.php n'existe pas.");
-            die("Une erreur est survenue veuillez contacter l'administrateur du site.");
+            Helpers::log("The Object at ". ROOT . '/' . $class . ".class.php doesn't exist.");
+            die("An error occured, please contact the site's admnistrator.");
         }
         return $result;
     }
@@ -119,15 +107,14 @@ use \PDO;
      */
     public function delete()
     {
-        if ($this->id !== -1) {
-            try {
-                $this->getDb()->prepare("DELETE FROM ". DB_PREFIX."_".lcfirst(get_class($this))." WHERE id="."$this->id".';');
-            } catch (Exception $e) {
-                Helpers::log($e);
-                die($e);
-            }
+      $qb = new QueryBuilder($this->getDb());
+
+        if ($this->getId() !== -1)
+        {
+          $query = $qb->delete('*')->from($this->getTable())->where('id='.$this->getId());
+          $qb->query($query, get_class($this), true);
         } else {
-            Helpers::log("Impossible de l'item ce dernier n'etant pas inscrit dans la base.");
+            Helpers::log("Impossible to delete the item => ".get_class($this).".");
             die("Impossible to delete the item");
         }
     }
@@ -139,7 +126,7 @@ use \PDO;
      * DB_USER, DB_PWD
      * @return void
      */
-    protected function setDb()
+    private function setDb()
     {
         $this->db = new PDO(DB_DRIVER.":host=".DB_HOST.";port=".DB_PORT.";dbname=".DB_NAME, DB_USER, DB_PWD);
         $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -149,7 +136,7 @@ use \PDO;
      * Simple Database Getter
      * @return PDO Object representing the database connection
      */
-    protected function getDb()
+    public function getDb()
     {
         return $this->db;
     }
@@ -158,7 +145,7 @@ use \PDO;
      * Simple Table Getter
      * @return table_name : String The table selected in the connection
      */
-    protected function getTable()
+    public function getTable()
     {
         return $this->table;
     }
@@ -167,7 +154,7 @@ use \PDO;
      * Dynamically set the Table name from the model name
      * @return void
      */
-    protected function setTable()
+    private function setTable()
     {
         $arrayName = explode("\\", get_class($this));
         $this->table = DB_PREFIX.strtolower(end($arrayName));
@@ -177,7 +164,7 @@ use \PDO;
      * Simple Columns Getter
      * @return columns : Array The list of all column in the chosen table
      */
-    protected function getColumns()
+    public function getColumns()
     {
         return $this->columns;
     }
@@ -186,7 +173,7 @@ use \PDO;
      * Dynamically set the columns name from the model name
      * @return void
      */
-    protected function setColumns()
+    private function setColumns()
     {
         $this->columns = array_diff_key(get_class_vars(get_class($this)),
         get_class_vars(get_parent_class($this)));

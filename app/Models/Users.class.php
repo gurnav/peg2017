@@ -12,8 +12,8 @@ use Core\Database\BaseSql;
       protected $firstname;
       protected $lastname;
       protected $nickname;
-    // protected $role;
-    protected $status;
+      // protected $role;
+      protected $status;
 
 
       public function __construct($id=-1, $email=null, $password=null, $firstname=null,
@@ -27,8 +27,8 @@ use Core\Database\BaseSql;
           $this->setFirstname($firstname);
           $this->setLastname($lastname);
           $this->setNickname($nickname);
-        // $this->setPermission($permission);
-        $this->setStatus($status);
+          // $this->setPermission($permission);
+          $this->setStatus($status);
       }
 
       public function setId($setId)
@@ -93,15 +93,16 @@ use Core\Database\BaseSql;
           return $this->nickname;
       }
 
-    /* TODO
-    public function setRole($setRole) {
-      $this->role = $setRole;
-    }
-
-    public function getRole() {
-      return $this->role;
-    }
-    */
+    /**
+     * TODO
+     * public function setRole($setRole) {
+     * $this->role = $setRole;
+     * }
+     *
+     * public function getRole() {
+     *  return $this->role;
+     * }
+     */
 
     public function setStatus($setStatus)
     {

@@ -2,17 +2,27 @@
 
   namespace Core\Auth;
 
-use Core\Database\BaseSql;
+  use Core\Database\BaseSql;
+  use Core\Database\QueryBuilder;
 
   class DBAuth
   {
       private $db;
 
+      /**
+       * Constructor of our class
+       * Which setup the connection to the database
+       * @return void
+       */
       public function __construct(BaseSql $db)
       {
           $this->db = $db;
       }
 
+      /**
+       * Get the user ID if he is connected
+       * @return $_SESSION or false is the user isn't connected
+       */
       public function getUserId()
       {
           if ($this->logged()) {
@@ -38,8 +48,13 @@ use Core\Database\BaseSql;
         return false;
     }
 
-      public function logged()
-      {
-          return isset($_SESSION['auth']);
-      }
+    /**
+     * Check if the user is connected or not
+     * @return connected : Boolean 
+     */
+    public function logged()
+    {
+        return isset($_SESSION['auth']);
+    }
+
   }

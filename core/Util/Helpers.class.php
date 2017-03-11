@@ -41,18 +41,18 @@
      */
     public static function log($msg)
     {
-        $logFile = fopen(ROOT.'logs'.DS.'log.txt', 'a');
+      $logFile = fopen(ROOT.'logs'.DS.'log.txt', 'a');
       // Locking file to be the only one to write in it
       if (flock($logFile, LOCK_EX) !== false) {
           try {
               // Writing, unlocking and closing file
-          fwrite($logFile, 'At '.date("d-m-Y").' : ');
+              fwrite($logFile, 'At '.date("d-m-Y h:i:s a", time()).' : ');
               fwrite($logFile, $msg);
               fwrite($logFile, "\n");
               flock($logFile, LOCK_UN);
               fclose($logFile);
           } catch (Exception $e) {
-              die('Erreur : '.$e->getMessage());
+              die('Error : '.$e->getMessage());
           }
       }
     }
@@ -70,4 +70,21 @@
             $zip->close();
         }
     }
+
+
+    /**
+     * Helpers to getting a clean relative path to a class
+     * Whathever the system is
+     * @param $class : Object The object's class path that sould be resolved
+     * @return $class_path : String Relative class path
+     */
+    public static function relativeClassPath($class)
+    {
+      $class_path = get_class($class);
+      $class_path = str_replace(__NAMESPACE__ . '\\', '', $class_path);
+      $class_path = str_replace('\\', DS, $class_path);
+      $class_path = lcfirst($class_path);
+      return $class_path;
+    }
+
   }

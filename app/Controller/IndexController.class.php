@@ -2,7 +2,7 @@
 
   namespace App\Controller;
 
-use Core\Controller\Controller;
+  use Core\Controller\Controller;
   use Core\View\View;
   use App\Models\Users;
   use Core\Util\Helpers;
@@ -17,8 +17,8 @@ use Core\Controller\Controller;
           $user->setFirstname("Dudoux");
           $user->setLastname("Thomas");
           $user->setNickname("PtitDoudoux");
-      // $user->setPermission(2);
-      $user->setStatus(0);
+          // $user->setPermission(2);
+          $user->setStatus(0);
           $user->save();
 
           $v = new View();
