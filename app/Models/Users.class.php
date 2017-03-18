@@ -2,22 +2,22 @@
 
   namespace App\Models;
 
-use Core\Database\BaseSql;
+use Core\Database\Model;
 
-  class Users extends BaseSql
+  class Users extends Model
   {
       protected $id;
       protected $email;
       protected $password;
       protected $firstname;
       protected $lastname;
-      protected $nickname;
+      protected $username;
       // protected $role;
       protected $status;
 
 
       public function __construct($id=-1, $email=null, $password=null, $firstname=null,
-      $nickname=null, $lastname=null, $permission=0, $status=0)
+      $username=null, $lastname=null, $permission=0, $status=0)
       {
           parent::__construct();
 
@@ -26,7 +26,7 @@ use Core\Database\BaseSql;
           $this->setPassword($password);
           $this->setFirstname($firstname);
           $this->setLastname($lastname);
-          $this->setNickname($nickname);
+          $this->setUsername($username);
           // $this->setPermission($permission);
           $this->setStatus($status);
       }
@@ -83,14 +83,14 @@ use Core\Database\BaseSql;
           return $this->lastname;
       }
 
-      public function setNickname($setNickname)
+      public function setUsername($setUsername)
       {
-          $this->nickname = trim($setNickname);
+          $this->username = trim($setUsername);
       }
 
-      public function getNickname()
+      public function getUsername()
       {
-          return $this->nickname;
+          return $this->username;
       }
 
     /**

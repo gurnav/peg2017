@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
   <phpunit colors="true" bootstrap="vendor/autoload.php">
     <testsuite name="Core/Auth tests">
-      <directory>./tests/core/Auth/</directory>
+      <directory suffix=".class.php">tests/core/Auth</directory>
     </testsuite>
     <testsuite name="Core/Controller tests">
-      <directory>./tests/core/Controller/</directory>
+      <directory suffix=".class.php">tests/core/Controller</directory>
     </testsuite>
     <testsuite name="Core/Database tests">
-      <directory>./tests/core/Database/</directory>
+      <directory suffix=".class.php">tests/core/Database</directory>
     </testsuite>
     <testsuite name="Core/HTML tests">
-      <directory>./tests/core/HTML/</directory>
+      <directory suffix=".class.php">tests/core/HTML</directory>
     </testsuite>
     <testsuite name="Core/Route tests">
-      <directory>./tests/core/Route/</directory>
+      <directory suffix=".class.php">tests/core/Route</directory>
     </testsuite>
     <testsuite name="Core/Util tests">
-      <directory>./tests/core/Util/</directory>
+      <directory suffix=".class.php">tests/core/Util</directory>
     </testsuite>
     <testsuite name="Core/View tests">
-      <directory>./tests/core/View/</directory>
+      <directory suffix=".class.php">tests/core/View</directory>
     </testsuite>
   </phpunit>

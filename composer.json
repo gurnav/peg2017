@@ -6,9 +6,8 @@
     },
     "autoload" : {
         "psr-4" : {
-          "" : "app/",
-          "" : "core/",
-          "" : "models/"
+          "Core\\" : "core/",
+          "App\\" : "app/"
         }
       },
     "authors": [

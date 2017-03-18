@@ -10,13 +10,12 @@
    * Class for building Query
    * With a fluent Pattern
    */
-  class QueryBuilder
+  class QueryBuilder extends BaseSql
   {
       private $mode; // selection or delete or update mode
       private $fields = []; // The selected fields
       private $conditions = []; // The conditions of the Query
-      private $from = []; // The Table called
-      private $db; // The PDO connection to the database
+      private $from = []; // The Table called with is optionnal alias
 
 
       /**
@@ -24,14 +23,10 @@
        * Setup the connetion of the database
        * @return Void
        */
-      public function __construct($connection=null)
+      public function __construct()
       {
+        parent::__construct();
         $this->setMode('select');
-        if($connection === null) {
-          $this->db = new BaseSql();
-        } else {
-          $this->db = $connection;
-        }
       }
 
 
@@ -127,6 +122,10 @@
               $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, $class_name);
           }
           if ($one === true) {
+            if ($req->rowCount() > 1) {
+              Helpers::log('There is more than one result for the request : '.$statement);
+              die("An error occured !");
+            }
               $datas = $req->fetch();
           } else {
               $datas = $req->fetchAll();
@@ -164,6 +163,10 @@
               $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, $class_name);
           }
           if ($one) {
+            if ($req->rowCount() > 1) {
+              Helpers::log('There is more than one result for the request : '.$statement);
+              die("An error occured !");
+            }
               $datas = $req->fetch();
           } else {
               $datas = $req->fetchAll();
