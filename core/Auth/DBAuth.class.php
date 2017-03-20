@@ -7,38 +7,35 @@
   class DBAuth
   {
 
-      /**
-       * Constructor of our class
-       * @return void
-       */
-      public function __construct () {}
+    private $qb; // An instance of a QueryBuilder object, needed for Injection of dependencies reasons
 
       /**
-       * Get the user ID if he is connected
-       * @return $_SESSION or false is the user isn't connected
+       * Constructor of the DBAuth class
+       * @return void
        */
-      public function getUserId()
-      {
-          if ($this->logged()) {
-              return $_SESSION['auth'];
-          }
-          return false;
+      public function __construct (QueryBuilder $qb = null) {
+        if($qb === null) {
+          $this->qb = new QueryBuilder();
+        } else {
+          $this->qb = $qb;
+        }
+
       }
 
     /**
      * Setup The Auth session to the connected user ID
      * @param $username : String
      * @param $password : String
-     * @return Boolean If the user is logged or not
+     * @return succes : Boolean If the user is logged or not
      */
     public function login($username, $password)
     {
-        $qb = new QueryBuilder();
-        $query = $qb->select('id', 'username', 'password')->from(DB_PREFIX.'users')->where('username = ?');
-        $user = $qb->prepare($query, [$username], null, true);
+        $query = $this->qb->select('username', 'password')->from(DB_PREFIX.'users')->where('username = ?');
+        $user = $this->qb->prepare($query, [$username], null, true);
         if ($user) {
           if (password_verify($password, $user->password) === TRUE) {
-            $_SESSION['auth'] = $user->id;
+            session_regenerate_id(true); // Protection against Session Steal
+            $_SESSION['auth'] = $user->username;
             return true;
           }
         }
@@ -49,9 +46,24 @@
      * Check if the user is connected or not
      * @return connected : Boolean
      */
-    public function logged()
+    public function isLogged()
     {
         return isset($_SESSION['auth']);
+    }
+
+
+    /**
+     * Safelly destroy a session
+     * @return succes : Boolean if the session have been destroyed or not
+     */
+    public function disconnect()
+    {
+      try {
+        session_destroy();
+      } catch (Exception $e) {
+        Helpers::log($e->getMessage());
+        die("A fatal error occured !");
+      }
     }
 
   }
