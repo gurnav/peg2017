@@ -2,71 +2,97 @@
 
   namespace Core\HTML;
 
-/**
+  /**
    * Class Form
    * Easy form generating
    */
   class Form
   {
 
-      /**
-       * @var array Données utilisées par le formulaire
-       */
-      private $data; //
+      private $data = array(); // Array used by the form, for filling purposes
 
       /**
-       * @var string Tag utilisé pour entourer les champs
+       * The constructor of the Form class
+       * @return Void
        */
-      public $surround = 'p';
+      public function __construct() {}
 
       /**
-       * @param array $data Données utilisées par le formulaire
-       */
-      public function __construct($data = array())
+      * @param $action : String The action where the form should be sent
+      * @param $method : String The method with the form is sent, default is post
+      * @return html : String The tag to open a form
+      */
+      public function openForm($action, $method = 'post')
       {
-          $this->data = $data;
+        return "<form action=\"{$action}\" method=\"{$method}\">";
       }
 
       /**
-       * @param $html string Code HTML à entourer
-       * @return string
+       * Fill the form with the data
+       * @param $data : Array Representing the data to be filled
+       * @return Void
        */
-      protected function surround($html)
+      public function fill($data)
       {
-          return "<{$this->surround}>{$html}</{$this->surround}>";
+        $this->data = $data;
       }
 
       /**
-       * @param $index string Index de la valeur à récupérer
-       * @return string
+       * Surround the HTML with a tag
+       * @param $html : String Code HTML to surround
+       * @param $tag : String The tag for surrounding
+       * @return surrounded : String the surrounded field with the specific tag
+       */
+      protected function surround($html, $tag)
+      {
+          return "<{$tag}>{$html}</{$tag}>";
+      }
+
+      /**
+       * Get a value in the data of the form
+       * @param $index : String Id of the value to retrieve
+       * @return value : String The value of the index or null instead
        */
       protected function getValue($index)
       {
           if (is_object($this->data)) {
-              return $this->data->$index;
+              return $this->data->{$index};
           }
           return isset($this->data[$index]) ? $this->data[$index] : null;
       }
 
       /**
-       * @param $name string
-       * @param $label
-       * @param array $options
-       * @return string
+       * Generate an input field and print it
+       * @param $name : String Name of the field
+       * @param $type : String Type of the field
+       * @param $tag : String the tag for the surrounding
+       * @return input : String The input field generated
        */
-      public function input($name, $label, $options = [])
+      public function input($type, $label, $name, $tag, $input)
       {
-          $type = isset($options['type']) ? $options['type'] : 'text';
-          return $this->surround(
-            '<input type="' . $type . '" name="' . $name . '" value="' . $this->getValue($name) . '">'
-          );
+          $html = "
+          <label for=\"{$label}\">{$input} : </label>
+          <input type=\"{$type}\" id=\"{$label}\" name=\"{$name}\" value=\"{$this->getValue($name)}\">";
+
+          return $this->surround($html, $tag);
       }
 
       /**
-       * @return string
+       * Print Submit the button of the form
+       * @return submitButton : String The submit button's field
        */
       public function submit()
       {
-          return $this->surround('<button type="submit">Envoyer</button>');
+          return $this->surround('<button type="submit">Submit</button>', 'p');
+      }
+
+
+      /**
+       * Print the close tag of the form
+       * @return html : String The tag to close a form
+       */
+      public function closeForm()
+      {
+        return '</form>';
       }
   }

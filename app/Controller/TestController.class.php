@@ -8,6 +8,7 @@
   use Core\Util\Helpers;
   use Core\Facades\Query;
   use Core\Auth\DBAuth;
+  use Core\HTML\Form;
 
   class TestController extends Controller
   {
@@ -41,6 +42,15 @@
            echo "You're not logged ! \n\n";
          }
          Helpers::debugVar($login);
+      }
+
+      public function formAction()
+      {
+        $form = new Form();
+        echo $form->openForm('#');
+        echo $form->input('text', 'name', 'name', 'p', 'Name');
+        echo $form->submit();
+        echo $form->closeForm();
       }
 
   }

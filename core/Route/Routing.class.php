@@ -2,13 +2,13 @@
 
   namespace Core\Route;
 
-/**
+  /**
    * Class that manage the CRUD Routing
    * For EVERY Route
    */
   class Routing
   {
-      private $uri; // The uri called
+    private $uri; // The uri called
     private $uriExploded; // The exploded uri called
 
     private $controller; // The controller called
@@ -39,6 +39,7 @@
      */
     public function setUri($uri)
     {
+        // filter_var($uri, FILTER_VALIDATE_URL); ???
         $uri = preg_replace("#".PATH_RELATIVE_PATTERN."#i", "", $uri, 1);
         $this->uri = trim($uri, "/");
         $this->uriExploded = explode("/", $this->uri);
