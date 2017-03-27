@@ -35,6 +35,7 @@
 
     /**
      * Setup the uri and explode it
+     * @param $uri : String The URi to be set
      * @return void
      */
     public function setUri($uri)

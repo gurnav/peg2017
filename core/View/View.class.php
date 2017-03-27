@@ -9,12 +9,13 @@ use Core\Util\Helpers;
    */
   class View
   {
-      private $view; // The view call
+    private $view; // The view call
     private $template; // The template call
     private $data = []; // The Data to pass to the view
 
     /**
      * The constructor of our View class which setup the view and the template
+     * @return Void
      */
     public function __construct($view = 'index', $template = 'frontend')
     {
@@ -25,6 +26,7 @@ use Core\Util\Helpers;
     /**
      * The setter of our view which verify its existance
      * and setup the view
+     * @return Void
      */
     public function setView($setView)
     {
@@ -39,6 +41,7 @@ use Core\Util\Helpers;
     /**
      * The setter of our template which verify its existance
      * and setup the template
+     * @return Void
      */
     public function setTemplate($setTemp)
     {
@@ -53,6 +56,7 @@ use Core\Util\Helpers;
     /**
      * The setter of our View class which verify its existance
      * and setup the view
+     * @return Void
      */
     public function assign($key, $value)
     {
@@ -62,6 +66,7 @@ use Core\Util\Helpers;
     /**
      * The destructor of our View class which pass variable to view
      * and include the template
+     * @return Void
      */
     public function __destruct()
     {
