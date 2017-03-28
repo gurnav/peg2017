@@ -21,7 +21,7 @@
       {
         $user = new Users();
 
-        $user = $user->populate(['id' => 1]);
+        $user = $user->populate(['firstname' => 'Dudoux']);
 
         Helpers::debugVar($user);
       }

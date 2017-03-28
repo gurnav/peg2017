@@ -73,18 +73,20 @@
     public function populate($array)
     {
         $qb = new QueryBuilder();
-
+        $preparedTab = [];
         $class = Helpers::relativeClassPath($this);
 
         if (file_exists(ROOT . $class . '.class.php'))
         {
           $request = $qb->select('*')->from($this->getTable());
             foreach ($array as $item => $value) {
-                $request->where($item.'='.$value);
+                $preparedItem = ':'.$item;
+                $request->where($item.'='.$preparedItem);
+                $preparedTab[$preparedItem] = $value;
             }
-            $result = $qb->query($request, get_class($this), true);
+            $result = $qb->prepare($request, $preparedTab, get_class($this), true);
         } else {
-            Helpers::log("The Object at ". ROOT . '/' . $class . ".class.php doesn't exist.");
+            Helpers::log("The Object at ". ROOT . DS . $class . ".class.php doesn't exist.");
             die("An error occured, please contact the site's admnistrator.");
         }
         return $result;
