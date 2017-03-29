@@ -1,7 +1,8 @@
 <?php
 
-// TODO use Core\Config;
+// namespace App;
 
+// TODO use Core\Config;
 
 /**
  * Class that load the app
@@ -10,8 +11,9 @@
  */
 class App
 {
-    public $title = "esgiGeographik";
+    public static $title = "ESGI-Geographic";
     private static $_instance;
+    public static $prefix = "front";
 
 
     /**
@@ -39,4 +41,5 @@ class App
         require ROOT . 'core' . DS . 'Autoloader.class.php';
         Core\Autoloader::register();
     }
+
 }

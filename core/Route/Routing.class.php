@@ -2,6 +2,8 @@
 
   namespace Core\Route;
 
+  use \App;
+
   /**
    * Class that manage the CRUD Routing
    * For EVERY Route
@@ -10,7 +12,7 @@
   {
     private $uri; // The uri called
     private $uriExploded; // The exploded uri called
-
+    private $prefix; // The prefix called
     private $controller; // The controller called
     private $controllerName; // The controller name lowercased
     private $fullControllerName; // The full Controller name with namespace
@@ -27,6 +29,7 @@
     public function __construct()
     {
         $this->setUri($_SERVER["REQUEST_URI"]);
+        $this->setPrefix();
         $this->setController();
         $this->setAction();
         $this->setParams();
@@ -47,15 +50,26 @@
     }
 
     /**
+     * Setup the prefix whether it exist or not
+     * @return void
+     */
+    public function setPrefix()
+    {
+      $this->prefix = (empty($this->uriExploded[0]))?"front":$this->uriExploded[0];
+      App::$prefix = $this->prefix;
+      unset($this->uriExploded[0]);
+    }
+
+    /**
      * Setup the controller whether it exist or not
      * @return void
      */
     public function setController()
     {
-        $this->controller = (empty($this->uriExploded[0]))?"Index":ucfirst($this->uriExploded[0]) ;
+        $this->controller = (empty($this->uriExploded[1]))?"Index":ucfirst($this->uriExploded[1]) ;
         $this->controllerName = $this->controller."Controller";
-        $this->fullControllerName = "App\\Controller\\".$this->controllerName;
-        unset($this->uriExploded[0]);
+        $this->fullControllerName = "App\\".ucfirst($this->prefix)."\\Controller\\".$this->controllerName;
+        unset($this->uriExploded[1]);
     }
 
     /**
@@ -64,9 +78,9 @@
      */
     public function setAction()
     {
-        $this->action = (empty($this->uriExploded[1]))?"index":$this->uriExploded[1];
+        $this->action = (empty($this->uriExploded[2]))?"index":$this->uriExploded[2];
         $this->actionName = $this->action."Action";
-        unset($this->uriExploded[1]);
+        unset($this->uriExploded[2]);
     }
 
     /**
@@ -85,7 +99,7 @@
     public function checkRoute()
     {
         $isRoute = false;
-        $controllerPath = "app".DS."Controller".DS.$this->controllerName.".class.php";
+        $controllerPath = "app".DS.$this->prefix.DS."Controller".DS.$this->controllerName.".class.php";
         if (file_exists($controllerPath)) {
             include $controllerPath;
             if (class_exists($this->fullControllerName)) {

@@ -1,6 +1,6 @@
 <?php
 
-  namespace App\Controller;
+  namespace App\user\Controller;
 
   use Core\Controller\Controller;
 
@@ -8,11 +8,17 @@
   {
       public function indexAction()
       {
-          echo "Index of user <br>";
+
       }
 
-      public function addAction()
+      public function loginAction()
       {
-          echo "Add user <br>";
+
       }
+
+      public function logoutAction()
+      {
+
+      }
+
   }

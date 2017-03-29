@@ -5,7 +5,7 @@
 
   $app = new App();
   $app::load();
-  
+
   Core\Util\Helpers::createLogExist();
 
 

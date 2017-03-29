@@ -2,7 +2,8 @@
 
   namespace Core\View;
 
-use Core\Util\Helpers;
+  use Core\Util\Helpers;
+  use \App;
 
   /**
    * Class which render views and template
@@ -24,13 +25,14 @@ use Core\Util\Helpers;
     }
 
     /**
+     * TODO Refactor so it can adapt to the route
      * The setter of our view which verify its existance
      * and setup the view
      * @return Void
      */
     public function setView($setView)
     {
-        if (file_exists('app/Views/'.$setView.'.view.php')) {
+        if (file_exists('app'.DS.App::$prefix.DS.'Views'.DS.$setView.'.view.php')) {
             $this->view = $setView;
         } else {
             Helpers::log("La vue :".$setView." n'existe pas.");

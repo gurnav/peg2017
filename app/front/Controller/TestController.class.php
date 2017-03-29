@@ -1,6 +1,6 @@
 <?php
 
-  namespace App\Controller;
+  namespace App\Front\Controller;;
 
   use Core\Controller\Controller;
   use Core\View\View;
@@ -24,6 +24,22 @@
         $user = $user->populate(['firstname' => 'Dudoux']);
 
         Helpers::debugVar($user);
+      }
+
+      public function subscribeAction() {
+        $user = new Users();
+        $user->setEmail("thomas.dudoux@gmail.com");
+        $user->setPassword("Azerty123");
+        $user->setFirstname("Dudoux");
+        $user->setLastname("Thomas");
+        $user->setUsername("PtitDoudoux");
+        // $user->setPermission(2);
+        $user->setStatus(0);
+        $user->save();
+
+        $v = new View();
+        // $v->assign("nickname", $user->getNickname());
+        $this->render($v, ["username" => $user->getUsername()]);
       }
 
       public function qbAction()
