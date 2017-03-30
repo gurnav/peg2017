@@ -11,7 +11,7 @@
   </head>
   <body>
 
-    <?php include 'app'.DS.App::$prefix.DS.'Views'.DS.$this->view.'.view.php'; ?>
+    <?php include 'app'.DS.App::$prefix.DS.'views'.DS.$this->view.'.view.php'; ?>
 
     <script type="text/javascript" src="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'js'.DS.'menu.js' ?>"></script>
   </body>

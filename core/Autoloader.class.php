@@ -27,6 +27,7 @@
           {
               $called = str_replace(__NAMESPACE__ . '\\', '', $called);
               $called = str_replace('\\', DS, $called);
+              $called = lcfirst($called);
               if (file_exists(__DIR__ . DS . $called . '.class.php')) {
                   require __DIR__ . DS . $called . '.class.php';
               }
