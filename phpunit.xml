@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <phpunit colors="true" bootstrap="vendor/autoload.php">
+    <testsuite name="Core/Auth tests">
+      <directory suffix=".class.php">tests/core/Auth</directory>
+    </testsuite>
+    <testsuite name="Core/Controller tests">
+      <directory suffix=".class.php">tests/core/Controller</directory>
+    </testsuite>
+    <testsuite name="Core/Database tests">
+      <directory suffix=".class.php">tests/core/Database</directory>
+    </testsuite>
+    <testsuite name="Core/HTML tests">
+      <directory suffix=".class.php">tests/core/HTML</directory>
+    </testsuite>
+    <testsuite name="Core/Route tests">
+      <directory suffix=".class.php">tests/core/Route</directory>
+    </testsuite>
+    <testsuite name="Core/Util tests">
+      <directory suffix=".class.php">tests/core/Util</directory>
+    </testsuite>
+    <testsuite name="Core/View tests">
+      <directory suffix=".class.php">tests/core/View</directory>
+    </testsuite>
+  </phpunit>

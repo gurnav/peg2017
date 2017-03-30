@@ -1,6 +1,14 @@
-<html><body><h1>It works!</h1>
-<p>This is the default web page for this server.</p>
-<p>The web server software is running but no content has been added, yet.</p>
+<?php
 
-<?php echo "bonjour";?>
-</body></html>
+  require "conf.inc.php";
+  require "app/App.class.php";
+
+  $app = new App();
+  $app::load();
+
+  Core\Util\Helpers::createLogExist();
+
+  $routing = new Core\Route\Routing();
+
+  Core\Util\Helpers::debugVar($routing);
+
