@@ -58,7 +58,6 @@
      */
     public function setTitle($title)
     {
-      $title = Helpers::cleanString($title);
       if(strlen($title) <= 255 ) {
         if(gettype($title) === 'string') {
           $this->title = $title;
@@ -90,7 +89,6 @@
      */
     public function setContent($content)
     {
-      $content = Helpers::cleanString($content);
       if(strlen($content) <= 65535 ) {
         if(gettype($content) === 'string') {
           $this->content = $content;
