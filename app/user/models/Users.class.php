@@ -49,16 +49,27 @@
       }
 
       /**
-       * Email setter
+       * Simple Email setter
        * Check if the email respect the integrity of the database
        * @param String : $setEmail The email to be setted
        * @return Void
        */
       public function setEmail($setEmail)
       {
-          if (filter_var($setEmail, FILTER_SANITIZE_EMAIL, FILTER_VALIDATE_EMAIL)) {
-              $this->email = trim($setEmail);
+        if(gettype($setEmail) === 'string')
+        {
+          if (filter_var($setEmail, FILTER_SANITIZE_EMAIL, FILTER_VALIDATE_EMAIL))
+          {
+            $this->email = trim($setEmail);
+          } else {
+            Helpers::log("A not safe email have been tried to be inserted in the database ! ");
+            die("Email not formed correctly !");
           }
+        } else {
+          Helpers::log("A not string variable for the email in ". get_class($this)
+            ." have been tried to inserted in the database");
+          die("Incorect email !");
+        }
       }
 
 
@@ -71,9 +82,22 @@
           return $this->email;
       }
 
+      /**
+      * Simple setter for the password with bluecrypt encryption
+      * Check if the password respect the integrity of the database
+      * @param String : $setPassword The password to be crypted and setted
+      * @return Void
+      */
       public function setPassword($setPassword)
       {
+        if(gettype($setPassword) === 'string')
+        {
           $this->password = password_hash($setPassword, PASSWORD_DEFAULT);
+        } else {
+          Helpers::log("A not string variable for the password in ". get_class($this)
+            ." have been tried to inserted in the database");
+          die("Not well formed password !");
+        }
       }
 
       /**
@@ -85,9 +109,29 @@
           return $this->password;
       }
 
+      /**
+      * Simple setter for the firstname with trim
+      * Check if the firstname respect the integrity of the database
+      * @param String : $setFirstname The firstname to be setted
+      * @return Void
+      */
       public function setFirstname($setFirstname)
       {
-          $this->firstname = Helpers::cleanString(trim($setFirstname));
+        if(gettype($setFirstname) === 'string')
+        {
+          if(strlen($setFirstname) <= 45)
+          {
+            $this->firstname = trim($setFirstname);
+          } else {
+            Helpers::log("A string bigger than 45 char for the firstname in ". get_class($this)
+              ." have been tried to inserted in the database");
+            die("Too big Firstname !");
+          }
+        } else {
+          Helpers::log("A not string variable for the firstname in ". get_class($this)
+            ." have been tried to inserted in the database");
+          die("Not well formed Firstname ! It should be inferior than 45 characters");
+        }
       }
 
       /**
@@ -99,9 +143,29 @@
           return $this->firstname;
       }
 
+      /**
+      * Simple setter for the lastname with trim
+      * Check if the lastname respect the integrity of the database
+      * @param String : $setLastname The lastname to be setted
+      * @return Void
+      */
       public function setLastname($setLastname)
       {
-          $this->lastname = Helpers::cleanString(trim($setLastname));
+        if(gettype($setLastname) === 'string')
+        {
+          if(strlen($setLastname) <= 45)
+          {
+            $this->lastname = trim($setLastname);
+          } else {
+            Helpers::log("A string bigger than 45 char for the lastname in ". get_class($this)
+              ." have been tried to inserted in the database");
+            die("Too big Lastname ! It should be inferior than 45 characters");
+          }
+        } else {
+          Helpers::log("A not string variable for the lastname in ". get_class($this)
+            ." have been tried to inserted in the database");
+          die("Not well formed Lastname");
+        }
       }
 
       /**
@@ -113,9 +177,29 @@
           return $this->lastname;
       }
 
+      /**
+      * Simple setter for the username with trim
+      * Check if the username respect the integrity of the database
+      * @param String : $setUsername The username to be setted
+      * @return Void
+      */
       public function setUsername($setUsername)
       {
-          $this->username = Helpers::cleanString(trim($setUsername));
+        if(gettype($setUsername) === 'string')
+        {
+          if(strlen($setUsername) <= 45)
+          {
+            $this->username = trim($setUsername);
+          } else {
+            Helpers::log("A string bigger than 45 char for the username in ". get_class($this)
+              ." have been tried to inserted in the database");
+            die("Too big Username ! It should be inferior than 45 characters");
+          }
+        } else {
+          Helpers::log("A not string variable for the username in ". get_class($this)
+            ." have been tried to inserted in the database");
+          die("not well formed Username !");
+        }
       }
 
       /**
@@ -128,19 +212,48 @@
       }
 
       /**
-       * TODO
-       * public function setRole_id($setRole_id) {
-       * $this->role_id = $setRole_id;
-       * }
-       *
-       * public function getRole_id() {
-       *  return $this->role;
-       * }
-       */
+      * Simple setter for the username with trim
+      * Check if the role_id respect the integrity of the database
+      * @param Integer : $setRole_id The role_id to be setted
+      * @return Void
+      */
+      public function setRole_id($setRole_id)
+      {
+        if(preg_match($setRole_id, "/^-?\d*/"))
+        {
+          $this->role_id = $setRole_id;
+        } else {
+          Helpers::log("A not integer variable for the role_id in ". get_class($this)
+            ." have been tried to inserted in the database");
+          die("Incorect role !");
+        }
+      }
 
+      /**
+       * Simple role_id getter
+       * @return Integer : $role_id The role id
+       */
+      public function getRole_id()
+      {
+        return $this->role;
+      }
+
+       /**
+       * Simple setter for the status
+       * Check if the status respect the integrity of the database
+       * @param Integer : $setStatus The status to be setted
+       * @return Void
+       */
       public function setStatus($setStatus)
       {
+        if(preg_match($setStatus, "/^-?\d*/"))
+        {
           $this->status = $setStatus;
+        } else {
+          Helpers::log("A not integer variable for the status in ". get_class($this)
+            ." have been tried to inserted in the database");
+          die("Incorect email !");
+        }
       }
 
       /**
