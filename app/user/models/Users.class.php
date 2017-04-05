@@ -3,6 +3,10 @@
   namespace App\User\Models;
 
   use Core\Database\Model;
+  use Core\Database\QueryBuilder;
+  use Core\Util\Helpers;
+  use App\Helpers\Traits\Models\IdTrait;
+  use App\Helpers\Traits\Models\EmailTrait;
 
   /**
    * Model Class who represent a user
@@ -10,6 +14,9 @@
    */
   class Users extends Model
   {
+    use IdTrait;
+    use EmailTrait;
+
       protected $id; // The id in the database of the user
       protected $email; // The email in the database of the user
       protected $password; // The password in the database of the user
@@ -37,49 +44,6 @@
           $this->setUsername($username);
           // TODO $this->setPermission($permission);
           $this->setStatus($status);
-      }
-
-      /**
-       * Simple id getter
-       * @return Integer : $id The id of the user
-       */
-      public function getId()
-      {
-          return $this->id;
-      }
-
-      /**
-       * Simple Email setter
-       * Check if the email respect the integrity of the database
-       * @param String : $setEmail The email to be setted
-       * @return Void
-       */
-      public function setEmail($setEmail)
-      {
-        if(gettype($setEmail) === 'string')
-        {
-          if (filter_var($setEmail, FILTER_SANITIZE_EMAIL, FILTER_VALIDATE_EMAIL))
-          {
-            $this->email = trim($setEmail);
-          } else {
-            Helpers::log("A not safe email have been tried to be inserted in the database ! ");
-            die("Email not formed correctly !");
-          }
-        } else {
-          Helpers::log("A not string variable for the email in ". get_class($this)
-            ." have been tried to inserted in the database");
-          die("Incorect email !");
-        }
-      }
-
-
-      /**
-       * Simple email getter
-       * @return String $email The email
-       */
-      public function getEmail()
-      {
-          return $this->email;
       }
 
       /**
