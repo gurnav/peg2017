@@ -1,10 +1,10 @@
 <?php
 
-  namespace App\Front\Controller;
+  namespace App\Front\Controllers;
 
   use Core\Controllers\Controller;
   use Core\Views\View;
-  use App\Models\Users;
+  use App\User\Models\Users;
   use Core\Util\Helpers;
   use Core\Facades\Query;
   use Core\Auth\DBAuth;

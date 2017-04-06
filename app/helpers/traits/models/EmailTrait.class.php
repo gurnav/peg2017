@@ -2,6 +2,8 @@
 
   namespace App\Helpers\Traits\Models;
 
+  use Core\Util\Helpers;
+
   /**
    * Traint for dealing with getteing and setting an email
    */

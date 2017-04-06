@@ -32,6 +32,7 @@
     {
       parent::__construct();
 
+      $this->setId($id);
       $this->setName($name);
       $this->setRights($rights);
       $this->setUsers_id($users_id);

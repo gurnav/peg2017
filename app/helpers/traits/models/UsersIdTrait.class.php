@@ -2,6 +2,8 @@
 
   namespace App\Helpers\Traits\Models;
 
+  use Core\Util\Helpers;
+
   /**
    * Traint for dealing with getting and setting
    * the users_id
@@ -18,7 +20,7 @@
      */
     public function setUsers_id($usersId)
     {
-      if(preg_match($users_id, "/^-?\d*/"))
+      if(preg_match($users_id, "/-?\d+/"))
       {
         $this->users_id = $users_id;
       } else {

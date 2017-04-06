@@ -2,6 +2,8 @@
 
   namespace App\Helpers\Traits\Models;
 
+  use Core\Database\QueryBuilder;
+
   /**
    * Traint for dealing with getting the id of a model
    */

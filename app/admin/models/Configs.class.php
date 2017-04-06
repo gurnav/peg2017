@@ -19,7 +19,16 @@
     public function __construct()
     {
       parent::__construct();
+    }
 
+
+    /**
+     * Method V0.1 To change settings
+     * @param Array $array the array of settings to be changed
+     * @return Void
+     */
+    public function changeSettings($array)
+    {
 
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-  namespace App\Front\Controller;
+  namespace App\Front\Controllers;
 
   use Core\Controllers\Controller;
   use Core\Views\View;

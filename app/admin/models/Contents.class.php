@@ -38,6 +38,7 @@
     {
       parent::__construct();
 
+      $this->setId($id);
       $this->setTitle($title);
       $this->setContent($content);
       $this->setStatus($status);
@@ -210,7 +211,7 @@
      */
     public function setCategories_id($categoriesId)
     {
-      if(preg_match($categories_id, "/^-?\d*/"))
+      if(preg_match($categories_id, "/-?\d+/") === 1)
       {
         $this->categories_id = $categories_id;
       } else {

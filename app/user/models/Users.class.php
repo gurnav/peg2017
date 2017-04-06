@@ -183,7 +183,7 @@
       */
       public function setRole_id($setRole_id)
       {
-        if(preg_match($setRole_id, "/^-?\d*/"))
+        if(preg_match($setRole_id, "/-?\d+/") === 1)
         {
           $this->role_id = $setRole_id;
         } else {
@@ -210,13 +210,13 @@
        */
       public function setStatus($setStatus)
       {
-        if(preg_match($setStatus, "/^-?\d*/"))
+        if(preg_match($setStatus, "/\d/") === 1)
         {
           $this->status = $setStatus;
         } else {
-          Helpers::log("A not integer variable for the status in ". get_class($this)
+          Helpers::log("A non integer variable for the status in ". get_class($this)
             ." have been tried to inserted in the database");
-          die("Incorect email !");
+          die("Incorect status !");
         }
       }
 
