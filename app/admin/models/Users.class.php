@@ -2,10 +2,14 @@
 
   namespace App\Admin\Models;
 
-  use Core\Database\Model;
   use Core\Util\Helpers;
+  use App\Helpers\Models\User;
 
-  class Users extends Model
+  /**
+   * Model Class who represent a user
+   * in the database
+   */
+  class Users extends User
   {
 
   }

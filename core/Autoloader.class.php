@@ -21,16 +21,19 @@
        * @param $class : String The name of the class to load
        * @return void
        */
-      public static function autoload($called)
-      {
-          if (strpos($called, __NAMESPACE__ . '\\') === 0)
-          {
-              $called = str_replace(__NAMESPACE__ . '\\', '', $called);
-              $called = str_replace('\\', DS, $called);
-              $called = lcfirst($called);
-              if (file_exists(__DIR__ . DS . $called . '.class.php')) {
-                  require __DIR__ . DS . $called . '.class.php';
-              }
-          }
-      }
+       public static function autoload($class)
+       {
+           if (strpos($class, __NAMESPACE__ . '\\') === 0) {
+               $class = str_replace(__NAMESPACE__ . '\\', '', $class);
+               // $class = str_replace('\\', '/', $class);
+               $class = explode("\\", $class);
+               for($i = 0; $i < count($class) - 1; $i += 1) {
+                 $class[$i] = lcfirst($class[$i]);
+               }
+               $class = implode("/", $class);
+               if (file_exists(__DIR__ . DS . $class . '.class.php')) {
+                   require __DIR__ . DS . $class . '.class.php';
+               }
+           }
+       }
   }

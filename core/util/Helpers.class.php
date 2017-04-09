@@ -81,9 +81,12 @@
     public static function relativeClassPath($class)
     {
       $class_path = get_class($class);
-      $class_path = str_replace(__NAMESPACE__ . '\\', '', $class_path);
-      $class_path = str_replace('\\', DS, $class_path);
-      $class_path = lcfirst($class_path);
+      $class = str_replace(__NAMESPACE__ . '\\', '', $class);
+      $class = explode("\\", $class);
+      for($i = 0; $i < count($class) - 1; $i += 1) {
+        $class[$i] = lcfirst($class[$i]);
+      }
+      $class = implode("/", $class);
       return $class_path;
     }
 

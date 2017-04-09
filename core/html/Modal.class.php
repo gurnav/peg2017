@@ -15,4 +15,9 @@
        */
       public function __construct() {}
 
+
+      public function getForm($form) {
+        return $form;
+      }
+
     }

@@ -3,7 +3,11 @@
   namespace App\Admin\Models;
 
   use Core\Database\Model;
+  use Core\Database\QueryBuilder;
   use Core\Util\Helpers;
+  use App\Helpers\Traits\Models\UsersIdTrait;
+  use App\Helpers\Traits\Models\IdTrait;
+  use App\Helpers\Traits\Models\GetAllDataTrait;
 
   /**
    * Contents Model who reprensent the Contents table
@@ -11,6 +15,10 @@
    */
   class Contents extends Model
   {
+    use UsersIdTrait;
+    use IdTrait;
+    use GetAllDataTrait;
+
     protected $id; // id of the content
     protected $title; // Title of the content
     protected $content; // The content
@@ -30,6 +38,7 @@
     {
       parent::__construct();
 
+      $this->setId($id);
       $this->setTitle($title);
       $this->setContent($content);
       $this->setStatus($status);
@@ -41,15 +50,6 @@
     }
 
     /**
-     * Simple id getter
-     * @return Int $id the id of the content
-     */
-    public function getId()
-    {
-      return $this->id;
-    }
-
-    /**
      * Simple setter for the title
      * Check if the title respect the integrity of the database
      * So if that a string and lesser than 255
@@ -58,17 +58,18 @@
      */
     public function setTitle($title)
     {
-      $title = Helpers::cleanString($title);
-      if(strlen($title) <= 255 ) {
-        if(gettype($title) === 'string') {
-          $this->title = $title;
+      if(gettype($title) === 'string')
+      {
+        if(strlen($title) <= 255 )
+        {
+          $this->title = trim($title);
         } else {
-          Helpers::log("A number has been entered as title in content n° : " . $this->getId());
-          die("You can't enter a number as a title !");
+          Helpers::log("A word count superior to 255 has tried to be created in a new title content");
+          die("You can't enter a content title with a words count superior to 255");
         }
       } else {
-        Helpers::log("A word count superior to 255 has tried to be created in a new content");
-        die("You can't enter a title with a words count superior to 255");
+        Helpers::log("A non string type has been entered as content in content n° : " . $this->getId());
+        die("You can't enter a non strong type as a tile !");
       }
     }
 
@@ -90,17 +91,18 @@
      */
     public function setContent($content)
     {
-      $content = Helpers::cleanString($content);
-      if(strlen($content) <= 65535 ) {
-        if(gettype($content) === 'string') {
-          $this->content = $content;
+      if(gettype($content) === 'string')
+      {
+        if(strlen($content) <= 65535 )
+        {
+          $this->content = trim($content);
         } else {
-          Helpers::log("A number has been entered as content in content n° : " . $this->getId());
-          die("You can't enter a number as a content !");
+          Helpers::log("A word count superior to 65535 has tried to be created in a new content");
+          die("You can't enter a content with a words count superior to 65535");
         }
       } else {
-        Helpers::log("A word count superior to 65535 has tried to be created in a new content");
-        die("You can't enter a content with a words count superior to 65535");
+        Helpers::log("A non string type has been entered as content in content n° : " . $this->getId());
+        die("You can't enter a non strong type as a content !");
       }
     }
 
@@ -122,7 +124,7 @@
      */
     public function setStatus($status)
     {
-      if($status == 0 || $status == 1) {
+      if($status == '0' || $status == '1') {
         $this->status = $status;
       } else {
         Helpers::log("A non boolean type for a content status have tried to be inserted in the DB");
@@ -157,7 +159,7 @@
      */
     public function setIsCommentable($isCommentable)
     {
-      if(gettype($isCommentable) === 'integer' && ($isCommentable === 0 || $isCommentable === 1)) {
+      if($isCommentable == '0' || $isCommentable === '1') {
         $this->isCommentable = $isCommentable;
       } else {
         Helpers::log("A non boolean type for a content status have tried to be inserted in the DB");
@@ -183,7 +185,7 @@
      */
     public function setIsLikeable($isLikeable)
     {
-      if(gettype($isLikeable) === 'integer' && ($isLikeable === 0 || $isLikeable === 1)) {
+      if($isLikeable == '0' || $isLikeable == '1') {
         $this->isLikeable = $isLikeable;
       } else {
         Helpers::log("A non boolean type for a content status have tried to be inserted in the DB");
@@ -209,7 +211,7 @@
      */
     public function setCategories_id($categoriesId)
     {
-      if(preg_match($categories_id, "/^-?\d*/"))
+      if(preg_match($categories_id, "/-?\d+/") === 1)
       {
         $this->categories_id = $categories_id;
       } else {
@@ -227,31 +229,5 @@
       return $this->categories_id;
     }
 
-    /**
-     * Simple setter of the Users id
-     * Check if the Users id respect the integrity of the database
-     * So whetever it's a integer or not
-     * @param Integer : $users id The users id to be set
-     * @return Void
-     */
-    public function setUsers_id($usersId)
-    {
-      if(preg_match($users_id, "/^-?\d*/"))
-      {
-        $this->users_id = $users_id;
-      } else {
-        Helpers::log("A non integer type for a users id in a content have tried to be inserted in the DB");
-        die("You can't enter a non integer type for a users id of a content");
-      }
-    }
-
-    /**
-     * Simple users_id getter
-     * @return Integer $users_id the id of the linked users
-     */
-    public function getUsers_id()
-    {
-      return $this->users_id;
-    }
 
   }

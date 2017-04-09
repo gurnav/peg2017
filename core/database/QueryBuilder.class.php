@@ -15,6 +15,7 @@
       private $mode; // selection or delete or update mode
       private $fields = []; // The selected fields
       private $conditions = []; // The conditions of the Query
+      private $order = []; // The orderBy conditions of the Query
       private $from = []; // The Table called with is optionnal alias
 
 
@@ -76,6 +77,19 @@
       {
           foreach (func_get_args() as $arg) {
               $this->conditions[] = $arg;
+          }
+          return $this;
+      }
+
+      /**
+       * Setup the conditions of the fields to be ordered
+       * @param Array : String which refer to the condition(s) to execute
+       * @return Object QueryBuilder
+       */
+      public function orderBy()
+      {
+          foreach (func_get_args() as $arg) {
+              $this->order[] = $arg;
           }
           return $this;
       }
@@ -224,9 +238,9 @@
           $query .= ' FROM ' . implode(', ', $this->from);
           unset($this->from);
         }
-        if(!empty($this->conditions)) {
-          $query .= ' WHERE ' . implode(' AND ', $this->conditions);
-          unset($this->conditions);
+        if(!empty($this->order)) {
+          $query .= ' ORDER BY ' . implode(' , ', $this->order);
+          unset($this->order);
         }
         return $query;
     }
