@@ -60,7 +60,7 @@
       {
         if(strlen($name) <= 60)
         {
-          $this->name = $name;
+          $this->name = trim($name);
         } else {
           Helpers::log("A word count superior to 60 has tried to be created in a new role name");
           die("You can't enter a role name with a words count superior to 60");

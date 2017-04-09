@@ -62,7 +62,7 @@
       {
         if(strlen($title) <= 255 )
         {
-          $this->title = $title;
+          $this->title = trim($title);
         } else {
           Helpers::log("A word count superior to 255 has tried to be created in a new title content");
           die("You can't enter a content title with a words count superior to 255");
@@ -95,7 +95,7 @@
       {
         if(strlen($content) <= 65535 )
         {
-          $this->content = $content;
+          $this->content = trim($content);
         } else {
           Helpers::log("A word count superior to 65535 has tried to be created in a new content");
           die("You can't enter a content with a words count superior to 65535");
@@ -124,7 +124,7 @@
      */
     public function setStatus($status)
     {
-      if($status == 0 || $status == 1) {
+      if($status == '0' || $status == '1') {
         $this->status = $status;
       } else {
         Helpers::log("A non boolean type for a content status have tried to be inserted in the DB");
