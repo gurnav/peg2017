@@ -26,8 +26,9 @@
      */
     public function __construct()
       {
-        parent::__construct($email=null);
+        parent::__construct($id=-1, $email=null);
 
+        $this->setId($id);
         $this->setEmail($email);
       }
   }
