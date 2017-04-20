@@ -24,12 +24,10 @@
 
     /**
      * Method V0.1 To change settings
+     * TODO
      * @param Array $array the array of settings to be changed
      * @return Void
      */
-    public function changeSettings($array)
-    {
-
-    }
+    public function changeSettings($array) {}
 
   }

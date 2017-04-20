@@ -6,7 +6,7 @@
   use Core\Views\View;
   use Core\Util\Helpers;
 
-  class ArtcileController extends Controller
+  class ArticleController extends Controller
   {
       public function indexAction($article = null)
       {

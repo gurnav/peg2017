@@ -1,6 +1,6 @@
 <?php
 
-  namespace App\Helpers\Traits\Models;
+  namespace App\Composite\Traits\Models;
 
   use Core\Database\QueryBuilder;
 
@@ -28,7 +28,7 @@
      * @param String : $users The username of the user to filter with
      * @return Contents Array : $contents All contents in the database By a specific user
      */
-    public function getAllByUser($users)
+    public function getAllByUsers($users)
     {
       $qb = new QueryBuilder();
       $query_users = $qb->select('id')->from(DB_PREFIX.'users')->where('username='.$users);
