@@ -1,6 +1,6 @@
 <?php
 
-  namespace App\Helpers\Traits\Models;
+  namespace App\Composite\Traits\Models;
 
   /**
    * Trait for dealing with getting the id of a model
@@ -24,7 +24,7 @@
        */
       public function setId($id)
       {
-        if(preg_match($id, "/-?\d+/") === 1)
+        if(is_int($id))
         {
           $this->id = $id;
         }

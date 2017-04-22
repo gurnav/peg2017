@@ -1,6 +1,6 @@
 <?php
 
-  namespace App\Helpers\Traits\Models;
+  namespace App\Composite\Traits\Models;
 
   use Core\Util\Helpers;
 
@@ -25,12 +25,12 @@
           $this->email = trim($setEmail);
         } else {
           Helpers::log("A not safe email have been tried to be inserted in the database ! ");
-          die("Email not formed correctly !");
+          throw new Exception("Email not formed correctly !");
         }
       } else {
         Helpers::log("A not string variable for the email in ". get_class($this)
           ." have been tried to inserted in the database");
-        die("Incorect email !");
+        throw new Exception("Incorect email !");
       }
     }
 

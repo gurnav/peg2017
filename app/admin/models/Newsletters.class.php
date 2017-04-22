@@ -14,9 +14,9 @@
   use Core\Database\Model;
   use Core\Database\QueryBuilder;
   use Core\Util\Helpers;
-  use App\Helpers\Traits\Models\IdTrait;
-  use App\Helpers\Traits\Models\EmailTrait;
-  use App\Helpers\Traits\Models\GetAllDataTrait;
+  use App\Composite\Traits\Models\IdTrait;
+  use App\Composite\Traits\Models\EmailTrait;
+  use App\Composite\Traits\Models\GetAllDataTrait;
 
   /**
    * Model Class who represent a subscriber of the newsletter

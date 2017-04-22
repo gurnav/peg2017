@@ -1,6 +1,6 @@
 <?php
 
-  namespace App\Helpers\Traits\Models;
+  namespace App\Composite\Traits\Models;
 
   use Core\Util\Helpers;
 
@@ -20,12 +20,12 @@
      */
     public function setUsers_id($usersId)
     {
-      if(preg_match($users_id, "/-?\d+/"))
+      if(is_int($setUsers_id))
       {
         $this->users_id = $users_id;
       } else {
         Helpers::log("A non integer type for a users id in a content have tried to be inserted in the DB");
-        die("You can't enter a non integer type for a users id of a content");
+        throw new Exception("You can't enter a non integer type for a users id of a content");
       }
     }
 

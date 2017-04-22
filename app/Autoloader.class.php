@@ -21,12 +21,11 @@ class Autoloader
       {
           if (strpos($class, __NAMESPACE__ . '\\') === 0) {
               $class = str_replace(__NAMESPACE__ . '\\', '', $class);
-              // $class = str_replace('\\', '/', $class);
               $class = explode("\\", $class);
               for($i = 0; $i < count($class) - 1; $i += 1) {
                 $class[$i] = lcfirst($class[$i]);
               }
-              $class = implode("/", $class);
+              $class = implode(DS, $class);
               if (file_exists(__DIR__ . DS . $class . '.class.php')) {
                   require __DIR__ . DS . $class . '.class.php';
               }

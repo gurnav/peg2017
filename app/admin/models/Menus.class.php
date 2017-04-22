@@ -5,9 +5,9 @@
   use Core\Database\Model;
   use Core\Database\QueryBuilder;
   use Core\Util\Helpers;
-  use App\Helpers\Traits\Models\UsersIdTrait;
-  use App\Helpers\Traits\Models\IdTrait;
-  use App\Helpers\Traits\Models\GetAllDataTrait;
+  use App\Composite\Traits\Models\UsersIdTrait;
+  use App\Composite\Traits\Models\IdTrait;
+  use App\Composite\Traits\Models\GetAllDataTrait;
 
   class Menus extends Model
   {
@@ -43,7 +43,7 @@
        */
       public function setName($name)
       {
-          if(gettype($name) === 'string')
+          if(is_string($name))
           {
               if(strlen($name) <= 128)
               {
@@ -51,12 +51,12 @@
               } else {
                   Helpers::log("A string bigger than 128 char for the name in ". get_class($this)
                       ." have been tried to inserted in the database");
-                  die("Too big Name !");
+                  throw new Exception("Too big Name !");
               }
           } else {
               Helpers::log("A not string variable for the name in ". get_class($this)
                   ." have been tried to inserted in the database");
-              die("Not well formed Name ! It should be inferior than 128 characters");
+              throw new Exception("Not well formed Name ! It should be inferior than 128 characters");
           }
       }
 
@@ -79,11 +79,11 @@
        */
       public function setContents_id($contents_id)
       {
-          if (preg_match($contents_id, "/^-?\d*/")) {
+          if(is_int($contents_id)) {
               $this->contents_id = $contents_id;
           } else {
               Helpers::log("A non integer type for a content_id in a menu have tried to be inserted in the database");
-              die("You can't enter a non integer type for a content_id in a menu");
+              throw new Exception("You can't enter a non integer type for a content_id in a menu");
           }
       }
       /**

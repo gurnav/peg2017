@@ -86,7 +86,7 @@
       for($i = 0; $i < count($class) - 1; $i += 1) {
         $class[$i] = lcfirst($class[$i]);
       }
-      $class = implode("/", $class);
+      $class = implode(DS, $class);
       return $class_path;
     }
 
@@ -96,7 +96,7 @@
      * @param $string : String The string to be cleaned
      * @return $string : String The cleaned String
      */
-    public static function cleanString()
+    public static function cleanString($string)
     {
       $string = htmlspecialchars($string);
       $string = htmlentities($string);

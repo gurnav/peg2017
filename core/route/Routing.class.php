@@ -43,18 +43,22 @@
      */
     public function setUri($uri)
     {
-        // filter_var($uri, FILTER_VALIDATE_URL); ???
+        $uri = filter_var($uri, FILTER_SANITIZE_URL);
         $uri = preg_replace("#".PATH_RELATIVE_PATTERN."#i", "", $uri, 1);
-        $this->uri = trim($uri, "/");
-        $this->uriExploded = explode("/", $this->uri);
+        // TODO: filter_var($uri, FILTER_VALIDATE_URL, FILTER_FLAG_SCHEME_REQUIRED);
+        $this->uri = trim($uri, DS);
+        $this->uriExploded = explode(DS, $this->uri);
     }
 
     /**
-     * Setup the prefix whether it exist or not
+     * Setup the prefix whatever it exist or not
      * @return void
      */
     public function setPrefix()
     {
+      if($this->uriExploded[0] !== 'user' || $this->uriExploded[0] !== 'admin') {
+          array_unshift($this->uriExploded, 'front');
+      }
       $this->prefix = (empty($this->uriExploded[0]))?"front":$this->uriExploded[0];
       App::$prefix = $this->prefix;
       unset($this->uriExploded[0]);
@@ -131,7 +135,7 @@
     */
     protected function forbidden()
     {
-        header('HTTP/1.0 403 Forbidden');
+        header('HTTP/1.1 403 Forbidden');
         die('Acces not allowed');
     }
 
@@ -141,7 +145,7 @@
     */
     protected function notFound()
     {
-        header('HTTP/1.0 404 Not Found');
+        header('HTTP/1.1 404 Not Found');
         die('Page not found');
     }
   }

@@ -5,9 +5,9 @@
   use Core\Database\Model;
   use Core\Database\QueryBuilder;
   use Core\Util\Helpers;
-  use App\Helpers\Traits\Models\UsersIdTrait;
-  use App\Helpers\Traits\Models\IdTrait;
-  use App\Helpers\Traits\Models\GetAllDataTrait;
+  use App\Composite\Traits\Models\UsersIdTrait;
+  use App\Composite\Traits\Models\IdTrait;
+  use App\Composite\Traits\Models\GetAllDataTrait;
 
   /**
    * Contents Model who reprensent the Roles table
@@ -56,23 +56,34 @@
      */
     public function setName($name)
     {
-      if(gettype($name) === 'string')
+      if(is_string($name))
       {
         if(strlen($name) <= 60)
         {
           $this->name = trim($name);
         } else {
           Helpers::log("A word count superior to 60 has tried to be created in a new role name");
-          die("You can't enter a role name with a words count superior to 60");
+          throw new Exception("You can't enter a role name with a words count superior to 60");
         }
       } else {
         Helpers::log("A non string type has been entered as title in content n° : " . $this->getId());
-        die("You can't enter a number as a title !");
+        throw new Exception("You can't enter a number as a title !");
         }
       }
 
+      /**
+       * Simple rights getter
+       * @return Int $rights the rights of the role
+       */
+      public function getRights()
+      {
+          return $this->rights;
+      }
+
       // TODO
-      public function getRights() {}
-      public function setRights($rights) {}
+      public function setRights($rights)
+      {
+
+      }
 
   }
