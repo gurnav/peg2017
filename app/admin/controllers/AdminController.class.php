@@ -8,13 +8,6 @@
 
   class AdminController extends Controller
   {
-
-    public function indexAction()
-    {
-
-
-    }
-
     public function loginAction()
     {
 

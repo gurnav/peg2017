@@ -45,7 +45,10 @@
     {
         $uri = filter_var($uri, FILTER_SANITIZE_URL);
         $uri = preg_replace("#".PATH_RELATIVE_PATTERN."#i", "", $uri, 1);
+<<<<<<< Updated upstream
         // TODO: filter_var($uri, FILTER_VALIDATE_URL, FILTER_FLAG_SCHEME_REQUIRED);
+=======
+>>>>>>> Stashed changes
         $this->uri = trim($uri, DS);
         $this->uriExploded = explode(DS, $this->uri);
     }

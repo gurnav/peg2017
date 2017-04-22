@@ -2,8 +2,8 @@
 
   define("HOST", "localhost");
   define('DS', DIRECTORY_SEPARATOR);
-  define('PATH_RELATIVE', DS.'esgi-geographic'.DS);
-  define('PATH_RELATIVE_PATTERN', '\/esgi-geographic'.DS);
+  define('PATH_RELATIVE', DS.'peg2017'.DS);
+  define('PATH_RELATIVE_PATTERN', '\/peg2017'.DS);
 
   // define("DB_NAME", "esgi-geographic");
   define("DB_NAME", "esgiGeographik");
@@ -16,3 +16,26 @@
 
   define("BASE_URL", "http://127.0.0.1/esgi-geographic/");
   define("ROOT", dirname(__DIR__) . PATH_RELATIVE);
+
+    /* LINK vers le dossier public */
+    define("LINK_IMG", "http://localhost/peg2017/app/public/assets/img/");
+    define("LINK_CSS", "http://localhost/peg2017/app/public/assets/css/");
+    define("LINK_JS", "http://localhost/peg2017/app/public/assets//js/");
+    define("LINK_VID", "http://localhost/peg2017/app/public/assets//video/");
+    define("LINK_IMG_ART", "http://localhost/peg2017/app/public/assets/img/articles/");
+    define("LINK_IMG_CAT", "http://localhost/peg2017/app/public/assets//img/categories/");
+    define("LINK_IMG_AVATAR", "http://localhost/peg2017/app/public/assets/img/avatar/");
+
+    /*LINK vers les controllers*/
+    define("LINK_FRONT", "http://localhost/peg2017/app/front/");
+    define("LINK_ARTICLE", "http://localhost/peg2017/front/article/");
+    define("LINK_CATEGORY", "http://localhost/peg2017/front/categories/");
+    define("LINK_USER", "http://localhost/peg2017/users/");
+
+    $errors_msg = [
+        //Formulaire accueil
+        "name"=>"Your mail isn't correct.",
+        "company"=>"Your company's name need to be upper than 2 letters.",
+        "email"=>"Your mail is needed",
+        "content"=>"Need content"
+    ];
