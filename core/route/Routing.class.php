@@ -3,6 +3,7 @@
   namespace Core\Route;
 
   use \App;
+  use Core\Util\Helpers;
 
   /**
    * Class that manage the CRUD Routing
@@ -19,7 +20,6 @@
     private $action; // The action called
     private $actionName; // The action name lowercased
     private $params; // Parameters in the url
-
 
     /**
      * The constructor of our routing class which
@@ -43,20 +43,24 @@
      */
     public function setUri($uri)
     {
-        // filter_var($uri, FILTER_VALIDATE_URL); ???
+        $uri = filter_var($uri, FILTER_SANITIZE_URL);
         $uri = preg_replace("#".PATH_RELATIVE_PATTERN."#i", "", $uri, 1);
-        $this->uri = trim($uri, "/");
-        $this->uriExploded = explode("/", $this->uri);
+        // TODO: filter_var($uri, FILTER_VALIDATE_URL, FILTER_FLAG_SCHEME_REQUIRED);
+        $this->uri = trim($uri, DS);
+        $this->uriExploded = explode(DS, $this->uri);
     }
 
     /**
-     * Setup the prefix whether it exist or not
+     * Setup the prefix whatever it exist or not
      * @return void
      */
     public function setPrefix()
     {
-      $this->prefix = (empty($this->uriExploded[0]))?"front":$this->uriExploded[0];
-      App::$prefix = $this->prefix;
+      if($this->uriExploded[0] !== 'front' && $this->uriExploded[0] !== 'admin') {
+          array_unshift($this->uriExploded, 'front');
+      }
+      $this->prefix = $this->uriExploded[0];
+      App::setPrefix($this->prefix);
       unset($this->uriExploded[0]);
     }
 
@@ -121,7 +125,7 @@
             $controller = new $this->fullControllerName;
             $controller->{$this->actionName}($this->params);
         } else {
-            $this->notFound();
+            self::notFound();
         }
     }
 
@@ -129,9 +133,9 @@
     * Send a Forbiden page
     * @return void
     */
-    protected function forbidden()
+    public static function forbidden()
     {
-        header('HTTP/1.0 403 Forbidden');
+        header('HTTP/1.1 403 Forbidden');
         die('Acces not allowed');
     }
 
@@ -139,9 +143,9 @@
     * Send a notFound page
     * @return void
     */
-    protected function notFound()
+    public static function notFound()
     {
-        header('HTTP/1.0 404 Not Found');
-        die('Page not found');
+        header('HTTP/1.1 404 Not Found');
+        echo 'Page not found';
     }
   }

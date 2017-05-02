@@ -5,9 +5,9 @@
   use Core\Database\Model;
   use Core\Database\QueryBuilder;
   use Core\Util\Helpers;
-  use App\Helpers\Traits\Models\UsersIdTrait;
-  use App\Helpers\Traits\Models\IdTrait;
-  use App\Helpers\Traits\Models\GetAllDataTrait;
+  use App\Composite\Traits\Models\UsersIdTrait;
+  use App\Composite\Traits\Models\IdTrait;
+  use App\Composite\Traits\Models\GetAllDataTrait;
 
   /**
    * Contents Model who reprensent the Topics table
@@ -43,16 +43,16 @@
 
       public function setName($name)
       {
-          if (strlen($name) <= 60) {
-              if (gettype($name) === 'string') {
+          if(is_string($name)) {
+              if((strlen($name) <= 60)) {
                   $this->name = trim($name);
               } else {
-                  Helpers::log("A number has been entered as name in topic n° : " . $this->getId());
-                  die("You can't enter a number as a name !");
+                  Helpers::log("A word count superior to 60 has tried to be created in a new topic");
+                  throw new \Exception("You can't enter a name with a words count superior to 60");
               }
           } else {
-              Helpers::log("A word count superior to 65535 has tried to be created in a new topic");
-              die("You can't enter a name with a words count superior to 65535");
+              Helpers::log("A number has been entered as name in topic n° : " . $this->getId());
+              throw new \Exception("You can't enter a number as a name !");
           }
 
       }
@@ -76,16 +76,16 @@
        */
       public function setDescription($description)
       {
-          if (strlen($description) <= 255) {
-              if (gettype($description) === 'string') {
+          if(is_string($description)) {
+              if((strlen($description) <= 255)) {
                   $this->description = trim($description);
               } else {
-                  Helpers::log("A number has been entered as description in topic n° : " . $this->getId());
-                  die("You can't enter a number as a description !");
+                  Helpers::log("A word count superior to 255 has tried to be created in a new topic");
+                  throw new \Exception("You can't enter a description with a words count superior to 255");
               }
           } else {
-              Helpers::log("A word count superior to 255 has tried to be created in a new topic");
-              die("You can't enter a description with a words count superior to 255");
+              Helpers::log("A number has been entered as description in topic n° : " . $this->getId());
+              throw new \Exception("You can't enter a number as a description !");
           }
       }
 

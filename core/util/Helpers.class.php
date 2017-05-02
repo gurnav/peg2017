@@ -51,7 +51,7 @@
               fwrite($logFile, "\n");
               flock($logFile, LOCK_UN);
               fclose($logFile);
-          } catch (Exception $e) {
+          } catch (\Exception $e) {
               die('Error : '.$e->getMessage());
           }
       }
@@ -80,14 +80,14 @@
      */
     public static function relativeClassPath($class)
     {
-      $class_path = get_class($class);
+      $class = get_class($class);
       $class = str_replace(__NAMESPACE__ . '\\', '', $class);
       $class = explode("\\", $class);
       for($i = 0; $i < count($class) - 1; $i += 1) {
         $class[$i] = lcfirst($class[$i]);
       }
-      $class = implode("/", $class);
-      return $class_path;
+      $class = implode(DS, $class);
+      return $class;
     }
 
 
@@ -96,7 +96,7 @@
      * @param $string : String The string to be cleaned
      * @return $string : String The cleaned String
      */
-    public static function cleanString()
+    public static function cleanString($string)
     {
       $string = htmlspecialchars($string);
       $string = htmlentities($string);

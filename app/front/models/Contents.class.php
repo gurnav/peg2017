@@ -4,7 +4,7 @@
 
   use Core\Database\Model;
   use Core\Util\Helpers;
-  use App\Helpers\Traits\Models\GetAllDataTrait;
+  use App\Composite\Traits\Models\GetAllDataTrait;
 
 
   class Contents extends Model
@@ -30,9 +30,20 @@
      */
     public function getAllOrderedByDate($order)
     {
-      $qb = new QueryBuilder();
-      $query = $qb->select('*')->from($this->getTable())->orderBy('date_inserted', $order);
-      return $qb->query($query, get_class($this));
+      $query = $this->qb->select('*')->from($this->getTable())->orderBy('date_inserted', $order);
+      return $this->qb->query($query, get_class($this));
+    }
+
+    /**
+     * Get all contents by type from the database as an array of Contents object
+     * TODO Either change the code implementation with Join or Table implementation
+     * @param String : $type The type of content we want to filter with
+     * @return Contents Array : $contents All contents in the database By a specific type
+     */
+    public function getAllByContents($type)
+    {
+      $query = $this->qb->select('*')->from($this->getTable())->where('type='.$type);
+      return $this->qb->query($query, get_class($this));
     }
 
   }

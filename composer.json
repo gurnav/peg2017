@@ -1,5 +1,5 @@
 {
-    "name": "esgiGeographik",
+    "name": "esgi-geographic",
     "require": {
         "phpunit/phpunit": "^6.0",
         "friendsofphp/php-cs-fixer": "^2.0"

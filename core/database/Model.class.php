@@ -11,16 +11,23 @@
 
     private $table; // The table selected
     private $columns = []; // The colomns that belongs to the table
-
+    protected $qb; // An instance of a QueryBuilder object, needed for Injection of dependencies reasons
 
     /**
      * The constructor of the Model class
      * Connect to the database and setup the table the columns
      * @return Void
      */
-    public function __construct()
+    public function __construct(QueryBuilder $qb = null)
     {
       parent::__construct();
+
+      if($qb === null) {
+        $this->qb = new QueryBuilder();
+      } else {
+        $this->qb = $qb;
+      }
+
       $this->setTable();
       $this->setColumns();
     }
@@ -57,9 +64,9 @@
               implode(',', $sqlCol). ') WHERE ( id=:id );');
             $query->execute($data);
         }
-      } catch (Exception $e) {
+      } catch (\Exception $e) {
         Helpers::log($e->getMessage());
-        die("An error occured, please contact the site's admnistrator.");
+        throw new \Exception("An error occured, please contact the site's admnistrator.");
       }
     }
 
@@ -73,19 +80,18 @@
      */
     public function populate($array, $one = true)
     {
-        $qb = new QueryBuilder();
         $preparedTab = [];
         $class = Helpers::relativeClassPath($this);
 
         if (file_exists(ROOT . $class . '.class.php'))
         {
-          $request = $qb->select('*')->from($this->getTable());
+          $request = $this->qb->select('*')->from($this->getTable());
             foreach ($array as $item => $value) {
                 $preparedItem = ':'.$item;
                 $request->where($item.'='.$preparedItem);
                 $preparedTab[$preparedItem] = $value;
             }
-            $result = $qb->prepare($request, $preparedTab, get_class($this), $one);
+            $result = $this->qb->prepare($request, $preparedTab, get_class($this), $one);
         } else {
             Helpers::log("The Object at ". ROOT . DS . $class . ".class.php doesn't exist.");
             die("An error occured, please contact the site's admnistrator.");
@@ -101,12 +107,10 @@
      */
     public function delete()
     {
-      $qb = new QueryBuilder();
-
         if ($this->getId() !== -1)
         {
-          $query = $qb->delete('*')->from($this->getTable())->where('id='.$this->getId());
-          $qb->query($query, get_class($this), true);
+          $query = $this->qb->delete('*')->from($this->getTable())->where('id='.$this->getId());
+          $this->qb->query($query, get_class($this), true);
         } else {
             Helpers::log("Impossible to delete the item => ".get_class($this).".");
             die("Impossible to delete the item");
@@ -147,8 +151,12 @@
      */
     private function setColumns()
     {
-        $this->columns = array_diff_key(get_class_vars(get_class($this)),
-        get_class_vars(get_parent_class($this)));
+         $this->columns = get_class_vars(get_class($this));
+         $this->unsetColumn('table');
+         $this->unsetColumn('columns');
+         $this->unsetColumn('qb');
+         $this->unsetColumn('db');
+         // $this->columns = array_keys($this->columns);
     }
 
     /**

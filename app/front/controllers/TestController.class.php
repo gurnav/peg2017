@@ -4,7 +4,7 @@
 
   use Core\Controllers\Controller;
   use Core\Views\View;
-  use App\User\Models\Users;
+  use App\Front\Models\Users;
   use Core\Util\Helpers;
   use Core\Facades\Query;
   use Core\Auth\DBAuth;

@@ -5,9 +5,9 @@
   use Core\Database\Model;
   use Core\Database\QueryBuilder;
   use Core\Util\Helpers;
-  use App\Helpers\Traits\Models\UsersIdTrait;
-  use App\Helpers\Traits\Models\IdTrait;
-  use App\Helpers\Traits\Models\GetAllDataTrait;
+  use App\Composite\Traits\Models\UsersIdTrait;
+  use App\Composite\Traits\Models\IdTrait;
+  use App\Composite\Traits\Models\GetAllDataTrait;
 
   class Multimedias extends Model
   {
@@ -45,18 +45,18 @@
      */
     public function setPath($path)
     {
-        if(gettype($path) === 'string')
+        if(is_string($path))
         {
-        if(strlen($path) <= 255 )
-        {
-        $this->path = trim($path);
-        } else {
+          if(strlen($path) <= 255 )
+          {
+            $this->path = trim($path);
+          } else {
             Helpers::log("A word count superior to 255 has tried to be created in a new path");
-            die("You can't enter a path with a words count superior to 255");
-        }
+            throw new \Exception("You can't enter a path with a words count superior to 255");
+          }
         } else {
             Helpers::log("A non string type has been entered as path in path n° : " . $this->getId());
-            die("You can't enter a non strong type as a path !");
+            throw new \Exception("You can't enter a non strong type as a path !");
         }
     }
 
@@ -78,7 +78,7 @@
      */
     public function setName($name)
     {
-        if(gettype($name) === 'string')
+        if(is_string($name))
         {
             if(strlen($name) <= 128)
             {
@@ -86,12 +86,12 @@
             } else {
                 Helpers::log("A string bigger than 128 char for the name in ". get_class($this)
                     ." have been tried to inserted in the database");
-                die("Too big Name !");
+                throw new \Exception("Too big Name !");
             }
         } else {
             Helpers::log("A not string variable for the name in ". get_class($this)
                 ." have been tried to inserted in the database");
-            die("Not well formed Name ! It should be inferior than 128 characters");
+            throw new \Exception("Not well formed Name ! It should be inferior than 128 characters");
         }
     }
 
