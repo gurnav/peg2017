@@ -6,8 +6,11 @@
   use Core\Views\View;
   use Core\Util\Helpers;
 
+  // voir commentaires sur les notes 
+
   class CategoriesController extends Controller
   {
+
 
     public function indexAction()
     {
