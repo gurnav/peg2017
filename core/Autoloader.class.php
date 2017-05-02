@@ -27,7 +27,7 @@
                $class = str_replace(__NAMESPACE__ . '\\', '', $class);
                $class = explode("\\", $class);
                for($i = 0; $i < count($class) - 1; $i += 1) {
-                 $class[$i] = lcfirst($class[$i]);
+                 $class[$i] = strtolower($class[$i]);
                }
                $class = implode(DS, $class);
                if (file_exists(__DIR__ . DS . $class . '.class.php')) {

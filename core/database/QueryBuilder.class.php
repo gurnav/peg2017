@@ -136,16 +136,16 @@
               $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, $class_name);
           }
           if ($one === true) {
-            if ($req->rowCount() > 1) {
+            /*if ($req->rowCount() > 1) {
               Helpers::log('There is more than one result for the request : '.$statement);
-              die("An error occured !");
-            }
+              throw new \Exception("An error occured !");
+            }*/
               $datas = $req->fetch();
           } else {
-              $datas = $req->fetchAll();
+              $datas = $req->fetchAll(PDO::FETCH_ASSOC);
           }
           return $datas;
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
           Helpers::log($e->getMessage());
           die("An error occured, please contact the site's admnistrator.");
         }
@@ -177,16 +177,16 @@
               $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, $class_name);
           }
           if ($one) {
-            if ($req->rowCount() > 1) {
+            /*if ($req->rowCount() > 1) {
               Helpers::log('There is more than one result for the request : '.$statement);
-              die("An error occured !");
-            }
+              throw new \Exception("An error occured !");
+            }*/
               $datas = $req->fetch();
           } else {
               $datas = $req->fetchAll();
           }
           return $datas;
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
           Helpers::log($e->getMessage());
           die("An error occured, please contact the site's admnistrator.");
         }
@@ -237,6 +237,10 @@
         if(!empty($this->from)) {
           $query .= ' FROM ' . implode(', ', $this->from);
           unset($this->from);
+        }
+        if(!empty($this->conditions)) {
+          $query .= ' WHERE ' . implode(' AND ', $this->conditions);
+          unset($this->conditions);
         }
         if(!empty($this->order)) {
           $query .= ' ORDER BY ' . implode(' , ', $this->order);

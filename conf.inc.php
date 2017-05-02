@@ -5,7 +5,6 @@
   define('PATH_RELATIVE', DS.'esgi-geographic'.DS);
   define('PATH_RELATIVE_PATTERN', '\/esgi-geographic'.DS);
 
-  // define("DB_NAME", "esgi-geographic");
   define("DB_NAME", "esgiGeographik");
   define("DB_USER", "root");
   define("DB_PWD", "root");

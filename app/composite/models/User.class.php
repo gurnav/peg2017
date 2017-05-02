@@ -23,7 +23,7 @@
       protected $firstname; // The firstname in the database of the user
       protected $lastname; // The lastname in the database of the user
       protected $username; // The username in the database of the user
-      // TODO protected $role_id; The role id in the database of the user
+      protected $rights; // The rights of the user
       protected $status; // The status in the database of the user
 
 
@@ -32,18 +32,58 @@
        * @return Void
        */
       public function __construct($id=-1, $email=null, $password=null, $firstname=null,
-      $username=null, $lastname=null, $permission=0, $status=0)
+      $username=null, $lastname=null, $rights = 1, $status=0)
       {
           parent::__construct();
 
-          $this->setId($id);
-          $this->setEmail($email);
-          $this->setPassword($password);
-          $this->setFirstname($firstname);
-          $this->setLastname($lastname);
-          $this->setUsername($username);
-          // TODO $this->setPermission($permission);
-          $this->setStatus($status);
+          if($id === -1) {
+            $this->id = $id;
+          } else {
+            $this->setId($id);
+          }
+
+          if($email === null) {
+            $this->email = $email;
+          } else {
+            $this->setEmail($email);
+          }
+
+          if($password === null) {
+            $this->password = $password;
+          } else {
+            $this->setPassword($password);
+          }
+
+          if($firstname === null) {
+            $this->firstname = $firstname;
+          } else {
+            $this->setFirstname($firstname);
+          }
+
+          if($lastname === null) {
+            $this->lastname = $lastname;
+          } else {
+            $this->setLastname($lastname);
+          }
+
+          if($username === null) {
+            $this->username = $username;
+          } else {
+            $this->setUsername($username);
+          }
+
+          if($rights === 1) {
+             $this->rights = $rights;
+          } else {
+             $this->setRights($rights);
+          }
+
+          if($status === 0) {
+            $this->status = $status;
+          } else {
+            $this->setStatus($status);
+          }
+
       }
 
       /**
@@ -60,7 +100,7 @@
         } else {
           Helpers::log("A not string variable for the password in ". get_class($this)
             ." have been tried to inserted in the database");
-          throw new Exception("Not well formed password !");
+          throw new \Exception("Not well formed password !");
         }
       }
 
@@ -89,12 +129,12 @@
           } else {
             Helpers::log("A string bigger than 45 char for the firstname in ". get_class($this)
               ." have been tried to inserted in the database");
-            throw new Exception("Too big Firstname !");
+            throw new \Exception("Too big Firstname !");
           }
         } else {
           Helpers::log("A not string variable for the firstname in ". get_class($this)
             ." have been tried to inserted in the database");
-          throw new Exception("Not well formed Firstname ! It should be inferior than 45 characters");
+          throw new \Exception("Not well formed Firstname ! It should be inferior than 45 characters");
         }
       }
 
@@ -123,12 +163,12 @@
           } else {
             Helpers::log("A string bigger than 45 char for the lastname in ". get_class($this)
               ." have been tried to inserted in the database");
-            throw new Exception("Too big Lastname ! It should be inferior than 45 characters");
+            throw new \Exception("Too big Lastname ! It should be inferior than 45 characters");
           }
         } else {
           Helpers::log("A not string variable for the lastname in ". get_class($this)
             ." have been tried to inserted in the database");
-          throw new Exception("Not well formed Lastname");
+          throw new \Exception("Not well formed Lastname");
         }
       }
 
@@ -157,12 +197,12 @@
           } else {
             Helpers::log("A string bigger than 45 char for the username in ". get_class($this)
               ." have been tried to inserted in the database");
-            throw new Exception("Too big Username ! It should be inferior than 45 characters");
+            throw new \Exception("Too big Username ! It should be inferior than 45 characters");
           }
         } else {
           Helpers::log("A not string variable for the username in ". get_class($this)
             ." have been tried to inserted in the database");
-          throw new Exception("not well formed Username !");
+          throw new \Exception("not well formed Username !");
         }
       }
 
@@ -177,29 +217,29 @@
 
       /**
       * Simple setter for the username with trim
-      * Check if the role_id respect the integrity of the database
-      * @param Integer : $setRole_id The role_id to be setted
+      * Check if the rights respect the integrity of the database
+      * @param Integer : $rights The rights to be setted
       * @return Void
       */
-      public function setRole_id($setRole_id)
+      public function setRights($rights)
       {
-        if(is_int($setRole_id))
+        if(is_int($rights))
         {
-          $this->role_id = $setRole_id;
+          $this->rights = $rights;
         } else {
-          Helpers::log("A not integer variable for the role_id in ". get_class($this)
+          Helpers::log("A not integer variable for the rights in ". get_class($this)
             ." have been tried to inserted in the database");
-          throw new Exception("Incorect role !");
+          throw new \Exception("Incorect rights !");
         }
       }
 
       /**
-       * Simple role_id getter
-       * @return Integer : $role_id The role id
+       * Simple rights getter
+       * @return Integer : $rights The rights as int
        */
-      public function getRole_id()
+      public function getRights()
       {
-        return $this->role;
+        return $this->rights;
       }
 
        /**
@@ -216,7 +256,7 @@
         } else {
           Helpers::log("A non integer variable for the status in ". get_class($this)
             ." have been tried to inserted in the database");
-          throw new Exception("Incorect status !");
+          throw new \Exception("Incorect status !");
         }
       }
 

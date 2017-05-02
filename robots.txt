@@ -1,0 +1,12 @@
+User-Agent: *
+
+Disallow: /core/
+Disallow: /app/
+Disallow: /others/
+Disallow: /logs/
+Disallow: /template/
+Disallow: /tests/
+Disallow: /vendor/
+
+User-agent: Googlebot-Image
+Disallow: /

@@ -48,11 +48,11 @@
                   $this->name = trim($name);
               } else {
                   Helpers::log("A word count superior to 60 has tried to be created in a new topic");
-                  throw new Exception("You can't enter a name with a words count superior to 60");
+                  throw new \Exception("You can't enter a name with a words count superior to 60");
               }
           } else {
               Helpers::log("A number has been entered as name in topic n° : " . $this->getId());
-              throw new Exception("You can't enter a number as a name !");
+              throw new \Exception("You can't enter a number as a name !");
           }
 
       }
@@ -81,11 +81,11 @@
                   $this->description = trim($description);
               } else {
                   Helpers::log("A word count superior to 255 has tried to be created in a new topic");
-                  throw new Exception("You can't enter a description with a words count superior to 255");
+                  throw new \Exception("You can't enter a description with a words count superior to 255");
               }
           } else {
               Helpers::log("A number has been entered as description in topic n° : " . $this->getId());
-              throw new Exception("You can't enter a number as a description !");
+              throw new \Exception("You can't enter a number as a description !");
           }
       }
 

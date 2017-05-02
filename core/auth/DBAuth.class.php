@@ -3,6 +3,7 @@
   namespace Core\Auth;
 
   use Core\Database\QueryBuilder;
+  use Core\Util\Helpers;
 
   class DBAuth
   {
@@ -30,16 +31,46 @@
      */
     public function login($username, $password)
     {
-        $query = $this->qb->select('username', 'password')->from(DB_PREFIX.'users')->where('username = ?');
-        $user = $this->qb->prepare($query, [$username], null, true);
-        if ($user) {
-          if (password_verify($password, $user->password) === TRUE) {
+        $query = $this->qb->select('username', 'password')->from(DB_PREFIX.'users')->where('username = :username');
+        $user = $this->qb->prepare($query, [':username' => $username], null, true);
+
+        if (!empty($user)) {
+          if (password_verify($password, $user->password)) {
             session_regenerate_id(true); // Protection against Session Steal
-            $_SESSION['auth'] = $user->username;
-            return true;
+            $_SESSION['user'] = $user->username;
+            return TRUE;
           }
         }
-        return false;
+
+        return FALSE;
+    }
+
+    /**
+     * Setup The Auth session to the connected user ID
+     * @param $username : String
+     * @param $password : String
+     * @return succes : Boolean If the user is logged or not
+     */
+    public function adminLogin($username, $password)
+    {
+        $query = $this->qb->select('username', 'password', 'rights')->from(DB_PREFIX.'users')->where('username = :username');
+        $user = $this->qb->prepare($query, [':username' => $username], null, true);
+
+        if (!empty($user)) {
+          if (password_verify($password, $user->password)) {
+            if($user->rights == 3) {
+              session_regenerate_id(true); // Protection against Session Steal
+              $_SESSION['admin'] = $user->username;
+              return 0;
+            } else {
+              return 2;
+            }
+          } else {
+            return 1;
+          }
+        }
+
+        return FALSE;
     }
 
     /**
@@ -48,7 +79,7 @@
      */
     public function isLogged()
     {
-        return isset($_SESSION['auth']);
+        return isset($_SESSION['user']);
     }
 
 
@@ -60,7 +91,7 @@
     {
       try {
         session_destroy();
-      } catch (Exception $e) {
+      } catch (\Exception $e) {
         Helpers::log($e->getMessage());
         die("A fatal error occured !");
       }

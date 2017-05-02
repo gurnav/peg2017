@@ -52,12 +52,12 @@
               } else {
                   Helpers::log("A string bigger than 128 char for the name in ". get_class($this)
                       ." have been tried to inserted in the database");
-                  throw new Exception("Too big Name !");
+                  throw new \Exception("Too big Name !");
               }
           } else {
               Helpers::log("A not string variable for the name in ". get_class($this)
                   ." have been tried to inserted in the database");
-              throw new Exception("Not well formed Name ! It should be inferior than 128 characters");
+              throw new \Exception("Not well formed Name ! It should be inferior than 128 characters");
           }
       }
 
@@ -84,11 +84,11 @@
                   $this->description=trim($description);
               } else {
                   Helpers::log("A word count superior to 255 has tried to be created in a new description");
-                  throw new Exception("You can't enter a description with a words count superior to 255");
+                  throw new \Exception("You can't enter a description with a words count superior to 255");
               }
           } else {
               Helpers::log("A non string type has been entered as description in description n° : " . $this->getId());
-              throw new Exception("You can't enter a non strong type as a description !");
+              throw new \Exception("You can't enter a non strong type as a description !");
           }
       }
 

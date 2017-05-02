@@ -3,6 +3,7 @@
   namespace Core\Route;
 
   use \App;
+  use Core\Util\Helpers;
 
   /**
    * Class that manage the CRUD Routing
@@ -19,7 +20,6 @@
     private $action; // The action called
     private $actionName; // The action name lowercased
     private $params; // Parameters in the url
-
 
     /**
      * The constructor of our routing class which
@@ -56,11 +56,11 @@
      */
     public function setPrefix()
     {
-      if($this->uriExploded[0] !== 'user' || $this->uriExploded[0] !== 'admin') {
+      if($this->uriExploded[0] !== 'front' && $this->uriExploded[0] !== 'admin') {
           array_unshift($this->uriExploded, 'front');
       }
-      $this->prefix = (empty($this->uriExploded[0]))?"front":$this->uriExploded[0];
-      App::$prefix = $this->prefix;
+      $this->prefix = $this->uriExploded[0];
+      App::setPrefix($this->prefix);
       unset($this->uriExploded[0]);
     }
 
@@ -125,7 +125,7 @@
             $controller = new $this->fullControllerName;
             $controller->{$this->actionName}($this->params);
         } else {
-            $this->notFound();
+            self::notFound();
         }
     }
 
@@ -133,7 +133,7 @@
     * Send a Forbiden page
     * @return void
     */
-    protected function forbidden()
+    public static function forbidden()
     {
         header('HTTP/1.1 403 Forbidden');
         die('Acces not allowed');
@@ -143,9 +143,9 @@
     * Send a notFound page
     * @return void
     */
-    protected function notFound()
+    public static function notFound()
     {
         header('HTTP/1.1 404 Not Found');
-        die('Page not found');
+        echo 'Page not found';
     }
   }

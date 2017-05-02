@@ -35,8 +35,9 @@
         if (file_exists('app'.DS.App::$prefix.DS.'views'.DS.$setView.'.view.php')) {
             $this->view = $setView;
         } else {
-            Helpers::log("La vue :".$setView." n'existe pas.");
-            die("La vue n'existe pas !");
+            Helpers::log("The view ".$setView."doesn't exist !");
+            throw new \Exception("The view ".$setView."doesn't exist !");
+
         }
     }
 
