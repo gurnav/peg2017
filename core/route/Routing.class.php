@@ -44,10 +44,10 @@
     public function setUri($uri)
     {
         $uri = filter_var($uri, FILTER_SANITIZE_URL);
-        $uri = preg_replace("#".PATH_RELATIVE_PATTERN."#i", "", $uri, 1);
+        $uri = preg_replace("#".PATH_RELATIVE_PATTERN."/#", "", $uri, 1);
         // TODO: filter_var($uri, FILTER_VALIDATE_URL, FILTER_FLAG_SCHEME_REQUIRED);
         $this->uri = trim($uri, DS);
-        $this->uriExploded = explode(DS, $this->uri);
+        $this->uriExploded = explode('/', $this->uri);
     }
 
     /**
@@ -56,10 +56,12 @@
      */
     public function setPrefix()
     {
-      if($this->uriExploded[0] !== 'front' && $this->uriExploded[0] !== 'admin') {
+      if($this->uriExploded[0] !== 'admin') {
           array_unshift($this->uriExploded, 'front');
       }
+
       $this->prefix = $this->uriExploded[0];
+
       App::setPrefix($this->prefix);
       unset($this->uriExploded[0]);
     }

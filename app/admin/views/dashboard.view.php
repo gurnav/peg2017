@@ -46,10 +46,48 @@
   </div>
 
   <div class="more_information">
-    <div>
-      <h2>Website Traffic</h2>
+      <div>
+          <table class="six_columns">
+              <caption>Latest Articles</caption>
+              <thead>
+              <tr>
+                  <th>#</th>
+                  <th>Title</th>
+                  <th>type</th>
+                  <th>User Id</th>
+                  <th>Status</th>
+              </tr>
+              </thead>
+              <tbody>
+              <?php foreach ($contents as $content): ?>
+                  <tr>
+                      <td><?php echo $content['id']; ?></td>
+                      <td><?php echo $content['title']; ?></td>
+                      <td><?php echo $content['type']; ?></td>
+                      <td><?php echo $content['users_id']; ?></td>
+                      <?php
+                      if($content['status'] == -1) {
+                          $status = 'rejected';
+                      }
 
-    </div>
+                      if($content['status'] == 0) {
+                          $status = 'pending';
+                      }
+
+                      if($content['status'] == 1) {
+                          $status = 'done';
+                      }
+
+                      echo "<td><button class=".$status.">".ucfirst($status)."</button></td>";
+                      ?>
+                  </tr>
+              <?php endforeach ?>
+              </tbody>
+          </table>
+
+          <button class="view_more">view more</button>
+
+      </div>
 
     <div>
       <table class="six_columns">
