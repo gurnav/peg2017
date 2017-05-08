@@ -13,8 +13,9 @@
     public function indexAction()
     {
         $v = new View('contents');
-
-        $contents = Contents::getAll();
+        $attributes = ['id', 'title', 'status', 'type', 'date_inserted'];
+        $users_attributes = ['username'];
+        $contents = Contents::getAllWithUsers('contents', $attributes, $users_attributes);
 
         $v->assign('contents', $contents);
     }

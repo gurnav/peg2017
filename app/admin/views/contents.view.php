@@ -40,7 +40,7 @@
                     <td><?php echo $content['id']; ?></td>
                     <td><?php echo $content['title']; ?></td>
                     <td><?php echo $content['type']; ?></td>
-                    <td><?php echo $content['users_id']; ?></td>
+                    <td><?php echo $content['username']; ?></td>
                     <td><?php echo $content['date_inserted']; ?></td>
                     <?php
                     if($content['status'] == -1) {
@@ -59,22 +59,6 @@
                     ?>
                 </tr>
             <?php endforeach ?>
-            <tr>
-                <td>7</td>
-                <td>Mary</td>
-                <td>Mary.doe</td>
-                <td>02/02/2017</td>
-                <td>Nature</td>
-                <td><button class="done">Done</button></td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>James</td>
-                <td>james.doe</td>
-                <td>02/02/2017</td>
-                <td>Water</td>
-                <td><button class="rejected">Rejected</button></td>
-            </tr>
             </tbody>
         </table>
 
