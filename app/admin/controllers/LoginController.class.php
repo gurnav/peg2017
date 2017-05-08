@@ -71,7 +71,7 @@
            $user = new Users();
            $user->populate(['username' => $cleanedData['username']]);
            unset($_SESSION['login']);
-           header('Location: '.BASE_URL.'admin/index/welcome');
+           header('Location: '.BASE_URL.'admin/');
          } else {
             $_SESSION['login']['username'] = $cleanedData['username'];
             if($auth_admin === 1) {
@@ -93,7 +93,7 @@
      */
     public function logoutAction()
     {
-          session_destroy();
+          Auth::disconnect();
           header('Location: '.BASE_URL);
     }
 
