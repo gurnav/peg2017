@@ -8,7 +8,7 @@
   use Core\Util\Helpers;
   use Core\Facades\Query;
   use Core\Auth\DBAuth;
-  use Core\HTML\Form;
+  use App\Admin\Models\Contents;
 
   class TestController extends Controller
   {
@@ -24,6 +24,14 @@
         $user = $user->populate(['firstname' => 'Dudoux']);
 
         Helpers::debugVar($user);
+      }
+
+      public function queryAction()
+      {
+        $attributes = ['id', 'title', 'status', 'type', 'date_inserted'];
+        $users_attributes = ['username'];
+        Helpers::debugVar(Contents::getAllWithUsers('contents', $attributes, $users_attributes));
+
       }
 
   }

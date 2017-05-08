@@ -3,6 +3,7 @@
   namespace App\Composite\Traits\Models;
 
   use Core\Database\QueryBuilder;
+  use Core\Util\Helpers;
 
   /**
    * Traint for dealing with getting the id of a model
@@ -27,6 +28,7 @@
     /**
      * Get all contents related to a user from the database as an array of Contents object
      * TODO Either change the code implementation with Join or Table implementation
+     * TODO TO REFACTOR NOT WORKING YET
      * @param String : $users The username of the user to filter with
      * @return Contents Array : $contents All contents in the database By a specific user
      */
@@ -37,6 +39,30 @@
       $user = $qb->query($query_users);
       $query = $qb->select('*')->from($this->getTable())->where('users_id='.$user->id);
       return $qb->query($query, get_class($this));
+    }
+
+    /**
+     * Get all contents with the username instead of the id of the user from the database as an array of Contents object
+     * TODO Either change the code implementation with Join or Table implementation
+     * @param String : $table The table to be joined with the user
+     * @param Array : $attributes The attributes to be retrieved from the table
+     * @param Array : $users_attributes The users attributes to be retrieved
+     * @return Contents Array : $contents All contents in the database By a specific user
+     */
+    public static function getAllWithUsers($table, $attributes, $users_attributes)
+    {
+      $qb = new QueryBuilder();
+
+      for($i = 0; $i < count($attributes); $i += 1) {
+        $attributes[$i] = DB_PREFIX.$table.'.'.$attributes[$i];
+      }
+
+      for($i = 0; $i < count($users_attributes); $i += 1) {
+        $users_attributes[$i] = DB_PREFIX.'users.'.$users_attributes[$i];
+      }
+
+      $query = "SELECT ".implode(', ', $attributes).', '.implode(', ', $users_attributes)." FROM ".DB_PREFIX.$table." INNER JOIN ".DB_PREFIX."users ON ".DB_PREFIX.$table.".users_id = ".DB_PREFIX."users.id";
+      return $qb->query($query);
     }
 
     /**
