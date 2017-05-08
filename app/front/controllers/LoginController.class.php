@@ -85,7 +85,7 @@
      */
     public function logoutAction()
     {
-          session_destroy();
+          Auth::disconnect();
           header('Location: '.BASE_URL);
     }
 

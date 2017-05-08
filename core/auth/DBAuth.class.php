@@ -82,6 +82,15 @@
         return isset($_SESSION['user']);
     }
 
+    /**
+     * Check if the admin is connected or not
+     * @return connected : Boolean
+     */
+    public function isAdminLogged()
+    {
+        return isset($_SESSION['admin']);
+    }
+
 
     /**
      * Safelly destroy a session
