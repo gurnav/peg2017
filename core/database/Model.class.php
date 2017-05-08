@@ -66,7 +66,7 @@
         }
       } catch (\Exception $e) {
         Helpers::log($e->getMessage());
-        throw new Exception("An error occured, please contact the site's admnistrator.");
+        throw new \Exception("An error occured, please contact the site's admnistrator.");
       }
     }
 
@@ -151,8 +151,12 @@
      */
     private function setColumns()
     {
-        $this->columns = array_diff_key(get_class_vars(get_class($this)),
-        get_class_vars(get_parent_class($this)));
+         $this->columns = get_class_vars(get_class($this));
+         $this->unsetColumn('table');
+         $this->unsetColumn('columns');
+         $this->unsetColumn('qb');
+         $this->unsetColumn('db');
+         // $this->columns = array_keys($this->columns);
     }
 
     /**

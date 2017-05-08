@@ -52,11 +52,11 @@
                   $this->content = trim($content);
               } else {
                   Helpers::log("A word count superior to 65535 has tried to be created in a new comment");
-                  throw new Exception("You can't enter a content with a words count superior to 65535");
+                  throw new \Exception("You can't enter a content with a words count superior to 65535");
               }
           } else {
               Helpers::log("A non string type has been entered as content in comment n° : " . $this->getId());
-              throw new Exception("You can't enter a number as a content !");
+              throw new \Exception("You can't enter a number as a content !");
           }
 
       }
@@ -83,7 +83,7 @@
               $this->content_id = $content_id;
           } else {
               Helpers::log("A non integer type for a categories id in a content have tried to be inserted in the DB");
-              throw new Exception("You can't enter a non integer type for a categories id of a content");
+              throw new \Exception("You can't enter a non integer type for a categories id of a content");
           }
 
       }

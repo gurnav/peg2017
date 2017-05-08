@@ -14,11 +14,13 @@
      * Get all contents from the database as an array of Contents object
      * @return Contents Array : $contents All contents in the database
      */
-    public function getAll()
+    public static function getAll()
     {
       $qb = new QueryBuilder();
-      $class_name = get_class($this);
-      $query = $qb->select('*')->from($class_name);
+      // $class = get_class($this);
+      $class = explode("\\", self::class);
+      $class_name = end($class);
+      $query = $qb->select('*')->from(DB_PREFIX.lcfirst($class_name));
       return $qb->query($query, $class_name);
     }
 
@@ -33,7 +35,7 @@
       $qb = new QueryBuilder();
       $query_users = $qb->select('id')->from(DB_PREFIX.'users')->where('username='.$users);
       $user = $qb->query($query_users);
-      $query = $qb->select('*')->from($this->getTable())->where('users_id='.$user.id);
+      $query = $qb->select('*')->from($this->getTable())->where('users_id='.$user->id);
       return $qb->query($query, get_class($this));
     }
 
@@ -48,7 +50,7 @@
       $qb = new QueryBuilder();
       $query_categories = $qb->select('categories_id')->from(DB_PREFIX.'categories')->where('name='.$categories);
       $category = $qb->query($query_categories);
-      $query = $qb->select('*')->from($this->getTable())->where('categories_id='.$category.id);
+      $query = $qb->select('*')->from($this->getTable())->where('categories_id='.$category->id);
       return $qb->query($query, get_class($this));
     }
 

@@ -42,4 +42,14 @@ class App
         Core\Autoloader::register();
     }
 
+    /**
+     * App prefix setter
+     * @param String: $prefix The prefix to be set
+     * @return Void
+     */
+    public static function setPrefix($prefix)
+    {
+        self::$prefix = $prefix;
+    }
+
 }

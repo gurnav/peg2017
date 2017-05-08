@@ -65,11 +65,11 @@
           $this->title = trim($title);
         } else {
           Helpers::log("A word count superior to 255 has tried to be created in a new title content");
-          throw new Exception("You can't enter a content title with a words count superior to 255");
+          throw new \Exception("You can't enter a content title with a words count superior to 255");
         }
       } else {
         Helpers::log("A non string type has been entered as content in content n° : " . $this->getId());
-        throw new Exception("You can't enter a non strong type as a tile !");
+        throw new \Exception("You can't enter a non strong type as a tile !");
       }
     }
 
@@ -98,11 +98,11 @@
           $this->content = trim($content);
         } else {
           Helpers::log("A word count superior to 65535 has tried to be created in a new content");
-          throw new Exception("You can't enter a content with a words count superior to 65535");
+          throw new \Exception("You can't enter a content with a words count superior to 65535");
         }
       } else {
         Helpers::log("A non string type has been entered as content in content n° : " . $this->getId());
-        throw new Exception("You can't enter a non strong type as a content !");
+        throw new \Exception("You can't enter a non strong type as a content !");
       }
     }
 
@@ -128,7 +128,7 @@
         $this->status = $status;
       } else {
         Helpers::log("A non boolean type for a content status have tried to be inserted in the DB");
-        throw new Exception("You can't enter a non boolean type for a content status");
+        throw new \Exception("You can't enter a non boolean type for a content status");
       }
     }
 
@@ -163,7 +163,7 @@
         $this->isCommentable = $isCommentable;
       } else {
         Helpers::log("A non boolean type for a content status have tried to be inserted in the DB");
-        throw new Exception("You can't enter a non boolean type for a content commentability");
+        throw new \Exception("You can't enter a non boolean type for a content commentability");
       }
     }
 
@@ -189,7 +189,7 @@
         $this->isLikeable = $isLikeable;
       } else {
         Helpers::log("A non boolean type for a content status have tried to be inserted in the DB");
-        throw new Exception("You can't enter a non boolean type for a content likeability");
+        throw new \Exception("You can't enter a non boolean type for a content likeability");
       }
     }
 
@@ -216,7 +216,7 @@
         $this->categories_id = $categories_id;
       } else {
         Helpers::log("A non integer type for a categories id in a content have tried to be inserted in the DB");
-        throw new Exception("You can't enter a non integer type for a categories id of a content");
+        throw new \Exception("You can't enter a non integer type for a categories id of a content");
       }
     }
 

@@ -80,7 +80,7 @@
               $this->topicsId = $topicsId;
           } else {
               Helpers::log("A non integer type for a topic id in a thread have tried to be inserted in the DB");
-              throw new Exception("You can't enter a non integer type for a topic id of a thread");
+              throw new \Exception("You can't enter a non integer type for a topic id of a thread");
           }
       }
 
@@ -98,11 +98,11 @@
       			$this->title = trim($title);
       		} else {
 	      		Helpers::log("A word count superior to 255 has tried to be created in a new thread");
-	      		throw new Exception("You can't enter a title with a words count superior to 255");
+	      		throw new \Exception("You can't enter a title with a words count superior to 255");
 	      	}
       	} else {
 					Helpers::log("A number has been entered as title in thread n° : " . $this->getId());
-					throw new Exception("You can't enter a number as a title !");
+					throw new \Exception("You can't enter a number as a title !");
 				}
 
       }
@@ -123,11 +123,11 @@
       			$this->description = trim($description);
       		} else {
 	      		Helpers::log("A word count superior to 255 has tried to be created in a new thread");
-	      		throw new Exception("You can't enter a description with a words count superior to 255");
+	      		throw new \Exception("You can't enter a description with a words count superior to 255");
 	      	}
       	} else {
 					Helpers::log("A number has been entered as title in thread n° : " . $this->getId());
-					throw new Exception("You can't enter a number as a description !");
+					throw new \Exception("You can't enter a number as a description !");
 				}
       }
 

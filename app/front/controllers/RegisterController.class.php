@@ -4,10 +4,12 @@
 
   use Core\Controllers\Controller;
   use Core\Views\View;
-  use App\User\Models\Users;
   use Core\Util\Helpers;
   use Core\Facades\Query;
-  use Core\Auth\DBAuth;
+  use Core\Facades\Auth;
+  use Core\HTML\Modals;
+  use App\Front\Models\Users;
+  use App\Composite\Factories\ModalsFactory;
 
 
   /**
@@ -22,7 +24,8 @@
      */
     public function __construct()
     {
-        parent::__construct();
+        // parent::__construct();
+
     }
 
     /**
@@ -32,9 +35,25 @@
      */
     public function indexAction()
     {
-        $v = new View('register');
+        $v = new View('users/register');
 
+        $user_form_factory = ModalsFactory::registerUserForm();
+        if(!empty($_SESSION['register'])) {
+          $user_form_factory['struct']['user_email']['value'] = $_SESSION['register']['user_email'];
+          $user_form_factory['struct']['username']['value'] = $_SESSION['register']['username'];
+          $user_form_factory['struct']['firstname']['value'] = $_SESSION['register']['firstname'];
+          $user_form_factory['struct']['lastname']['value'] = $_SESSION['register']['lastname'];
+        }
         
+        $user_form = Modals::generateForm($user_form_factory);
+
+        if(!empty($_SESSION['errors'])) {
+            $v->assign('errors', $_SESSION['errors']);
+        }
+
+        $v->assign('user_form', $user_form);
+        unset($_SESSION['register']);
+        unset($_SESSION['errors']);
     }
 
     /**
@@ -44,69 +63,85 @@
      */
     public function registerAction()
     {
-         $data = $_POST['data'] or $_REQUEST['data'];
-         $cleanedData = array_map("Helpers::cleanString", json_decode($data));
+
+         foreach ($_POST as $post => $value) {
+           $cleanedData[$post] = Helpers::cleanString($value);
+         }
 
          $user = new Users();
-         $_POST['errors'] = NULL;
+         $_SESSION['errors'] = NULL;
 
-         try {
-           $user->setEmail($cleanedData['email']);
-         } catch (\Exception $e) {
-           array_push($_POST['errors'], $e->getMessage());
+         $userExist = $user->userExist($cleanedData['username'], $cleanedData['user_email']);
+
+         if (!empty($userExist)) {
+            $_SESSION['errors'] = $userExist;
+            header('Location: '.BASE_URL.'register');
          }
 
          try {
-           $user->setPassword($cleanedData['password']);
+           $user->setEmail($cleanedData['user_email']);
          } catch (\Exception $e) {
-           array_push($_POST['errors'], $e->getMessage());
+           array_push($_SESSION['errors'], $e->getMessage());
+         }
+
+         try {
+           if($cleanedData['user_pwd'] === $cleanedData['user_pwd2'])
+              $user->setPassword($cleanedData['user_pwd']);
+         } catch (\Exception $e) {
+           array_push($_SESSION['errors'], $e->getMessage());
          }
 
          try {
            $user->setFirstname($cleanedData['firstname']);
          } catch (\Exception $e) {
-           array_push($_POST['errors'], $e->getMessage());
+           array_push($_SESSION['errors'], $e->getMessage());
          }
 
          try {
            $user->setLastname($cleanedData['lastname']);
          } catch (\Exception $e) {
-           array_push($_POST['errors'], $e->getMessage());
+           array_push($_SESSION['errors'], $e->getMessage());
          }
 
          try {
            $user->setUsername($cleanedData['username']);
          } catch (\Exception $e) {
-           array_push($_POST['errors'], $e->getMessage());
+           array_push($_SESSION['errors'], $e->getMessage());
          }
 
-         try {
-           $user->setPermission(0);
-         } catch (\Exception $e) {
-           array_push($_POST['errors'], $e->getMessage());
-         }
+
+          try {
+            $user->setRole_id(1);
+          } catch (\Exception $e) {
+            array_push($_SESSION['errors'], $e->getMessage());
+          }
+
 
          try {
            $user->setStatus(0);
          } catch (\Exception $e) {
-           array_push($_POST['errors'], $e->getMessage());
+           array_push($_SESSION['errors'], $e->getMessage());
          }
 
          try {
-           $user->save();
+           if($_SESSION['errors'] === NULL)
+                $user->save();
          } catch (\Exception $e) {
-           array_push($_POST['errors'], $e->getMessage());
+           array_push($_SESSION['errors'], $e->getMessage());
          }
 
          // If no error login and send him / her on the home page
-         if($_POST['errors'] === NULL)
+         if($_SESSION['errors'] === NULL)
          {
-            $auth = new DBAuth();
-            $auth->login($cleanedData['username'], $cleanedData['password']);
+            Auth::login($cleanedData['username'], $cleanedData['user_pwd']);
+            unset($_SESSION['register']);
             header('Location: '.BASE_URL);
          } else {
-            $_POST['data'] = $cleanedData;
-            header('Location: '.BASE_URL.'front/register');
+            $_SESSION['register']['user_email'] = $cleanedData['user_email'];
+            $_SESSION['register']['firstname'] = $cleanedData['firstname'];
+            $_SESSION['register']['lastname'] = $cleanedData['lastname'];
+            $_SESSION['register']['username'] = $cleanedData['username'];
+            header('Location: '.BASE_URL.'register');
          }
 
     }

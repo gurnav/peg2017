@@ -2,5 +2,5 @@
   RewriteEngine On
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /peg2017/index.php [L]
+  RewriteRule . /esgi-geographic/index.php [L]
 </IfModule>

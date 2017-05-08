@@ -51,12 +51,12 @@
               } else {
                   Helpers::log("A string bigger than 128 char for the name in ". get_class($this)
                       ." have been tried to inserted in the database");
-                  throw new Exception("Too big Name !");
+                  throw new \Exception("Too big Name !");
               }
           } else {
               Helpers::log("A not string variable for the name in ". get_class($this)
                   ." have been tried to inserted in the database");
-              throw new Exception("Not well formed Name ! It should be inferior than 128 characters");
+              throw new \Exception("Not well formed Name ! It should be inferior than 128 characters");
           }
       }
 
@@ -83,7 +83,7 @@
               $this->contents_id = $contents_id;
           } else {
               Helpers::log("A non integer type for a content_id in a menu have tried to be inserted in the database");
-              throw new Exception("You can't enter a non integer type for a content_id in a menu");
+              throw new \Exception("You can't enter a non integer type for a content_id in a menu");
           }
       }
       /**

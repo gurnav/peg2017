@@ -24,7 +24,7 @@
     {
         try {
             $this->setDb();
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             die("Error SQL : ".$e->getMessage());
         }
     }

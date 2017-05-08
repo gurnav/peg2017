@@ -2,13 +2,12 @@
 
   define("HOST", "localhost");
   define('DS', DIRECTORY_SEPARATOR);
-  define('PATH_RELATIVE', DS.'peg2017'.DS);
-  define('PATH_RELATIVE_PATTERN', '\/peg2017'.DS);
+  define('PATH_RELATIVE', DS.'esgi-geographic'.DS);
+  define('PATH_RELATIVE_PATTERN', '\/esgi-geographic'.DS);
 
-  // define("DB_NAME", "esgi-geographic");
   define("DB_NAME", "esgiGeographik");
   define("DB_USER", "root");
-  define("DB_PWD", "root");
+  define("DB_PWD", "");
   define("DB_HOST", HOST);
   define("DB_PORT", "3306");
   define("DB_DRIVER", "mysql");
