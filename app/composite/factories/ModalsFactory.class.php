@@ -77,5 +77,28 @@
       ];
     }
 
+    public static function getAddArticleForm(){
+        return [
+          "options" => [
+              "method"=>"POST",
+              "action"=>"",
+              "id"=>"add_article_form",
+              "enctype"=>"multipart/form-data",
+              "submit"=>"Create article"
+          ],
+          "struct" => [
+              "img"=>[ "label"=>"Choose your picture", "type"=>"file", "name"=>"img", "id"=>"img_add_article", "placeholder"=>"", "required"=>0, "msgerror"=>"" ],
+
+              "name"=>[ "label"=>"", "type"=>"text", "id"=>"name_add_article", "placeholder"=>"You need to make an existing user", "required"=>0, "errors_msg"=>"" ],
+
+              "title"=>[ "label"=>"", "type"=>"text", "id"=>"title_add_article", "placeholder"=>"Title of your article", "required"=>0, "errors_msg"=>"" ],
+
+              "category"=>[ "label"=>"", "type"=>"checkbox", "name"=>"", "id"=>"", "placeholder"=>"", "required"=>0, "msgerror"=>"" ],
+
+              "content"=>[ "label"=>"", "type"=>"textarea", "id"=>"content_add_article", "placeholder"=>"Description of your article", "required"=>0, "errors_msg"=>"" ]
+          ]
+        ];
+    }
+
 
   }

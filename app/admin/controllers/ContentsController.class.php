@@ -6,6 +6,8 @@
   use Core\Views\View;
   use Core\Util\Helpers;
   use App\Admin\Models\Contents;
+  use App\Composite\Factories\ModalsFactory;
+  use Core\HTML\Modals;
 
   class ContentsController extends Controller
   {
@@ -23,6 +25,14 @@
     public function addAction()
     {
         $v = new View('addContents');
+
+        //Formulaire d'ajout d'article
+        $content_form_factory = ModalsFactory::getAddArticleForm();
+
+        $content_form = Modals::generateForm($content_form_factory);
+
+        $v->assign("content_form_factory", $content_form_factory);
+        $v->assign('content_form', $content_form);
     }
 
     public function updateAction()
