@@ -94,14 +94,14 @@
             $result = $this->qb->prepare($request, $preparedTab, get_class($this), $one);
         } else {
             Helpers::log("The Object at ". ROOT . DS . $class . ".class.php doesn't exist.");
-            die("An error occured, please contact the site's admnistrator.");
+            throw new \Exception("An error occured, please contact the site's admnistrator.");
         }
         return $result;
     }
 
 
     /**
-     * Delete an entry from the databse that corresponf to the loaded model
+     * Delete an entry from the database that corresponf to the loaded model
      * @param id : Int the id of our data
      * @return void
      */
@@ -109,11 +109,11 @@
     {
         if ($this->getId() !== -1)
         {
-          $query = $this->qb->delete('*')->from($this->getTable())->where('id='.$this->getId());
+          $query = $this->qb->delete()->from($this->getTable())->where('id='.$this->getId());
           $this->qb->query($query, get_class($this), true);
         } else {
             Helpers::log("Impossible to delete the item => ".get_class($this).".");
-            die("Impossible to delete the item");
+            throw new \Exception("Impossible to delete the item");
         }
     }
 
