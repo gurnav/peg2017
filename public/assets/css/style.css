@@ -1,22 +1,22 @@
-*{
+* {
 	margin: 0;
 	padding: 0;
 	font-family: 'Lato', sans-serif;
 }
 
-img{
+img {
 	max-width: 100%;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 }
 
-table{
+table {
 	width: 100%;
 	border-collapse:collapse;
 }
 
-section{
+section {
 	display: block;
 	overflow: hidden;
 }
@@ -24,25 +24,25 @@ section{
 
 /* Header */
 
-.top_line{
+.top_line {
 	display: flex;
 	background: #1c1c4a;
 	justify-content: space-between;
 	padding: 1% 3%;
 }
 
-.top_line p{
+.top_line p {
 	vertical-align: middle;
 	color: white;
 	text-transform: uppercase;
 	padding: 0.5% 0%;
 }
 
-.top_line span{
+.top_line span {
 	color: #ffa31a;
 }
 
-.top_line button{
+.top_line button {
 	cursor: pointer;
 	vertical-align: middle;
 	color: white;
@@ -53,34 +53,34 @@ section{
 	text-transform: uppercase;
 }
 
-.top_line button:hover{
+.top_line button:hover {
 	color: #1c1c4a;
 	background: #ffffe6;
 	border: solid 1px #1c1c4a;
 }
 
-#burger_menu{
+#burger_menu {
 	display: none;
 }
 
-.nav_bar{
+.nav_bar {
 	display: block;
 	width: 20%;
 	float: left;
 }
 
-.nav_bar li{
+.nav_bar li {
 	list-style: none;
 }
 
-.nav_bar li i{
+.nav_bar li i {
 	width: 25%;
 	display: inline-block;
 	vertical-align: middle;
 	text-align: center;
 }
 
-.nav_bar li a{
+.nav_bar li a {
 	display: block;
 	text-decoration: none;
 	color: #bec1d0;
@@ -88,47 +88,50 @@ section{
 	border-left: solid 5px transparent;
 }
 
-.nav_bar li a span{
+.nav_bar li a span {
 	display: inline-block;
 	vertical-align: middle;
 	width: 75%;
 }
 
-.nav_bar li a:hover{
+.nav_bar li a:hover {
 	color: #ffa31a;
 	border-left: solid 5px #ffa31a;
 }
 
-.nav_bar li a.active {
+.nav_bar li a.active  {
 	color: #ffa31a;
 	border-left: solid 5px #ffa31a;
 }
 
 /* Loader */
 
-#loader {
-	position: fixed;
-	left: 0px;
-	top: 0px;
+#loader  {
+	margin: 0;
+	position: absolute;
+	left: 0;
+	top: 0;
 	width: 100%;
 	height: 100%;
 	z-index: 9999;
-	background: url('../img/loader.gif') 50% 50% no-repeat rgb(249,249,249);
+	background: url(../img/loader.gif) 50% 50% no-repeat rgba(249,249,249,0.8);
 }
 
 /* Index */
 
-.information_panel{
+.information_panel {
 	width: 80%;
 	float: right;
 	background: #eff3f6;
+	position: relative;
+	min-height: 100vh;
 }
 
-.information_panel div{
+.information_panel div {
 	overflow: auto;
 }
 
-.information_panel div h2{
+.information_panel div h2 {
 	display: block;
 	padding: 2% 3%;
 	color: #2f3b4c;
@@ -136,11 +139,11 @@ section{
 	font-size: 1.2rem;
 }
 
-.information_panel>div{
+.information_panel>div {
 	margin: 3%;
 }
 
-.information_panel .path{
+.information_panel .path {
 	font-size: 0.8rem;
 	color: #bec1d0;
 	background: #efedee;
@@ -148,7 +151,7 @@ section{
 	margin: 0%;
 }
 
-.information_panel .four_icon div{
+.information_panel .four_icon div {
 	width: 23.5%;
 	float: left;
 	margin-right: 2%;
@@ -157,24 +160,24 @@ section{
 	border-bottom: solid 1px rgba(200,200,200,0.75);
 }
 
-.information_panel .four_icon div:nth-child(1){
+.information_panel .four_icon div:nth-child(1) {
 	background: #ff3333;
 }
 
-.information_panel .four_icon div:nth-child(2){
+.information_panel .four_icon div:nth-child(2) {
 	background: #c653c6;
 }
 
-.information_panel .four_icon div:nth-child(3){
+.information_panel .four_icon div:nth-child(3) {
 	background: #ffa31a;
 }
 
-.information_panel .four_icon div:nth-child(4){
+.information_panel .four_icon div:nth-child(4) {
 	background: #00b33c;
 	margin-right: 0%;
 }
 
-.information_panel .four_icon div i{
+.information_panel .four_icon div i {
 	position: absolute;
 	color: white;
 	top: 7%;
@@ -182,7 +185,7 @@ section{
 	font-size: 1rem;
 }
 
-.information_panel .four_icon div h2{
+.information_panel .four_icon div h2 {
 	position: absolute;
 	color: rgba(255,255,255,0.8);
 	top: 20%;
@@ -194,14 +197,14 @@ section{
 	text-transform: uppercase;
 }
 
-.information_panel .four_icon div h2 span:nth-child(1){
+.information_panel .four_icon div h2 span:nth-child(1) {
 	display: block;
 	margin-bottom: 4%;
 	font-size: 2rem;
 	color: white;
 }
 
-.information_panel .four_icon div h2 span:nth-child(2){
+.information_panel .four_icon div h2 span:nth-child(2) {
 	display: block;
 	width: 35%;
 	margin: auto;
@@ -209,56 +212,56 @@ section{
 	border-bottom: solid 1px white;
 }
 
-.information_panel .stats_graph{
+.information_panel .stats_graph {
 	height: 300px;
 	background: white;
 	border-bottom: solid 1px rgba(200,200,200,0.75);
 }
 
-.information_panel .more_information div{
+.information_panel .more_information div {
 	width: 48%;
 	float: left;
 	background: white;
 	border-bottom: solid 1px rgba(200,200,200,0.75);
 }
 
-.information_panel .more_information div:nth-child(1){
+.information_panel .more_information div:nth-child(1) {
 	margin-right: 4%;
 }
 
-.information_panel .more_information div h2{
+.information_panel .more_information div h2 {
 	padding: 2% 6%;
 }
 
-.information_panel .more_information div .six_columns caption{
+.information_panel .more_information div .six_columns caption {
 	padding: 2% 6%;
 	font-size: 1.2rem;
 }
 
-.information_panel .more_information div .six_columns{
+.information_panel .more_information div .six_columns {
 	font-size: 0.8rem;
 }
 
-.information_panel .more_information div .six_columns thead tr th{
+.information_panel .more_information div .six_columns thead tr th {
 	padding: 1%;
 }
 
-.information_panel .more_information div .six_columns tbody tr td{
+.information_panel .more_information div .six_columns tbody tr td {
 	padding: 1%;
 }
 
-.information_panel .more_information div .six_columns tbody tr td button {
+.information_panel .more_information div .six_columns tbody tr td span  {
 	width: 90%;
 }
 
-.information_panel .more_information div .view_more{
+.information_panel .more_information div .view_more {
 	width: 30%;
 	font-size: 1rem;
 }
 
 /* Users */
 
-.information_panel .only_one{
+.information_panel .only_one {
 	width: 80%;
 	background: white;
 	margin-left: auto;
@@ -268,49 +271,59 @@ section{
 	border-bottom: solid 1px rgba(200,200,200,0.75);
 }
 
-.information_panel .six_columns{
+.information_panel .six_columns {
 	color: #2f3b4c;
 }
 
-.information_panel .six_columns caption{
+.information_panel .six_columns caption {
 	font-size: 2rem;
 	text-align: left;
 	padding: 3%;
 }
 
-.information_panel .six_columns thead{
+.information_panel .six_columns caption button {
+	background: none;
+	border: none;
+	float: right;
+	font-size: inherit;
+	color: #00b33c;
+	cursor: pointer;
+}
+
+.information_panel .six_columns thead {
 	background: #efedee;
 }
 
-.information_panel .six_columns thead tr{
+.information_panel .six_columns thead tr {
 	border-top: solid 1px rgba(200,200,200,0.75);
 	border-bottom: solid 1px rgba(200,200,200,0.75);
 }
 
-.information_panel .six_columns thead tr th{
+.information_panel .six_columns thead tr th {
 	padding: 2%;
 	text-align: left;
 }
 
-.information_panel .six_columns thead tr .important_one{
+.information_panel .six_columns thead tr .important_one {
 	width: 30%;
 }
 
-.information_panel .six_columns tbody{
+.information_panel .six_columns tbody {
 
 }
 
-.information_panel .six_columns tbody tr{
+.information_panel .six_columns tbody tr {
 	border-top: solid 1px rgba(200,200,200,0.75);
 	border-bottom: solid 1px rgba(200,200,200,0.75);
 }
 
-.information_panel .six_columns tbody tr td{
+.information_panel .six_columns tbody tr td {
 	padding: 2%;
 	text-align: left;
+	position: relative;
 }
 
-.information_panel .six_columns tbody tr td button{
+.information_panel .six_columns tbody tr td span {
 	padding: 5%;
 	color: white;
 	width: 60%;
@@ -319,17 +332,40 @@ section{
 	border: none;
 }
 
-.information_panel .six_columns tbody tr td .pending{
+.information_panel .six_columns tbody tr td .pending {
 	background: #ffa31a;
 }
-.information_panel .six_columns tbody tr td .done{
+
+.information_panel .six_columns tbody tr td .done {
 	background: #00b33c;
 }
-.information_panel .six_columns tbody tr td .rejected{
+
+.information_panel .six_columns tbody tr td .rejected {
 	background: #ff3333;
 }
 
-.information_panel .view_more{
+.information_panel .six_columns tbody tr td button  {
+	background: none;
+	border: none;
+	font-size: inherit;
+	position: absolute;
+	cursor: pointer;
+}
+
+.information_panel .six_columns tbody tr td button:nth-child(2)  {
+	color: #ffa31a;
+	right: 20%;
+	top: 35%;
+}
+
+.information_panel .six_columns tbody tr td button:nth-child(3)  {
+	color: #ff3333;
+	right: 5%;
+	top: 35%;
+}
+
+
+.information_panel .view_more {
 	margin: 2% auto;
 	width: 30%;
 	color: white;
@@ -339,29 +375,40 @@ section{
 	padding: 2%;
 	display: block;
 	font-size: 1.2rem;
+	cursor: pointer;
 }
 
 /* Medias */
 
-.information_panel .all_icon{
+.information_panel .all_icon {
 	margin-left: 0;
 	margin-right: 2%;
 }
 
-.information_panel .all_icon h1{
+.information_panel .all_icon h1 {
 	font-weight: normal;
 	margin-top: 3%;
 	margin-bottom: 2%;
 	margin-left: 2%;
 }
 
-.information_panel .all_icon h1 span{
+.information_panel .all_icon h1 span {
 	padding: 0 3%;
 	color: #ffa31a;
 	border-left: solid 5px #ffa31a;
 }
 
-.information_panel .all_icon div{
+.information_panel .all_icon h1 button  {
+    background: none;
+    border: none;
+    float: right;
+    font-size: inherit;
+    color: #00b33c;
+    cursor: pointer;
+    margin-right: 5%;
+}
+
+.information_panel .all_icon div {
 	width: 23%;
 	float: left;
 	margin-left: 2%;
@@ -372,7 +419,7 @@ section{
 	border-bottom: solid 1px rgba(200,200,200,0.75);
 }
 
-.information_panel .all_icon div i{
+.information_panel .all_icon div i {
 	position: absolute;
 	color: white;
 	top: 7%;
@@ -380,7 +427,7 @@ section{
 	font-size: 1rem;
 }
 
-.information_panel .all_icon div h2{
+.information_panel .all_icon div h2 {
 	position: absolute;
 	color: rgba(255,255,255,0.8);
 	top: 30%;
@@ -391,7 +438,7 @@ section{
 	text-transform: uppercase;
 }
 
-.information_panel .all_icon div h2 span{
+.information_panel .all_icon div h2 span {
 	display: block;
 	width: 35%;
 	margin: auto;
@@ -401,26 +448,26 @@ section{
 
 /* stats */
 
-.information_panel .statistics{
+.information_panel .statistics {
 	height: 350px;
 	background: white;
 }
 
 /* connexion */
 
-.connexion_back{
+.connexion_back {
 	width: 100%;
 	color: #2f3b4c;
 }
 
-.connexion_back div{
+.connexion_back div {
 	width: 40%;
 	margin: 10% auto;
 	background: #f7f7f7;
 	border: solid 1px rgba(200,200,200,0.75);
 }
 
-.connexion_back div h2{
+.connexion_back div h2 {
 	margin: 5% 0;
 	padding: 2% 5%;
 	color: white;
@@ -428,11 +475,11 @@ section{
 	text-transform: uppercase;
 }
 
-.connexion_back div form input{
+.connexion_back div form input {
 	font-size: 1.2rem;
 }
 
-.connexion_back div form div input{
+.connexion_back div form div input {
 	padding-top: 2%;
 	padding-bottom: 2%;
 	padding-left: 10%;
@@ -441,7 +488,7 @@ section{
 	width: 90%;
 }
 
-.connexion_back div form div{
+.connexion_back div form div {
 	width: 80%;
 	margin: 5% auto;
 	position: relative;
@@ -449,7 +496,7 @@ section{
 	border-radius: 2px;
 }
 
-.connexion_back div form div i{
+.connexion_back div form div i {
 	font-size: 1.2rem;
 	position: absolute;
 	top: 0;
@@ -459,7 +506,7 @@ section{
 	padding-left: 2%;
 }
 
-.connexion_back div form input:nth-child(3){
+.connexion_back div form input:nth-child(3) {
 	display: block;
 	width: 50%;
 	padding: 2%;
@@ -473,35 +520,31 @@ section{
 
 /* Responsive Little screen */
 
-@media(max-width: 1050px){
+@media(max-width: 1050px) {
 
-	.information_panel .more_information div:nth-child(1) {
+	.information_panel .more_information div:nth-child(1)  {
 		margin-right: 0;
 		margin-bottom: 3%;
 	}
-	.information_panel .more_information div {
+	.information_panel .more_information div  {
 		width: 100%;
 	}
 
-	.information_panel .all_icon div {
+	.information_panel .all_icon div  {
 		width: 48%;
 	}
 
-	.information_panel .six_columns {
+	.information_panel .six_columns  {
 		font-size: 0.8rem;
-	}
-
-	.information_panel .six_columns tbody tr td button {
-		width: 80%;
 	}
 
 }
 
 /* Responsive Tablet */
 
-@media(max-width: 800px){
+@media(max-width: 800px) {
 
-	#burger_menu{
+	#burger_menu {
 		display: block;
 		background: white;
 		text-align: center;
@@ -509,11 +552,12 @@ section{
 		color: #bec1d0;
 	}
 
-	.on{
+	.on {
 		color: #ffa31a !important;
+		background: #efedee !important;
 	}
 
-	.nav_bar{
+	.nav_bar {
 		display: block;
 		height: inherit;
 		width: 100%;
@@ -524,54 +568,50 @@ section{
 		z-index: 999;
 		background: white;
 	}
-	.nav_bar li a {
+	.nav_bar li a  {
 		padding: 3% 0%;
 	}
 
-	.open{
+	.open {
 		-webkit-transform: translate3d(0,0,0) !important;
 		transform: translate3d(0,0,0) !important;
 	}
 
-	.information_panel{
+	.information_panel {
 		width: 100%;
 	}
 
-	.information_panel .four_icon div{
+	.information_panel .four_icon div {
 		width: 48%;
 		margin-right: 4%;
 	}
 
-	.information_panel .four_icon div:nth-child(1){
+	.information_panel .four_icon div:nth-child(1) {
 		margin-bottom: 3%;
 	}
 
-	.information_panel .four_icon div:nth-child(2){
+	.information_panel .four_icon div:nth-child(2) {
 		margin-bottom: 3%;
 		margin-right: 0%;
 	}
 
-	.information_panel .four_icon div:nth-child(4){
+	.information_panel .four_icon div:nth-child(4) {
 		margin-right: 0%;
 	}
 
-	.information_panel .only_one {
+	.information_panel .only_one  {
 		width: 95%;
 	}
 
-	.information_panel .six_columns thead tr th {
+	.information_panel .six_columns thead tr th  {
 		padding: 1%;
 	}
 
-	.information_panel .six_columns tbody tr td {
+	.information_panel .six_columns tbody tr td  {
 		padding: 1%;
 	}
 
-	.information_panel .six_columns tbody tr td button {
-		width: 100%;
-	}
-
-	.connexion_back div{
+	.connexion_back div {
 		width: 60%;
 		margin: 15% auto;
 	}
@@ -579,44 +619,43 @@ section{
 
 /* Responsive Phone */
 
-@media (max-width: 450px){
+@media (max-width: 450px) {
 
-	.information_panel .four_icon div {
+	.information_panel .four_icon div  {
 		width: 100%;
 		margin-right: 0;
 	}
 
-	.information_panel .four_icon div:nth-child(3) {
+	.information_panel .four_icon div:nth-child(3)  {
 		margin-bottom: 3%;
 	}
 
-	.information_panel .all_icon div {
+	.information_panel .all_icon div  {
 		width: 98%;
 	}
 
-	.information_panel .more_information div .six_columns {
+	.information_panel .more_information div .six_columns  {
 		font-size: 0.6rem;
 	}
 
-	.information_panel .more_information div .six_columns tbody tr td button {
-		width: 100%;
-	}
-
-	.information_panel .more_information div .view_more {
+	.information_panel .more_information div .view_more  {
 		width: 50%;
 	}
 
-	.information_panel .six_columns {
+	.information_panel .six_columns  {
 		font-size: 0.6rem;
 	}
 
-	.information_panel .view_more {
+	.information_panel .six_columns caption {
+		font-size: 1.5rem;
+	}
+
+	.information_panel .view_more  {
 		width: 50%;
 	}
 
-	.connexion_back div{
+	.connexion_back div {
 		width: 90%;
-		margin: 10% auto;
 	}
 
 }
