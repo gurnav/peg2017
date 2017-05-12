@@ -77,26 +77,23 @@
       ];
     }
 
-    public static function getAddArticleForm(){
+    public static function getAddContentForm(){
         return [
           "options" => [
               "method"=>"POST",
-              "action"=>"",
-              "id"=>"add_article_form",
+              "action"=>"content/add",
+              "id"=>"add_content_form",
               "enctype"=>"multipart/form-data",
-              "submit"=>"Create article"
+              "submit"=>"Create Content"
           ],
           "struct" => [
-              "img"=>[ "label"=>"Choose your picture", "type"=>"file", "name"=>"img", "id"=>"img_add_article", "placeholder"=>"", "required"=>0, "msgerror"=>"" ],
+              "status"=>[ "label"=>"Choose status", "type"=>"checkbox", "name"=>"status", "id"=>"add_status", "placeholder"=>"", "required"=>0, "msgerror"=>"" ],
 
-              "name"=>[ "label"=>"", "type"=>"text", "id"=>"name_add_article", "placeholder"=>"You need to make an existing user", "required"=>0, "errors_msg"=>"" ],
-
-              "title"=>[ "label"=>"", "type"=>"text", "id"=>"title_add_article", "placeholder"=>"Title of your article", "required"=>0, "errors_msg"=>"" ],
+              "title" => ["label"=>"Title here", "type" => "text", "name" => "contentTitle", "required" => "required", "placeholder" => "Insert your title here" ]],
 
               "category"=>[ "label"=>"", "type"=>"checkbox", "name"=>"", "id"=>"", "placeholder"=>"", "required"=>0, "msgerror"=>"" ],
 
               "content"=>[ "label"=>"", "type"=>"textarea", "id"=>"content_add_article", "placeholder"=>"Description of your article", "required"=>0, "errors_msg"=>"" ]
-          ]
         ];
     }
 
