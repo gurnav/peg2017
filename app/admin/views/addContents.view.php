@@ -20,10 +20,12 @@
                 <?php endif; ?>
 
                 <?php if($attribute['type'] === 'checkbox'): ?>
-                    <?php for($i = 0; $i < 3; $i += 1): ?>
-                        <?php if($i === 0) { $value = "foo"; } if($i === 1) { $value = "foo"; } if($i === 2) { $value = "foo"; } ?>
-                            <input type="<?php $attribute['type'] ?>" name="vehicle" value="<?php echo $value?>"><br>
-                    <?php endfor; ?>
+                    <?php foreach ($attribute['value'] as $value => $checked): ?>
+                        <input
+                        type="<?php echo $attribute['type']; ?>" name="<?php echo $name; ?>"
+                        value="<?php echo $value; ?>" <?php if($checked === true) echo "checked"; ?>
+                        ><?php echo $value; ?><br>
+                    <?php endforeach; ?>
                 <?php endif; ?>
             <?php endforeach; ?>
         </form>

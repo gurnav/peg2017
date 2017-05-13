@@ -32,6 +32,7 @@
 
         $v->assign("content_form_factory", $content_form_factory);
 
+        $v = new View('users/add_user');
     }
 
     public function updateAction()

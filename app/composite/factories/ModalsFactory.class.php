@@ -77,15 +77,15 @@
       ];
     }
 
-    public static function getAddContentForm()
+    public static function getAddContentForm($content)
     {
         return [
             "options" => [
                 "method" => "POST",
-                "action" => "content/add",
+                "action" => "content/add/".$content,
                 "id" => "add_content_form",
                 "enctype" => "multipart/form-data",
-                "submit" => "Create Content"
+                "submit" => "Add Content"
             ],
             "struct" => [
                 "status" => ["label" => "Choose status", "type" => "checkbox", "name" => "status", "id" => "add_status", "placeholder" => "", "required" => 0, "msgerror" => ""],
