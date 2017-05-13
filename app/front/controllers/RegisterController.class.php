@@ -44,7 +44,7 @@
           $user_form_factory['struct']['firstname']['value'] = $_SESSION['register']['firstname'];
           $user_form_factory['struct']['lastname']['value'] = $_SESSION['register']['lastname'];
         }
-        
+
         $user_form = Modals::generateForm($user_form_factory);
 
         if(!empty($_SESSION['errors'])) {
@@ -69,7 +69,7 @@
          }
 
          $user = new Users();
-         $_SESSION['errors'] = NULL;
+         $_SESSION['errors'] = [];
 
          $userExist = $user->userExist($cleanedData['username'], $cleanedData['user_email']);
 
@@ -124,14 +124,14 @@
          }
 
          try {
-           if($_SESSION['errors'] === NULL)
+           if(empty($_SESSION['errors']))
                 $user->save();
          } catch (\Exception $e) {
            array_push($_SESSION['errors'], $e->getMessage());
          }
 
          // If no error login and send him / her on the home page
-         if($_SESSION['errors'] === NULL)
+         if(empty($_SESSION['errors']))
          {
             Auth::login($cleanedData['username'], $cleanedData['user_pwd']);
             unset($_SESSION['register']);
