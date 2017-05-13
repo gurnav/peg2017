@@ -63,7 +63,7 @@
       if(empty($result)) {
         return False;
       } else {
-        return 'This email is already taken';
+        return True;
       }
     }
 

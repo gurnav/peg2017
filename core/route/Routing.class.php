@@ -130,9 +130,9 @@
     }
 
     /**
-    * Send a Forbiden page
-    * @return void
-    */
+     * Send a Forbiden page
+     * @return void
+     */
     public static function forbidden()
     {
         header('HTTP/1.1 403 Forbidden');
@@ -140,9 +140,9 @@
     }
 
     /**
-    * Send a notFound page
-    * @return void
-    */
+     * Send a notFound page
+     * @return void
+     */
     public static function notFound()
     {
         header('HTTP/1.1 404 Not Found');
