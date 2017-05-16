@@ -76,52 +76,108 @@
         ]
       ];
     }
-
     public static function getAddContentForm($content)
     {
         return [
             "options" => [
                 "method" => "POST",
-                "action" => "content/add/".$content,
+                "action" => BASE_URL."admin/content/add/".$content,
                 "id" => "add_content_form",
                 "enctype" => "multipart/form-data",
                 "submit" => "Add Content"
             ],
             "struct" => [
-                "status" => ["label" => "Choose status", "type" => "checkbox", "name" => "status", "id" => "add_status", "placeholder" => "", "required" => 0, "msgerror" => ""],
+                "status" => ["label" => "Choose status", "type" => "text", "name" => "status", "id" => "add_status", "placeholder" => "status", "required" => 0, "msgerror" => ""],
 
                 "title" => ["label" => "Title here", "type" => "text", "name" => "contentTitle", "required" => "required", "placeholder" => "Insert your title here"]],
 
-            "category" => ["label" => "", "type" => "checkbox", "name" => "", "id" => "", "placeholder" => "", "required" => 0, "msgerror" => ""],
+            "category" => ["label" => "", "type" => "text", "name" => "", "id" => "", "placeholder" => "", "required" => 0, "msgerror" => "category"],
 
-            "content" => ["label" => "", "type" => "textarea", "id" => "content_add_article", "placeholder" => "Description of your article", "required" => 0, "errors_msg" => ""]
+            "content" => ["label" => "", "type" => "text", "id" => "content_add_article", "placeholder" => "Description of your article", "required" => 0, "errors_msg" => ""]
         ];
     }
+
+      public static function getUpdateContentForm($content)
+      {
+          return [
+              "options" => [
+                  "method"=>"POST",
+                  "action"=>BASE_URL."admin/content/doUpdate/".$content,
+                  "id"=>"add_content_form",
+                  "enctype"=>"multipart/form-data",
+                  "submit"=>"Update Content"
+              ],
+              "struct" => [
+                  "status"=>["label"=>"The status : ", "type"=>"text", "placeholder"=>"Firstname", "required"=>"required" ],
+
+                  "title"=>["label"=>"The title : ", "type"=>"text", "placeholder"=>"Title", "required"=>"required" ],
+
+                  "category"=>[ "label"=>"The username : ", "type"=>"text", "placeholder"=>"Username", "required"=>"required" ],
+
+                  "content"=>[ "label"=>"The content : ", "type"=>"text", "placeholder"=>"Content", "required"=>"required" ],
+              ]
+          ];
+      }
 
     public static function adminAddUserForm($user)
     {
       return [
         "options" => [
           "method"=>"POST",
-          "action"=>"admin/doUpdate/".$user,
+          "action"=>BASE_URL."admin/users/doAdd".$user,
           "id"=>"admin_register_user",
           "enctype"=>"multipart/form-data",
           "submit"=>"Add User"
           ],
         "struct" => [
-          "firstname"=>["label"=>"The firstname : ", "type"=>"text", "placeholder"=>"Firstname", "required"=>"required", "msgerror"=>""],
+          "firstname"=>["label"=>"The firstname : ", "type"=>"text", "placeholder"=>"Firstname", "required"=>"required" ],
 
-          "lastname"=>["label"=>"The lastname : ", "type"=>"text", "placeholder"=>"Lastname", "required"=>"required", "msgerror"=>""],
+          "lastname"=>["label"=>"The lastname : ", "type"=>"text", "placeholder"=>"Lastname", "required"=>"required" ],
 
-          "username"=>[ "label"=>"The username : ", "type"=>"text", "placeholder"=>"Username", "required"=>"required", "msgerror"=>"" ],
+          "username"=>[ "label"=>"The username : ", "type"=>"text", "placeholder"=>"Username", "required"=>"required" ],
 
-          "user_email"=>[ "label"=>"The Email : ", "type"=>"email", "placeholder"=>"Email", "required"=>"required", "errors_msg"=>"" ],
+          "user_email"=>[ "label"=>"The Email : ", "type"=>"email", "placeholder"=>"Email", "required"=>"required" ],
 
-          "user_pwd"=>[ "label"=>"The Password : ", "type"=>"password", "placeholder"=>"Password", "required"=>"required", "errors_msg"=>"" ],
+          "user_pwd"=>[ "label"=>"The Password : ", "type"=>"password", "placeholder"=>"Password", "required"=>"required" ],
 
-          "user_pwd2"=>[ "label"=>"Confirm The password : ", "type"=>"password", "placeholder"=>"Confirm password", "required"=>"required", "errors_msg"=>"" ],
+          "user_pwd2"=>[ "label"=>"Confirm The password : ", "type"=>"password", "placeholder"=>"Confirm password", "required"=>"required" ],
 
-          "user_rights"=>["label"=>"Rights of the user", "type"=>"checkbox", "required"=>"required", "value"=>["User"=>true, "Writer"=>false, "Admin"=>false]],
+          "user_rights"=>["label"=>"Rights of the user", "type"=>"radio", "required"=>"required", "value"=>["User"=>1, "Writer"=>2, "Admin"=>3], "checked"=>1 ],
+
+          "user_status"=>["label"=>"Status of the user", "type"=>"radio", "required"=>"required", "value"=>["Pending"=>0, "Rejected"=>-1, "Validated"=>1], "checked"=>0 ],
+
+          "user_img"=>[ "label"=>"Choose The avatar : ", "type"=>"file", "required"=>"required", "msgerror"=>"" ]
+        ]
+      ];
+    }
+
+
+    public static function adminUpdateUserForm($user)
+    {
+      return [
+        "options" => [
+          "method"=>"POST",
+          "action"=>BASE_URL."admin/users/doUpdate/".$user,
+          "id"=>"admin_register_user",
+          "enctype"=>"multipart/form-data",
+          "submit"=>"Update User"
+          ],
+        "struct" => [
+          "firstname"=>["label"=>"The firstname : ", "type"=>"text", "placeholder"=>"Firstname", "required"=>"required" ],
+
+          "lastname"=>["label"=>"The lastname : ", "type"=>"text", "placeholder"=>"Lastname", "required"=>"required" ],
+
+          "username"=>[ "label"=>"The username : ", "type"=>"text", "placeholder"=>"Username", "required"=>"required" ],
+
+          "user_email"=>[ "label"=>"The Email : ", "type"=>"email", "placeholder"=>"Email", "required"=>"required"  ],
+
+          // "user_pwd"=>[ "label"=>"The Password : ", "type"=>"password", "placeholder"=>"Password", "required"=>"required" ],
+
+          // "user_pwd2"=>[ "label"=>"Confirm The password : ", "type"=>"password", "placeholder"=>"Confirm password", "required"=>"required" ],
+
+          "user_rights"=>["label"=>"Rights of the user : ", "type"=>"radio", "required"=>"required", "value"=>["User"=>1, "Writer"=>2, "Admin"=>3] ],
+
+          "user_status"=>["label"=>"Status of the user : ", "type"=>"radio", "required"=>"required", "value"=>["Pending"=>0, "Rejected"=>-1, "Validated"=>1] ],
 
           "user_img"=>[ "label"=>"Choose The avatar : ", "type"=>"file", "required"=>"required", "msgerror"=>"" ],
         ]

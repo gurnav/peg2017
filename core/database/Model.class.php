@@ -50,18 +50,18 @@
                 $sqlCol .= ','.$column;
                 $sqlKey .= ',:'.$column;
             }
-            $query = $this->getDb()->prepare('INSERT INTO '. $this->getTable(). '('.
-              trim($sqlCol, ','). ') VALUES ( '. trim($sqlKey, ',') . ');');
+            $query = $this->getDb()->prepare("INSERT INTO ".$this->getTable()."(".
+              trim($sqlCol, ", "). ") VALUES ( ".trim($sqlKey, ", ").");");
             $query->execute($data);
         } else {
           // If in the database Update it
             $sqlCol = null;
             foreach ($this->getColumns() as $column => $value) {
-              $data[$column] = $this->$column;
-              $sqlCol[] .= $column.':='.$column;
+              $data[":".$column] = $this->$column;
+              $sqlCol[] .= $column." = :".$column;
             }
-            $query = $this->getDb()->prepare('UPDATE '. $this->getTable(). ' SET ('.
-              implode(',', $sqlCol). ') WHERE ( id=:id );');
+            $query = $this->getDb()->prepare("UPDATE ".$this->getTable()." SET ".
+              implode(", ", $sqlCol)." WHERE id = :id ;");
             $query->execute($data);
         }
       } catch (\Exception $e) {

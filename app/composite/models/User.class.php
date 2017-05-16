@@ -269,4 +269,48 @@
           return $this->status;
       }
 
+
+
+      /**
+       * Function to check if an username already exist for an user in the database
+       * @param String : $username The username to be checked
+       * @param String : $email The email to be checked
+       * @return String : $error return the error, False instead
+       */
+      protected function usernameExist($username)
+      {
+        $query = $this->qb->select('username')
+                ->from($this->getTable())
+                ->where('username=:username');
+
+
+        $preparedQuery = [':username' => $username];
+        $result = $this->qb->prepare($query, $preparedQuery, null, true);
+
+        if(empty($result)) {
+          return False;
+        } else {
+          return True;
+        }
+      }
+
+      /**
+       * Function to check if an user already exist in the database
+       * Basically a wrapper around usernameExist and emailExist
+       * @param String : $username The username to be checked
+       * @param String : $email The email to be checked
+       * @return Array : $errors Return of errors, False instead
+       */
+      public function userExist($username, $email)
+      {
+        $errors = [];
+        if($this->usernameExist($username)) {
+          array_push($errors, 'This username is already taken');
+        }
+        if($this->emailExist($email)) {
+          array_push($errors, 'This email is already taken');
+        }
+        return $errors;
+      }
+
   }
