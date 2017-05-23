@@ -31,12 +31,13 @@
      */
     public function login($username, $password)
     {
-        $query = $this->qb->select('username', 'password')->from(DB_PREFIX.'users')->where('username = :username');
+        $query = $this->qb->select('id', 'username', 'password')->from(DB_PREFIX.'users')->where('username = :username');
         $user = $this->qb->prepare($query, [':username' => $username], null, true);
 
         if (!empty($user)) {
           if (password_verify($password, $user->password)) {
             session_regenerate_id(true); // Protection against Session Steal
+            $_SESSION['id'] = $user->id;
             $_SESSION['user'] = $user->username;
             return TRUE;
           }
@@ -53,13 +54,14 @@
      */
     public function adminLogin($username, $password)
     {
-        $query = $this->qb->select('username', 'password', 'rights')->from(DB_PREFIX.'users')->where('username = :username');
+        $query = $this->qb->select('id', 'username', 'password', 'rights')->from(DB_PREFIX.'users')->where('username = :username');
         $user = $this->qb->prepare($query, [':username' => $username], null, true);
 
         if (!empty($user)) {
           if (password_verify($password, $user->password)) {
             if($user->rights == 3) {
               session_regenerate_id(true); // Protection against Session Steal
+              $_SESSION['id'] = $user->id;
               $_SESSION['admin'] = $user->username;
               return 0;
             } else {
@@ -77,7 +79,7 @@
      * Check if the user is connected or not
      * @return connected : Boolean
      */
-    public function isLogged()
+    public static function isLogged()
     {
         return isset($_SESSION['user']);
     }
@@ -86,7 +88,7 @@
      * Check if the admin is connected or not
      * @return connected : Boolean
      */
-    public function isAdminLogged()
+    public static function isAdminLogged()
     {
         return isset($_SESSION['admin']);
     }

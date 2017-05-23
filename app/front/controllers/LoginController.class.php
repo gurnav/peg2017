@@ -7,6 +7,7 @@
   use Core\Util\Helpers;
   use Core\Facades\Auth;
   use Core\Facades\Query;
+  use Core\Route\Routing;
   use Core\HTML\Modals;
   use App\Front\Models\Users;
   use App\Composite\Factories\ModalsFactory;
@@ -70,7 +71,7 @@
            $user->populate(['username' => $cleanedData['username']]);
            unset($_SESSION['login']);
            $_SESSION['user'] = $cleanedData['username'];
-           header('Location: '.BASE_URL);
+           Routing::index();
          } else {
             $_SESSION['login']['username'] = $cleanedData['username'];
             $_SESSION['login']['error'] = 'Username or password invalid';
@@ -86,7 +87,7 @@
     public function logoutAction()
     {
           Auth::disconnect();
-          header('Location: '.BASE_URL);
+          Routing::index();
     }
 
   }
