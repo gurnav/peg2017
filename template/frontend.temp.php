@@ -15,6 +15,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
   </head>
+
+  <noscript>JavaScript is Disabled. Please put it on.</noscript>
+
   <body>
 
     <?php include 'app'.DS.App::$prefix.DS.'views'.DS.$this->view.'.view.php'; ?>

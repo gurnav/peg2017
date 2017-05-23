@@ -1,7 +1,7 @@
   <header>
     <div class="top_line">
       <p>Welcome <span><?php echo $_SESSION['admin']; ?></span></p>
-      <a href="<?php echo BASE_URL.'admin/login/logout'; ?>"><button>Logout</button></a>
+      <a href="<?php echo BASE_URL.'admin/login/logout'; ?>"><button>log<i class="fa fa-power-off" aria-hidden="true"></i>ut</button></a>
     </div>
     <div id="burger_menu">≡</div>
     <nav id="nav_bar" class="nav_bar">
@@ -60,7 +60,7 @@
                   echo "<td><span class=".$status.">".ucfirst($status)."</span>";
                ?>
                <a href="<?php echo BASE_URL.'admin/users/update/'.$user['username']; ?>"><button title="Modify"><i class="fa fa-cogs" aria-hidden="true"></i></button></a>
-               <a href="<?php echo BASE_URL.'admin/users/delete/'.$user['username']; ?>"><button title="Delete"><i class="fa fa-times" aria-hidden="true"></i></button></a>
+               <button class="Delete" title="Delete" value="<?php echo BASE_URL.'admin/users/delete/'.$user['username']; ?>"><i class="fa fa-times" aria-hidden="true"></i></button>
              </td>
             </tr>
         <?php endforeach ?>
