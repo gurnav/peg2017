@@ -76,24 +76,26 @@
         ]
       ];
     }
-    public static function getAddContentForm($content)
+
+    public static function getAddContentForm()
     {
         return [
             "options" => [
                 "method" => "POST",
-                "action" => BASE_URL."admin/content/add/".$content,
-                "id" => "add_content_form",
+                "action" => BASE_URL."admin/contents/doAdd/",
+                "id" => "admin_register_content",
                 "enctype" => "multipart/form-data",
                 "submit" => "Add Content"
             ],
             "struct" => [
                 "status" => ["label" => "Choose status", "type" => "text", "name" => "status", "id" => "add_status", "placeholder" => "status", "required" => 0, "msgerror" => ""],
 
-                "title" => ["label" => "Title here", "type" => "text", "name" => "contentTitle", "required" => "required", "placeholder" => "Insert your title here"]],
+                "title" => ["label" => "Title here", "type" => "text", "name" => "contentTitle", "required" => "required", "placeholder" => "Insert your title here"],
 
-            "category" => ["label" => "", "type" => "text", "name" => "", "id" => "", "placeholder" => "", "required" => 0, "msgerror" => "category"],
+                "category" => ["label" => "The category", "type" => "text", "name" => "", "id" => "", "placeholder" => "", "required" => 0, "msgerror" => "category"],
 
-            "content" => ["label" => "", "type" => "text", "id" => "content_add_article", "placeholder" => "Description of your article", "required" => 0, "errors_msg" => ""]
+                "content" => ["label" => "The content", "type" => "text", "id" => "content_add_article", "placeholder" => "Description of your article", "required" => 0, "errors_msg" => ""]
+            ]
         ];
     }
 
@@ -102,8 +104,8 @@
           return [
               "options" => [
                   "method"=>"POST",
-                  "action"=>BASE_URL."admin/content/doUpdate/".$content,
-                  "id"=>"add_content_form",
+                  "action"=>BASE_URL."admin/contents/doUpdate/".$content,
+                  "id"=>"admin_register_content",
                   "enctype"=>"multipart/form-data",
                   "submit"=>"Update Content"
               ],
@@ -112,19 +114,19 @@
 
                   "title"=>["label"=>"The title : ", "type"=>"text", "placeholder"=>"Title", "required"=>"required" ],
 
-                  "category"=>[ "label"=>"The username : ", "type"=>"text", "placeholder"=>"Username", "required"=>"required" ],
+                  "category"=>[ "label"=>"The Category : ", "type"=>"text", "placeholder"=>"Category", "required"=>"required" ],
 
                   "content"=>[ "label"=>"The content : ", "type"=>"text", "placeholder"=>"Content", "required"=>"required" ],
               ]
           ];
       }
 
-    public static function adminAddUserForm($user)
+    public static function adminAddUserForm()
     {
       return [
         "options" => [
           "method"=>"POST",
-          "action"=>BASE_URL."admin/users/doAdd".$user,
+          "action"=>BASE_URL."admin/users/doAdd",
           "id"=>"admin_register_user",
           "enctype"=>"multipart/form-data",
           "submit"=>"Add User"

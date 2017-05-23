@@ -33,8 +33,8 @@
      * Constructor of the Contents model class
      * @return Void
      */
-    public function __construct($id=-1, $title=null, $content=null, $status='0',
-    $type='Page', $isCommentable='0', $isLikeable='0', $categories_id=-1, $users_id=-1)
+    public function __construct($id=-1, $title='', $content='', $status='0',
+    $type='page', $isCommentable='0', $isLikeable='0', $categories_id=-1, $users_id=-1)
     {
       parent::__construct();
 
@@ -141,6 +141,24 @@
       return $this->status;
     }
 
+
+      /**
+       * Simple setter of the type
+       * Check if the type respect the integrity of the database
+       * So whetever it's a Boolean or not
+       * @param string : $type The type to be set
+       * @return Void
+       */
+      public function setType($type)
+      {
+          if($type == "news" || $type == "page" || $type == "article") {
+              $this->type = $type;
+          } else {
+              Helpers::log("A non string type for a content type have tried to be inserted in the DB");
+              throw new \Exception("You can't enter a content type");
+          }
+      }
+
     /**
      * Simple type getter
      * @return String $type The type of the content (News, Page, Article)
@@ -213,7 +231,7 @@
     {
       if(is_int($categoriesId))
       {
-        $this->categories_id = $categories_id;
+        $this->categories_id = $categoriesId;
       } else {
         Helpers::log("A non integer type for a categories id in a content have tried to be inserted in the DB");
         throw new \Exception("You can't enter a non integer type for a categories id of a content");
@@ -227,6 +245,19 @@
     public function getCategories_id()
     {
       return $this->categories_id;
+    }
+
+
+    public function getCategoryNameById() {
+        $query = "SELECT name from ".DB_PREFIX."categories WHERE id = ".$this->getCategories_id();
+        $category_name = $this->qb->query($query, null, true);
+        return $category_name->name;
+    }
+
+    public function getCategoryIdByName() {
+      $query = "SELECT id from ".DB_PREFIX."categories WHERE name = ".$this->getCategories_id();
+      $content_id = $this->qb->query($query, null, true);
+      return $content_id->id;
     }
 
 

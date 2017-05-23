@@ -23,25 +23,27 @@
 
     <div class="only_one">
         <table class="six_columns">
-            <caption>Pages &amp; Articles</caption>
+            <caption>Pages &amp; Articles<a href="<?php echo BASE_URL.'admin/contents/add'; ?>"><button title="Create content"><i class="fa fa-plus-circle" aria-hidden="true"></i></button></a></caption>
             <thead>
             <tr>
                 <th>Id</th>
                 <th>Title</th>
-                <th>type</th>
-                <th>Author</th>
+                <th>Type</th>
+                <th>Content</th>
                 <th>Date Publication</th>
+                <th>Users_id</th>
                 <th>Verification</th>
             </tr>
             </thead>
             <tbody>
             <?php foreach ($contents as $content): ?>
-                <tr>
+                <  >
                     <td><?php echo $content['id']; ?></td>
                     <td><?php echo $content['title']; ?></td>
                     <td><?php echo $content['type']; ?></td>
-                    <td><?php echo $content['username']; ?></td>
+                    <td><?php echo $content['content']; ?></td>
                     <td><?php echo $content['date_inserted']; ?></td>
+                    <td><?php echo $content['users_id']; ?></td>
                     <?php
                     if($content['status'] == -1) {
                         $status = 'rejected';
@@ -57,6 +59,8 @@
 
                     echo "<td><button class=".$status.">".ucfirst($status)."</button></td>";
                     ?>
+                    <a href="<?php echo BASE_URL.'admin/contents/update/'.$content['id']; ?>"><button title="Modify"><i class="fa fa-cogs" aria-hidden="true"></i></button></a>
+                    <a href="<?php echo BASE_URL.'admin/contents/delete/'.$content['id']; ?>"><button title="Delete"><i class="fa fa-times" aria-hidden="true"></i></button></a>
                 </tr>
             <?php endforeach ?>
             </tbody>
