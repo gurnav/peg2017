@@ -8,6 +8,7 @@
   use Core\Facades\Auth;
   use Core\Facades\Query;
   use Core\HTML\Modals;
+  use Core\Route\Routing;
   use App\Front\Models\Users;
   use App\Composite\Factories\ModalsFactory;
 
@@ -94,7 +95,7 @@
     public function logoutAction()
     {
           Auth::disconnect();
-          header('Location: '.BASE_URL);
+          Routing::index();
     }
 
   }

@@ -17,22 +17,17 @@
   {
       public function indexAction($params = null)
       {
-          if(Auth::isAdminLogged())
-          {
-            $v = new View('dashboard');
+          $v = new View('dashboard');
 
-            $users = Users::getAll();
-            $multimedias = Multimedias::getAll();
-            $comments = Comments::getAll();
-            $contents = Contents::getAll();
+          $users = Users::getAll();
+          $multimedias = Multimedias::getAll();
+          $comments = Comments::getAll();
+          $contents = Contents::getAll();
 
-            $v->assign('users', $users);
-            $v->assign('multimedias', $multimedias);
-            $v->assign('comments', $comments);
-            $v->assign('contents', $contents);
-          } else {
-              Routing::forbidden();
-          }
+          $v->assign('users', $users);
+          $v->assign('multimedias', $multimedias);
+          $v->assign('comments', $comments);
+          $v->assign('contents', $contents);
 
 
       }

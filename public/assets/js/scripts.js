@@ -7,26 +7,57 @@ $( document ).ready(function() {
 		$("#nav_bar").toggleClass('open');
 	});
 
+
 	// Add active class to link when click
 
 	$(function(){
 
-    var url = window.location.pathname,
+		var url = window.location.pathname,
         urlRegExp = new RegExp(url.replace(/\/$/,'') + "$"); // create regexp to match current url pathname and remove trailing slash if present as it could collide with the link in navigation in case trailing slash wasn't present there
         // now grab every link from the navigation
         $('.nav_bar li a').each(function(){
-            // and test its normalized href against the url pathname regexp
-            if(urlRegExp.test(this.href.replace(/\/$/,''))){
-                $(this).addClass('active');
-            }
-        });
+        	// and test its normalized href against the url pathname regexp
+        	if(urlRegExp.test(this.href.replace(/\/$/,''))){
+            	$(this).addClass('active');
+        	}
+    	});
 
 	});
+
 
 	// Fake Loader Screen
 
 	setTimeout(function(){
-  		$('#loader').css("display","none");
+		$('#loader').css("display","none");
 	}, 2000);
+
+
+	// Zoom image when click on the button
+
+	$(".Zoom").click(function(){
+		$("#my_zoom img").attr("src",$(this).parent().children('img').attr("src"));
+		$("#my_zoom").show();
+	});
+
+	$("#Close").click(function(){
+		$("#my_zoom").hide();
+	});
+
+
+	// Delete Something in the Back
+
+	$(".Delete").click(function(){
+		var q = confirm("Are you sure that you want to DELETE this ?");
+		if (q == true) {
+    		document.location.href = $(this).val();
+		}
+	});
+
+
+	// Replace all Text Area with ckeditor
+	if ($(".super_editor").length){
+		CKEDITOR.replace( 'textarea' );
+	}
+
 
 });

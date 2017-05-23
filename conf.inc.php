@@ -3,7 +3,7 @@
   define("HOST", "localhost");
   define('DS', DIRECTORY_SEPARATOR);
   define('PATH_RELATIVE', DS.'esgi-geographic'.DS);
-  define('PATH_RELATIVE_PATTERN', '\/esgi-geographic'.DS);
+  define('PATH_RELATIVE_PATTERN', '\/esgi-geographic');
 
   define("DB_NAME", "esgiGeographik");
   define("DB_USER", "root");
