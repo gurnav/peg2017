@@ -2,31 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1286f8fe-67d4-440f-9887-21cce7482e20" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/admin/controllers/TestController.class.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/admin/views/users/add_user.view.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/admin/views/users/users.view.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/admin/views/users.view.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/controllers/IndexController.class.php" afterPath="$PROJECT_DIR$/app/admin/controllers/IndexController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/controllers/LoginController.class.php" afterPath="$PROJECT_DIR$/app/admin/controllers/LoginController.class.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/controllers/UsersController.class.php" afterPath="$PROJECT_DIR$/app/admin/controllers/UsersController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/views/dashboard.view.php" afterPath="$PROJECT_DIR$/app/admin/views/dashboard.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/composite/factories/ModalsFactory.class.php" afterPath="$PROJECT_DIR$/app/composite/factories/ModalsFactory.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/composite/models/User.class.php" afterPath="$PROJECT_DIR$/app/composite/models/User.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/composite/traits/models/EmailTrait.class.php" afterPath="$PROJECT_DIR$/app/composite/traits/models/EmailTrait.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/composite/traits/models/GetAllDataTrait.class.php" afterPath="$PROJECT_DIR$/app/composite/traits/models/GetAllDataTrait.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/controllers/LoginController.class.php" afterPath="$PROJECT_DIR$/app/front/controllers/LoginController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/controllers/RegisterController.class.php" afterPath="$PROJECT_DIR$/app/front/controllers/RegisterController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/models/Users.class.php" afterPath="$PROJECT_DIR$/app/front/models/Users.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/auth/DBAuth.class.php" afterPath="$PROJECT_DIR$/core/auth/DBAuth.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/database/BaseSql.class.php" afterPath="$PROJECT_DIR$/core/database/BaseSql.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/database/Model.class.php" afterPath="$PROJECT_DIR$/core/database/Model.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/database/QueryBuilder.class.php" afterPath="$PROJECT_DIR$/core/database/QueryBuilder.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/route/Routing.class.php" afterPath="$PROJECT_DIR$/core/route/Routing.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/views/View.class.php" afterPath="$PROJECT_DIR$/core/views/View.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/style.css" afterPath="$PROJECT_DIR$/public/assets/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/scripts.js" afterPath="$PROJECT_DIR$/public/assets/js/scripts.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -74,11 +53,21 @@
       <file leaf-file-name="UsersController.class.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/admin/controllers/UsersController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3825">
-              <caret line="255" column="2" lean-forward="false" selection-start-line="255" selection-start-column="2" selection-end-line="255" selection-end-column="2" />
+            <state relative-caret-position="2275">
+              <caret line="255" column="0" lean-forward="false" selection-start-line="255" selection-start-column="0" selection-end-line="255" selection-end-column="0" />
               <folding>
                 <element signature="e#39#71#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="9" lean-forward="false" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -88,16 +77,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="App.class.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/App.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="7" lean-forward="false" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -166,6 +145,7 @@
         <option value="$PROJECT_DIR$/core/route/Routing.class.php" />
         <option value="$PROJECT_DIR$/app/composite/factories/ModalsFactory.class.php" />
         <option value="$PROJECT_DIR$/app/admin/controllers/UsersController.class.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -405,12 +385,12 @@
       <updated>1495454958694</updated>
       <workItem from="1495454960012" duration="339000" />
       <workItem from="1495528122844" duration="2792000" />
-      <workItem from="1495547533346" duration="1190000" />
+      <workItem from="1495547533346" duration="1346000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4321000" />
+    <option name="totallyTimeSpent" value="4477000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -735,10 +715,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="9" lean-forward="false" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/admin/controllers/UsersController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3825">
-          <caret line="255" column="2" lean-forward="false" selection-start-line="255" selection-start-column="2" selection-end-line="255" selection-end-column="2" />
+        <state relative-caret-position="2275">
+          <caret line="255" column="0" lean-forward="false" selection-start-line="255" selection-start-column="0" selection-end-line="255" selection-end-column="0" />
           <folding>
             <element signature="e#39#71#0#PHP" expanded="true" />
           </folding>

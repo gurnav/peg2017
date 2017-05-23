@@ -253,5 +253,5 @@ use App\Composite\Factories\ModalsFactory;
       }
 
     }
-  
+
 }

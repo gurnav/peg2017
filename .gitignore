@@ -2,3 +2,5 @@ vendor/
 public/assets/img/
 logs/
 .php_cs.cache
+.idea/workspace.xml
+README.md
