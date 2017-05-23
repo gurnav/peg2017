@@ -52,7 +52,7 @@
             $this->template = $setTemp;
         } else {
             Helpers::log("Le template : ".$setTemp." n'existe pas.");
-            die("Le template n'existe pas !");
+            throw new Exception("The request template : ".$setTemp." doesn't exist !");
         }
     }
 

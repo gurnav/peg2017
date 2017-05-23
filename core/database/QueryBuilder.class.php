@@ -50,7 +50,7 @@
        */
       public function delete()
       {
-          $this->fields = func_get_args();
+          // $this->fields = func_get_args();
           $this->setMode('delete');
           return $this;
       }
@@ -220,18 +220,18 @@
     public function __toString()
     {
         $query = "";
-        if(!empty($this->fields) && $this->getMode() === 'SELECT') {
+        if($this->getMode() === 'SELECT' && !empty($this->fields)) {
           $query .= 'SELECT '. implode(', ', $this->fields);
           unset($this->fields);
         }
-        else if(!empty($this->fields) && $this->getMode() === 'UPDATE')
+        else if($this->getMode() === 'UPDATE' && !empty($this->fields))
         {
           $query .= 'UPDATE '. implode(', ', $this->fields);
           unset($this->fields);
         }
-        else if(!empty($this->fields) && $this->getMode() === 'DELETE')
+        else if($this->getMode() === 'DELETE')
         {
-          $query .= 'DELETE '. implode(', ', $this->fields);
+          $query .= 'DELETE '; // . implode(', ', $this->fields);
           unset($this->fields);
         }
         if(!empty($this->from)) {

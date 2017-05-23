@@ -1,7 +1,7 @@
 <header>
   <div class="top_line">
     <p>Welcome <span><?php echo $_SESSION['admin']; ?></span></p>
-    <button>Logout</button>
+    <a href="<?php echo BASE_URL.'admin/login/logout'; ?>"><button>Logout</button></a>
   </div>
   <div id="burger_menu">≡</div>
   <nav id="nav_bar" class="nav_bar">

@@ -2,12 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1286f8fe-67d4-440f-9887-21cce7482e20" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/admin/controllers/TestController.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/admin/views/users/add_user.view.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/admin/views/users/users.view.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/admin/views/users.view.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/controllers/IndexController.class.php" afterPath="$PROJECT_DIR$/app/admin/controllers/IndexController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/controllers/LoginController.class.php" afterPath="$PROJECT_DIR$/app/admin/controllers/LoginController.class.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/controllers/UsersController.class.php" afterPath="$PROJECT_DIR$/app/admin/controllers/UsersController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/views/dashboard.view.php" afterPath="$PROJECT_DIR$/app/admin/views/dashboard.view.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/composite/factories/ModalsFactory.class.php" afterPath="$PROJECT_DIR$/app/composite/factories/ModalsFactory.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/controllers/MessageController.class.php" afterPath="$PROJECT_DIR$/app/front/controllers/MessageController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf.inc.php" afterPath="$PROJECT_DIR$/conf.inc.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/composite/models/User.class.php" afterPath="$PROJECT_DIR$/app/composite/models/User.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/composite/traits/models/EmailTrait.class.php" afterPath="$PROJECT_DIR$/app/composite/traits/models/EmailTrait.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/composite/traits/models/GetAllDataTrait.class.php" afterPath="$PROJECT_DIR$/app/composite/traits/models/GetAllDataTrait.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/controllers/LoginController.class.php" afterPath="$PROJECT_DIR$/app/front/controllers/LoginController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/controllers/RegisterController.class.php" afterPath="$PROJECT_DIR$/app/front/controllers/RegisterController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/models/Users.class.php" afterPath="$PROJECT_DIR$/app/front/models/Users.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/auth/DBAuth.class.php" afterPath="$PROJECT_DIR$/core/auth/DBAuth.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/database/BaseSql.class.php" afterPath="$PROJECT_DIR$/core/database/BaseSql.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/database/Model.class.php" afterPath="$PROJECT_DIR$/core/database/Model.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/database/QueryBuilder.class.php" afterPath="$PROJECT_DIR$/core/database/QueryBuilder.class.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/route/Routing.class.php" afterPath="$PROJECT_DIR$/core/route/Routing.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/views/View.class.php" afterPath="$PROJECT_DIR$/core/views/View.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/style.css" afterPath="$PROJECT_DIR$/public/assets/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/scripts.js" afterPath="$PROJECT_DIR$/public/assets/js/scripts.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,9 +64,21 @@
       <file leaf-file-name="ModalsFactory.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/composite/factories/ModalsFactory.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1890">
-              <caret line="127" column="81" lean-forward="false" selection-start-line="127" selection-start-column="81" selection-end-line="127" selection-end-column="81" />
+            <state relative-caret-position="2955">
+              <caret line="198" column="0" lean-forward="false" selection-start-line="198" selection-start-column="0" selection-end-line="198" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UsersController.class.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/admin/controllers/UsersController.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3825">
+              <caret line="255" column="2" lean-forward="false" selection-start-line="255" selection-start-column="2" selection-end-line="255" selection-end-column="2" />
+              <folding>
+                <element signature="e#39#71#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -72,12 +103,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Routing.class.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Routing.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/route/Routing.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1288">
-              <caret line="153" column="0" lean-forward="true" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="2280">
+              <caret line="153" column="0" lean-forward="false" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
+              <folding>
+                <marker date="1495548887000" expanded="true" signature="3771:3776" ph=" Send a Forbiden page ..." />
+                <marker date="1495548887000" expanded="true" signature="4013:4017" ph=" Send a notFound page ..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -88,18 +122,6 @@
             <state relative-caret-position="321">
               <caret line="53" column="64" lean-forward="false" selection-start-line="53" selection-start-column="64" selection-end-line="53" selection-end-column="64" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="QueryBuilderTest.class.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/core/database/QueryBuilderTest.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1495455076000" expanded="true" signature="327:364" ph="SELECT * FRO... test" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -139,11 +161,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/admin/controllers/UsersController.class.php" />
         <option value="$PROJECT_DIR$/app/front/controllers/MessageController.class.php" />
-        <option value="$PROJECT_DIR$/app/composite/factories/ModalsFactory.class.php" />
         <option value="$PROJECT_DIR$/conf.inc.php" />
         <option value="$PROJECT_DIR$/core/route/Routing.class.php" />
+        <option value="$PROJECT_DIR$/app/composite/factories/ModalsFactory.class.php" />
+        <option value="$PROJECT_DIR$/app/admin/controllers/UsersController.class.php" />
       </list>
     </option>
   </component>
@@ -235,6 +257,78 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="esgi-geographic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="esgi-geographic" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="esgi-geographic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="esgi-geographic" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="esgi-geographic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="esgi-geographic" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="esgi-geographic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="esgi-geographic" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -311,12 +405,12 @@
       <updated>1495454958694</updated>
       <workItem from="1495454960012" duration="339000" />
       <workItem from="1495528122844" duration="2792000" />
-      <workItem from="1495547533346" duration="941000" />
+      <workItem from="1495547533346" duration="1190000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4072000" />
+    <option name="totallyTimeSpent" value="4321000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -396,7 +490,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1495548887000" expanded="true" signature="3771:3776" ph=" Send a Forbiden page ..." />
+            <marker date="1495548887000" expanded="true" signature="4013:4017" ph=" Send a notFound page ..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -438,6 +535,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="8" column="42" lean-forward="false" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
+          <folding>
+            <element signature="e#39#71#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -513,13 +613,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/admin/controllers/UsersController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="42" lean-forward="false" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/front/controllers/UserController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -583,14 +676,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/composite/factories/ModalsFactory.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1890">
-          <caret line="127" column="81" lean-forward="false" selection-start-line="127" selection-start-column="81" selection-end-line="127" selection-end-column="81" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/front/controllers/NewsController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -633,9 +718,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/route/Routing.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1288">
-          <caret line="153" column="0" lean-forward="true" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
+        <state relative-caret-position="2280">
+          <caret line="153" column="0" lean-forward="false" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
+          <folding>
+            <marker date="1495548887000" expanded="true" signature="3771:3776" ph=" Send a Forbiden page ..." />
+            <marker date="1495548887000" expanded="true" signature="4013:4017" ph=" Send a notFound page ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/composite/factories/ModalsFactory.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2955">
+          <caret line="198" column="0" lean-forward="false" selection-start-line="198" selection-start-column="0" selection-end-line="198" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/admin/controllers/UsersController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3825">
+          <caret line="255" column="2" lean-forward="false" selection-start-line="255" selection-start-column="2" selection-end-line="255" selection-end-column="2" />
+          <folding>
+            <element signature="e#39#71#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -50,18 +50,18 @@
                 $sqlCol .= ','.$column;
                 $sqlKey .= ',:'.$column;
             }
-            $query = $this->getDb()->prepare('INSERT INTO '. $this->getTable(). '('.
-              trim($sqlCol, ','). ') VALUES ( '. trim($sqlKey, ',') . ');');
+            $query = $this->getDb()->prepare("INSERT INTO ".$this->getTable()."(".
+              trim($sqlCol, ", "). ") VALUES ( ".trim($sqlKey, ", ").");");
             $query->execute($data);
         } else {
           // If in the database Update it
             $sqlCol = null;
             foreach ($this->getColumns() as $column => $value) {
-              $data[$column] = $this->$column;
-              $sqlCol[] .= $column.':='.$column;
+              $data[":".$column] = $this->$column;
+              $sqlCol[] .= $column." = :".$column;
             }
-            $query = $this->getDb()->prepare('UPDATE '. $this->getTable(). ' SET ('.
-              implode(',', $sqlCol). ') WHERE ( id=:id );');
+            $query = $this->getDb()->prepare("UPDATE ".$this->getTable()." SET ".
+              implode(", ", $sqlCol)." WHERE id = :id ;");
             $query->execute($data);
         }
       } catch (\Exception $e) {
@@ -94,14 +94,14 @@
             $result = $this->qb->prepare($request, $preparedTab, get_class($this), $one);
         } else {
             Helpers::log("The Object at ". ROOT . DS . $class . ".class.php doesn't exist.");
-            die("An error occured, please contact the site's admnistrator.");
+            throw new \Exception("An error occured, please contact the site's admnistrator.");
         }
         return $result;
     }
 
 
     /**
-     * Delete an entry from the databse that corresponf to the loaded model
+     * Delete an entry from the database that corresponf to the loaded model
      * @param id : Int the id of our data
      * @return void
      */
@@ -109,11 +109,11 @@
     {
         if ($this->getId() !== -1)
         {
-          $query = $this->qb->delete('*')->from($this->getTable())->where('id='.$this->getId());
+          $query = $this->qb->delete()->from($this->getTable())->where('id='.$this->getId());
           $this->qb->query($query, get_class($this), true);
         } else {
             Helpers::log("Impossible to delete the item => ".get_class($this).".");
-            die("Impossible to delete the item");
+            throw new \Exception("Impossible to delete the item");
         }
     }
 
