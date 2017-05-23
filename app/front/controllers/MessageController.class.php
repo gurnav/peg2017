@@ -9,6 +9,8 @@
   class MessageController extends Controller
   {
 
+
+      //Méthode pour poster message par user
       public function addAction($content)
       {
 

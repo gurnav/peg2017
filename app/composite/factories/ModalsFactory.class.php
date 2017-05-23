@@ -77,5 +77,58 @@
       ];
     }
 
+      public static function PostMessageUserForm()
+      {
+          return [
+              "options" => [
+                  "method"=>"POST",
+                  "action"=>"",
+                  "enctype"=>"multipart/form-data",
+                  "submit"=>""
+              ],
+              "struct" => [
+
+                "message" => ["type"=>"text", "placeholder"=>"You're message", "required"=>"required", "id"=>"messagebox" ],
+
+              ]
+          ];
+      }
+
+
+      public static function PostThreadUserForm()
+      {
+          return [
+              "options" => [
+                  "method"=>"POST",
+                  "action"=>"",
+                  "enctype"=>"multipart/form-data",
+                  "submit"=>""
+              ],
+              "struct" => [
+
+                  "title" => ["type"=>"text", "placeholder"=>"Title of your Thread", "required"=>"required", "id"=>"messagebox" ],
+                  "description" => ["type"=>"text", "placeholder"=>"Description of the Thread", "required"=>"required", "id"=>"messagebox" ],
+
+              ]
+          ];
+      }
+
+      public static function PostTopicAdminForm()
+      {
+          return [
+              "options" => [
+                  "method"=>"POST",
+                  "action"=>"",
+                  "enctype"=>"multipart/form-data",
+                  "submit"=>""
+              ],
+              "struct" => [
+
+                  "title" => ["type"=>"text", "placeholder"=>"Title of your Thread", "required"=>"required", "id"=>"messagebox" ],
+                  "description" => ["type"=>"text", "placeholder"=>"Description of your Thread", "required"=>"required", "id"=>"messagebox" ],
+
+              ]
+          ];
+      }
 
   }
