@@ -8,6 +8,7 @@
   use App\Admin\Models\Contents;
   use App\Composite\Factories\ModalsFactory;
   use Core\HTML\Modals;
+  use App\Admin\Models\Users;
 
   class ContentsController extends Controller
   {
@@ -25,11 +26,11 @@
           $v = new View('contents/add_content');
 
           $admin_register_content = ModalsFactory::getAddContentForm();
-          if(!empty($_SESSION['addUSer'])) {
-              $admin_register_content['struct']['status']['value'] = $_SESSION['addUSer']['status'];
-              $admin_register_content['struct']['title']['value'] = $_SESSION['addUSer']['title'];
-              $admin_register_content['struct']['category']['value'] = $_SESSION['addUSer']['category'];
-              $admin_register_content['struct']['content']['value'] = $_SESSION['addUSer']['content'];
+          if(!empty($_SESSION['addContent'])) {
+              $admin_register_content['struct']['status']['value'] = $_SESSION['addContent']['status'];
+              $admin_register_content['struct']['title']['value'] = $_SESSION['addContent']['title'];
+              $admin_register_content['struct']['category']['value'] = $_SESSION['addContent']['category'];
+              $admin_register_content['struct']['content']['value'] = $_SESSION['addContent']['content'];
               unset($_SESSION['addContent']);
           }
 
@@ -150,8 +151,6 @@
               header('Location: '.BASE_URL.'admin/contents');
           }*/
 
-          Helpers::debugVar($cleanedData);
-
           try {
               $content->setTitle($cleanedData['title']);
           } catch (\Exception $e) {
@@ -159,7 +158,7 @@
           }
 
           try {
-              $content->setCategory($cleanedData['category']);
+              $content->setCategories_id(intval($content->getCategoryIdByName($cleanedData['category'])));
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
@@ -176,8 +175,11 @@
               array_push($_SESSION['errors'], $e->getMessage());
           }
 
-          Helpers::debugVar($content);
-          die();
+          try {
+              $content->setUsers_id(Users::getUsernameById("admin"));
+          } catch (\Exception $e) {
+              array_push($_SESSION['errors'], $e->getMessage());
+          }
 
           try {
               if(empty($_SESSION['errors']))
@@ -190,13 +192,13 @@
           if(empty($_SESSION['errors']))
           {
               unset($_SESSION['errors']);
-              unset($_SESSION['addUSer']);
+              unset($_SESSION['addContent']);
               header('Location: '.BASE_URL.'admin/contents');
           } else {
-              $_SESSION['addUSer']['title'] = $cleanedData['title'];
-              $_SESSION['addUSer']['category'] = $cleanedData['category'];
-              $_SESSION['addUSer']['content'] = $cleanedData['content'];
-              $_SESSION['addUSer']['status'] = $cleanedData['status'];
+              $_SESSION['addContent']['title'] = $cleanedData['title'];
+              $_SESSION['addContent']['category'] = $cleanedData['category'];
+              $_SESSION['addContent']['content'] = $cleanedData['content'];
+              $_SESSION['addContent']['status'] = $cleanedData['status'];
               header('Location: '.BASE_URL.'admin/contents/add');
           }
       }

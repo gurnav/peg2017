@@ -249,15 +249,15 @@
 
 
     public function getCategoryNameById() {
-        $query = "SELECT name from ".DB_PREFIX."categories WHERE id = ".$this->getCategories_id();
+        $query = "SELECT name from ".DB_PREFIX."categories WHERE id = '".$this->getCategories_id()."'";
         $category_name = $this->qb->query($query, null, true);
         return $category_name->name;
     }
 
-    public function getCategoryIdByName() {
-      $query = "SELECT id from ".DB_PREFIX."categories WHERE name = ".$this->getCategories_id();
-      $content_id = $this->qb->query($query, null, true);
-      return $content_id->id;
+    public function getCategoryIdByName($name) {
+        $query = "SELECT id from ".DB_PREFIX."categories WHERE name = '".$name."'";
+        $content_id = $this->qb->query($query, null, true);
+        return $content_id->id;
     }
 
 

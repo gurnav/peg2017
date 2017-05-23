@@ -313,4 +313,25 @@
         return $errors;
       }
 
+      public static function getIdByUsername($type) {
+          if ($type === "admin") {
+              $username = $_SESSION["admin"];
+          }
+
+          elseif ($type === "author") {
+              $username = $_SESSION["author"];
+          }
+
+          elseif ($type === "user"){
+              $username = $_SESSION["user"];
+          }
+
+          else{
+              Helpers::log("Unrecognised user session rights. Not defined.");
+              throw new \Exception("Unrecognised user session rights. Not defined.");
+          }
+
+          return $username;
+      }
+
   }

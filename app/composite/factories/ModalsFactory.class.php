@@ -88,9 +88,12 @@
                 "submit" => "Add Content"
             ],
             "struct" => [
-                "status" => ["label" => "Choose status", "type" => "text", "name" => "status", "id" => "add_status", "placeholder" => "status", "required" => 0, "msgerror" => ""],
 
                 "title" => ["label" => "Title here", "type" => "text", "name" => "contentTitle", "required" => "required", "placeholder" => "Insert your title here"],
+
+                "status" => ["label" => "Choose status", "type" => "text", "name" => "status", "id" => "add_status", "placeholder" => "status", "required" => 0, "msgerror" => ""],
+
+                "type" =>["label" => "Choose type", "type" => "text", "name" => "type", "id" => "", "placeholder" => "type", "required" => 0, "msgerror" => ""],
 
                 "category" => ["label" => "The category", "type" => "text", "name" => "", "id" => "", "placeholder" => "", "required" => 0, "msgerror" => "category"],
 
