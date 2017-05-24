@@ -18,6 +18,11 @@
         $v = new View('contents/contents');
         $contents = Contents::getAll();
 
+        for($i = 0; $i < count($contents); $i += 1)
+        {
+            $contents[$i]["username"] = Users::getUsernameById($contents[$i]["users_id"]);
+        }
+
         $v->assign('contents', $contents);
     }
 
@@ -176,7 +181,7 @@
           }
 
           try {
-              $content->setUsers_id(intval(Users::getIdByUsername("admin")));
+              $content->setUsers_id(intval($_SESSION["admin"]["id"]));
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }

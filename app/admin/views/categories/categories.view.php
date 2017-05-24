@@ -1,6 +1,6 @@
 <header>
     <div class="top_line">
-        <p>Welcome <span><?php echo $_SESSION['admin']; ?></span></p>
+        <p>Welcome <span><?php echo $_SESSION['admin']['username']; ?></span></p>
         <a href="<?php echo BASE_URL.'admin/login/logout'; ?>"><button>log<i class="fa fa-power-off" aria-hidden="true"></i>ut</button></a>
     </div>
     <div id="burger_menu">≡</div>
@@ -33,7 +33,7 @@
                 <th>Name</th>
                 <th>Description</th>
                 <th>Date Publication</th>
-                <th>Users_id</th>
+                <th>Username</th>
             </tr>
             </thead>
             <tbody>
@@ -42,7 +42,7 @@
                 <td><?php echo $category['name']; ?></td>
                 <td><?php echo $category['description']; ?></td>
                 <td><?php echo $category['date_inserted']; ?></td>
-                <td><?php echo $category['users_id']; ?></td>
+                <td><?php echo $category['username']; ?></td>
 
                 <a href="<?php echo BASE_URL.'admin/categories/update/'.$category['id']; ?>"><button title="Modify"><i class="fa fa-cogs" aria-hidden="true"></i></button></a>
                 <a href="<?php echo BASE_URL.'admin/categories/delete/'.$category['id']; ?>"><button title="Delete"><i class="fa fa-times" aria-hidden="true"></i></button></a>

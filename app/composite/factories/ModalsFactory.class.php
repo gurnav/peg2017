@@ -209,4 +209,22 @@
     }
 
 
+    public static function getUpdateCategoryForm($category)
+    {
+      return [
+          "options" => [
+              "method"=>"POST",
+              "action"=>BASE_URL."admin/categories/doUpdate/".$category,
+              "id"=>"admin_register_category",
+              "enctype"=>"multipart/form-data",
+              "submit"=>"Update category"
+          ],
+          "struct" => [
+              "name"=>["label"=>"The name : ", "type"=>"text", "placeholder"=>"name", "required"=>"required" ],
+
+              "description"=>["label"=>"The description : ", "type"=>"text", "placeholder"=>"description", "required"=>"required" ],
+          ]
+      ];
+    }
+
   }

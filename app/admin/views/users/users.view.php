@@ -1,6 +1,6 @@
   <header>
     <div class="top_line">
-      <p>Welcome <span><?php echo $_SESSION['admin']; ?></span></p>
+      <p>Welcome <span><?php echo $_SESSION['admin']['username']; ?></span></p>
       <a href="<?php echo BASE_URL.'admin/login/logout'; ?>"><button>log<i class="fa fa-power-off" aria-hidden="true"></i>ut</button></a>
     </div>
     <div id="burger_menu">≡</div>
@@ -10,7 +10,7 @@
       <li><a href="<?php echo BASE_URL.'admin/medias'; ?>"><i class="fa fa-usb" aria-hidden="true"></i><span>Medias</span></a></li>
       <li><a href="<?php echo BASE_URL.'admin/contents'; ?>"><i class="fa fa-life-ring" aria-hidden="true"></i><span>Pages &amp; Articles</span></a></li>
       <li><a href="<?php echo BASE_URL.'admin/commentaries'; ?>"><i class="fa fa-comments-o" aria-hidden="true"></i><span>Commentaries</span></a></li>
-			<li><a href="<?php echo BASE_URL.'admin/categories'; ?>"><i class="fa fa-files-o" aria-hidden="true"></i><span>Categories</span></a></li>
+      <li><a href="<?php echo BASE_URL.'admin/categories'; ?>"><i class="fa fa-files-o" aria-hidden="true"></i><span>Categories</span></a></li>
       <li><a href="<?php echo BASE_URL.'admin/stats'; ?>"><i class="fa fa-line-chart" aria-hidden="true"></i><span>Statistics</span></a></li>
     </nav>
   </header>

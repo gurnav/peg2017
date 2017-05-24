@@ -1,6 +1,6 @@
 <header>
     <div class="top_line">
-        <p>Welcome <span><?php echo $_SESSION['admin']; ?></span></p>
+        <p>Welcome <span><?php echo $_SESSION['admin']['username']; ?></span></p>
         <a href="<?php echo BASE_URL.'admin/login/logout'; ?>"><button>log<i class="fa fa-power-off" aria-hidden="true"></i>ut</button></a>
     </div>
     <div id="burger_menu">≡</div>
@@ -34,7 +34,7 @@
                 <th>Type</th>
                 <th>Content</th>
                 <th>Date Publication</th>
-                <th>Users_id</th>
+                <th>Username</th>
                 <th>Verification</th>
             </tr>
             </thead>
@@ -45,7 +45,7 @@
                     <td><?php echo $content['type']; ?></td>
                     <td><?php echo $content['content']; ?></td>
                     <td><?php echo $content['date_inserted']; ?></td>
-                    <td><?php echo $content['users_id']; ?></td>
+                    <td><?php echo $content['username']; ?></td>
                     <?php
                     if($content['status'] == -1) {
                         $status = 'rejected';

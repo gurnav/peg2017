@@ -66,7 +66,7 @@
        * @return String $name The Name of the category
        */
       public function getName(){
-          return $this->Name;
+          return $this->name;
       }
 
       /**
