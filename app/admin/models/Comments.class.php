@@ -19,7 +19,7 @@
       * Constructor of the Comments model class
       * @return Void
       */
-     public function __construct($id = -1, $content = null, $content_id = -1, $users_id = -1)
+     public function __construct($id = -1, $content = "", $content_id = -1, $users_id = -1)
      {
          parent::__construct($id, $content, $content_id, $users_id);
 

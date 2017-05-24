@@ -15,54 +15,37 @@
     </nav>
 </header>
 
-
 <section class="information_panel">
 
     <div id="loader"></div>
 
     <div class="path">
-        <p><i class="fa fa-home" aria-hidden="true"></i> > Pages &amp; Articles</p>
+        <p><i class="fa fa-home" aria-hidden="true"></i> > commentaries</p>
     </div>
 
     <div class="only_one">
         <table class="six_columns">
-            <caption>Pages &amp; Articles<a href="<?php echo BASE_URL.'admin/contents/add'; ?>"><button title="Create content"><i class="fa fa-plus-circle" aria-hidden="true"></i></button></a></caption>
+            <caption>Comments<a href="<?php echo BASE_URL.'admin/commentaries/add'; ?>"><button title="Create comment"><i class="fa fa-plus-circle" aria-hidden="true"></i></button></a></caption>
             <thead>
             <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Type</th>
+                <th>#</th>
                 <th>Content</th>
-                <th>Date Publication</th>
+                <th>Date Inserted</th>
+                <th>Content_id</th>
                 <th>Username</th>
-                <th>Verification</th>
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($contents as $content): ?>
-                    <td><?php echo $content['id']; ?></td>
-                    <td><?php echo $content['title']; ?></td>
-                    <td><?php echo $content['type']; ?></td>
-                    <td><?php echo $content['content']; ?></td>
-                    <td><?php echo $content['date_inserted']; ?></td>
-                    <td><?php echo $content['username']; ?></td>
-                    <?php
-                    if($content['status'] == -1) {
-                        $status = 'rejected';
-                    }
-
-                    if($content['status'] == 0) {
-                        $status = 'pending';
-                    }
-
-                    if($content['status'] == 1) {
-                        $status = 'done';
-                    }
-
-                    echo "<td><button class=".$status.">".ucfirst($status)."</button></td>";
-                    ?>
-                    <a href="<?php echo BASE_URL.'admin/contents/update/'.$content['id']; ?>"><button title="Modify"><i class="fa fa-cogs" aria-hidden="true"></i></button></a>
-                    <a href="<?php echo BASE_URL.'admin/contents/delete/'.$content['id']; ?>"><button title="Delete"><i class="fa fa-times" aria-hidden="true"></i></button></a>
+            <?php foreach ($comments as $comment): ?>
+                <tr>
+                    <td><?php echo $comment['id']; ?></td>
+                    <td><?php echo $comment['content']; ?></td>
+                    <td><?php echo $comment['date_inserted']; ?></td>
+                    <td><?php echo $comment['content_id']; ?></td>
+                    <td><?php echo $comment['username']; ?></td>
+                    <a href="<?php echo BASE_URL.'admin/commentaries/update/'.$comment['id']; ?>"><button title="Modify"><i class="fa fa-cogs" aria-hidden="true"></i></button></a>
+                    <button class="Delete" title="Delete" value="<?php echo BASE_URL.'admin/commentaries/delete/'.$comment['id']; ?>"><i class="fa fa-times" aria-hidden="true"></i></button>
+                    </td>
                 </tr>
             <?php endforeach ?>
             </tbody>
@@ -73,5 +56,3 @@
     </div>
 
 </section>
-
-
