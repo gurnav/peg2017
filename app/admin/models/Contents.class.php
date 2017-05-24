@@ -219,7 +219,6 @@
     {
       return $this->isLikeable;
     }
-
     /**
      * Simple setter of the Categories id
      * Check if the categories id respect the integrity of the database
@@ -247,13 +246,21 @@
       return $this->categories_id;
     }
 
-
+    /**
+    * Simple getter of the Category name by id
+    * @return string $category_name the name of the linked category
+    */
     public function getCategoryNameById() {
         $query = "SELECT name from ".DB_PREFIX."categories WHERE id = '".$this->getCategories_id()."'";
         $category_name = $this->qb->query($query, null, true);
         return $category_name->name;
     }
 
+    /**
+    * Simple getter of the Category id by name
+    * @param string : $name The name to be searched
+    * @return string $category_id the id of the linked category
+    */
     public function getCategoryIdByName($name) {
         $query = "SELECT id from ".DB_PREFIX."categories WHERE name = '".$name."'";
         $content_id = $this->qb->query($query, null, true);

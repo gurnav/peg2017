@@ -189,5 +189,24 @@
       ];
     }
 
+    public static function getAddCategoryForm()
+    {
+      return [
+          "options" => [
+              "method" => "POST",
+              "action" => BASE_URL."admin/categories/doAdd/",
+              "id" => "admin_register_category",
+              "enctype" => "multipart/form-data",
+              "submit" => "Add Category"
+          ],
+          "struct" => [
+
+              "name" => ["label" => "Name here", "type" => "text", "name" => "contentName", "required" => "required", "placeholder" => "Insert your name here"],
+
+              "description" => ["label" => "The description", "type" => "text", "id" => "category_add_article", "placeholder" => "Description of your category", "required" => 0, "errors_msg" => ""]
+          ]
+      ];
+    }
+
 
   }

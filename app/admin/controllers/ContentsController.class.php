@@ -176,7 +176,7 @@
           }
 
           try {
-              $content->setUsers_id(Users::getUsernameById("admin"));
+              $content->setUsers_id(intval(Users::getIdByUsername("admin")));
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
