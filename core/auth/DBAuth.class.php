@@ -37,8 +37,8 @@
         if (!empty($user)) {
           if (password_verify($password, $user->password)) {
             session_regenerate_id(true); // Protection against Session Steal
-            $_SESSION['id'] = $user->id;
-            $_SESSION['user'] = $user->username;
+            $_SESSION["user"]['id'] = $user->id;
+            $_SESSION["user"]["username"] = $user->username;
             return TRUE;
           }
         }
@@ -61,8 +61,8 @@
           if (password_verify($password, $user->password)) {
             if($user->rights == 3) {
               session_regenerate_id(true); // Protection against Session Steal
-              $_SESSION['id'] = $user->id;
-              $_SESSION['admin'] = $user->username;
+              $_SESSION["admin"]["id"] = $user->id;
+              $_SESSION["admin"]["username"] = $user->username;
               return 0;
             } else {
               return 2;
@@ -72,7 +72,7 @@
           }
         }
 
-        return FALSE;
+        return -1;
     }
 
     /**

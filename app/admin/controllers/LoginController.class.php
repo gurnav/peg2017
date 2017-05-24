@@ -73,7 +73,11 @@
            $user->populate(['username' => $cleanedData['username']]);
            unset($_SESSION['login']);
            header('Location: '.BASE_URL.'admin/');
-         } else {
+       } elseif ($auth_admin === -1) {
+           $_SESSION['login']['error'] = "The User doesn't exist";
+           header('Location: '.BASE_URL.'admin/login');
+       }
+         else {
             $_SESSION['login']['username'] = $cleanedData['username'];
             if($auth_admin === 1) {
                 $_SESSION['login']['error'] = 'Username or password invalid';
