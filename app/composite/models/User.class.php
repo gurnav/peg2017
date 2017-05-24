@@ -96,7 +96,13 @@
       {
         if(gettype($setPassword) === 'string')
         {
-          $this->password = password_hash($setPassword, PASSWORD_DEFAULT);
+            if (ctype_alnum($setPassword)) {
+                $this->password = password_hash($setPassword, PASSWORD_DEFAULT);
+            } else {
+                Helpers::log("Only alphanumeric character fot the password ". get_class($this)
+                  ." have been tried to inserted in the database");
+                throw new \Exception("Not well formed password ! Only alphanumeric character allowed");
+            }
         } else {
           Helpers::log("A not string variable for the password in ". get_class($this)
             ." have been tried to inserted in the database");
@@ -159,7 +165,13 @@
         {
           if(strlen($setLastname) <= 45)
           {
-            $this->lastname = trim($setLastname);
+              if (ctype_alnum($setLastname)) {
+                  $this->lastname = trim($setLastname);
+              } else {
+                  Helpers::log("Only alphanumeric character fot the lastname ". get_class($this)
+                    ." have been tried to inserted in the database");
+                  throw new \Exception("Not well formed lastname ! Only alphanumeric character allowed");
+              }
           } else {
             Helpers::log("A string bigger than 45 char for the lastname in ". get_class($this)
               ." have been tried to inserted in the database");
@@ -193,7 +205,13 @@
         {
           if(strlen($setUsername) <= 45)
           {
-            $this->username = trim($setUsername);
+              if (ctype_alnum($setUsername)) {
+                  $this->username = trim($setUsername);
+              } else {
+                  Helpers::log("Only alphanumeric character fot the username ". get_class($this)
+                    ." have been tried to inserted in the database");
+                  throw new \Exception("Not well formed Username ! Only alphanumeric character allowed");
+              }
           } else {
             Helpers::log("A string bigger than 45 char for the username in ". get_class($this)
               ." have been tried to inserted in the database");

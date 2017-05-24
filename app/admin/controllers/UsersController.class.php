@@ -50,16 +50,16 @@
       }
     }
 
-    public function updateAction($username)
+    public function updateAction($user_id)
     {
 
       $v = new View('users/add_user');
 
       $user = new Users();
-      $username = $username[0];
-      $user = $user->populate(['username' => $username]);
+      $user_id = $user_id[0];
+      $user = $user->populate(['id' => $user_id]);
 
-      $admin_add_user_form = ModalsFactory::adminUpdateUserForm($username);
+      $admin_add_user_form = ModalsFactory::adminUpdateUserForm($user_id);
       $admin_add_user_form['struct']['user_email']['value'] = $user->getEmail();
       $admin_add_user_form['struct']['username']['value'] = $user->getUsername();
       $admin_add_user_form['struct']['firstname']['value'] = $user->getFirstname();
@@ -75,12 +75,12 @@
       }
     }
 
-    public function deleteAction($username)
+    public function deleteAction($user_id)
     {
         $user = new Users();
-        $username = trim($username[0]);
+        $user_id = trim($user_id[0]);
         try {
-            $user = $user->populate(['username' => $username]);
+            $user = $user->populate(['id' => $user_id]);
             $user->delete();
         } catch (Exception $e) {
             array_push($_SESSION['errors'], $e->getMessage());
@@ -88,10 +88,10 @@
         header('Location: '.BASE_URL.'admin/users');
     }
 
-    public function doUpdateAction($username)
+    public function doUpdateAction($user_id)
     {
       $user = new Users();
-      $username = trim($username[0]);
+      $user_id = trim($user_id[0]);
       $_SESSION['errors'] = [];
 
       foreach ($_POST as $post => $value) {
@@ -99,7 +99,7 @@
       }
 
       try {
-          $user = $user->populate(['username' => $username]);
+          $user = $user->populate(['id' => $user_id]);
       } catch (Exception $e) {
           array_push($_SESSION['errors'], $e->getMessage());
       }

@@ -59,8 +59,8 @@
 
                   echo "<td><span class=".$status.">".ucfirst($status)."</span>";
                ?>
-               <a href="<?php echo BASE_URL.'admin/users/update/'.$user['username']; ?>"><button title="Modify"><i class="fa fa-cogs" aria-hidden="true"></i></button></a>
-               <button class="Delete" title="Delete" value="<?php echo BASE_URL.'admin/users/delete/'.$user['username']; ?>"><i class="fa fa-times" aria-hidden="true"></i></button>
+               <a href="<?php echo BASE_URL.'admin/users/update/'.$user['id']; ?>"><button title="Modify"><i class="fa fa-cogs" aria-hidden="true"></i></button></a>
+               <button class="Delete" title="Delete" value="<?php echo BASE_URL.'admin/users/delete/'.$user['id']; ?>"><i class="fa fa-times" aria-hidden="true"></i></button>
              </td>
             </tr>
         <?php endforeach ?>
