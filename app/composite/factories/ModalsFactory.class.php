@@ -227,4 +227,21 @@
       ];
     }
 
+
+    public static function getAddCommentForm()
+    {
+      return [
+          "options" => [
+              "method" => "POST",
+              "action" => BASE_URL."admin/comments/doAdd/",
+              "id" => "admin_register_comment",
+              "enctype" => "multipart/form-data",
+              "submit" => "Add comment"
+          ],
+          "struct" => [
+              "content" => ["label" => "The content", "type" => "text", "id" => "comment_add_article", "placeholder" => "comment of your content", "required" => 0, "errors_msg" => ""]
+          ]
+      ];
+    }
+
   }

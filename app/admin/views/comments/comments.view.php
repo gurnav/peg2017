@@ -31,7 +31,7 @@
                 <th>#</th>
                 <th>Content</th>
                 <th>Date Inserted</th>
-                <th>Content_id</th>
+                <th>Contents Name</th>
                 <th>Username</th>
             </tr>
             </thead>
@@ -41,7 +41,7 @@
                     <td><?php echo $comment['id']; ?></td>
                     <td><?php echo $comment['content']; ?></td>
                     <td><?php echo $comment['date_inserted']; ?></td>
-                    <td><?php echo $comment['content_id']; ?></td>
+                    <td><?php echo $comment['contentname']; ?></td>
                     <td><?php echo $comment['username']; ?></td>
                     <a href="<?php echo BASE_URL.'admin/comments/update/'.$comment['id']; ?>"><button title="Modify"><i class="fa fa-cogs" aria-hidden="true"></i></button></a>
                     <button class="Delete" title="Delete" value="<?php echo BASE_URL.'admin/comments/delete/'.$comment['id']; ?>"><i class="fa fa-times" aria-hidden="true"></i></button>

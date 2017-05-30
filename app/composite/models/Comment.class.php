@@ -20,21 +20,20 @@
 
       protected $id; // id of the comment
       protected $content; // content of the comment
-      protected $content_id; // The content of the comment represented by its id
+      protected $contents_id; // The content of the comment represented by its id
       protected $users_id; // The author of the comment represented by its id
 
       /**
       * Constructor of the Comments model class
       * @return Void
       */
-     public function __construct($id = -1, $content = null, $content_id = -1, $users_id = -1)
+     public function __construct($id = -1, $content = "", $contents_id = -1, $users_id = -1)
      {
          parent::__construct();
 
 
          $this->setContent($content);
-         $this->setDate_inserted($date_inserted);
-         $this->setContent_id($content_id);
+         $this->setContents_id($contents_id);
          $this->setUsers_id($users_id);
      }
 
@@ -77,10 +76,10 @@
        * @param Integer : $content id The content id to be set
        * @return Void
        */
-      public function setContent_id($content_id)
+      public function setContents_id($contents_id)
       {
-          if (is_int($content_id)) {
-              $this->content_id = $content_id;
+          if (is_int($contents_id)) {
+              $this->contents_id = $contents_id;
           } else {
               Helpers::log("A non integer type for a categories id in a content have tried to be inserted in the DB");
               throw new \Exception("You can't enter a non integer type for a categories id of a content");
@@ -92,9 +91,17 @@
        * Simple content_id getter
        * @return Integer $content_id the id of the linked content
        */
-      public function getContent_id()
+      public function getContents_id()
       {
-          return $this->content_id;
+          return $this->contents_id;
       }
 
+
+      public static function getContentById($id)
+      {
+          $qb = new QueryBuilder();
+          $query = "SELECT content from ".DB_PREFIX."comments WHERE id = '".$id."'";
+          $comment = $qb->query($query, null, true);
+          return $comment->contentname;
+      }
   }
