@@ -29,7 +29,7 @@
             <thead>
             <tr>
                 <th>#</th>
-                <th>Content</th>
+                <th>Comment</th>
                 <th>Date Inserted</th>
                 <th>Contents Name</th>
                 <th>Username</th>

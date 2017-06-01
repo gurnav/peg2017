@@ -97,11 +97,11 @@
       }
 
 
-      public static function getContentById($id)
+      public static function getContentNameById($id)
       {
           $qb = new QueryBuilder();
-          $query = "SELECT content from ".DB_PREFIX."comments WHERE id = '".$id."'";
+          $query = "SELECT id, title from ".DB_PREFIX."contents WHERE id = '".$id."'";
           $comment = $qb->query($query, null, true);
-          return $comment->contentname;
+          return $comment->title;
       }
   }

@@ -15,7 +15,6 @@
     </nav>
 </header>
 
-
 <section class="information_panel">
 
     <div id="loader"></div>
@@ -35,11 +34,12 @@
                 <th>Content</th>
                 <th>Date Publication</th>
                 <th>Username</th>
-                <th>Verification</th>
+                <th class="important_one">Verification</th>
             </tr>
             </thead>
             <tbody>
             <?php foreach ($contents as $content): ?>
+                <tr>
                     <td><?php echo $content['id']; ?></td>
                     <td><?php echo $content['title']; ?></td>
                     <td><?php echo $content['type']; ?></td>
@@ -59,10 +59,11 @@
                         $status = 'done';
                     }
 
-                    echo "<td><button class=".$status.">".ucfirst($status)."</button></td>";
+                    echo "<td><span class=".$status.">".ucfirst($status)."</span>";
                     ?>
                     <a href="<?php echo BASE_URL.'admin/contents/update/'.$content['id']; ?>"><button title="Modify"><i class="fa fa-cogs" aria-hidden="true"></i></button></a>
-                    <a href="<?php echo BASE_URL.'admin/contents/delete/'.$content['id']; ?>"><button title="Delete"><i class="fa fa-times" aria-hidden="true"></i></button></a>
+                    <button class="Delete" title="Delete" value="<?php echo BASE_URL.'admin/contents/delete/'.$content['id']; ?>"><i class="fa fa-times" aria-hidden="true"></i></button>
+                    </td>
                 </tr>
             <?php endforeach ?>
             </tbody>
@@ -73,5 +74,3 @@
     </div>
 
 </section>
-
-

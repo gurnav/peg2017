@@ -244,4 +244,19 @@
       ];
     }
 
+    public static function getUpdateCommentForm($comment)
+    {
+      return [
+          "options" => [
+              "method"=>"POST",
+              "action"=>BASE_URL."admin/comments/doUpdate/".$comment,
+              "id"=>"admin_register_comment",
+              "enctype"=>"multipart/form-data",
+              "submit"=>"Update comment"
+          ],
+          "struct" => [
+              "content"=>["label"=>"The Content : ", "type"=>"text", "placeholder"=>"content", "required"=>"required" ]
+          ]
+      ];
+    }
   }
