@@ -94,7 +94,7 @@
       */
       public function setPassword($setPassword)
       {
-        if(gettype($setPassword) === 'string')
+        if(is_string($setPassword))
         {
             if (ctype_alnum($setPassword)) {
                 $this->password = password_hash($setPassword, PASSWORD_DEFAULT);
@@ -127,7 +127,7 @@
       */
       public function setFirstname($setFirstname)
       {
-        if(gettype($setFirstname) === 'string')
+        if(is_string($setFirstname))
         {
           if(strlen($setFirstname) <= 45)
           {
@@ -161,7 +161,7 @@
       */
       public function setLastname($setLastname)
       {
-        if(gettype($setLastname) === 'string')
+        if(is_string($setLastname))
         {
           if(strlen($setLastname) <= 45)
           {
@@ -201,7 +201,7 @@
       */
       public function setUsername($setUsername)
       {
-        if(gettype($setUsername) === 'string')
+        if(is_string($setUsername))
         {
           if(strlen($setUsername) <= 45)
           {
