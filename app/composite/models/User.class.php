@@ -331,4 +331,12 @@
         return $errors;
       }
 
+      public static function getUsernameById($id)
+      {
+          $qb = new QueryBuilder();
+          $query = "SELECT username from ".DB_PREFIX."users WHERE id = '".$id."'";
+          $user = $qb->query($query, null, true);
+          return $user->username;
+      }
+
   }

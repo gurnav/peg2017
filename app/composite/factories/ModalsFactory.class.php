@@ -77,6 +77,54 @@
       ];
     }
 
+
+    public static function getAddContentForm()
+    {
+        return [
+            "options" => [
+                "method" => "POST",
+                "action" => BASE_URL."admin/contents/doAdd/",
+                "id" => "admin_register_content",
+                "enctype" => "multipart/form-data",
+                "submit" => "Add Content"
+            ],
+            "struct" => [
+
+                "title" => ["label" => "Title here", "type" => "text", "name" => "contentTitle", "required" => "required", "placeholder" => "Insert your title here"],
+
+                "status" => ["label" => "Choose status", "type" => "text", "name" => "status", "id" => "add_status", "placeholder" => "status", "required" => 0, "msgerror" => ""],
+
+                "type" =>["label" => "Choose type", "type" => "text", "name" => "type", "id" => "", "placeholder" => "type", "required" => 0, "msgerror" => ""],
+
+                "category" => ["label" => "The category", "type" => "text", "name" => "", "id" => "", "placeholder" => "", "required" => 0, "msgerror" => "category"],
+
+                "content" => ["label" => "The content", "type" => "text", "id" => "content_add_article", "placeholder" => "Description of your article", "required" => 0, "errors_msg" => ""]
+            ]
+        ];
+    }
+
+      public static function getUpdateContentForm($content)
+      {
+          return [
+              "options" => [
+                  "method"=>"POST",
+                  "action"=>BASE_URL."admin/contents/doUpdate/".$content,
+                  "id"=>"admin_register_content",
+                  "enctype"=>"multipart/form-data",
+                  "submit"=>"Update Content"
+              ],
+              "struct" => [
+                  "status"=>["label"=>"The status : ", "type"=>"text", "placeholder"=>"Firstname", "required"=>"required" ],
+
+                  "title"=>["label"=>"The title : ", "type"=>"text", "placeholder"=>"Title", "required"=>"required" ],
+
+                  "category"=>[ "label"=>"The Category : ", "type"=>"text", "placeholder"=>"Category", "required"=>"required" ],
+
+                  "content"=>[ "label"=>"The content : ", "type"=>"text", "placeholder"=>"Content", "required"=>"required" ],
+              ]
+          ];
+      }
+
     public static function adminAddUserForm()
     {
       return [
@@ -143,4 +191,74 @@
     }
 
 
+    public static function getAddCategoryForm()
+    {
+      return [
+          "options" => [
+              "method" => "POST",
+              "action" => BASE_URL."admin/categories/doAdd/",
+              "id" => "admin_register_category",
+              "enctype" => "multipart/form-data",
+              "submit" => "Add Category"
+          ],
+          "struct" => [
+
+              "name" => ["label" => "Name here", "type" => "text", "name" => "contentName", "required" => "required", "placeholder" => "Insert your name here"],
+
+              "description" => ["label" => "The description", "type" => "text", "id" => "category_add_article", "placeholder" => "Description of your category", "required" => 0, "errors_msg" => ""]
+          ]
+      ];
+    }
+
+
+    public static function getUpdateCategoryForm($category)
+    {
+      return [
+          "options" => [
+              "method"=>"POST",
+              "action"=>BASE_URL."admin/categories/doUpdate/".$category,
+              "id"=>"admin_register_category",
+              "enctype"=>"multipart/form-data",
+              "submit"=>"Update category"
+          ],
+          "struct" => [
+              "name"=>["label"=>"The name : ", "type"=>"text", "placeholder"=>"name", "required"=>"required" ],
+
+              "description"=>["label"=>"The description : ", "type"=>"text", "placeholder"=>"description", "required"=>"required" ],
+          ]
+      ];
+    }
+
+
+    public static function getAddCommentForm()
+    {
+      return [
+          "options" => [
+              "method" => "POST",
+              "action" => BASE_URL."admin/comments/doAdd/",
+              "id" => "admin_register_comment",
+              "enctype" => "multipart/form-data",
+              "submit" => "Add comment"
+          ],
+          "struct" => [
+              "content" => ["label" => "The content", "type" => "text", "id" => "comment_add_article", "placeholder" => "comment of your content", "required" => 0, "errors_msg" => ""]
+          ]
+      ];
+    }
+
+    public static function getUpdateCommentForm($comment)
+    {
+      return [
+          "options" => [
+              "method"=>"POST",
+              "action"=>BASE_URL."admin/comments/doUpdate/".$comment,
+              "id"=>"admin_register_comment",
+              "enctype"=>"multipart/form-data",
+              "submit"=>"Update comment"
+          ],
+          "struct" => [
+              "content"=>["label"=>"The Content : ", "type"=>"text", "placeholder"=>"content", "required"=>"required" ]
+          ]
+      ];
+    }
   }

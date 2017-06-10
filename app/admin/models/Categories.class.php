@@ -26,7 +26,7 @@
      * Constructor of the Categories model class
      * @return Void
      */
-    public function __construct($id=-1, $name=null, $description=null, $users_id=-1)
+    public function __construct($id=-1, $name="", $description="", $users_id=-1)
     {
         parent::__construct();
 
@@ -39,7 +39,7 @@
     /**
        * Simple setter for the name of a category
        * Check if the category name respect the integrity of the database
-       * So if that a string and lesser than 255
+       * So if that a string and lesser than 128
        * @param String : $name The Name to be set
        * @return Void
        */
@@ -66,7 +66,7 @@
        * @return String $name The Name of the category
        */
       public function getName(){
-          return $this->Name;
+          return $this->name;
       }
 
       /**
