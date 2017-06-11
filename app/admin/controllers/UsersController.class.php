@@ -167,6 +167,12 @@
          array_push($_SESSION['errors'], $e->getMessage());
        }
 
+       try {
+           $user->setUserImg($_FILES['user_img']);
+       } catch (\Exception $e) {
+         array_push($_SESSION['errors'], $e->getMessage());
+       }
+
       try {
         if(empty($_SESSION['errors']))
              $user->save();
@@ -243,6 +249,12 @@
 
        try {
          $user->setStatus(intval($cleanedData['user_status']));
+       } catch (\Exception $e) {
+         array_push($_SESSION['errors'], $e->getMessage());
+       }
+
+       try {
+           $user->setUserImg($_FILES['user_img']);
        } catch (\Exception $e) {
          array_push($_SESSION['errors'], $e->getMessage());
        }

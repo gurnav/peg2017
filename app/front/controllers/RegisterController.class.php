@@ -125,6 +125,12 @@
          }
 
          try {
+             $user->setUserImg($_FILES['user_img']);
+         } catch (\Exception $e) {
+           array_push($_SESSION['errors'], $e->getMessage());
+         }
+
+         try {
            if(empty($_SESSION['errors']))
                 $user->save();
          } catch (\Exception $e) {
