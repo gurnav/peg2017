@@ -104,4 +104,83 @@
       return $string;
     }
 
+    /**
+     * Function for uploading a file safely to the server
+     * @param $file : FILE The file to be uploaded
+     * @param $dir : String The dir where the file should be uploaded
+     * @return $$cryptedFN: The path of the crypted filename on the server
+     */
+    public static function safeUploadFile($file, $dir)
+    {
+        $cryptedFN = null;
+
+        try {
+
+
+            // Undefined | Multiple Files | $_FILES Corruption Attack
+            // If this request falls under any of them, treat it invalid.
+            if (
+                !isset($file['error']) ||
+                is_array($file['error'])
+            ) {
+                Helpers::log('Invalid parameters in an inputed files');
+                throw new \Exception('Invalid parameters.');
+            }
+
+            // Check $_FILES['upfile']['error'] value.
+            switch ($file['error']) {
+                case UPLOAD_ERR_OK:
+                    break;
+                case UPLOAD_ERR_NO_FILE:
+                    Helpers::log('No file sent.');
+                    throw new \Exception('No file sent.');
+                case UPLOAD_ERR_INI_SIZE:
+                case UPLOAD_ERR_FORM_SIZE:
+                    Helpers::log('Exceeded filesize limit.');
+                    throw new \Exception('Exceeded filesize limit.');
+                default:
+                    Helpers::log('Unknown errors.');
+                    throw new \Exception('Unknown errors.');
+            }
+
+            // You should also check filesize here.
+            if ($file['size'] > 1000000) {
+                Helpers::log('Exceeded filesize limit.');
+                throw new \Exception('Exceeded filesize limit. It should be inferior to 5Mb');
+            }
+
+            // DO NOT TRUST $_FILES['upfile']['mime'] VALUE !!
+            // Check MIME Type by yourself.
+            $finfo = new \finfo(FILEINFO_MIME_TYPE);
+            if (false === $ext = array_search(
+                $finfo->file($file['tmp_name']),
+                array(
+                    'jpg' => 'image/jpeg',
+                    'png' => 'image/png',
+                    'gif' => 'image/gif',
+                ),
+                true
+            )) {
+                Helpers::log('Invalid file format.');
+                throw new \Exception('Invalid file format.');
+            }
+
+            // You should name it uniquely.
+            // DO NOT USE $_FILES['upfile']['name'] WITHOUT ANY VALIDATION !!
+            // On this example, obtain safe unique name from its binary data.
+            $cryptedFN = sprintf($dir.'%s.%s', sha1_file($file['tmp_name']), $ext);
+
+            if (!move_uploaded_file($file['tmp_name'], $cryptedFN)) {
+                Helpers::log('Failed to move uploaded file.');
+                throw new \Exception('Failed to move uploaded file.');
+            }
+
+
+            return basename($cryptedFN);
+
+        } catch (\Exception $e) {
+            Helpers::log($e->getMessage());
+        }
+    }
+
   }

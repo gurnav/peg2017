@@ -261,4 +261,23 @@
           ]
       ];
     }
+
+    public static function getAddMultimediasForm()
+    {
+        return [
+            "options" => [
+                "method" => "POST",
+                "action" => BASE_URL."admin/medias/doAdd",
+                "id" => "admin_insert_multimedias",
+                "enctype" => "multipart/form-data",
+                "submit" => "Add multimedias"
+            ],
+            "struct" => [
+                "filename"=>["label"=>"The filename : ", "type"=>"text", "placeholder"=>"filename", "required"=>"required" ],
+
+                "file"=>[ "label"=>"Choose The multimedia : ", "type"=>"file", "required"=>"required" ],
+            ]
+        ];
+    }
+
   }

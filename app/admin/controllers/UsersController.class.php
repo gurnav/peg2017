@@ -10,9 +10,17 @@
   use App\Admin\Models\Users;
   use App\Composite\Factories\ModalsFactory;
 
+  /**
+   * Controller for managing user in
+   * the back end
+   */
   class UsersController extends Controller
   {
 
+    /**
+     * Action who list all users
+     * @return Void
+     */
     public function indexAction()
     {
       $v = new View('users/users');
@@ -27,6 +35,11 @@
 
     }
 
+    /**
+     * Action that allow an administrator to
+     * manually add a user
+     * @return Void
+     */
     public function addAction()
     {
       $v = new View('users/add_user');
@@ -50,6 +63,11 @@
       }
     }
 
+    /**
+     * Action that allow an administrator to
+     * manually update a user
+     * @return Void
+     */
     public function updateAction($user_id)
     {
 
@@ -75,6 +93,11 @@
       }
     }
 
+    /**
+     * Action that allow an administrator to
+     * manually delete a user
+     * @return Void
+     */
     public function deleteAction($user_id)
     {
         $user = new Users();
@@ -88,6 +111,10 @@
         header('Location: '.BASE_URL.'admin/users');
     }
 
+    /**
+     * Action trigger the update un DB
+     * @return Void
+     */
     public function doUpdateAction($user_id)
     {
       $user = new Users();
@@ -157,6 +184,10 @@
       }
     }
 
+    /**
+     * Action trigger the add un DB
+     * @return Void
+     */
     public function doAddAction()
     {
       $user = new Users();

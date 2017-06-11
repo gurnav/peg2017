@@ -109,7 +109,8 @@
     {
         if ($this->getId() !== -1)
         {
-          $query = $this->qb->delete()->from($this->getTable())->where('id='.$this->getId());
+          // $query = $this->qb->delete()->from($this->getTable())->where('id='.$this->getId());
+          $query = "UPDATE ".$this->getTable()." SET deleted = 1 WHERE id = ".$this->getId();
           $this->qb->query($query, get_class($this), true);
         } else {
             Helpers::log("Impossible to delete the item => ".get_class($this).".");
