@@ -115,10 +115,6 @@
           $id_content = trim($id_content[0]);
           $_SESSION['errors'] = [];
 
-          foreach ($_POST as $post => $value) {
-              $cleanedData[$post] = Helpers::cleanString($value);
-          }
-
           try {
               $content = $content->populate(['id' => $id_content]);
           } catch (Exception $e) {
@@ -126,25 +122,25 @@
           }
 
           try {
-              $content->setTitle($cleanedData['title']);
+              $content->setTitle($_POST['title']);
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
 
           try {
-              $content->setCategories_id(intval($content->getCategoryIdByName($cleanedData['category'])));
+              $content->setCategories_id(intval($content->getCategoryIdByName($_POST['category'])));
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
 
           try {
-              $content->setContent($cleanedData['content']);
+              $content->setContent($_POST['content']);
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
 
           try {
-              $content->setStatus(intval($cleanedData['status']));
+              $content->setStatus(intval($_POST['status']));
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
@@ -177,30 +173,26 @@
           $content = new Contents();
           $_SESSION['errors'] = [];
 
-          foreach ($_POST as $post => $value) {
-              $cleanedData[$post] = Helpers::cleanString($value);
-          }
-
           try {
-              $content->setTitle($cleanedData['title']);
+              $content->setTitle($_POST['title']);
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
 
           try {
-              $content->setCategories_id(intval($content->getCategoryIdByName($cleanedData['category'])));
+              $content->setCategories_id(intval($content->getCategoryIdByName($_POST['category'])));
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
 
           try {
-              $content->setContent($cleanedData['content']);
+              $content->setContent($_POST['content']);
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
 
           try {
-              $content->setStatus(intval($cleanedData['status']));
+              $content->setStatus(intval($_POST['status']));
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
@@ -225,10 +217,10 @@
               unset($_SESSION['addContent']);
               header('Location: '.BASE_URL.'admin/contents');
           } else {
-              $_SESSION['addContent']['title'] = $cleanedData['title'];
-              $_SESSION['addContent']['category'] = $cleanedData['category'];
-              $_SESSION['addContent']['content'] = $cleanedData['content'];
-              $_SESSION['addContent']['status'] = $cleanedData['status'];
+              $_SESSION['addContent']['title'] = $_POST['title'];
+              $_SESSION['addContent']['category'] = $_POST['category'];
+              $_SESSION['addContent']['content'] = $_POST['content'];
+              $_SESSION['addContent']['status'] = $_POST['status'];
               header('Location: '.BASE_URL.'admin/contents/add');
           }
       }

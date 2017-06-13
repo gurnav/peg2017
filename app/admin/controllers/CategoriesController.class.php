@@ -55,19 +55,19 @@
     {
       $category = new Categories();
       $_SESSION['errors'] = [];
-      print_r($_POST);
-      foreach ($_POST as $post => $value) {
-          $cleanedData[$post] = Helpers::cleanString($value);
-      }
+
+      // foreach ($_POST as $post => $value) {
+      //    $_POST[$post] = Helpers::cleanString($value);
+      // }
 
       try {
-          $category->setName($cleanedData['name']);
+          $category->setName($_POST['name']);
       } catch (\Exception $e) {
           array_push($_SESSION['errors'], $e->getMessage());
       }
 
       try {
-          $category->setDescription($cleanedData['description']);
+          $category->setDescription($_POST['description']);
       } catch (\Exception $e) {
           array_push($_SESSION['errors'], $e->getMessage());
       }
@@ -92,8 +92,8 @@
           unset($_SESSION['addCategory']);
           header('Location: '.BASE_URL.'admin/categories');
       } else {
-          $_SESSION['addCategory']['name'] = $cleanedData['name'];
-          $_SESSION['addCategory']['description'] = $cleanedData['description'];
+          $_SESSION['addCategory']['name'] = $_POST['name'];
+          $_SESSION['addCategory']['description'] = $_POST['description'];
           header('Location: '.BASE_URL.'admin/categories/add');
       }
     }
@@ -137,9 +137,9 @@
           $id_category = trim($id_category[0]);
           $_SESSION['errors'] = [];
 
-          foreach ($_POST as $post => $value) {
-              $cleanedData[$post] = Helpers::cleanString($value);
-          }
+          // foreach ($_POST as $post => $value) {
+          //    $_POST[$post] = Helpers::cleanString($value);
+          // }
 
           try {
               $category = $category->populate(['id' => $id_category]);
@@ -148,13 +148,13 @@
           }
 
           try {
-              $category->setName($cleanedData['name']);
+              $category->setName($_POST['name']);
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
 
           try {
-              $category->setDescription($cleanedData['description']);
+              $category->setDescription($_POST['description']);
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }

@@ -60,12 +60,8 @@
           $multimedia = new Multimedias();
           $_SESSION['errors'] = [];
 
-          foreach ($_POST as $post => $value) {
-            $cleanedData[$post] = Helpers::cleanString($value);
-          }
-
           try {
-            $multimedia->setName($cleanedData['filename']);
+            $multimedia->setName($_POST['filename']);
           } catch (\Exception $e) {
             array_push($_SESSION['errors'], $e->getMessage());
           }

@@ -53,7 +53,7 @@
       {
           $comment = new Comments();
           $_SESSION['errors'] = [];
-          print_r($_POST);
+
           foreach ($_POST as $post => $value) {
               $cleanedData[$post] = Helpers::cleanString($value);
           }

@@ -121,10 +121,6 @@
       $user_id = trim($user_id[0]);
       $_SESSION['errors'] = [];
 
-      foreach ($_POST as $post => $value) {
-        $cleanedData[$post] = Helpers::cleanString($value);
-      }
-
       try {
           $user = $user->populate(['id' => $user_id]);
       } catch (Exception $e) {
@@ -132,37 +128,37 @@
       }
 
       try {
-        $user->setEmail($cleanedData['user_email']);
+        $user->setEmail($_POST['user_email']);
       } catch (\Exception $e) {
         array_push($_SESSION['errors'], $e->getMessage());
       }
 
       try {
-        $user->setFirstname($cleanedData['firstname']);
+        $user->setFirstname($_POST['firstname']);
       } catch (\Exception $e) {
         array_push($_SESSION['errors'], $e->getMessage());
       }
 
       try {
-        $user->setLastname($cleanedData['lastname']);
+        $user->setLastname($_POST['lastname']);
       } catch (\Exception $e) {
         array_push($_SESSION['errors'], $e->getMessage());
       }
 
       try {
-        $user->setUsername($cleanedData['username']);
+        $user->setUsername($_POST['username']);
       } catch (\Exception $e) {
         array_push($_SESSION['errors'], $e->getMessage());
       }
 
        try {
-         $user->setRights(intval($cleanedData['user_rights']));
+         $user->setRights(intval($_POST['user_rights']));
        } catch (\Exception $e) {
          array_push($_SESSION['errors'], $e->getMessage());
        }
 
        try {
-         $user->setStatus(intval($cleanedData['user_status']));
+         $user->setStatus(intval($_POST['user_status']));
        } catch (\Exception $e) {
          array_push($_SESSION['errors'], $e->getMessage());
        }
@@ -199,11 +195,7 @@
       $user = new Users();
       $_SESSION['errors'] = [];
 
-      foreach ($_POST as $post => $value) {
-        $cleanedData[$post] = Helpers::cleanString($value);
-      }
-
-      $userExist = $user->userExist($cleanedData['username'], $cleanedData['user_email']);
+      $userExist = $user->userExist($_POST['username'], $_POST['user_email']);
 
       if (!empty($userExist)) {
          $_SESSION['errors'] = $userExist;
@@ -211,44 +203,44 @@
       }
 
       try {
-        $user->setEmail($cleanedData['user_email']);
+        $user->setEmail($_POST['user_email']);
       } catch (\Exception $e) {
         array_push($_SESSION['errors'], $e->getMessage());
       }
 
       try {
-        $user->setFirstname($cleanedData['firstname']);
+        $user->setFirstname($_POST['firstname']);
       } catch (\Exception $e) {
         array_push($_SESSION['errors'], $e->getMessage());
       }
 
       try {
-        $user->setLastname($cleanedData['lastname']);
+        $user->setLastname($_POST['lastname']);
       } catch (\Exception $e) {
         array_push($_SESSION['errors'], $e->getMessage());
       }
 
       try {
-        $user->setUsername($cleanedData['username']);
+        $user->setUsername($_POST['username']);
       } catch (\Exception $e) {
         array_push($_SESSION['errors'], $e->getMessage());
       }
 
       try {
-        if($cleanedData['user_pwd'] === $cleanedData['user_pwd2'])
-           $user->setPassword($cleanedData['user_pwd']);
+        if($_POST['user_pwd'] === $_POST['user_pwd2'])
+           $user->setPassword($_POST['user_pwd']);
       } catch (\Exception $e) {
         array_push($_SESSION['errors'], $e->getMessage());
       }
 
        try {
-         $user->setRights(intval($cleanedData['user_rights']));
+         $user->setRights(intval($_POST['user_rights']));
        } catch (\Exception $e) {
          array_push($_SESSION['errors'], $e->getMessage());
        }
 
        try {
-         $user->setStatus(intval($cleanedData['user_status']));
+         $user->setStatus(intval($_POST['user_status']));
        } catch (\Exception $e) {
          array_push($_SESSION['errors'], $e->getMessage());
        }
@@ -273,12 +265,12 @@
          unset($_SESSION['addUSer']);
          header('Location: '.BASE_URL.'admin/users');
       } else {
-        $_SESSION['addUSer']['user_email'] = $cleanedData['user_email'];
-        $_SESSION['addUSer']['firstname'] = $cleanedData['firstname'];
-        $_SESSION['addUSer']['lastname'] = $cleanedData['lastname'];
-        $_SESSION['addUSer']['username'] = $cleanedData['username'];
-        $_SESSION['addUSer']['user_status'] = $cleanedData['user_status'];
-        $_SESSION['addUSer']['user_rights'] = $cleanedData['user_rights'];
+        $_SESSION['addUSer']['user_email'] = $_POST['user_email'];
+        $_SESSION['addUSer']['firstname'] = $_POST['firstname'];
+        $_SESSION['addUSer']['lastname'] = $_POST['lastname'];
+        $_SESSION['addUSer']['username'] = $_POST['username'];
+        $_SESSION['addUSer']['user_status'] = $_POST['user_status'];
+        $_SESSION['addUSer']['user_rights'] = $_POST['user_rights'];
         header('Location: '.BASE_URL.'admin/users/add');
       }
     }

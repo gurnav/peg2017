@@ -4,3 +4,4 @@ logs/
 .php_cs.cache
 phpmyadmin/
 uploads/
+.idea/

@@ -55,7 +55,7 @@
                         <textarea name="<?php echo $name; ?>"
                         <?php if(isset($attribute["placeholder"])) echo "placeholder=\"".$attribute["placeholder"]."\" " ?>
                         <?php if(isset($attribute["required"])) echo "required=\"".$attribute["required"]."\" " ?>
-                        id="textarea"><?php if(isset($attribute['value'])) echo $attribute['value'] ?></textarea><br>
+                        id="textarea"><?php if(isset($attribute['value'])) echo $attribute['value']; ?></textarea><br>
                     </div>
 
                 <?php endif; ?>
