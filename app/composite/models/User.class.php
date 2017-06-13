@@ -25,6 +25,7 @@
       protected $username; // The username in the database of the user
       protected $rights; // The rights of the user
       protected $status; // The status in the database of the user
+      protected $img; // The image of the user
 
 
       /**
@@ -32,7 +33,7 @@
        * @return Void
        */
       public function __construct($id=-1, $email=null, $password=null, $firstname=null,
-      $username=null, $lastname=null, $rights = 1, $status=0)
+      $username=null, $lastname=null, $rights = 1, $status=0, $img=null)
       {
           parent::__construct();
 
@@ -84,6 +85,8 @@
             $this->setStatus($status);
           }
 
+          $this->setUserImg($img);
+
       }
 
       /**
@@ -94,9 +97,15 @@
       */
       public function setPassword($setPassword)
       {
-        if(gettype($setPassword) === 'string')
+        if(is_string($setPassword))
         {
-          $this->password = password_hash($setPassword, PASSWORD_DEFAULT);
+            if (ctype_alnum($setPassword)) {
+                $this->password = password_hash($setPassword, PASSWORD_DEFAULT);
+            } else {
+                Helpers::log("Only alphanumeric character fot the password ". get_class($this)
+                  ." have been tried to inserted in the database");
+                throw new \Exception("Not well formed password ! Only alphanumeric character allowed");
+            }
         } else {
           Helpers::log("A not string variable for the password in ". get_class($this)
             ." have been tried to inserted in the database");
@@ -121,7 +130,7 @@
       */
       public function setFirstname($setFirstname)
       {
-        if(gettype($setFirstname) === 'string')
+        if(is_string($setFirstname))
         {
           if(strlen($setFirstname) <= 45)
           {
@@ -155,11 +164,17 @@
       */
       public function setLastname($setLastname)
       {
-        if(gettype($setLastname) === 'string')
+        if(is_string($setLastname))
         {
           if(strlen($setLastname) <= 45)
           {
-            $this->lastname = trim($setLastname);
+              if (ctype_alnum($setLastname)) {
+                  $this->lastname = trim($setLastname);
+              } else {
+                  Helpers::log("Only alphanumeric character fot the lastname ". get_class($this)
+                    ." have been tried to inserted in the database");
+                  throw new \Exception("Not well formed lastname ! Only alphanumeric character allowed");
+              }
           } else {
             Helpers::log("A string bigger than 45 char for the lastname in ". get_class($this)
               ." have been tried to inserted in the database");
@@ -189,11 +204,17 @@
       */
       public function setUsername($setUsername)
       {
-        if(gettype($setUsername) === 'string')
+        if(is_string($setUsername))
         {
           if(strlen($setUsername) <= 45)
           {
-            $this->username = trim($setUsername);
+              if (ctype_alnum($setUsername)) {
+                  $this->username = trim($setUsername);
+              } else {
+                  Helpers::log("Only alphanumeric character fot the username ". get_class($this)
+                    ." have been tried to inserted in the database");
+                  throw new \Exception("Not well formed Username ! Only alphanumeric character allowed");
+              }
           } else {
             Helpers::log("A string bigger than 45 char for the username in ". get_class($this)
               ." have been tried to inserted in the database");
@@ -270,6 +291,31 @@
       }
 
 
+      /**
+       * Set the image of the user based on the inputed file
+       * @param $file : FILE The image to be inserted on the server and in the DB
+       * @return Void
+       */
+      public function setUserImg($file)
+      {
+          $img = "";
+          if ($file !== null) {
+              $img = Helpers::safeUploadFile($file, UPLOADS_DIR_USERS);
+          }
+          $this->img = $img;
+      }
+
+
+      /**
+       * Simple user image name getter
+       * @return String $img The name of the image on the server
+       */
+      public function getUserImg()
+      {
+          return $this->img;
+      }
+
+
 
       /**
        * Function to check if an username already exist for an user in the database
@@ -312,8 +358,6 @@
         }
         return $errors;
       }
-
-
 
       public static function getIdByUsername($type) {
           if ($type === "admin") {

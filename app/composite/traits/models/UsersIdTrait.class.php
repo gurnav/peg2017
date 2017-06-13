@@ -20,9 +20,9 @@
      */
     public function setUsers_id($usersId)
     {
-      if(is_int($setUsers_id))
+      if(is_int($usersId))
       {
-        $this->users_id = $users_id;
+        $this->users_id = $usersId;
       } else {
         Helpers::log("A non integer type for a users id in a content have tried to be inserted in the DB");
         throw new \Exception("You can't enter a non integer type for a users id of a content");

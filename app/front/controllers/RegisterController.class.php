@@ -8,6 +8,7 @@
   use Core\Facades\Query;
   use Core\Facades\Auth;
   use Core\HTML\Modals;
+  use Core\Route\Routing;
   use App\Front\Models\Users;
   use App\Composite\Factories\ModalsFactory;
 
@@ -124,6 +125,12 @@
          }
 
          try {
+             $user->setUserImg($_FILES['user_img']);
+         } catch (\Exception $e) {
+           array_push($_SESSION['errors'], $e->getMessage());
+         }
+
+         try {
            if(empty($_SESSION['errors']))
                 $user->save();
          } catch (\Exception $e) {
@@ -135,7 +142,7 @@
          {
             Auth::login($cleanedData['username'], $cleanedData['user_pwd']);
             unset($_SESSION['register']);
-            header('Location: '.BASE_URL);
+            Routing::index();
          } else {
             $_SESSION['register']['user_email'] = $cleanedData['user_email'];
             $_SESSION['register']['firstname'] = $cleanedData['firstname'];

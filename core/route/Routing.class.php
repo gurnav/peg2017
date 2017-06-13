@@ -4,6 +4,7 @@
 
   use \App;
   use Core\Util\Helpers;
+  use Core\Auth\DBAuth;
 
   /**
    * Class that manage the CRUD Routing
@@ -33,6 +34,7 @@
         $this->setController();
         $this->setAction();
         $this->setParams();
+        $this->checkAdmin();
         $this->runRoute();
     }
 
@@ -45,6 +47,9 @@
     {
         $uri = filter_var($uri, FILTER_SANITIZE_URL);
         $uri = preg_replace("#".PATH_RELATIVE_PATTERN."/#i", "", $uri, 1);
+        //$uri = preg_replace("#".PATH_RELATIVE_PATTERN."#i", "", $uri, 1);
+        $uri = preg_replace("#".PATH_RELATIVE_PATTERN."/#", "", $uri, 1);
+
         // TODO: filter_var($uri, FILTER_VALIDATE_URL, FILTER_FLAG_SCHEME_REQUIRED);
         $this->uri = trim($uri, DS);
         $this->uriExploded = explode('/', $this->uri);
@@ -129,6 +134,26 @@
         } else {
             self::notFound();
         }
+    }
+
+    /**
+     * Check the route if the user have the access rights
+     * @return Void
+     */
+    public function checkAdmin() {
+        if (App::$prefix === "admin" and !DBAuth::isAdminLogged()) {
+            if ($this->controller !== "Login") {
+                self::forbidden();
+            }
+        }
+    }
+
+    /**
+     * Redirect the user to the index
+     * @return Void
+     */
+    public static function index() {
+        header('Location: '.BASE_URL);
     }
 
     /**

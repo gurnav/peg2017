@@ -8,9 +8,17 @@ use Core\Database\Models;
 use App\Admin\Models\Users;
 use App\Composite\Factories\ModalsFactory;
 
+  /**
+   * Controller for managing user in
+   * the back end
+   */
   class UsersController extends Controller
   {
 
+    /**
+     * Action who list all users
+     * @return Void
+     */
     public function indexAction()
     {
       $v = new View('users/users');
@@ -23,8 +31,13 @@ use App\Composite\Factories\ModalsFactory;
         unset($_SESSION['errors']);
       }
 
-
     }
+
+    /**
+     * Action that allow an administrator to
+     * manually add a user
+     * @return Void
+     */
     public function addAction()
     {
 
@@ -97,14 +110,14 @@ use App\Composite\Factories\ModalsFactory;
       }
     }
 
-
-
-
-
-    public function doUpdateAction($username)
+    /**
+     * Action trigger the update un DB
+     * @return Void
+     */
+    public function doUpdateAction($user_id)
     {
       $user = new Users();
-      $username = trim($username[0]);
+      $user_id = trim($user_id[0]);
       $_SESSION['errors'] = [];
 
       foreach ($_POST as $post => $value) {
@@ -112,7 +125,7 @@ use App\Composite\Factories\ModalsFactory;
       }
 
       try {
-          $user = $user->populate(['username' => $username]);
+          $user = $user->populate(['id' => $user_id]);
       } catch (Exception $e) {
           array_push($_SESSION['errors'], $e->getMessage());
       }
@@ -153,6 +166,12 @@ use App\Composite\Factories\ModalsFactory;
          array_push($_SESSION['errors'], $e->getMessage());
        }
 
+       try {
+           $user->setUserImg($_FILES['user_img']);
+       } catch (\Exception $e) {
+         array_push($_SESSION['errors'], $e->getMessage());
+       }
+
       try {
         if(empty($_SESSION['errors']))
              $user->save();
@@ -170,6 +189,10 @@ use App\Composite\Factories\ModalsFactory;
       }
     }
 
+    /**
+     * Action trigger the add un DB
+     * @return Void
+     */
     public function doAddAction()
     {
       $user = new Users();
@@ -225,6 +248,12 @@ use App\Composite\Factories\ModalsFactory;
 
        try {
          $user->setStatus(intval($cleanedData['user_status']));
+       } catch (\Exception $e) {
+         array_push($_SESSION['errors'], $e->getMessage());
+       }
+
+       try {
+           $user->setUserImg($_FILES['user_img']);
        } catch (\Exception $e) {
          array_push($_SESSION['errors'], $e->getMessage());
        }

@@ -21,7 +21,7 @@
       // $class = get_class($this);
       $class = explode("\\", self::class);
       $class_name = end($class);
-      $query = $qb->select('*')->from(DB_PREFIX.lcfirst($class_name));
+      $query = $qb->select('*')->from(DB_PREFIX.lcfirst($class_name))->where("deleted = 0");
       return $qb->query($query, $class_name);
     }
 
