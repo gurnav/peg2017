@@ -49,6 +49,17 @@
                 </div>
                 <?php endif; ?>
 
+                <?php if($attribute['type'] === 'textarea'): ?>
+                    <div class="super_editor">
+                        <span class="editor_span"><?php echo $attribute["label"]; ?></span>
+                        <textarea name="<?php echo $name; ?>"
+                        <?php if(isset($attribute["placeholder"])) echo "placeholder=\"".$attribute["placeholder"]."\" " ?>
+                        <?php if(isset($attribute["required"])) echo "required=\"".$attribute["required"]."\" " ?>
+                        id="textarea"><?php if(isset($attribute['value'])) echo $attribute['value'] ?></textarea><br>
+                    </div>
+
+                <?php endif; ?>
+
             <?php endforeach; ?>
 
             <input type="submit" value="<?php echo $admin_register_content["options"]['submit']; ?>">

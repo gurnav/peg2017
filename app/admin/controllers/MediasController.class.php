@@ -111,7 +111,7 @@
           try {
               $multimedia = $multimedia->populate(['path' => $img_source]);
               $multimedia->delete();
-              unlink(UPLOADS_DIR_CONTENTS.$img_source);
+              // unlink(UPLOADS_DIR_CONTENTS.$img_source);
           } catch (Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }

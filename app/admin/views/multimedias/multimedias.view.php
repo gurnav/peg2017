@@ -32,7 +32,7 @@
     				<img src="<?php echo ROUTE_DIR_CONTENTS.$media['path']; ?>" alt="<?php echo $media['name']; ?>" >
     				<i class="fa fa-camera" aria-hidden="true"></i>
     				<button title="Zoom" class="Zoom"><i class="fa fa-search" aria-hidden="true"></i></button>
-    				<a href="deleteImage.html" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
+    				<a href="<?php echo BASE_URL."/admin/medias/delete/".$media['name'] ?>" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
     				<h2>photo<span></span></h2>
     			</div>
 

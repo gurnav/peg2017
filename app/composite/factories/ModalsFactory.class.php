@@ -98,7 +98,7 @@
 
                 "category" => ["label" => "The category", "type" => "text", "name" => "", "id" => "", "placeholder" => "", "required" => 0, "msgerror" => "category"],
 
-                "content" => ["label" => "The content", "type" => "text", "id" => "content_add_article", "placeholder" => "Description of your article", "required" => 0, "errors_msg" => ""]
+                "content" => ["label" => "The content", "type" => "textarea", "id" => "content_add_article", "placeholder" => "Description of your article", "required" => 0, "errors_msg" => ""]
             ]
         ];
     }
@@ -120,7 +120,7 @@
 
                   "category"=>[ "label"=>"The Category : ", "type"=>"text", "placeholder"=>"Category", "required"=>"required" ],
 
-                  "content"=>[ "label"=>"The content : ", "type"=>"text", "placeholder"=>"Content", "required"=>"required" ],
+                  "content"=>[ "label"=>"The content : ", "type"=>"textarea", "placeholder"=>"Content", "required"=>"required" ],
               ]
           ];
       }
