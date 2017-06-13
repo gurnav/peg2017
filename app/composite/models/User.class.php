@@ -25,6 +25,7 @@
       protected $username; // The username in the database of the user
       protected $rights; // The rights of the user
       protected $status; // The status in the database of the user
+      protected $img; // The image of the user
 
 
       /**
@@ -32,7 +33,7 @@
        * @return Void
        */
       public function __construct($id=-1, $email=null, $password=null, $firstname=null,
-      $username=null, $lastname=null, $rights = 1, $status=0)
+      $username=null, $lastname=null, $rights = 1, $status=0, $img=null)
       {
           parent::__construct();
 
@@ -84,6 +85,8 @@
             $this->setStatus($status);
           }
 
+          $this->setUserImg($img);
+
       }
 
       /**
@@ -94,7 +97,7 @@
       */
       public function setPassword($setPassword)
       {
-        if(gettype($setPassword) === 'string')
+        if(is_string($setPassword))
         {
             if (ctype_alnum($setPassword)) {
                 $this->password = password_hash($setPassword, PASSWORD_DEFAULT);
@@ -127,7 +130,7 @@
       */
       public function setFirstname($setFirstname)
       {
-        if(gettype($setFirstname) === 'string')
+        if(is_string($setFirstname))
         {
           if(strlen($setFirstname) <= 45)
           {
@@ -161,7 +164,7 @@
       */
       public function setLastname($setLastname)
       {
-        if(gettype($setLastname) === 'string')
+        if(is_string($setLastname))
         {
           if(strlen($setLastname) <= 45)
           {
@@ -201,7 +204,7 @@
       */
       public function setUsername($setUsername)
       {
-        if(gettype($setUsername) === 'string')
+        if(is_string($setUsername))
         {
           if(strlen($setUsername) <= 45)
           {
@@ -288,6 +291,31 @@
       }
 
 
+      /**
+       * Set the image of the user based on the inputed file
+       * @param $file : FILE The image to be inserted on the server and in the DB
+       * @return Void
+       */
+      public function setUserImg($file)
+      {
+          $img = "";
+          if ($file !== null) {
+              $img = Helpers::safeUploadFile($file, UPLOADS_DIR_USERS);
+          }
+          $this->img = $img;
+      }
+
+
+      /**
+       * Simple user image name getter
+       * @return String $img The name of the image on the server
+       */
+      public function getUserImg()
+      {
+          return $this->img;
+      }
+
+
 
       /**
        * Function to check if an username already exist for an user in the database
@@ -329,27 +357,6 @@
           array_push($errors, 'This email is already taken');
         }
         return $errors;
-      }
-
-      public static function getIdByUsername($type) {
-          if ($type === "admin") {
-              $username = $_SESSION["admin"]["username"];
-          }
-
-          elseif ($type === "author") {
-              $username = $_SESSION["author"]["username"];
-          }
-
-          elseif ($type === "user"){
-              $username = $_SESSION["user"]["username"];
-          }
-
-          else{
-              Helpers::log("Unrecognised user session rights. Not defined.");
-              throw new \Exception("Unrecognised user session rights. Not defined.");
-          }
-
-          return $username;
       }
 
       public static function getUsernameById($id)

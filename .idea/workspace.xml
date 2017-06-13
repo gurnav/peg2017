@@ -2,9 +2,196 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0746f7aa-ae8f-408c-b87f-0c19a890142a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/front/controllers/cguController.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/admin/controllers/MediasController.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/admin/views/multimedias/add_multimedia.view.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/admin/views/multimedias/multimedias.view.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/admin/views/multimedias.view.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/phpmyadmin" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/fonts/FontAwesome.otf" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/fonts/FontAwesome.otf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/fonts/fontawesome-webfont.eot" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/fonts/fontawesome-webfont.eot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/fonts/fontawesome-webfont.woff" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/fonts/fontawesome-webfont.woff" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/Source-Code-Pro-500/Source-Code-Pro-500.eot" afterPath="$PROJECT_DIR$/public/assets/fonts/Source-Code-Pro-500/Source-Code-Pro-500.eot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/Source-Code-Pro-500/Source-Code-Pro-500.ttf" afterPath="$PROJECT_DIR$/public/assets/fonts/Source-Code-Pro-500/Source-Code-Pro-500.ttf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/Source-Code-Pro-500/Source-Code-Pro-500.woff" afterPath="$PROJECT_DIR$/public/assets/fonts/Source-Code-Pro-500/Source-Code-Pro-500.woff" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/Source-Code-Pro-500/Source-Code-Pro-500d41d.eot" afterPath="$PROJECT_DIR$/public/assets/fonts/Source-Code-Pro-500/Source-Code-Pro-500d41d.eot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-600/Source-Sans-Pro-600.eot" afterPath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-600/Source-Sans-Pro-600.eot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-600/Source-Sans-Pro-600.ttf" afterPath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-600/Source-Sans-Pro-600.ttf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-600/Source-Sans-Pro-600.woff" afterPath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-600/Source-Sans-Pro-600.woff" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-600/Source-Sans-Pro-600d41d.eot" afterPath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-600/Source-Sans-Pro-600d41d.eot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-600italic/Source-Sans-Pro-600italic.eot" afterPath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-600italic/Source-Sans-Pro-600italic.eot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-600italic/Source-Sans-Pro-600italic.ttf" afterPath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-600italic/Source-Sans-Pro-600italic.ttf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-600italic/Source-Sans-Pro-600italic.woff" afterPath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-600italic/Source-Sans-Pro-600italic.woff" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-600italic/Source-Sans-Pro-600italicd41d.eot" afterPath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-600italic/Source-Sans-Pro-600italicd41d.eot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-italic/Source-Sans-Pro-italic.eot" afterPath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-italic/Source-Sans-Pro-italic.eot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-italic/Source-Sans-Pro-italic.ttf" afterPath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-italic/Source-Sans-Pro-italic.ttf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-italic/Source-Sans-Pro-italic.woff" afterPath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-italic/Source-Sans-Pro-italic.woff" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-italic/Source-Sans-Pro-italicd41d.eot" afterPath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-italic/Source-Sans-Pro-italicd41d.eot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-regular/Source-Sans-Pro-regular.eot" afterPath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-regular/Source-Sans-Pro-regular.eot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-regular/Source-Sans-Pro-regular.ttf" afterPath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-regular/Source-Sans-Pro-regular.ttf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-regular/Source-Sans-Pro-regular.woff" afterPath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-regular/Source-Sans-Pro-regular.woff" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-regular/Source-Sans-Pro-regulard41d.eot" afterPath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-regular/Source-Sans-Pro-regulard41d.eot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/px/pxcf26.eot" afterPath="$PROJECT_DIR$/public/assets/fonts/px/pxcf26.eot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/px/pxcf26.ttf" afterPath="$PROJECT_DIR$/public/assets/fonts/px/pxcf26.ttf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/px/pxcf26.woff" afterPath="$PROJECT_DIR$/public/assets/fonts/px/pxcf26.woff" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/px/pxd41d.eot" afterPath="$PROJECT_DIR$/public/assets/fonts/px/pxd41d.eot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/images/banner.jpeg" afterPath="$PROJECT_DIR$/public/assets/images/banner.jpeg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/images/loader.gif" afterPath="$PROJECT_DIR$/public/assets/images/loader.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/images/photo1.jpeg" afterPath="$PROJECT_DIR$/public/assets/images/photo1.jpeg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/images/photo2.jpg" afterPath="$PROJECT_DIR$/public/assets/images/photo2.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/images/photo3.jpg" afterPath="$PROJECT_DIR$/public/assets/images/photo3.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/peg2017.iml" afterPath="$PROJECT_DIR$/.idea/peg2017.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/database/BaseSql.class.php" afterPath="$PROJECT_DIR$/core/database/BaseSql.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.php_cs.cache" afterPath="$PROJECT_DIR$/.php_cs.cache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/controllers/CategoriesController.class.php" afterPath="$PROJECT_DIR$/app/admin/controllers/CategoriesController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/controllers/CommentsController.class.php" afterPath="$PROJECT_DIR$/app/admin/controllers/CommentsController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/controllers/ConfigsController.class.php" afterPath="$PROJECT_DIR$/app/admin/controllers/ConfigsController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/controllers/ContentsController.class.php" afterPath="$PROJECT_DIR$/app/admin/controllers/ContentsController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/controllers/IndexController.class.php" afterPath="$PROJECT_DIR$/app/admin/controllers/IndexController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/controllers/LoginController.class.php" afterPath="$PROJECT_DIR$/app/admin/controllers/LoginController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/controllers/MenuController.class.php" afterPath="$PROJECT_DIR$/app/admin/controllers/MenuController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/controllers/MultimediasController.class.php" afterPath="$PROJECT_DIR$/app/admin/controllers/MultimediasController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/controllers/StatsController.class.php" afterPath="$PROJECT_DIR$/app/admin/controllers/StatsController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/controllers/TestController.class.php" afterPath="$PROJECT_DIR$/app/admin/controllers/TestController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/controllers/TopicsController.class.php" afterPath="$PROJECT_DIR$/app/admin/controllers/TopicsController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/controllers/UsersController.class.php" afterPath="$PROJECT_DIR$/app/admin/controllers/UsersController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/models/Categories.class.php" afterPath="$PROJECT_DIR$/app/admin/models/Categories.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/models/Comments.class.php" afterPath="$PROJECT_DIR$/app/admin/models/Comments.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/models/Configs.class.php" afterPath="$PROJECT_DIR$/app/admin/models/Configs.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/models/Contents.class.php" afterPath="$PROJECT_DIR$/app/admin/models/Contents.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/models/Menus.class.php" afterPath="$PROJECT_DIR$/app/admin/models/Menus.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/models/Messages.class.php" afterPath="$PROJECT_DIR$/app/admin/models/Messages.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/models/Multimedias.class.php" afterPath="$PROJECT_DIR$/app/admin/models/Multimedias.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/models/Newsletters.class.php" afterPath="$PROJECT_DIR$/app/admin/models/Newsletters.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/models/Roles.class.php.old" afterPath="$PROJECT_DIR$/app/admin/models/Roles.class.php.old" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/models/Threads.class.php" afterPath="$PROJECT_DIR$/app/admin/models/Threads.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/models/Topics.class.php" afterPath="$PROJECT_DIR$/app/admin/models/Topics.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/models/Users.class.php" afterPath="$PROJECT_DIR$/app/admin/models/Users.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/views/categories/add_category.view.php" afterPath="$PROJECT_DIR$/app/admin/views/categories/add_category.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/views/categories/categories.view.php" afterPath="$PROJECT_DIR$/app/admin/views/categories/categories.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/views/comments/add_comment.view.php" afterPath="$PROJECT_DIR$/app/admin/views/comments/add_comment.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/views/comments/comments.view.php" afterPath="$PROJECT_DIR$/app/admin/views/comments/comments.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/views/configs.view.php" afterPath="$PROJECT_DIR$/app/admin/views/configs.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/views/contents/add_content.view.php" afterPath="$PROJECT_DIR$/app/admin/views/contents/add_content.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/views/contents/contents.view.php" afterPath="$PROJECT_DIR$/app/admin/views/contents/contents.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/views/dashboard.view.php" afterPath="$PROJECT_DIR$/app/admin/views/dashboard.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/views/login.view.php" afterPath="$PROJECT_DIR$/app/admin/views/login.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/views/menu.view.php" afterPath="$PROJECT_DIR$/app/admin/views/menu.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/views/stats.view.php" afterPath="$PROJECT_DIR$/app/admin/views/stats.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/views/topics.view.php" afterPath="$PROJECT_DIR$/app/admin/views/topics.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/views/users/add_user.view.php" afterPath="$PROJECT_DIR$/app/admin/views/users/add_user.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/views/users/users.view.php" afterPath="$PROJECT_DIR$/app/admin/views/users/users.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/composite/factories/ContentFactory.class.php" afterPath="$PROJECT_DIR$/app/composite/factories/ContentFactory.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/composite/factories/ModalsFactory.class.php" afterPath="$PROJECT_DIR$/app/composite/factories/ModalsFactory.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/composite/models/Comment.class.php" afterPath="$PROJECT_DIR$/app/composite/models/Comment.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/composite/models/Message.class.php" afterPath="$PROJECT_DIR$/app/composite/models/Message.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/composite/models/Thread.class.php" afterPath="$PROJECT_DIR$/app/composite/models/Thread.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/composite/models/User.class.php" afterPath="$PROJECT_DIR$/app/composite/models/User.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/composite/traits/models/EmailTrait.class.php" afterPath="$PROJECT_DIR$/app/composite/traits/models/EmailTrait.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/composite/traits/models/GetAllDataTrait.class.php" afterPath="$PROJECT_DIR$/app/composite/traits/models/GetAllDataTrait.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/composite/traits/models/IdTrait.class.php" afterPath="$PROJECT_DIR$/app/composite/traits/models/IdTrait.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/composite/traits/models/UsersIdTrait.class.php" afterPath="$PROJECT_DIR$/app/composite/traits/models/UsersIdTrait.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/controllers/ArticleController.class.php" afterPath="$PROJECT_DIR$/app/front/controllers/ArticleController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/controllers/ForumController.class.php" afterPath="$PROJECT_DIR$/app/front/controllers/ForumController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/controllers/LoginController.class.php" afterPath="$PROJECT_DIR$/app/front/controllers/LoginController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/controllers/MessageController.class.php" afterPath="$PROJECT_DIR$/app/front/controllers/MessageController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/controllers/NewsController.class.php" afterPath="$PROJECT_DIR$/app/front/controllers/NewsController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/controllers/NewsletterController.class.php" afterPath="$PROJECT_DIR$/app/front/controllers/NewsletterController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/controllers/PageController.class.php" afterPath="$PROJECT_DIR$/app/front/controllers/PageController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/controllers/RegisterController.class.php" afterPath="$PROJECT_DIR$/app/front/controllers/RegisterController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/controllers/TestController.class.php" afterPath="$PROJECT_DIR$/app/front/controllers/TestController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/controllers/ThreadsController.class.php" afterPath="$PROJECT_DIR$/app/front/controllers/ThreadsController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/controllers/cguController.class.php" afterPath="$PROJECT_DIR$/app/front/controllers/cguController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/models/Comments.class.php" afterPath="$PROJECT_DIR$/app/front/models/Comments.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/models/Contents.class.php" afterPath="$PROJECT_DIR$/app/front/models/Contents.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/models/Messages.class.php" afterPath="$PROJECT_DIR$/app/front/models/Messages.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/models/Newsletters.class.php" afterPath="$PROJECT_DIR$/app/front/models/Newsletters.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/models/Threads.class.php" afterPath="$PROJECT_DIR$/app/front/models/Threads.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/views/comments.view.php" afterPath="$PROJECT_DIR$/app/front/views/comments.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/views/contents/article.view.php" afterPath="$PROJECT_DIR$/app/front/views/contents/article.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/views/contents/news.view.php" afterPath="$PROJECT_DIR$/app/front/views/contents/news.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/views/contents/page.view.php" afterPath="$PROJECT_DIR$/app/front/views/contents/page.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/views/forum/forum.view.php" afterPath="$PROJECT_DIR$/app/front/views/forum/forum.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/views/forum/threads.view.php" afterPath="$PROJECT_DIR$/app/front/views/forum/threads.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/views/index.view.php" afterPath="$PROJECT_DIR$/app/front/views/index.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/views/newsletters.view.php" afterPath="$PROJECT_DIR$/app/front/views/newsletters.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/views/users/login.view.php" afterPath="$PROJECT_DIR$/app/front/views/users/login.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/views/users/profile.view.php" afterPath="$PROJECT_DIR$/app/front/views/users/profile.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/views/users/register.view.php" afterPath="$PROJECT_DIR$/app/front/views/users/register.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf.inc.php" afterPath="$PROJECT_DIR$/conf.inc.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/database/Model.class.php" afterPath="$PROJECT_DIR$/core/database/Model.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/facades/Auth.class.php" afterPath="$PROJECT_DIR$/core/facades/Auth.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/facades/Query.class.php" afterPath="$PROJECT_DIR$/core/facades/Query.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/html/All_forms.class.php" afterPath="$PROJECT_DIR$/core/html/All_forms.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/html/All_forms.php" afterPath="$PROJECT_DIR$/core/html/All_forms.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/middleware/FormMiddleware.class.php" afterPath="$PROJECT_DIR$/core/middleware/FormMiddleware.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/middleware/RouteMiddleware.class.php" afterPath="$PROJECT_DIR$/core/middleware/RouteMiddleware.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/route/Routing.class.php" afterPath="$PROJECT_DIR$/core/route/Routing.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/util/Helpers.class.php" afterPath="$PROJECT_DIR$/core/util/Helpers.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/others/database/esgiGeographic.sql" afterPath="$PROJECT_DIR$/others/database/esgiGeographic.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/others/docker/Dockerfile" afterPath="$PROJECT_DIR$/others/docker/Dockerfile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/HELP-US-OUT.txt" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/HELP-US-OUT.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/css/font-awesome.css" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/css/font-awesome.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/css/font-awesome.min.css" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/css/font-awesome.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/fonts/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/fonts/fontawesome-webfont.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/less/animated.less" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/less/animated.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/less/bordered-pulled.less" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/less/bordered-pulled.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/less/core.less" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/less/core.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/less/fixed-width.less" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/less/fixed-width.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/less/font-awesome.less" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/less/font-awesome.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/less/icons.less" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/less/icons.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/less/larger.less" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/less/larger.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/less/list.less" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/less/list.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/less/mixins.less" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/less/mixins.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/less/path.less" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/less/path.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/less/rotated-flipped.less" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/less/rotated-flipped.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/less/screen-reader.less" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/less/screen-reader.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/less/stacked.less" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/less/stacked.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/less/variables.less" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/less/variables.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/scss/_animated.scss" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/scss/_animated.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/scss/_bordered-pulled.scss" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/scss/_bordered-pulled.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/scss/_core.scss" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/scss/_core.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/scss/_fixed-width.scss" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/scss/_fixed-width.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/scss/_icons.scss" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/scss/_icons.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/scss/_larger.scss" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/scss/_larger.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/scss/_list.scss" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/scss/_list.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/scss/_mixins.scss" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/scss/_mixins.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/scss/_path.scss" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/scss/_path.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/scss/_rotated-flipped.scss" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/scss/_rotated-flipped.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/scss/_screen-reader.scss" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/scss/_screen-reader.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/scss/_stacked.scss" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/scss/_stacked.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/scss/_variables.scss" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/scss/_variables.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/scss/font-awesome.scss" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome-4.7.0/scss/font-awesome.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/login.css" afterPath="$PROJECT_DIR$/public/assets/css/login.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/main.css" afterPath="$PROJECT_DIR$/public/assets/css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/modal.css" afterPath="$PROJECT_DIR$/public/assets/css/modal.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/noscript.css" afterPath="$PROJECT_DIR$/public/assets/css/noscript.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/style.css" afterPath="$PROJECT_DIR$/public/assets/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/Source-Code-Pro-500/Source-Code-Pro-500.html" afterPath="$PROJECT_DIR$/public/assets/fonts/Source-Code-Pro-500/Source-Code-Pro-500.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/Source-Code-Pro-500/Source-Code-Pro-500.svg" afterPath="$PROJECT_DIR$/public/assets/fonts/Source-Code-Pro-500/Source-Code-Pro-500.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-600/Source-Sans-Pro-600.html" afterPath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-600/Source-Sans-Pro-600.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-600/Source-Sans-Pro-600.svg" afterPath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-600/Source-Sans-Pro-600.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-600italic/Source-Sans-Pro-600italic.html" afterPath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-600italic/Source-Sans-Pro-600italic.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-600italic/Source-Sans-Pro-600italic.svg" afterPath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-600italic/Source-Sans-Pro-600italic.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-italic/Source-Sans-Pro-italic.html" afterPath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-italic/Source-Sans-Pro-italic.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-italic/Source-Sans-Pro-italic.svg" afterPath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-italic/Source-Sans-Pro-italic.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-regular/Source-Sans-Pro-regular.html" afterPath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-regular/Source-Sans-Pro-regular.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-regular/Source-Sans-Pro-regular.svg" afterPath="$PROJECT_DIR$/public/assets/fonts/Source-Sans-Pro-regular/Source-Sans-Pro-regular.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/fonts/px/pxcf26.svg" afterPath="$PROJECT_DIR$/public/assets/fonts/px/pxcf26.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/libs.js" afterPath="$PROJECT_DIR$/public/assets/js/libs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/main.js" afterPath="$PROJECT_DIR$/public/assets/js/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/scripts.js" afterPath="$PROJECT_DIR$/public/assets/js/scripts.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/robots.txt" afterPath="$PROJECT_DIR$/robots.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/base/body.temp.php" afterPath="$PROJECT_DIR$/template/base/body.temp.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/base/footer.temp.php" afterPath="$PROJECT_DIR$/template/base/footer.temp.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/base/header.temp.php" afterPath="$PROJECT_DIR$/template/base/header.temp.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/core/database/BaseSqlTest.class.php" afterPath="$PROJECT_DIR$/tests/core/database/BaseSqlTest.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/core/database/QueryBuilderTest.class.php" afterPath="$PROJECT_DIR$/tests/core/database/QueryBuilderTest.class.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,7 +210,17 @@
         <entry file="file://$PROJECT_DIR$/app/front/controllers/ArticleController.class.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
-              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="9" selection-end-column="3" />
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="9" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -32,7 +229,7 @@
       <file leaf-file-name="cguController.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/front/controllers/cguController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
+            <state relative-caret-position="136">
               <caret line="15" column="25" lean-forward="false" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
               <folding>
                 <element signature="e#6#87#0#PHP" expanded="true" />
@@ -44,28 +241,8 @@
       <file leaf-file-name="CategoriesController.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/admin/controllers/CategoriesController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="918">
+            <state relative-caret-position="850">
               <caret line="56" column="11" lean-forward="false" selection-start-line="56" selection-start-column="11" selection-end-line="56" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ArticlesController.class.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/admin/controllers/ArticlesController.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="6" column="24" lean-forward="true" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Modal.class.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/core/html/Modal.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="782">
-              <caret line="46" column="47" lean-forward="true" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -74,13 +251,9 @@
       <file leaf-file-name="BaseSql.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/database/BaseSql.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="56" column="30" lean-forward="true" selection-start-line="56" selection-start-column="30" selection-end-line="56" selection-end-column="30" />
-              <folding>
-                <marker date="1493570908689" expanded="true" signature="1377:1404" ph="SELECT categ... " />
-                <marker date="1493570908689" expanded="true" signature="1377:1405" ph="SELECT categ... ${DB_PREFIX}" />
-                <marker date="1493570908689" expanded="true" signature="1377:1557" ph="SELECT categ... hbv_categories" />
-              </folding>
+            <state relative-caret-position="918">
+              <caret line="56" column="30" lean-forward="false" selection-start-line="56" selection-start-column="30" selection-end-line="56" selection-end-column="30" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -89,7 +262,7 @@
         <entry file="file://$PROJECT_DIR$/core/html/All_forms.class.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
-              <caret line="11" column="31" lean-forward="true" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+              <caret line="11" column="31" lean-forward="false" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -159,6 +332,7 @@
         <option value="$PROJECT_DIR$/app/front/controllers/cgu.php" />
         <option value="$PROJECT_DIR$/app/front/controllers/cguController.php" />
         <option value="$PROJECT_DIR$/app/front/controllers/cguController.class.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -190,174 +364,40 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="peg2017" />
+              <option name="myItemId" value="esgi-geographic" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="peg2017" />
+              <option name="myItemId" value="esgi-geographic" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="peg2017" />
+              <option name="myItemId" value="esgi-geographic" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="peg2017" />
+              <option name="myItemId" value="esgi-geographic" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="peg2017" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="peg2017" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="peg2017" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="peg2017" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="peg2017" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="peg2017" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="front" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="peg2017" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="peg2017" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="front" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="articles" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="peg2017" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="peg2017" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="front" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="peg2017" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="peg2017" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="front" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="peg2017" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="peg2017" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -452,11 +492,12 @@
       <workItem from="1491839649643" duration="10341000" />
       <workItem from="1492243933751" duration="8981000" />
       <workItem from="1492888389703" duration="4967000" />
+      <workItem from="1497359138908" duration="78000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38214000" />
+    <option name="totallyTimeSpent" value="38292000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -466,7 +507,6 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.50292826" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.49707174" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -477,6 +517,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.49707174" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -500,13 +541,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/helpers/traits/models/EmailTrait.class.php" />
     <entry file="file://$PROJECT_DIR$/app/helpers/traits/models/UsersIdTrait.class.php" />
     <entry file="file://$PROJECT_DIR$/app/admin/models/Categories.class.php">
@@ -520,17 +554,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="37" column="24" lean-forward="false" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/front/views/index.view.php.old">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/front/views/index.view.php.old" />
     <entry file="file://$PROJECT_DIR$/app/front/views/index.html" />
     <entry file="file://$PROJECT_DIR$/core/views/View.class.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -544,7 +571,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -560,7 +586,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="385">
           <caret line="28" column="34" lean-forward="false" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -576,7 +601,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="444">
           <caret line="37" column="8" lean-forward="true" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -594,7 +618,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
           <caret line="46" column="8" lean-forward="false" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -602,18 +625,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/admin/controllers/AdminController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="3" lean-forward="false" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/admin/controllers/AdminController.class.php" />
     <entry file="file://$PROJECT_DIR$/app/admin/views/dashboard.view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -648,23 +663,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1292">
           <caret line="76" column="1" lean-forward="false" selection-start-line="76" selection-start-column="1" selection-end-line="76" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets1/css/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets1/css/styles.css" />
     <entry file="file://$PROJECT_DIR$/public/assets/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1229" column="0" lean-forward="false" selection-start-line="1229" selection-start-column="0" selection-end-line="1229" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -672,7 +678,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="10" column="45" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -680,7 +685,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="13" column="23" lean-forward="false" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -688,23 +692,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/admin/views/register.view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/admin/views/register.view.php" />
     <entry file="file://$PROJECT_DIR$/app/front/views/index.view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="15" column="40" lean-forward="false" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -712,7 +707,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="37" lean-forward="false" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -720,7 +714,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-695">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -728,7 +721,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -736,7 +728,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-559">
           <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -744,66 +735,33 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="317">
           <caret line="23" column="15" lean-forward="true" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/html/All_forms.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="11" column="31" lean-forward="true" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+          <caret line="11" column="31" lean-forward="false" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/database/BaseSql.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="56" column="30" lean-forward="true" selection-start-line="56" selection-start-column="30" selection-end-line="56" selection-end-column="30" />
-          <folding>
-            <marker date="1493570908689" expanded="true" signature="1377:1404" ph="SELECT categ... " />
-            <marker date="1493570908689" expanded="true" signature="1377:1405" ph="SELECT categ... ${DB_PREFIX}" />
-            <marker date="1493570908689" expanded="true" signature="1377:1557" ph="SELECT categ... hbv_categories" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/front/views/articles/article_list.view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="918">
+          <caret line="56" column="30" lean-forward="false" selection-start-line="56" selection-start-column="30" selection-end-line="56" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/front/views/articles/article.view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/front/controllers/cgu.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/front/controllers/cguController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/front/views/articles/article_list.view.php" />
+    <entry file="file://$PROJECT_DIR$/app/front/views/articles/article.view.php" />
+    <entry file="file://$PROJECT_DIR$/app/front/controllers/cgu.php" />
+    <entry file="file://$PROJECT_DIR$/app/front/controllers/cguController.php" />
     <entry file="file://$PROJECT_DIR$/app/front/controllers/ArticleController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="9" selection-end-column="3" />
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="9" selection-end-column="3" />
           <folding />
         </state>
       </provider>
@@ -812,13 +770,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/front/controllers/cguController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
+        <state relative-caret-position="136">
           <caret line="15" column="25" lean-forward="false" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
           <folding>
             <element signature="e#6#87#0#PHP" expanded="true" />
@@ -828,20 +785,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/admin/controllers/CategoriesController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
+        <state relative-caret-position="850">
           <caret line="56" column="11" lean-forward="false" selection-start-line="56" selection-start-column="11" selection-end-line="56" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/admin/controllers/ArticlesController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="24" lean-forward="true" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/admin/controllers/ArticlesController.class.php" />
     <entry file="file://$PROJECT_DIR$/conf.inc.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -850,10 +800,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/html/Modal.class.php">
+    <entry file="file://$PROJECT_DIR$/core/html/Modal.class.php" />
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="46" column="47" lean-forward="true" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="47" />
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
         </state>
       </provider>
