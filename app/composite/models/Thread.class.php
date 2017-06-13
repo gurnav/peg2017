@@ -12,7 +12,7 @@
 	 * 	Contents Model who reprensent the Threads table
 	 * 	in the database
 	 */
-	class Threads extends Model
+	class Thread extends Model
 	{
 
 		use UsersIdTrait;
@@ -130,6 +130,15 @@
 					throw new \Exception("You can't enter a number as a description !");
 				}
       }
+
+
+        public static function getTopicnameById($id)
+        {
+            $qb = new QueryBuilder();
+            $query = "SELECT name from ".DB_PREFIX."topics WHERE id = '".$id."'";
+            $topic = $qb->query($query, null, true);
+            return $topic->name;
+        }
 
 
   }

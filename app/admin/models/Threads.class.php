@@ -3,8 +3,8 @@
   namespace App\Admin\Models;
 
   use Core\Util\Helpers;
-	use App\Composite\Models\Thread;
-  use App\Composite\Traits\GetAllDataTrait;
+  use App\Composite\Models\Thread;
+  use App\Composite\Traits\Models\GetAllDataTrait;
 
 	/**
 	 * 	Contents Model who reprensent the Threads table

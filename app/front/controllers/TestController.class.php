@@ -9,12 +9,23 @@
   use Core\Facades\Query;
   use Core\Auth\DBAuth;
   use Core\HTML\Form;
+  use App\Admin\Models\Messages;
 
   class TestController extends Controller
   {
       public function indexAction()
       {
           echo "Index of test <br>";
+      }
+
+      public function msglistAction()
+      {
+
+          $v = new View('test');
+
+          $messages = Messages::getAll();
+
+          $v->assign("messages", $messages);
       }
 
       public function populateAction()

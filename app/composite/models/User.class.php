@@ -313,4 +313,31 @@
         return $errors;
       }
 
+
+
+      public static function getIdByUsername($type) {
+          if ($type === "admin") {
+              $username = $_SESSION["admin"]["username"];
+          }
+          elseif ($type === "author") {
+              $username = $_SESSION["author"]["username"];
+          }
+          elseif ($type === "user"){
+              $username = $_SESSION["user"]["username"];
+          }
+          else{
+              Helpers::log("Unrecognised user session rights. Not defined.");
+              throw new \Exception("Unrecognised user session rights. Not defined.");
+          }
+          return $username;
+      }
+
+      public static function getUsernameById($id)
+      {
+          $qb = new QueryBuilder();
+          $query = "SELECT username from ".DB_PREFIX."users WHERE id = '".$id."'";
+          $user = $qb->query($query, null, true);
+          return $user->username;
+      }
+
   }

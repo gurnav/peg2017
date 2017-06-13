@@ -96,4 +96,12 @@
           }
       }
 
+      public static function getThreadnameById($id)
+      {
+          $qb = new QueryBuilder();
+          $query = "SELECT title from ".DB_PREFIX."threads WHERE id = '".$id."'";
+          $thread = $qb->query($query, null, true);
+          return $thread->title;
+      }
+
   }

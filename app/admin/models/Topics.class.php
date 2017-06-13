@@ -101,4 +101,33 @@
       }
 
 
+      public function setUsers_id($userId)
+      {
+          if(is_int($userId))
+          {
+              $this->userId = $userId;
+          } else {
+              Helpers::log("A non integer type for a Users id  have tried to be inserted in the DB");
+              throw new \Exception("You can't enter a non integer type for a User id");
+          }
+      }
+      public function getUsers_id()
+      {
+          return $this->userId;
+      }
+
+      /**
+       * Simple getter of the Category name by id
+       * @return string $category_name the name of the linked category
+       */
+      public static function getUsernameById($id)
+      {
+          $qb = new QueryBuilder();
+          $query = "SELECT username from ".DB_PREFIX."users WHERE id = '".$id."'";
+          $user = $qb->query($query, null, true);
+          return $user->username;
+      }
+
+
+
   }

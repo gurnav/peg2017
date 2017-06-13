@@ -78,18 +78,40 @@
     }
 
 
-      public static function PostMessageUserForm()
+      public static function getAddMessageForm()
       {
           return [
               "options" => [
                   "method"=>"POST",
-                  "action"=>"",
+                  "action"=> BASE_URL."admin/message/doAdd",
+                  "id"=>"admin_register_message",
                   "enctype"=>"multipart/form-data",
-                  "submit"=>""
+                  "submit"=>"Add message"
               ],
               "struct" => [
 
-                "message" => ["type"=>"text", "placeholder"=>"You're message", "required"=>"required", "id"=>"messagebox" ],
+                "content" => ["label"=>"The content of your message","type"=>"text", "placeholder"=>"content of your message", "required"=>0, "error_msg"=>"" ],
+
+              ]
+          ];
+      }
+
+      //use by topic controller
+      public static function getAddTopicForm()
+      {
+          return [
+              "options" => [
+                  "method"=>"POST",
+                  "action"=> BASE_URL."admin/topics/doAdd",
+                  "id"=>"admin_register_topic",
+                  "enctype"=>"multipart/form-data",
+                  "submit"=>"Add topic"
+              ],
+              "struct" => [
+
+                  "name" => ["label"=>"The name of your topic","type"=>"text", "placeholder"=>"name of your message", "required"=>0, "error_msg"=>"" ],
+                  "description" => ["label"=>"The description of your topic","type"=>"text", "placeholder"=>"content of your message", "required"=>0, "error_msg"=>"" ],
+                 // "user" => ["label"=>"User who add the Topic","type"=>"text", "placeholder"=>"name of the user", "required"=>0, "error_msg"=>"" ],
 
               ]
           ];
