@@ -60,17 +60,12 @@
      */
     public function loginAction()
     {
-
-         foreach ($_POST as $post => $value) {
-           $cleanedData[$post] = Helpers::cleanString($value);
-         }
-
-         $auth_admin = Auth::adminLogin($cleanedData['username'], $cleanedData['password']);
+         $auth_admin = Auth::adminLogin($_POST['username'], $_POST['password']);
 
          if ($auth_admin === 0)
          {
            $user = new Users();
-           $user->populate(['username' => $cleanedData['username']]);
+           $user->populate(['username' => $_POST['username']]);
            unset($_SESSION['login']);
            header('Location: '.BASE_URL.'admin/');
        } elseif ($auth_admin === -1) {
@@ -78,7 +73,7 @@
            header('Location: '.BASE_URL.'admin/login');
        }
          else {
-            $_SESSION['login']['username'] = $cleanedData['username'];
+            $_SESSION['login']['username'] = $_POST['username'];
             if($auth_admin === 1) {
                 $_SESSION['login']['error'] = 'Username or password invalid';
             }

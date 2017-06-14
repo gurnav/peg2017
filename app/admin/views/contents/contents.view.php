@@ -44,7 +44,7 @@
                     <td><?php echo $content['id']; ?></td>
                     <td><?php echo $content['title']; ?></td>
                     <td><?php echo $content['type']; ?></td>
-                    <td><?php echo $content['content']; ?></td>
+                    <td><?php echo substr($content['content'], 0, 128)." ..."; ?></td>
                     <td><?php echo $content['date_inserted']; ?></td>
                     <td><?php echo $content['username']; ?></td>
                     <?php

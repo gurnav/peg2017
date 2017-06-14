@@ -90,19 +90,28 @@
       return $class;
     }
 
-
     /**
      * Clean the string to prevent any hacks
+     * This function may be extended
      * @param $string : String The string to be cleaned
      * @return $string : String The cleaned String
      */
     public static function cleanString($string)
     {
-      $string = htmlspecialchars($string);
-      $string = htmlentities($string);
-      $string = strip_tags($string);
-      return $string;
+      // return strip_tags($string);
+      return htmlspecialchars($string);
     }
+
+    /**
+     * Reinsert the charactere html charactere
+     * @param $string : String The string to "unclean"
+     * @return $string : String the string "uncleaned"
+     */
+     public static function uncleanString($string)
+     {
+         return htmlspecialchars_decode($string);
+
+     }
 
     /**
      * Function for uploading a file safely to the server

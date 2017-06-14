@@ -13,6 +13,11 @@
   class ContentsController extends Controller
   {
 
+
+    /**
+     * Action who list all contents
+     * @return Void
+     */
     public function indexAction()
     {
         $v = new View('contents/contents');
@@ -26,27 +31,38 @@
         $v->assign('contents', $contents);
     }
 
-      public function addAction()
-      {
-          $v = new View('contents/add_content');
+    /**
+     * Action that allow an administrator to
+     * manually add a medias
+     * @return Void
+     */
+    public function addAction()
+    {
+        $v = new View('contents/add_content');
 
-          $admin_register_content = ModalsFactory::getAddContentForm();
-          if(!empty($_SESSION['addContent'])) {
-              $admin_register_content['struct']['status']['value'] = $_SESSION['addContent']['status'];
-              $admin_register_content['struct']['title']['value'] = $_SESSION['addContent']['title'];
-              $admin_register_content['struct']['category']['value'] = $_SESSION['addContent']['category'];
-              $admin_register_content['struct']['content']['value'] = $_SESSION['addContent']['content'];
-              unset($_SESSION['addContent']);
-          }
+        $admin_register_content = ModalsFactory::getAddContentForm();
+        if(!empty($_SESSION['addContent'])) {
+            $admin_register_content['struct']['status']['value'] = $_SESSION['addContent']['status'];
+            $admin_register_content['struct']['title']['value'] = $_SESSION['addContent']['title'];
+            $admin_register_content['struct']['category']['value'] = $_SESSION['addContent']['category'];
+            $admin_register_content['struct']['content']['value'] = $_SESSION['addContent']['content'];
+            unset($_SESSION['addContent']);
+        }
 
-          $v->assign('admin_register_content', $admin_register_content);
+        $v->assign('admin_register_content', $admin_register_content);
 
-          if(isset($_SESSION['errors']) && !empty($_SESSION['errors'])) {
-              $v->assign('errors', $_SESSION['errors']);
-              unset($_SESSION['errors']);
-          }
+        if(isset($_SESSION['errors']) && !empty($_SESSION['errors']))
+        {
+            $v->assign('errors', $_SESSION['errors']);
+            unset($_SESSION['errors']);
+        }
       }
 
+      /**
+       * Action that allow an administrator to
+       * manually update a contents
+       * @return Void
+       */
       public function updateAction($id_content)
       {
 
@@ -73,6 +89,11 @@
           }
       }
 
+      /**
+       * Action that allow an administrator to
+       * manually delete a contents
+       * @return Void
+       */
       public function deleteAction($id_content)
       {
           $content = new Contents();
@@ -86,15 +107,16 @@
           header('Location: '.BASE_URL.'admin/contents');
       }
 
+      /**
+       * Function for performing the update of the
+       * multimedias on the server
+       * @return Void
+       */
       public function doUpdateAction($id_content)
       {
           $content = new Contents();
           $id_content = trim($id_content[0]);
           $_SESSION['errors'] = [];
-
-          foreach ($_POST as $post => $value) {
-              $cleanedData[$post] = Helpers::cleanString($value);
-          }
 
           try {
               $content = $content->populate(['id' => $id_content]);
@@ -103,25 +125,25 @@
           }
 
           try {
-              $content->setTitle($cleanedData['title']);
+              $content->setTitle($_POST['title']);
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
 
           try {
-              $content->setCategories_id(intval($content->getCategoryIdByName($cleanedData['category'])));
+              $content->setCategories_id(intval($content->getCategoryIdByName($_POST['category'])));
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
 
           try {
-              $content->setContent($cleanedData['content']);
+              $content->setContent($_POST['content']);
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
 
           try {
-              $content->setStatus(intval($cleanedData['status']));
+              $content->setStatus(intval($_POST['status']));
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
@@ -143,42 +165,37 @@
           }
       }
 
+
+      /**
+       * Function for performing the add of the
+       * contents on the server
+       * @return Void
+       */
       public function doAddAction()
       {
           $content = new Contents();
           $_SESSION['errors'] = [];
 
-          foreach ($_POST as $post => $value) {
-              $cleanedData[$post] = Helpers::cleanString($value);
-          }
-
-          /*$contentExist = $content->userExist($cleanedData['username'], $cleanedData['user_email']);
-
-          if (!empty($contentExist)) {
-              $_SESSION['errors'] = $contentExist;
-              header('Location: '.BASE_URL.'admin/contents');
-          }*/
-
           try {
-              $content->setTitle($cleanedData['title']);
+              $content->setTitle($_POST['title']);
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
 
           try {
-              $content->setCategories_id(intval($content->getCategoryIdByName($cleanedData['category'])));
+              $content->setCategories_id(intval($content->getCategoryIdByName($_POST['category'])));
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
 
           try {
-              $content->setContent($cleanedData['content']);
+              $content->setContent($_POST['content']);
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
 
           try {
-              $content->setStatus(intval($cleanedData['status']));
+              $content->setStatus(intval($_POST['status']));
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
@@ -203,10 +220,10 @@
               unset($_SESSION['addContent']);
               header('Location: '.BASE_URL.'admin/contents');
           } else {
-              $_SESSION['addContent']['title'] = $cleanedData['title'];
-              $_SESSION['addContent']['category'] = $cleanedData['category'];
-              $_SESSION['addContent']['content'] = $cleanedData['content'];
-              $_SESSION['addContent']['status'] = $cleanedData['status'];
+              $_SESSION['addContent']['title'] = $_POST['title'];
+              $_SESSION['addContent']['category'] = $_POST['category'];
+              $_SESSION['addContent']['content'] = $_POST['content'];
+              $_SESSION['addContent']['status'] = $_POST['status'];
               header('Location: '.BASE_URL.'admin/contents/add');
           }
       }

@@ -22,6 +22,7 @@
     {
         $this->setView($view);
         $this->setTemplate($template);
+        $this->assign('helpers', Helpers);
     }
 
     /**
