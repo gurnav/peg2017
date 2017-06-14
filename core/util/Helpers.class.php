@@ -88,7 +88,7 @@
       }
       $class = implode(DS, $class);
       return $class;
-    }
+  }
 
     /**
      * Clean the string to prevent any hacks
@@ -98,20 +98,9 @@
      */
     public static function cleanString($string)
     {
-      // return strip_tags($string);
-      return htmlspecialchars($string);
+      return strip_tags($string, "<p><a><b><ul><li><ol><u><i><h1><h2><h3><h4><h5><h6><br><div><hr><table><tbody><td><tr><tfoot><th><thead><img><strong><em>");
+      // return htmlspecialchars($string);
     }
-
-    /**
-     * Reinsert the charactere html charactere
-     * @param $string : String The string to "unclean"
-     * @return $string : String the string "uncleaned"
-     */
-     public static function uncleanString($string)
-     {
-         return htmlspecialchars_decode($string);
-
-     }
 
     /**
      * Function for uploading a file safely to the server
