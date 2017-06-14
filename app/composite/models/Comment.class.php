@@ -31,7 +31,7 @@
      {
          parent::__construct();
 
-
+         $this->setId($id);
          $this->setContent($content);
          $this->setContents_id($contents_id);
          $this->setUsers_id($users_id);

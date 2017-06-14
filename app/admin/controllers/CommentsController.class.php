@@ -76,6 +76,10 @@
               array_push($_SESSION['errors'], $e->getMessage());
           }
 
+          // Helpers::debugVar($comment);
+          // Helpers::debugVar($_SESSION['errors']);
+          // die();
+
           try {
               if(empty($_SESSION['errors']))
                   $comment->save();

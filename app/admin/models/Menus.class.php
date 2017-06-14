@@ -47,7 +47,14 @@
           {
               if(strlen($name) <= 128)
               {
-                  $this->name = trim($name);
+                  if (ctype_alnum($name)) {
+                      $this->name = trim($name);
+                  }
+                  else {
+                      Helpers::log("Only alphanumeric character fot the password ". get_class($this)
+                          ." have been tried to inserted in the database");
+                      throw new \Exception("Not well formed password ! Only alphanumeric character allowed");
+                  }
               } else {
                   Helpers::log("A string bigger than 128 char for the name in ". get_class($this)
                       ." have been tried to inserted in the database");

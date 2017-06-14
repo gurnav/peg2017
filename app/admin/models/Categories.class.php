@@ -44,10 +44,8 @@
        * @return Void
        */
       public function setName($name){
-          if(is_string($name))
-          {
-              if(strlen($name) <= 128)
-              {
+          if(is_string($name)) {
+              if(strlen($name) <= 128) {
                   $this->name = trim($name);
               } else {
                   Helpers::log("A string bigger than 128 char for the name in ". get_class($this)
@@ -77,11 +75,9 @@
        * @return Void
        */
       public function setDescription($description){
-          if(is_string($description))
-          {
-              if(strlen($description) <= 255 )
-              {
-                  $this->description=trim($description);
+          if(is_string($description)) {
+              if(strlen($description) <= 255 ) {
+                      $this->description=trim($description);
               } else {
                   Helpers::log("A word count superior to 255 has tried to be created in a new description");
                   throw new \Exception("You can't enter a description with a words count superior to 255");

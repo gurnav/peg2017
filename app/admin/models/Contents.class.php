@@ -58,11 +58,9 @@
      */
     public function setTitle($title)
     {
-      if(is_string($title))
-      {
-        if(strlen($title) <= 255 )
-        {
-          $this->title = trim($title);
+      if(is_string($title)) {
+          if(strlen($title) <= 255 ) {
+              $this->title = trim($title);
         } else {
           Helpers::log("A word count superior to 255 has tried to be created in a new title content");
           throw new \Exception("You can't enter a content title with a words count superior to 255");
@@ -91,11 +89,9 @@
      */
     public function setContent($content)
     {
-      if(is_string($content))
-      {
-        if(strlen($content) <= 65535 )
-        {
-          $this->content = trim($content);
+      if(is_string($content)) {
+        if(strlen($content) <= 65535 ) {
+            $this->content = trim($content);
         } else {
           Helpers::log("A word count superior to 65535 has tried to be created in a new content");
           throw new \Exception("You can't enter a content with a words count superior to 65535");

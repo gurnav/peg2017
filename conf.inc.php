@@ -7,7 +7,7 @@
 
   define("DB_NAME", "esgiGeographik");
   define("DB_USER", "root");
-  define("DB_PWD", "root");
+  define("DB_PWD", "");
   define("DB_HOST", HOST);
   define("DB_PORT", "3306");
   define("DB_DRIVER", "mysql");

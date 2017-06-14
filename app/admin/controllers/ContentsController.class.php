@@ -56,6 +56,9 @@
           $id_content = $id_content[0];
           $content = $content->populate(['id' => $id_content]);
 
+          /*Helpers::debugVar($content);
+          die();*/
+
           $admin_register_content = ModalsFactory::getUpdateContentForm($id_content);
           $admin_register_content['struct']['status']['value'] = $content->getStatus();
           $admin_register_content['struct']['title']['value'] = $content->getTitle();
