@@ -77,6 +77,6 @@
 </section>
 
 <?php
-   /* require('flux_rss.php');
+    /*require('flux_rss.php');
     rebuild_rss();*/
 ?>

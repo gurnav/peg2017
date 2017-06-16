@@ -1,5 +1,8 @@
 <?php
-/*function &init_news_rss(&$xml_file)
+
+$xml_file = new DOMDocument("1.0");
+
+function &init_news_rss(&$xml_file)
 {
     $root = $xml_file->create_element("rss"); // création de l'élément
     $root->set_attribute("version", "2.0"); // on lui ajoute un attribut
@@ -108,5 +111,5 @@ function rebuild_rss()
 
     // on écrit le fichier
     $xml_file->dump_file("news_FR_flux.xml");
-}*/
+}
 ?>
