@@ -106,7 +106,6 @@
            array_push($_SESSION['errors'], $e->getMessage());
          }
 
-
           try {
             $user->setRole_id(1);
           } catch (\Exception $e) {

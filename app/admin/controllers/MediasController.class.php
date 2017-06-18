@@ -24,7 +24,7 @@
        */
       public function indexAction()
       {
-          $v = new View('multimedias/multimedias');
+          $v = new View('multimedias/multimedias', 'admin');
 
           $medias = Multimedias::getAll();
 
@@ -38,7 +38,7 @@
        */
       public function addAction()
       {
-          $v = new View('multimedias/add_multimedia');
+          $v = new View('multimedias/add_multimedia', 'admin');
 
           $admin_add_multimedia_form = ModalsFactory::getAddMultimediasForm();
 

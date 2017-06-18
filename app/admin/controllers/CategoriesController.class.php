@@ -15,7 +15,7 @@
 
     public function indexAction()
     {
-        $v = new View('categories/categories');
+        $v = new View('categories/categories', 'admin');
         $categories = Categories::getAll();
 
         for($i = 0; $i < count($categories); $i += 1)
@@ -33,7 +33,7 @@
 
     public function addAction()
     {
-      $v = new View('categories/add_category');
+      $v = new View('categories/add_category', 'admin');
 
       $admin_register_category = ModalsFactory::getAddCategoryForm();
       if(!empty($_SESSION['addCategory'])) {
@@ -113,7 +113,7 @@
 
     public function updateAction($id_category)
     {
-      $v = new View('categories/add_category');
+      $v = new View('categories/add_category', 'admin');
 
       $category = new Categories();
       $id_category = $id_category[0];

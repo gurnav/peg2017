@@ -17,7 +17,7 @@
   {
       public function indexAction($params = null)
       {
-          $v = new View('dashboard');
+          $v = new View('dashboard', 'admin');
 
           $users = Users::getAll();
           $multimedias = Multimedias::getAll();

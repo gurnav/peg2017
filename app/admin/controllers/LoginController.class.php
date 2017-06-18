@@ -60,29 +60,26 @@
      */
     public function loginAction()
     {
-         $auth_admin = Auth::adminLogin($_POST['username'], $_POST['password']);
+         $auth_admin = Auth::login($_POST['username'], $_POST['password']);
 
          if ($auth_admin === 0)
          {
            $user = new Users();
            $user->populate(['username' => $_POST['username']]);
            unset($_SESSION['login']);
+           if ($_SESSION["user"]["type"] === "user") {
+               $_SESSION['errors'] = "You don't have the right acces.";
+               header('Location: '.BASE_URL.'/user');
+           }
            header('Location: '.BASE_URL.'admin/');
        } elseif ($auth_admin === -1) {
            $_SESSION['login']['error'] = "The User doesn't exist";
            header('Location: '.BASE_URL.'admin/login');
+       } elseif ($auth_admin === 1) {
+           $_SESSION['login']['username'] = $_POST['username'];
+           $_SESSION['login']['error'] = 'Username or password invalid';
+           header('Location: '.BASE_URL.'admin/login');
        }
-         else {
-            $_SESSION['login']['username'] = $_POST['username'];
-            if($auth_admin === 1) {
-                $_SESSION['login']['error'] = 'Username or password invalid';
-            }
-            elseif($auth_admin === 2) {
-              $_SESSION['login']['error'] = "You don't have the right acces.";
-            }
-
-            header('Location: '.BASE_URL.'admin/login');
-         }
 
     }
 
