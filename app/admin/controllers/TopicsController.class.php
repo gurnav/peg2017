@@ -4,6 +4,7 @@
 
   use App\Admin\Models\Topics;
   use Core\Controllers\Controller;
+  use Core\Util\Helpers;
   use Core\Views\View;
   use App\Admin\Models\Users;
   use App\Composite\Factories\ModalsFactory;
@@ -39,17 +40,42 @@
             unset($_SESSION['addTopic']);
         }
         $v->assign('admin_register_topic', $admin_register_topic);
+
         if (isset($_SESSION['errors']) && !empty($_SESSION['errors'])) {
+
             $v->assign('errors', $_SESSION['errors']);
             unset($_SESSION['errors']);
 
         }
     }
 
-    public function updateAction()
-    {
+      /**
+       * Action that allow an administrator to
+       * manually update a topics
+       * @return Void
+       */
+      public function updateAction($id_topic)
+      {
 
-    }
+          $v = new View('forum/add_topic');
+
+          $topic = new Topics();
+          $id_topic = $id_topic[0];
+          $topic = $topic->populate(['id' => $id_topic]);
+
+          $admin_register_topic = ModalsFactory::getUpdateContentForm($id_topic);
+          $admin_register_topic['struct']['status']['value'] = $topic->getStatus();
+          $admin_register_topic['struct']['title']['value'] = $topic->getTitle();
+          $admin_register_topic['struct']['category']['value'] = $topic->getCategoryNameById();
+          $admin_register_topic['struct']['content']['value'] = $topic->getContent();
+
+          $v->assign('admin_register_topic', $admin_register_topic);
+
+          if(isset($_SESSION['errors']) && !empty($_SESSION['errors'])) {
+              $v->assign('errors', $_SESSION['errors']);
+              unset($_SESSION['errors']);
+          }
+      }
 
     public function deleteAction($id_topic)
     {
@@ -66,46 +92,61 @@
     }
 
 
-
-
+      /**
+       * Function for performing the add of the
+       * contents on the server
+       * @return Void
+       */
       public function doAddAction()
       {
+
           $topic = new Topics();
           $_SESSION['errors'] = [];
-          foreach ($_POST as $post => $value) {
-              $cleanedData[$post] = Helpers::cleanString($value);
+
+          try {
+              $topic->setName($_POST['name']);
+          } catch (\Exception $e) {
+              array_push($_SESSION['errors'], $e->getMessage());
           }
 
           try {
-              $topic->setName($cleanedData['name']);
+              $topic->setDescription($_POST['description']);
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
+
           try {
-              $topic->setDescription($cleanedData['description']);
+              $topic->setUsers_id(intval($_SESSION['admin']['id']));
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
-       /*  try {
-              $topic->setUsers_id(intval($topic->getUsernameById($cleanedData['user'])));
+
+          try {
+              if(empty($_SESSION['errors']))
+                  $topic->save();
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
-          }*/
+          }
 
-
-          // If no error login and send him / her on the home page
+          // If no error login and send him / her on the inndex of topics
           if(empty($_SESSION['errors']))
           {
               unset($_SESSION['errors']);
               unset($_SESSION['addTopic']);
               header('Location: '.BASE_URL.'admin/topics');
           } else {
-              $_SESSION['addTopic']['name'] = $cleanedData['name'];
-              $_SESSION['addTopic']['description'] = $cleanedData['description'];
-             // $_SESSION['addTopic']['user_id'] = $cleanedData['user'];
-
+              $_SESSION['addTopic']['name'] = $_POST['name'];
+              $_SESSION['addTopic']['description'] = $_POST['description'];
               header('Location: '.BASE_URL.'admin/topics/add');
           }
       }
 
+
+
+
+
   }
+
+ /* Helpers::debugVar($topic);
+  Helpers::debugVar($_SESSION);
+  die();*/

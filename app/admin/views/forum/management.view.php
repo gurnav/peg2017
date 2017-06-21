@@ -1,6 +1,6 @@
 <header>
     <div class="top_line">
-        <p>Welcome <span><?php echo $_SESSION['admin']; ?></span></p>
+        <p>Welcome <span><?php echo $_SESSION['admin']['username']; ?></span></p>
         <a href="<?php echo BASE_URL.'admin/login/logout'; ?>"><button>Logout</button></a>
     </div>
     <div id="burger_menu">≡</div>
@@ -11,9 +11,11 @@
         <li><a href="<?php echo BASE_URL.'admin/contents'; ?>"><i class="fa fa-life-ring" aria-hidden="true"></i><span>Pages &amp; Articles</span></a></li>
         <li><a href="<?php echo BASE_URL.'admin/stats'; ?>"><i class="fa fa-line-chart" aria-hidden="true"></i><span>Statistics</span></a></li>
         <li ><a href="<?php echo BASE_URL.'admin/management'; ?>"><i class="fa fa-line-chart" aria-hidden="true"></i><span>Forum Management</span></a></li>
-        <li><a href="<?php echo BASE_URL.'admin/message'; ?>"><i class="fa fa-line-chart" aria-hidden="true"></i><span>Messages</span></a></li>
+        <li><a href="<?php echo BASE_URL.'admin/messages'; ?>"><i class="fa fa-line-chart" aria-hidden="true"></i><span>Messages</span></a></li>
         <li><a href="<?php echo BASE_URL.'admin/threads'; ?>"><i class="fa fa-line-chart" aria-hidden="true"></i><span>Threads</span></a></li>
         <li><a href="<?php echo BASE_URL.'admin/topics'; ?>"><i class="fa fa-line-chart" aria-hidden="true"></i><span>Topics</span></a></li>
+        <li><a href="<?php echo BASE_URL.'admin/newsletters'; ?>"><i class="fa fa-line-chart" aria-hidden="true"></i><span>Newsletters</span></a></li>
+
 
 
     </nav>
@@ -28,16 +30,16 @@
 
     <div class="four_icon">
         <div>
-            <i class="fa fa-camera" aria-hidden="true"></i>
-            <h2><span><?php echo count($messages); ?></span>messages<span></span></h2>
-        </div>
-        <div>
             <i class="fa fa-upload" aria-hidden="true"></i>
             <h2><span><?php echo count($topics); ?></span>topics<span></span></h2>
         </div>
         <div>
             <i class="fa fa-download" aria-hidden="true"></i>
             <h2><span><?php echo count($threads); ?></span>threads<span></span></h2>
+        </div>
+        <div>
+            <i class="fa fa-camera" aria-hidden="true"></i>
+            <h2><span><?php echo count($messages); ?></span>messages<span></span></h2>
         </div>
     </div>
 
@@ -69,7 +71,7 @@
                 </tbody>
             </table>
 
-            <input type="button" value="VIEW MORE" class="view_more" onclick="window.location.href='<?php echo BASE_URL.'admin/message'; ?>';" />
+            <input type="button" value="VIEW MORE" class="view_more" onclick="window.location.href='<?php echo BASE_URL.'admin/messages'; ?>';" />
     </div>
             <div>
                 <h2>Threads</h2>
@@ -112,7 +114,6 @@
                         <th>Name</th>
                         <th>Description</th>
                         <th>User</th>
-                        <th>Action</th>
                         <!-- <th class="important_one">Status</th>-->
                     </tr>
                     </thead>

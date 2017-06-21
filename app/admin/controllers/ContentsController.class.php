@@ -2,6 +2,7 @@
 
   namespace App\Admin\Controllers;
 
+
   use Core\Controllers\Controller;
   use Core\Views\View;
   use Core\Util\Helpers;
@@ -10,9 +11,9 @@
   use Core\HTML\Modals;
   use App\Admin\Models\Users;
 
+
   class ContentsController extends Controller
   {
-
 
     /**
      * Action who list all contents
@@ -65,26 +66,22 @@
        */
       public function updateAction($id_content)
       {
-
-          $v = new View('contents/add_content');
-
+          $v = new View('contents/add_content', 'admin');
           $content = new Contents();
           $id_content = $id_content[0];
           $content = $content->populate(['id' => $id_content]);
-
           $admin_register_content = ModalsFactory::getUpdateContentForm($id_content);
           $admin_register_content['struct']['status']['value'] = $content->getStatus();
           $admin_register_content['struct']['title']['value'] = $content->getTitle();
           $admin_register_content['struct']['category']['value'] = $content->getCategoryNameById();
           $admin_register_content['struct']['content']['value'] = $content->getContent();
-
           $v->assign('admin_register_content', $admin_register_content);
-
           if(isset($_SESSION['errors']) && !empty($_SESSION['errors'])) {
               $v->assign('errors', $_SESSION['errors']);
               unset($_SESSION['errors']);
           }
       }
+
 
       /**
        * Action that allow an administrator to
@@ -114,48 +111,37 @@
           $content = new Contents();
           $id_content = trim($id_content[0]);
           $_SESSION['errors'] = [];
-
-          foreach ($_POST as $post => $value) {
-              $cleanedData[$post] = Helpers::cleanString($value);
-          }
-
           try {
               $content = $content->populate(['id' => $id_content]);
           } catch (Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
-
           try {
-              $content->setTitle($cleanedData['title']);
+              $content->setTitle($_POST['title']);
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
-
           try {
-              $content->setCategories_id(intval($content->getCategoryIdByName($cleanedData['category'])));
+              $content->setCategories_id(intval($content->getCategoryIdByName($_POST['category'])));
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
-
           try {
-              $content->setContent($cleanedData['content']);
+              $content->setContent($_POST['content']);
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
-
           try {
-              $content->setStatus(intval($cleanedData['status']));
+              $content->setStatus(intval($_POST['status']));
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
-
           try {
               if(empty($_SESSION['errors']))
                   $content->save();
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
-
           // If no error login and send him / her on the home page
           if(empty($_SESSION['errors']))
           {
@@ -176,48 +162,37 @@
       {
           $content = new Contents();
           $_SESSION['errors'] = [];
-
-          foreach ($_POST as $post => $value) {
-              $cleanedData[$post] = Helpers::cleanString($value);
-          }
-
           try {
-              $content->setTitle($cleanedData['title']);
+              $content->setTitle($_POST['title']);
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
-
           try {
-              $content->setCategories_id(intval($content->getCategoryIdByName($cleanedData['category'])));
+              $content->setCategories_id(intval($content->getCategoryIdByName($_POST['category'])));
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
-
           try {
-              $content->setContent($cleanedData['content']);
+              $content->setContent($_POST['content']);
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
-
           try {
-              $content->setStatus(intval($cleanedData['status']));
+              $content->setStatus(intval($_POST['status']));
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
-
           try {
               $content->setUsers_id(intval($_SESSION["admin"]["id"]));
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
-
           try {
               if(empty($_SESSION['errors']))
                   $content->save();
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
-
           // If no error login and send him / her on the home page
           if(empty($_SESSION['errors']))
           {
@@ -225,12 +200,11 @@
               unset($_SESSION['addContent']);
               header('Location: '.BASE_URL.'admin/contents');
           } else {
-              $_SESSION['addContent']['title'] = $cleanedData['title'];
-              $_SESSION['addContent']['category'] = $cleanedData['category'];
-              $_SESSION['addContent']['content'] = $cleanedData['content'];
-              $_SESSION['addContent']['status'] = $cleanedData['status'];
+              $_SESSION['addContent']['title'] = $_POST['title'];
+              $_SESSION['addContent']['category'] = $_POST['category'];
+              $_SESSION['addContent']['content'] = $_POST['content'];
+              $_SESSION['addContent']['status'] = $_POST['status'];
               header('Location: '.BASE_URL.'admin/contents/add');
           }
       }
-
   }

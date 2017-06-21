@@ -27,12 +27,12 @@
     * Constructor of the Messages model class
     * @return Void
     */
-    public function __construct($id=-1, $users_id=-1,  $threads_id=-1, $content=null)
+    public function __construct($id=-1, $users_id=-1,  $threads_id=-1, $content="")
     {
       parent::__construct();
 
       $this->setId($id);
-      $this->setUsersId($users_id);
+      $this->setUsers_id($users_id);
       $this->setThreadsId($threads_id);
       $this->setContent($content);
     }
@@ -65,7 +65,7 @@
       public function setThreadsId($threadsId)
       {
           if (is_int($threadsId)) {
-              $this->threadsId = $threadsId;
+              $this->threads_id = $threadsId;
           } else {
               Helpers::log("A non integer type for a categories id in a content have tried to be inserted in the DB");
               throw new \Exception("You can't enter a non integer type for a categories id of a content");
@@ -102,6 +102,17 @@
           $query = "SELECT title from ".DB_PREFIX."threads WHERE id = '".$id."'";
           $thread = $qb->query($query, null, true);
           return $thread->title;
+      }
+
+      /**
+       * Simple getter of the Category id by name
+       * @param string : $name The name to be searched
+       * @return string $category_id the id of the linked category
+       */
+      public function getThreadIdByName($title) {
+          $query = "SELECT id from ".DB_PREFIX."threads WHERE title = '".$title."'";
+          $thread_id = $this->qb->query($query, null, true);
+          return $thread_id->id;
       }
 
   }

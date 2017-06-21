@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Admin\Models\Threads;
+use App\Admin\Models\Topics;
 use Core\Controllers\Controller;
 use App\Admin\Models\Users;
 use Core\Views\View;
@@ -39,7 +40,27 @@ class ThreadsController extends Controller
 
     public function addAction()
     {
+        $v = new View ('forum/add_thread');
+        $topics = Topics::getAll();
 
+        $admin_register_thread = ModalsFactory::getAddThreadForm();
+        if (!empty($_SESSION['addThread'])) {
+            $admin_register_thread['struct']['title']['value'] = $_SESSION['addThread']['title'];
+            $admin_register_thread['struct']['description']['value'] = $_SESSION['addThread']['description'];
+            unset($_SESSION['addThread']);
+        }
+        for($i =0;$i < count($topics);$i++)
+        {
+            $admin_register_thread['struct']['topic']['value'][]=  $topics[$i]["name"];
+        }
+        $v->assign('admin_register_thread', $admin_register_thread);
+
+        if (isset($_SESSION['errors']) && !empty($_SESSION['errors'])) {
+
+            $v->assign('errors', $_SESSION['errors']);
+            unset($_SESSION['errors']);
+
+        }
     }
 
     public function updateAction()
@@ -47,9 +68,75 @@ class ThreadsController extends Controller
 
     }
 
-    public function deleteAction()
+    public function deleteAction($id_thread)
     {
+
+        $thread = new Threads();
+        $id_thread = trim($id_thread[0]);
+        try {
+            $thread = $thread->populate(['id' => $id_thread]);
+            $thread->delete();
+        } catch (Exception $e) {
+            array_push($_SESSION['errors'], $e->getMessage());
+        }
+        header('Location: '.BASE_URL.'admin/threads');
+
 
     }
 
+
+    public function doAddAction()
+    {
+
+        $thread = new Threads();
+        $_SESSION['errors'] = [];
+
+        try {
+            $thread->setTitle($_POST['title']);
+        } catch (\Exception $e) {
+            array_push($_SESSION['errors'], $e->getMessage());
+        }
+
+        try {
+            $thread->setDescription($_POST['description']);
+        } catch (\Exception $e) {
+            array_push($_SESSION['errors'], $e->getMessage());
+        }
+
+        try {
+            $thread->setUsers_id(intval($_SESSION['admin']['id']));
+        } catch (\Exception $e) {
+            array_push($_SESSION['errors'], $e->getMessage());
+        }
+
+        try {
+            $thread->setTopicsId(intval($thread->getTopicIdByName($_POST['topic'])));
+        } catch (\Exception $e) {
+            array_push($_SESSION['errors'], $e->getMessage());
+        }
+
+        try {
+            if(empty($_SESSION['errors']))
+                $thread->save();
+        } catch (\Exception $e) {
+            array_push($_SESSION['errors'], $e->getMessage());
+        }
+
+        // If no error login and send him / her on the index of topics
+        if(empty($_SESSION['errors']))
+        {
+            unset($_SESSION['errors']);
+            unset($_SESSION['addThread']);
+            header('Location: '.BASE_URL.'admin/threads');
+        } else {
+            $_SESSION['addThread']['name'] = $_POST['title'];
+            $_SESSION['addThread']['description'] = $_POST['description'];
+            header('Location: '.BASE_URL.'admin/threads/add');
+        }
+    }
+
 }
+/*   Helpers::debugVar($thread->getTopicIdByName($_POST['topic']));
+        Helpers::debugVar($thread);
+        Helpers::debugVar($_SESSION);
+        die();*/

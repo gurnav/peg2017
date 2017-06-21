@@ -77,23 +77,7 @@
       ];
     }
 
-      public static function getAddMessageForm()
-      {
-          return [
-              "options" => [
-                  "method"=>"POST",
-                  "action"=> BASE_URL."admin/message/doAdd",
-                  "id"=>"admin_register_message",
-                  "enctype"=>"multipart/form-data",
-                  "submit"=>"Add message"
-              ],
-              "struct" => [
 
-                "content" => ["label"=>"The content of your message","type"=>"text", "placeholder"=>"content of your message", "required"=>0, "error_msg"=>"" ],
-
-              ]
-          ];
-      }
 
       //use by topic controller
       public static function getAddTopicForm()
@@ -101,16 +85,93 @@
           return [
               "options" => [
                   "method"=>"POST",
-                  "action"=> BASE_URL."admin/topics/doAdd",
+                  "action"=> BASE_URL."admin/topics/doAdd/",
                   "id"=>"admin_register_topic",
                   "enctype"=>"multipart/form-data",
-                  "submit"=>"Add topic"
+                  "submit"=>"Add Topic"
               ],
               "struct" => [
 
                   "name" => ["label"=>"The name of your topic","type"=>"text", "placeholder"=>"name of your message", "required"=>0, "error_msg"=>"" ],
-                  "description" => ["label"=>"The description of your topic","type"=>"text", "placeholder"=>"content of your message", "required"=>0, "error_msg"=>"" ],
+                  "description" => ["label"=>"The description of your topic","type"=>"text", "placeholder"=>"description of your topic", "required"=>0, "error_msg"=>"" ]
                  // "user" => ["label"=>"User who add the Topic","type"=>"text", "placeholder"=>"name of the user", "required"=>0, "error_msg"=>"" ],
+
+              ]
+          ];
+      }
+
+      public static function getAddThreadForm()
+      {
+          return [
+              "options" => [
+                  "method"=>"POST",
+                  "action"=> BASE_URL."admin/threads/doAdd/",
+                  "id"=>"admin_register_thread",
+                  "enctype"=>"multipart/form-data",
+                  "submit"=>"Add Thread"
+              ],
+              "struct" => [
+
+                  "title" => ["label"=>"The name of your title","type"=>"text", "placeholder"=>"name of your title", "required"=>0, "error_msg"=>"" ],
+                  "description" => ["label"=>"The description of your thread","type"=>"text", "placeholder"=>"description of your thread", "required"=>0, "error_msg"=>"" ],
+                  "topic" => ["label" => "Choose your topic", "type" => "selected", "name" => "","value"=>"", "id" => "", "placeholder" => "name of your topic", "required" => 0, "error_msg" => "topicChoose"]
+                  // "user" => ["label"=>"User who add the Topic","type"=>"text", "placeholder"=>"name of the user", "required"=>0, "error_msg"=>"" ],
+
+              ]
+          ];
+      }
+
+      public static function getAddMessageForm()
+      {
+          return [
+              "options" => [
+                  "method"=>"POST",
+                  "action"=> BASE_URL."admin/messages/doAdd",
+                  "id"=>"admin_register_message",
+                  "enctype"=>"multipart/form-data",
+                  "submit"=>"Add Message"
+              ],
+              "struct" => [
+
+                  "content" => ["label"=>"The content of your message","type"=>"text", "placeholder"=>"content of your message", "required"=>0, "error_msg"=>"" ],
+                  "thread" => ["label" => "Choose your thread", "type" => "selected", "name" => "listofThread", "value"=>"", "id" => "", "placeholder" => "name of your thread", "required" => 0, "error_msg" => "threadChoose"]
+
+              ]
+          ];
+      }
+      public static function getAddNewsletterForm()
+      {
+          return [
+              "options" => [
+                  "method"=>"POST",
+                  "action"=> BASE_URL."admin/newsletters/doAdd",
+                  "id"=>"admin_register_newsletter",
+                  "enctype"=>"multipart/form-data",
+                  "submit"=>"Add Newsletter"
+              ],
+              "struct" => [
+
+                  "email" => ["label" => "Enter email for subscribe", "type" => "text", "value"=>"", "id" => "", "placeholder" => "email for subscribe", "required" => 0, "error_msg" => ""]
+
+              ]
+          ];
+      }
+
+
+      public static function getUpdateTopicForm()
+      {
+          return [
+              "options" => [
+                  "method"=>"POST",
+                  "action"=> "",
+                  "enctype"=>"multipart/form-data",
+                  "submit"=>""
+              ],
+              "struct" => [
+
+                  "name" => ["label"=>"The name of your topic","type"=>"text", "placeholder"=>"name of your message", "required"=>0, "error_msg"=>"" ],
+                  "description" => ["label"=>"The description of your topic","type"=>"text", "placeholder"=>"description of your topic", "required"=>0, "error_msg"=>"" ]
+                  // "user" => ["label"=>"User who add the Topic","type"=>"text", "placeholder"=>"name of the user", "required"=>0, "error_msg"=>"" ],
 
               ]
           ];
@@ -144,23 +205,25 @@
         ];
     }
 
-      public static function getUpdateContentForm()
+      public static function getUpdateContentForm($content)
       {
           return [
               "options" => [
                   "method"=>"POST",
-                  "action"=>"",
+                  "action"=>BASE_URL."admin/contents/doUpdate/".$content,
+                  "id"=>"admin_register_content",
                   "enctype"=>"multipart/form-data",
-                  "submit"=>""
+                  "submit"=>"Update Content"
               ],
               "struct" => [
-
-                  "title" => ["type"=>"text", "placeholder"=>"Title of your Thread", "required"=>"required", "id"=>"messagebox" ],
-                  "description" => ["type"=>"text", "placeholder"=>"Description of the Thread", "required"=>"required", "id"=>"messagebox" ],
-
+                  "status"=>["label"=>"The status : ", "type"=>"text", "placeholder"=>"Firstname", "required"=>"required" ],
+                  "title"=>["label"=>"The title : ", "type"=>"text", "placeholder"=>"Title", "required"=>"required" ],
+                  "category"=>[ "label"=>"The Category : ", "type"=>"text", "placeholder"=>"Category", "required"=>"required" ],
+                  "content"=>[ "label"=>"The content : ", "type"=>"textarea", "placeholder"=>"Content", "required"=>"required" ],
               ]
           ];
       }
+
 
       public static function PostTopicAdminForm($content)
       {
@@ -223,7 +286,6 @@
         ]
       ];
     }
-
 
     public static function adminUpdateUserForm($user)
     {

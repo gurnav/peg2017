@@ -28,13 +28,13 @@
        * Constructor of the Threads model class
        * @return Void
        */
-      public function __construct($id = -1, $title = null, $description = null,
+      public function __construct($id = -1, $title = "", $description = "",
       $users_id = -1, $topics_id = -1)
       {
       	parent::__construct();
 
       	$this->setId($id);
-        $this->setUsersId($users_id);
+        $this->setUsers_id($users_id);
         $this->setTopicsId($topics_id);
       	$this->setTitle($title);
       	$this->setDescription($description);
@@ -77,7 +77,7 @@
       public function setTopicsId($topicsId)
       {
           if (is_int($topicsId)) {
-              $this->topicsId = $topicsId;
+              $this->topics_id = $topicsId;
           } else {
               Helpers::log("A non integer type for a topic id in a thread have tried to be inserted in the DB");
               throw new \Exception("You can't enter a non integer type for a topic id of a thread");
@@ -140,5 +140,17 @@
             return $topic->name;
         }
 
+        /**
+         * Simple getter of the Category id by name
+         * @param string : $name The name to be searched
+         * @return string $category_id the id of the linked category
+         */
+        public function getTopicIdByName($name) {
+            $query = "SELECT id from ".DB_PREFIX."topics WHERE name = '".$name."'";
+            $topic_id = $this->qb->query($query, null, true);
+            return $topic_id->id;
+        }
 
-  }
+
+
+    }

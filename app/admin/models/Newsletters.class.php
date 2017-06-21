@@ -11,20 +11,18 @@
 
   namespace App\Admin\Models;
 
-  use Core\Database\Model;
-  use Core\Database\QueryBuilder;
-  use Core\Util\Helpers;
+
   use App\Composite\Traits\Models\IdTrait;
   use App\Composite\Traits\Models\EmailTrait;
   use App\Composite\Traits\Models\GetAllDataTrait;
+  use Core\Database\Model;
 
   /**
    * Model Class who represent a subscriber of the newsletter
    * in the database
    */
-  class Newsletters extends Models
+  class Newsletters extends Model
   {
-
     use IdTrait;
     use EmailTrait;
     use GetAllDataTrait;
@@ -36,12 +34,22 @@
      * Constructor of the Newsletter model class
      * @return Void
      */
-    public function __construct()
+    public function __construct($id=-1, $email=null)
       {
-        parent::__construct($id=-1, $email=null);
+        parent::__construct();
 
-        $this->setId($id);
-        $this->setEmail($email);
+          if($id === -1) {
+              $this->id = $id;
+          } else {
+              $this->setId($id);
+          }
+
+          if($email === null) {
+              $this->email = $email;
+          } else {
+              $this->setEmail($email);
+          }
+
       }
 
   }

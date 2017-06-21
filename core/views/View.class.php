@@ -5,6 +5,7 @@
   use Core\Util\Helpers;
   use \App;
 
+
   /**
    * Class which render views and template
    */

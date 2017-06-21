@@ -36,3 +36,131 @@ At 13-06-2017 05:13:22 pm : A number has been entered as name in topic n° : -1
 At 13-06-2017 05:13:25 pm : A number has been entered as name in topic n° : -1
 At 13-06-2017 05:13:26 pm : A number has been entered as name in topic n° : -1
 At 13-06-2017 05:15:12 pm : A number has been entered as name in topic n° : -1
+At 14-06-2017 11:54:31 am : A non string type has been entered as content in content n° : -1
+At 14-06-2017 11:54:40 am : A non string type has been entered as content in content n° : -1
+At 14-06-2017 11:54:55 am : A non string type has been entered as content in content n° : -1
+At 14-06-2017 11:55:01 am : A non string type has been entered as content in content n° : -1
+At 14-06-2017 11:56:18 am : A non string type has been entered as content in content n° : -1
+At 14-06-2017 11:56:35 am : A non string type has been entered as content in content n° : -1
+At 14-06-2017 11:57:14 am : A non string type has been entered as content in content n° : -1
+At 14-06-2017 11:57:19 am : A non string type has been entered as content in content n° : -1
+At 14-06-2017 11:57:29 am : A non string type has been entered as content in content n° : -1
+At 14-06-2017 11:57:42 am : A non string type has been entered as content in content n° : -1
+At 14-06-2017 12:38:00 pm : A number has been entered as name in topic n° : -1
+At 14-06-2017 12:38:02 pm : A number has been entered as name in topic n° : -1
+At 14-06-2017 12:42:55 pm : A number has been entered as name in topic n° : -1
+At 14-06-2017 12:48:41 pm : A number has been entered as name in topic n° : -1
+At 14-06-2017 12:51:23 pm : A number has been entered as name in topic n° : -1
+At 14-06-2017 12:51:25 pm : A number has been entered as name in topic n° : -1
+At 14-06-2017 12:51:26 pm : A number has been entered as name in topic n° : -1
+At 14-06-2017 12:51:38 pm : A number has been entered as name in topic n° : -1
+At 14-06-2017 12:55:35 pm : A number has been entered as name in topic n° : -1
+At 14-06-2017 12:56:23 pm : A number has been entered as name in topic n° : -1
+At 14-06-2017 12:56:34 pm : A number has been entered as name in topic n° : -1
+At 14-06-2017 12:57:19 pm : A number has been entered as name in topic n° : -1
+At 14-06-2017 12:57:20 pm : A number has been entered as name in topic n° : -1
+At 14-06-2017 12:57:25 pm : A number has been entered as name in topic n° : -1
+At 14-06-2017 12:57:36 pm : A number has been entered as name in topic n° : -1
+At 14-06-2017 02:11:15 pm : A number has been entered as name in topic n° : -1
+At 14-06-2017 02:15:58 pm : A number has been entered as name in topic n° : -1
+At 14-06-2017 02:22:10 pm : A number has been entered as name in topic n° : -1
+At 14-06-2017 02:22:10 pm : A number has been entered as description in topic n° : -1
+At 14-06-2017 02:22:51 pm : SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'users_id' cannot be null
+At 14-06-2017 02:32:36 pm : SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'users_id' cannot be null
+At 14-06-2017 02:35:45 pm : A non integer type for a Users id  have tried to be inserted in the DB
+At 14-06-2017 02:36:10 pm : SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'users_id' cannot be null
+At 14-06-2017 02:36:23 pm : SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'users_id' cannot be null
+At 14-06-2017 04:13:17 pm : A number has been entered as title in thread n° : -1
+At 14-06-2017 04:13:17 pm : A number has been entered as title in thread n° : -1
+At 14-06-2017 04:19:29 pm : A non integer type for a topic id in a thread have tried to be inserted in the DB
+At 14-06-2017 04:20:18 pm : A non integer type for a topic id in a thread have tried to be inserted in the DB
+At 20-06-2017 02:33:38 pm : The view forum/newsletterdoesn't exist !
+At 20-06-2017 02:33:40 pm : The view forum/newsletterdoesn't exist !
+At 20-06-2017 02:34:01 pm : The view forum/newsletterdoesn't exist !
+At 20-06-2017 02:35:17 pm : The view forum/newslettersdoesn't exist !
+At 20-06-2017 02:35:22 pm : The view forum/newslettersdoesn't exist !
+At 20-06-2017 02:36:33 pm : The view forum/newslettersdoesn't exist !
+At 20-06-2017 02:40:23 pm : The view forum/newslettersdoesn't exist !
+At 20-06-2017 02:41:05 pm : The view forum/newslettersdoesn't exist !
+At 20-06-2017 03:43:34 pm : A not safe email have been tried to be inserted in the database ! 
+At 20-06-2017 03:43:39 pm : A not safe email have been tried to be inserted in the database ! 
+At 20-06-2017 03:44:35 pm : A not safe email have been tried to be inserted in the database ! 
+At 20-06-2017 03:47:00 pm : A not string variable for the email in App\Admin\Models\Newsletters have been tried to inserted in the database
+At 20-06-2017 03:47:11 pm : A not string variable for the email in App\Admin\Models\Newsletters have been tried to inserted in the database
+At 20-06-2017 03:48:05 pm : A not string variable for the email in App\Admin\Models\Newsletters have been tried to inserted in the database
+At 20-06-2017 03:48:09 pm : A not string variable for the email in App\Admin\Models\Newsletters have been tried to inserted in the database
+At 20-06-2017 03:48:13 pm : A not string variable for the email in App\Admin\Models\Newsletters have been tried to inserted in the database
+At 20-06-2017 03:51:22 pm : A not string variable for the email in App\Admin\Models\Newsletters have been tried to inserted in the database
+At 20-06-2017 03:52:41 pm : A not string variable for the email in App\Admin\Models\Newsletters have been tried to inserted in the database
+At 20-06-2017 03:55:46 pm : A not string variable for the email in App\Admin\Models\Newsletters have been tried to inserted in the database
+At 20-06-2017 04:02:45 pm : A not string variable for the email in App\Admin\Models\Newsletters have been tried to inserted in the database
+At 20-06-2017 04:03:52 pm : A not string variable for the email in App\Admin\Models\Newsletters have been tried to inserted in the database
+At 20-06-2017 04:03:57 pm : A not string variable for the email in App\Admin\Models\Newsletters have been tried to inserted in the database
+At 20-06-2017 04:05:52 pm : A not string variable for the email in App\Admin\Models\Newsletters have been tried to inserted in the database
+At 20-06-2017 04:05:57 pm : A not string variable for the email in App\Admin\Models\Newsletters have been tried to inserted in the database
+At 20-06-2017 04:07:13 pm : A not string variable for the email in App\Admin\Models\Newsletters have been tried to inserted in the database
+At 20-06-2017 04:07:18 pm : A not string variable for the email in App\Admin\Models\Newsletters have been tried to inserted in the database
+At 20-06-2017 04:12:58 pm : A not string variable for the email in App\Admin\Models\Newsletters have been tried to inserted in the database
+At 20-06-2017 04:13:47 pm : A not string variable for the email in App\Admin\Models\Newsletters have been tried to inserted in the database
+At 20-06-2017 04:13:49 pm : A not string variable for the email in App\Admin\Models\Newsletters have been tried to inserted in the database
+At 20-06-2017 04:13:53 pm : A not string variable for the email in App\Admin\Models\Newsletters have been tried to inserted in the database
+At 20-06-2017 04:14:41 pm : A not string variable for the email in App\Admin\Models\Newsletters have been tried to inserted in the database
+At 20-06-2017 04:14:47 pm : A not string variable for the email in App\Admin\Models\Newsletters have been tried to inserted in the database
+At 20-06-2017 04:15:47 pm : A not string variable for the email in App\Admin\Models\Newsletters have been tried to inserted in the database
+At 20-06-2017 04:15:53 pm : A not string variable for the email in App\Admin\Models\Newsletters have been tried to inserted in the database
+At 20-06-2017 04:16:12 pm : A not string variable for the email in App\Admin\Models\Newsletters have been tried to inserted in the database
+At 20-06-2017 04:16:18 pm : A not string variable for the email in App\Admin\Models\Newsletters have been tried to inserted in the database
+At 20-06-2017 04:16:45 pm : A not string variable for the email in App\Admin\Models\Newsletters have been tried to inserted in the database
+At 20-06-2017 04:17:04 pm : A not string variable for the email in App\Admin\Models\Newsletters have been tried to inserted in the database
+At 20-06-2017 04:20:53 pm : A not safe email have been tried to be inserted in the database ! 
+At 20-06-2017 04:21:00 pm : A not safe email have been tried to be inserted in the database ! 
+At 20-06-2017 04:22:40 pm : A not safe email have been tried to be inserted in the database ! 
+At 20-06-2017 04:23:23 pm : A not safe email have been tried to be inserted in the database ! 
+At 20-06-2017 04:57:00 pm : A not safe email have been tried to be inserted in the database ! 
+At 20-06-2017 04:57:12 pm : A not safe email have been tried to be inserted in the database ! 
+At 20-06-2017 04:57:17 pm : A not safe email have been tried to be inserted in the database ! 
+At 20-06-2017 05:03:48 pm : A not safe email have been tried to be inserted in the database ! 
+At 20-06-2017 05:03:55 pm : A not safe email have been tried to be inserted in the database ! 
+At 20-06-2017 05:04:34 pm : A not safe email have been tried to be inserted in the database ! 
+At 20-06-2017 05:04:36 pm : A not safe email have been tried to be inserted in the database ! 
+At 20-06-2017 05:04:52 pm : A not safe email have been tried to be inserted in the database ! 
+At 20-06-2017 05:04:56 pm : A not safe email have been tried to be inserted in the database ! 
+At 20-06-2017 05:06:01 pm : A not safe email have been tried to be inserted in the database ! 
+At 20-06-2017 05:06:08 pm : A not safe email have been tried to be inserted in the database ! 
+At 20-06-2017 05:06:26 pm : A not safe email have been tried to be inserted in the database ! 
+At 20-06-2017 05:06:43 pm : A not safe email have been tried to be inserted in the database ! 
+At 20-06-2017 05:06:45 pm : A not safe email have been tried to be inserted in the database ! 
+At 20-06-2017 05:07:39 pm : A not safe email have been tried to be inserted in the database ! 
+At 20-06-2017 05:09:38 pm : A not safe email have been tried to be inserted in the database ! 
+At 21-06-2017 09:59:58 am : A not safe email have been tried to be inserted in the database ! 
+At 21-06-2017 10:04:56 am : A not safe email have been tried to be inserted in the database ! 
+At 21-06-2017 10:37:17 am : A not safe email have been tried to be inserted in the database ! 
+At 21-06-2017 10:38:00 am : A not safe email have been tried to be inserted in the database ! 
+At 21-06-2017 10:42:41 am : A not safe email have been tried to be inserted in the database ! 
+At 21-06-2017 10:42:46 am : A not safe email have been tried to be inserted in the database ! 
+At 21-06-2017 11:09:14 am : The view forum/add_newsletterdoesn't exist !
+At 21-06-2017 11:09:29 am : The view forum/add_newsletterdoesn't exist !
+At 21-06-2017 11:10:20 am : The view forum/add_newsletterdoesn't exist !
+At 21-06-2017 11:13:13 am : The view forum/add_newsletterdoesn't exist !
+At 21-06-2017 11:13:17 am : The view forum/add_newsletterdoesn't exist !
+At 21-06-2017 11:14:04 am : The view forum/add_newsletterdoesn't exist !
+At 21-06-2017 11:16:46 am : A not safe email have been tried to be inserted in the database ! 
+At 21-06-2017 11:17:00 am : A not safe email have been tried to be inserted in the database ! 
+At 21-06-2017 11:57:31 am : The view contents/add_topicdoesn't exist !
+At 21-06-2017 11:57:36 am : The view contents/add_topicdoesn't exist !
+At 21-06-2017 02:25:50 pm : The view contents/add_topicdoesn't exist !
+At 21-06-2017 02:25:56 pm : The view contents/add_topicdoesn't exist !
+At 21-06-2017 02:25:58 pm : The view contents/add_topicdoesn't exist !
+At 21-06-2017 04:04:26 pm : Le template : admin n'existe pas.
+At 21-06-2017 04:04:41 pm : Le template : admin n'existe pas.
+At 21-06-2017 04:05:56 pm : Le template : admin n'existe pas.
+At 21-06-2017 04:08:09 pm : Le template : admin n'existe pas.
+At 21-06-2017 04:11:21 pm : Le template : admin n'existe pas.
+At 21-06-2017 04:11:45 pm : Le template : admin n'existe pas.
+At 21-06-2017 04:16:05 pm : Le template : admin n'existe pas.
+At 21-06-2017 04:16:38 pm : Le template : admin n'existe pas.
+At 21-06-2017 04:16:40 pm : Le template : admin n'existe pas.
+At 21-06-2017 04:16:45 pm : Le template : admin n'existe pas.
+At 21-06-2017 04:18:36 pm : Le template : admin n'existe pas.
+At 21-06-2017 04:18:38 pm : Le template : admin n'existe pas.
+At 21-06-2017 04:18:42 pm : Le template : admin n'existe pas.

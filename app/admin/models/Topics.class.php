@@ -30,7 +30,7 @@
        * @return Void
        */
 
-      public function __construct($id = -1, $name = null, $description = null, $users_id = -1)
+      public function __construct($id = -1, $name = "", $description = "", $users_id = -1)
       {
           parent::__construct();
 
@@ -105,7 +105,7 @@
       {
           if(is_int($userId))
           {
-              $this->userId = $userId;
+              $this->users_id = $userId;
           } else {
               Helpers::log("A non integer type for a Users id  have tried to be inserted in the DB");
               throw new \Exception("You can't enter a non integer type for a User id");
@@ -113,7 +113,7 @@
       }
       public function getUsers_id()
       {
-          return $this->userId;
+          return $this->users_id;
       }
 
       /**

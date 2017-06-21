@@ -1,6 +1,6 @@
 <header>
     <div class="top_line">
-        <p>Welcome <span><?php echo $_SESSION['admin']; ?></span></p>
+        <p>Welcome <span><?php echo $_SESSION['admin']['username']; ?></span></p>
         <a href="<?php echo BASE_URL.'admin/login/logout'; ?>"><button>Logout</button></a>
     </div>
     <div id="burger_menu">≡</div>
@@ -11,9 +11,11 @@
         <li><a href="<?php echo BASE_URL.'admin/contents'; ?>"><i class="fa fa-life-ring" aria-hidden="true"></i><span>Pages &amp; Articles</span></a></li>
         <li><a href="<?php echo BASE_URL.'admin/stats'; ?>"><i class="fa fa-line-chart" aria-hidden="true"></i><span>Statistics</span></a></li>
         <li><a href="<?php echo BASE_URL.'admin/management'; ?>"><i class="fa fa-line-chart" aria-hidden="true"></i><span>Forum Management</span></a></li>
-        <li><a href="<?php echo BASE_URL.'admin/message'; ?>"><i class="fa fa-line-chart" aria-hidden="true"></i><span>Messages</span></a></li>
+        <li><a href="<?php echo BASE_URL.'admin/messages'; ?>"><i class="fa fa-line-chart" aria-hidden="true"></i><span>Messages</span></a></li>
         <li><a href="<?php echo BASE_URL.'admin/threads'; ?>"><i class="fa fa-line-chart" aria-hidden="true"></i><span>Threads</span></a></li>
         <li><a href="<?php echo BASE_URL.'admin/topics'; ?>"><i class="fa fa-line-chart" aria-hidden="true"></i><span>Topics</span></a></li>
+        <li><a href="<?php echo BASE_URL.'admin/newsletters'; ?>"><i class="fa fa-line-chart" aria-hidden="true"></i><span>Newsletters</span></a></li>
+
 
     </nav>
 </header>
@@ -63,8 +65,8 @@
                     <td><?php echo $thread['username']; ?></td>
                     <td><?php echo $thread['topicname']; ?></td>
                     <td>
-                    <a href="<?php echo BASE_URL.'admin/users/update/'.$user['username']; ?>"><button title="Modify"><i class="fa fa-cogs" aria-hidden="true"></i></button></a>
-                    <a href="<?php echo BASE_URL.'admin/users/delete/'.$user['username']; ?>"><button title="Delete"><i class="fa fa-times" aria-hidden="true"></i></button></a>
+                    <a href="<?php echo BASE_URL.'admin/threads/update/'.$thread['id']; ?>"><button title="Modify"><i class="fa fa-cogs" aria-hidden="true"></i></button></a>
+                    <a href="<?php echo BASE_URL.'admin/threads/delete/'.$thread['id']; ?>"><button title="Delete"><i class="fa fa-times" aria-hidden="true"></i></button></a>
                     </td>
                 </tr>
             <?php endforeach ?>

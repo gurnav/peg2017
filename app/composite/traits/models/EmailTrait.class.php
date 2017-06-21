@@ -19,6 +19,7 @@
      */
     public function setEmail($setEmail)
     {
+
       if(is_string($setEmail))
       {
         if (filter_var($setEmail, FILTER_VALIDATE_EMAIL))
@@ -31,11 +32,9 @@
       } else {
         Helpers::log("A not string variable for the email in ". get_class($this)
           ." have been tried to inserted in the database");
-        throw new \Exception("Incorect email !");
+        throw new \Exception("Incorrect email !");
       }
     }
-
-
     /**
      * Simple email getter
      * @return String $email The email

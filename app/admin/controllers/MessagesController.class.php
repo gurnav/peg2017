@@ -3,13 +3,14 @@
 namespace App\Admin\Controllers;
 
 use App\Admin\Models\Messages;
+use App\Admin\Models\Threads;
 use App\Admin\Models\Users;
 use Core\Controllers\Controller;
 use Core\Views\View;
 use App\Composite\Factories\ModalsFactory;
 use Core\Util\Helpers;
 
-class MessageController extends Controller
+class MessagesController extends Controller
 {
 
 
@@ -33,17 +34,22 @@ class MessageController extends Controller
             unset($_SESSION['errors']);
         }
 
-
     }
 
     public function addAction()
     {
         $v = new View ('forum/add_message');
 
+        $threads = Threads::getAll();
         $admin_register_message = ModalsFactory::getAddMessageForm();
         if(!empty($_SESSION['addMessage'])) {
-            $admin_register_message['struct']['message']['value'] = $_SESSION['addMessage']['message'];
+            $admin_register_message['struct']['content']['value'] = $_SESSION['addMessage']['content'];
+
             unset($_SESSION['addMessage']);
+        }
+        for($i =0;$i < count($threads);$i++)
+        {
+            $admin_register_message['struct']['thread']['value'][]=  $threads[$i]["title"];
         }
         $v->assign('admin_register_message', $admin_register_message);
         if(isset($_SESSION['errors']) && !empty($_SESSION['errors'])) {
@@ -52,8 +58,6 @@ class MessageController extends Controller
         }
 
     }
-
-
 
 
 // A faire pour les messages
@@ -76,12 +80,17 @@ class MessageController extends Controller
     }
 
 
-
-    public function deleteAction($content)
+    public function deleteAction($id_message)
     {
-
-
-
+        $message = new Messages();
+        $id_message = trim($id_message[0]);
+        try {
+            $message = $message->populate(['id' => $id_message]);
+            $message->delete();
+        } catch (Exception $e) {
+            array_push($_SESSION['errors'], $e->getMessage());
+        }
+        header('Location: '.BASE_URL.'admin/messages');
 
 
     }
@@ -89,45 +98,54 @@ class MessageController extends Controller
 //tester tous les champs
     public function doAddAction()
     {
+
         $message = new Messages();
         $_SESSION['errors'] = [];
-        print_r($_POST);
-        foreach ($_POST as $post => $value) {
-            $cleanedData[$post] = Helpers::cleanString($value);
-        }
+
+
         try {
-            $message->setContent($cleanedData['message']);
+            $message->setContent($_POST['content']);
         } catch (\Exception $e) {
             array_push($_SESSION['errors'], $e->getMessage());
         }
+
         try {
-            $message->setUsers_id(intval($_SESSION["admin"]["id"]));
+            $message->setUsers_id(intval($_SESSION['admin']['id']));
         } catch (\Exception $e) {
             array_push($_SESSION['errors'], $e->getMessage());
         }
+
         try {
-            $message->setContents_id(intval(["id"]));
+            $message->setThreadsId(intval($message->getThreadIdByName($_POST['thread'])));
         } catch (\Exception $e) {
             array_push($_SESSION['errors'], $e->getMessage());
         }
+
+
+
         try {
             if(empty($_SESSION['errors']))
                 $message->save();
         } catch (\Exception $e) {
             array_push($_SESSION['errors'], $e->getMessage());
         }
-        // If no error login and send him / her on the home page
+
+
+
+        // If no error login and send him / her on the index of topics
         if(empty($_SESSION['errors']))
         {
             unset($_SESSION['errors']);
             unset($_SESSION['addMessage']);
             header('Location: '.BASE_URL.'admin/messages');
         } else {
-            $_SESSION['addMessage']['message'] = $cleanedData['message'];
+            $_SESSION['addMessage']['content'] = $_POST['content'];
             header('Location: '.BASE_URL.'admin/messages/add');
         }
     }
 
-
-
 }
+/*  Helpers::debugVar($message->getThreadIdByName($_POST['thread']));
+        Helpers::debugVar($message);
+        Helpers::debugVar($_SESSION);
+        die();*/

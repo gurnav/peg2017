@@ -54,7 +54,7 @@
                 </div>
                 <?php endif; ?>
 
-                <?php if($attribute['type'] === 'textarea'): ?>
+              <?php if($attribute['type'] === 'textarea'): ?>
                     <div class="super_editor">
                         <span class="editor_span"><?php echo $attribute["label"]; ?></span>
                         <textarea name="<?php echo $name; ?>"
