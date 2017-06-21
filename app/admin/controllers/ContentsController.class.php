@@ -66,7 +66,7 @@
        */
       public function updateAction($id_content)
       {
-          $v = new View('contents/add_content', 'admin');
+          $v = new View('contents/add_content');
           $content = new Contents();
           $id_content = $id_content[0];
           $content = $content->populate(['id' => $id_content]);
