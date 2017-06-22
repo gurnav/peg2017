@@ -14,7 +14,7 @@
 
     public function indexAction()
     {
-        $v = new View('comments/comments');
+        $v = new View('comments/comments', 'admin');
         $comments = Comments::getAll();
 
         for($i = 0; $i < count($comments); $i += 1)
@@ -33,7 +33,7 @@
 
       public function addAction()
       {
-          $v = new View('comments/add_Comment');
+          $v = new View('comments/add_Comment', 'admin');
 
           $admin_register_comment = ModalsFactory::getAddCommentForm();
           if(!empty($_SESSION['addComment'])) {
@@ -116,7 +116,7 @@
 
       public function updateAction($id_comment)
       {
-          $v = new View('comments/add_comment');
+          $v = new View('comments/add_comment', 'admin');
 
           $comment = new Comments();
           $id_comment = $id_comment[0];

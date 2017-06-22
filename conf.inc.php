@@ -34,7 +34,7 @@
     /* LINK for handling upload */
     define("ROUTE_DIR_CONTENTS", BASE_URL."uploads/contents/");
     define("UPLOADS_DIR_CONTENTS", ROOT."uploads/contents/");
-    define("ROUTE_DIR_USERS", BASE_URL."uploads/contents/");
+    define("ROUTE_DIR_USERS", BASE_URL."uploads/users/");
     define("UPLOADS_DIR_USERS", ROOT."uploads/users/");
 
     // WTF

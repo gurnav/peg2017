@@ -20,7 +20,7 @@
      */
     public function indexAction()
     {
-        $v = new View('contents/contents');
+        $v = new View('contents/contents', 'admin');
         $contents = Contents::getAll();
 
         for($i = 0; $i < count($contents); $i += 1)
@@ -38,7 +38,7 @@
      */
     public function addAction()
     {
-        $v = new View('contents/add_content');
+        $v = new View('contents/add_content', 'admin');
 
         $admin_register_content = ModalsFactory::getAddContentForm();
         if(!empty($_SESSION['addContent'])) {
@@ -66,7 +66,7 @@
       public function updateAction($id_content)
       {
 
-          $v = new View('contents/add_content');
+          $v = new View('contents/add_content', 'admin');
 
           $content = new Contents();
           $id_content = $id_content[0];

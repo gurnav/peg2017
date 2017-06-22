@@ -65,14 +65,10 @@
     public function registerAction()
     {
 
-         foreach ($_POST as $post => $value) {
-           $cleanedData[$post] = Helpers::cleanString($value);
-         }
-
          $user = new Users();
          $_SESSION['errors'] = [];
 
-         $userExist = $user->userExist($cleanedData['username'], $cleanedData['user_email']);
+         $userExist = $user->userExist($_POST['username'], $_POST['user_email']);
 
          if (!empty($userExist)) {
             $_SESSION['errors'] = $userExist;
@@ -80,36 +76,35 @@
          }
 
          try {
-           $user->setEmail($cleanedData['user_email']);
+           $user->setEmail($_POST['user_email']);
          } catch (\Exception $e) {
            array_push($_SESSION['errors'], $e->getMessage());
          }
 
          try {
-           if($cleanedData['user_pwd'] === $cleanedData['user_pwd2'])
-              $user->setPassword($cleanedData['user_pwd']);
+           if($_POST['user_pwd'] === $_POST['user_pwd2'])
+              $user->setPassword($_POST['user_pwd']);
          } catch (\Exception $e) {
            array_push($_SESSION['errors'], $e->getMessage());
          }
 
          try {
-           $user->setFirstname($cleanedData['firstname']);
+           $user->setFirstname($_POST['firstname']);
          } catch (\Exception $e) {
            array_push($_SESSION['errors'], $e->getMessage());
          }
 
          try {
-           $user->setLastname($cleanedData['lastname']);
+           $user->setLastname($_POST['lastname']);
          } catch (\Exception $e) {
            array_push($_SESSION['errors'], $e->getMessage());
          }
 
          try {
-           $user->setUsername($cleanedData['username']);
+           $user->setUsername($_POST['username']);
          } catch (\Exception $e) {
            array_push($_SESSION['errors'], $e->getMessage());
          }
-
 
           try {
             $user->setRole_id(1);
@@ -140,14 +135,14 @@
          // If no error login and send him / her on the home page
          if(empty($_SESSION['errors']))
          {
-            Auth::login($cleanedData['username'], $cleanedData['user_pwd']);
+            Auth::login($_POST['username'], $_POST['user_pwd']);
             unset($_SESSION['register']);
             Routing::index();
          } else {
-            $_SESSION['register']['user_email'] = $cleanedData['user_email'];
-            $_SESSION['register']['firstname'] = $cleanedData['firstname'];
-            $_SESSION['register']['lastname'] = $cleanedData['lastname'];
-            $_SESSION['register']['username'] = $cleanedData['username'];
+            $_SESSION['register']['user_email'] = $_POST['user_email'];
+            $_SESSION['register']['firstname'] = $_POST['firstname'];
+            $_SESSION['register']['lastname'] = $_POST['lastname'];
+            $_SESSION['register']['username'] = $_POST['username'];
             header('Location: '.BASE_URL.'register');
          }
 

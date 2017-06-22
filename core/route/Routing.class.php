@@ -35,6 +35,7 @@
         $this->setAction();
         $this->setParams();
         $this->checkAdmin();
+        // $this->checkServiceUnavailable();
         $this->runRoute();
     }
 
@@ -161,7 +162,7 @@
      */
     public static function forbidden()
     {
-        header('HTTP/1.1 403 Forbidden');
+        http_response_code(403);
         die('Acces not allowed');
     }
 
@@ -171,7 +172,19 @@
      */
     public static function notFound()
     {
-        header('HTTP/1.1 404 Not Found');
-        echo 'Page not found';
+        http_response_code(404);
+        die('Page not found');
     }
+
+    /*
+    USELESS
+    public static function checkServiceUnavailable()
+    {
+        if ($_SERVER["REQUEST_TIME"] > 3000000000) {
+            http_response_code(503);
+            die('Service unavailable');
+        }
+    }
+    */
+
   }

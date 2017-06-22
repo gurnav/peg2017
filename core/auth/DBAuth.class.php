@@ -23,6 +23,7 @@
 
       }
 
+
     /**
      * Setup The Auth session to the connected user ID
      * @param $username : String
@@ -31,47 +32,36 @@
      */
     public function login($username, $password)
     {
-        $query = $this->qb->select('id', 'username', 'password')->from(DB_PREFIX.'users')->where('username = :username');
-        $user = $this->qb->prepare($query, [':username' => $username], null, true);
-
-        if (!empty($user)) {
-          if (password_verify($password, $user->password)) {
-            session_regenerate_id(true); // Protection against Session Steal
-            $_SESSION["user"]['id'] = $user->id;
-            $_SESSION["user"]["username"] = $user->username;
-            return TRUE;
-          }
-        }
-
-        return FALSE;
-    }
-
-    /**
-     * Setup The Auth session to the connected user ID
-     * @param $username : String
-     * @param $password : String
-     * @return succes : Boolean If the user is logged or not
-     */
-    public function adminLogin($username, $password)
-    {
         $query = $this->qb->select('id', 'username', 'password', 'rights')->from(DB_PREFIX.'users')->where('username = :username');
         $user = $this->qb->prepare($query, [':username' => $username], null, true);
 
         if (!empty($user)) {
-          if (password_verify($password, $user->password)) {
-            if($user->rights == 3) {
-              session_regenerate_id(true); // Protection against Session Steal
-              $_SESSION["admin"]["id"] = $user->id;
-              $_SESSION["admin"]["username"] = $user->username;
-              return 0;
+            if (password_verify($password, $user->password)) {
+                if ($user->rights == 3) {
+                    session_regenerate_id(true); // Protection against Session Steal
+                    $_SESSION["user"]["id"] = $user->id;
+                    $_SESSION["user"]["username"] = $user->username;
+                    $_SESSION["user"]["type"] = "admin";
+                    return 0;
+                } else if ($user->rights == 2) {
+                    session_regenerate_id(true); // Protection against Session Steal
+                    $_SESSION["user"]["id"] = $user->id;
+                    $_SESSION["user"]["username"] = $user->username;
+                    $_SESSION["user"]["type"] = "author";
+                    return 0;
+                } else if ($user->rights == 1) {
+                    session_regenerate_id(true); // Protection against Session Steal
+                    $_SESSION["user"]["id"] = $user->id;
+                    $_SESSION["user"]["username"] = $user->username;
+                    $_SESSION["user"]["type"] = "user";
+                    return 0;
+                }
             } else {
-              return 2;
+                // Password not match
+                return 1;
             }
-          } else {
-            return 1;
-          }
         }
-
+        // User does not exist
         return -1;
     }
 
@@ -84,15 +74,23 @@
         return isset($_SESSION['user']);
     }
 
+
     /**
-     * Check if the admin is connected or not
+     * Check if an admin is connected or not
      * @return connected : Boolean
      */
     public static function isAdminLogged()
     {
-        return isset($_SESSION['admin']);
-    }
+        $adminLogged = False;
+        
+        if (isset($_SESSION['user'])) {
+            if ($_SESSION['user']['type'] === 'admin') {
+                $adminLogged = True;
+            }
+        }
 
+        return $adminLogged;
+    }
 
     /**
      * Safelly destroy a session

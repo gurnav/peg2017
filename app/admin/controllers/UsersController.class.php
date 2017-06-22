@@ -23,7 +23,7 @@
      */
     public function indexAction()
     {
-      $v = new View('users/users');
+      $v = new View('users/users', 'admin');
       $users = Users::getAll();
 
       $v->assign('users', $users);
@@ -42,7 +42,7 @@
      */
     public function addAction()
     {
-      $v = new View('users/add_user');
+      $v = new View('users/add_user', 'admin');
 
       $admin_add_user_form = ModalsFactory::adminAddUserForm();
       if(!empty($_SESSION['addUSer'])) {
@@ -71,7 +71,7 @@
     public function updateAction($user_id)
     {
 
-      $v = new View('users/add_user');
+      $v = new View('users/add_user', 'admin');
 
       $user = new Users();
       $user_id = $user_id[0];

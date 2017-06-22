@@ -61,22 +61,22 @@
     public function loginAction()
     {
 
-         foreach ($_POST as $post => $value) {
-           $cleanedData[$post] = Helpers::cleanString($value);
-         }
+        $auth_user = Auth::login($_POST['username'], $_POST['password']);
 
-         if (Auth::login($cleanedData['username'], $cleanedData['user_pwd']))
-         {
-           $user = new Users();
-           $user->populate(['username' => $cleanedData['username']]);
-           unset($_SESSION['login']);
-           $_SESSION['user'] = $cleanedData['username'];
-           Routing::index();
-         } else {
-            $_SESSION['login']['username'] = $cleanedData['username'];
-            $_SESSION['login']['error'] = 'Username or password invalid';
-            header('Location: '.BASE_URL.'login');
-         }
+        if ($auth_user === 0)
+        {
+          $user = new Users();
+          $user->populate(['username' => $_POST['username']]);
+          unset($_SESSION['login']);
+          Routing::index();
+      } elseif ($auth_user === -1) {
+          $_SESSION['login']['error'] = "The User doesn't exist";
+          header('Location: '.BASE_URL.'login');
+      } elseif ($auth_user === 1) {
+          $_SESSION['login']['username'] = $_POST['username'];
+          $_SESSION['login']['error'] = 'Username or password invalid';
+          header('Location: '.BASE_URL.'login');
+      }
 
     }
 
