@@ -38,15 +38,13 @@
     {
         $v = new View('users/register');
 
-        $user_form_factory = ModalsFactory::registerUserForm();
+        $user_form = ModalsFactory::registerUserForm();
         if(!empty($_SESSION['register'])) {
-          $user_form_factory['struct']['user_email']['value'] = $_SESSION['register']['user_email'];
-          $user_form_factory['struct']['username']['value'] = $_SESSION['register']['username'];
-          $user_form_factory['struct']['firstname']['value'] = $_SESSION['register']['firstname'];
-          $user_form_factory['struct']['lastname']['value'] = $_SESSION['register']['lastname'];
+          $user_form['struct']['user_email']['value'] = $_SESSION['register']['user_email'];
+          $user_form['struct']['username']['value'] = $_SESSION['register']['username'];
+          $user_form['struct']['firstname']['value'] = $_SESSION['register']['firstname'];
+          $user_form['struct']['lastname']['value'] = $_SESSION['register']['lastname'];
         }
-
-        $user_form = Modals::generateForm($user_form_factory);
 
         if(!empty($_SESSION['errors'])) {
             $v->assign('errors', $_SESSION['errors']);

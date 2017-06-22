@@ -26,8 +26,16 @@
             <a href="#">Présentation</a>
             <a href="#">Articles</a>
             <a href="#">Galerie</a>
-            <a href="<?=LINK_FRONT; ?>register">Inscription</a>
-            <a href="<?=LINK_FRONT; ?>login">Connexion</a>
+
+            <?php if (isset($_SESSION['user'])): ?>
+                <a href="<?php echo BASE_URL.'login/logout'; ?>"><button>log<i class="fa fa-power-off" aria-hidden="true"></i>ut</button></a>
+                <a href="<?php echo BASE_URL.'profile'; ?>">Profile</a>
+            <?php endif; ?>
+            <?php if (!isset($_SESSION['user'])): ?>
+                <a href="<?=LINK_FRONT; ?>register">Inscription</a>
+                <a href="<?=LINK_FRONT; ?>login">Connexion</a>
+            <?php endif; ?>
+
             <!--<a><button onclick="document.getElementById('id01').style.display='block'">Login</button></a>-->
         </nav>
     </div>

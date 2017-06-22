@@ -23,19 +23,19 @@
           "submit"=>"Register"
           ],
         "struct" => [
-          "firstname"=>["label"=>"Your firstname : ", "type"=>"text", "placeholder"=>"Firstname", "required"=>"required", "msgerror"=>""],
+          "firstname"=>["label"=>"Your firstname : ", "type"=>"text", "placeholder"=>"Firstname", "required"=>"required", "i_class"=>"fa fa-tag", "msgerror"=>""],
 
-          "lastname"=>["label"=>"Your lastname : ", "type"=>"text", "placeholder"=>"Lastname", "required"=>"required", "msgerror"=>""],
+          "lastname"=>["label"=>"Your lastname : ", "type"=>"text", "placeholder"=>"Lastname", "required"=>"required", "i_class"=>"fa fa-list-alt", "msgerror"=>""],
 
-          "username"=>[ "label"=>"Your username : ", "type"=>"text", "placeholder"=>"Username", "required"=>"required", "msgerror"=>"" ],
+          "username"=>[ "label"=>"Your username : ", "type"=>"text", "placeholder"=>"Username", "required"=>"required", "i_class"=>"fa fa-user", "msgerror"=>"" ],
 
-          "user_email"=>[ "label"=>"Your Email : ", "type"=>"email", "placeholder"=>"Email", "required"=>"required", "errors_msg"=>"" ],
+          "user_email"=>[ "label"=>"Your Email : ", "type"=>"email", "placeholder"=>"Email", "required"=>"required", "i_class"=>"fa fa-envelope", "errors_msg"=>"" ],
 
-          "user_pwd"=>[ "label"=>"Your Password : ", "type"=>"password", "placeholder"=>"Password", "required"=>"required", "errors_msg"=>"" ],
+          "user_pwd"=>[ "label"=>"Your Password : ", "type"=>"password", "placeholder"=>"Password", "required"=>"required", "i_class"=>"fa fa-key", "errors_msg"=>"" ],
 
-          "user_pwd2"=>[ "label"=>"Confirm Your password : ", "type"=>"password", "placeholder"=>"Confirm password", "required"=>"required", "errors_msg"=>"" ],
+          "user_pwd2"=>[ "label"=>"Confirm Your password : ", "type"=>"password", "placeholder"=>"Confirm password", "required"=>"required", "i_class"=>"fa fa-key", "errors_msg"=>"" ],
 
-          "user_img"=>[ "label"=>"Choose Your avatar : ", "type"=>"file", "required"=>"required", "msgerror"=>"" ],
+          "user_img"=>[ "label"=>"Choose Your avatar : ", "type"=>"file", "required"=>"required", "i_class"=>"fa fa-picture-o", "msgerror"=>"" ],
         ]
       ];
     }
@@ -52,9 +52,9 @@
           "submit"=>"Login"
           ],
         "struct" => [
-          "username"=>[ "label"=>"Your username : ", "type"=>"text", "placeholder"=>"Username", "required"=>"required", "msgerror"=>"" ],
+          "username"=>[ "label"=>"Your username : ", "type"=>"text", "placeholder"=>"Username", "required"=>"required", "i_class"=>"fa fa-user", "msgerror"=>"" ],
 
-          "user_pwd"=>[ "label"=>"Your Password : ", "type"=>"password", "placeholder"=>"Password", "required"=>"required", "errors_msg"=>"" ],
+          "user_pwd"=>[ "label"=>"Your Password : ", "type"=>"password", "placeholder"=>"Password", "required"=>"required", "i_class"=>"fa fa-key", "errors_msg"=>"" ],
         ]
       ];
     }
@@ -241,7 +241,7 @@
               "submit" => "Add comment"
           ],
           "struct" => [
-              "content" => ["label" => "The content", "type" => "text", "id" => "comment_add_article", "placeholder" => "comment of your content", "required" => 0, "errors_msg" => ""]
+              "content" => ["label" => "The content", "type" => "textarea", "id" => "comment_add_article", "placeholder" => "comment of your content", "required" => 0, "errors_msg" => ""]
           ]
       ];
     }
@@ -257,7 +257,7 @@
               "submit"=>"Update comment"
           ],
           "struct" => [
-              "content"=>["label"=>"The Content : ", "type"=>"text", "placeholder"=>"content", "required"=>"required" ]
+              "content"=>["label"=>"The Content : ", "type"=>"textarea", "placeholder"=>"content", "required"=>"required" ]
           ]
       ];
     }

@@ -15,7 +15,7 @@
     public function indexAction()
     {
         $v = new View('comments/comments', 'admin');
-        $comments = Comments::getAll();
+        $comments = Comments::getAll(true);
 
         for($i = 0; $i < count($comments); $i += 1)
         {

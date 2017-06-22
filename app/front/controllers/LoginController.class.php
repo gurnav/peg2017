@@ -38,7 +38,7 @@
     {
         $v = new View('users/login');
 
-        $user_form_factory = ModalsFactory::loginUserForm();
+        $user_form = ModalsFactory::loginUserForm();
         if(!empty($_SESSION['login']['username'])) {
             $user_form_factory['struct']['username']['value'] = $_SESSION['login']['username'];
         }
@@ -46,8 +46,6 @@
         if(!empty($_SESSION['login']['error'])) {
             $v->assign('error', $_SESSION['login']['error']);
         }
-
-        $user_form = Modals::generateForm($user_form_factory);
 
         $v->assign('user_form', $user_form);
         unset($_SESSION['login']);

@@ -13,15 +13,19 @@
 
     /**
      * Get all contents from the database as an array of Contents object
+     * @param Boolean $order_by_date Allow to order the result by date
      * @return Contents Array : $contents All contents in the database
      */
-    public static function getAll()
+    public static function getAll($order_by_date=false)
     {
       $qb = new QueryBuilder();
       // $class = get_class($this);
       $class = explode("\\", self::class);
       $class_name = end($class);
       $query = $qb->select('*')->from(DB_PREFIX.lcfirst($class_name))->where("deleted = 0");
+      if ($order_by_date === true) {
+          $query .= " ORDER BY date_updated, date_inserted DESC";
+      }
       return $qb->query($query, $class_name);
     }
 
