@@ -107,7 +107,7 @@
          }
 
           try {
-            $user->setRole_id(1);
+            $user->setRights(1);
           } catch (\Exception $e) {
             array_push($_SESSION['errors'], $e->getMessage());
           }

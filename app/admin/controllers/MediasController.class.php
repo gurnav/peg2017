@@ -102,12 +102,12 @@
       public function deleteAction($img)
       {
           $multimedia = new Multimedias();
-          $img_source = basename(trim($img[0]));
+          $img_id = trim($img[0]);
 
           try {
-              $multimedia = $multimedia->populate(['path' => $img_source]);
+              $multimedia = $multimedia->populate(['id' => $img_source]);
               $multimedia->delete();
-              // unlink(UPLOADS_DIR_CONTENTS.$img_source);
+              // unlink(UPLOADS_DIR_CONTENTS.$multimedia->getPath());
           } catch (Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
