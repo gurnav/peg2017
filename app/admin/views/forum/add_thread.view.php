@@ -23,11 +23,11 @@
 <section class="information_panel">
     <div id="loader"></div>
     <div class="path">
-        <p><i class="fa fa-home" aria-hidden="true"></i> > Threads > Create Thread</p>
+        <p><i class="fa fa-home" aria-hidden="true"></i> > Threads > Create or modify Thread</p>
     </div>
 
     <div class="only_one">
-        <h2>Create Thread</h2>
+        <h2>Create or modify Thread</h2>
 
         <form class="major_form"
               method="<?php echo $admin_register_thread['options']['method']; ?>"
@@ -49,6 +49,16 @@
                         >
                     </label>
                     <br>
+
+                <?php endif; ?>
+                <?php if($attribute['type'] === 'textarea'): ?>
+                    <div class="super_editor">
+                        <span class="editor_span"><?php echo $attribute["label"]; ?></span>
+                        <textarea name="<?php echo $name; ?>"
+                            <?php if(isset($attribute["placeholder"])) echo "placeholder=\"".$attribute["placeholder"]."\" " ?>
+                            <?php if(isset($attribute["required"])) echo "required=\"".$attribute["required"]."\" " ?>
+                                  id="textarea"><?php if(isset($attribute['value'])) echo $attribute['value'] ?></textarea><br>
+                    </div>
 
                 <?php endif; ?>
 

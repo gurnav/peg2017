@@ -15,20 +15,17 @@
         <li><a href="<?php echo BASE_URL.'admin/threads'; ?>"><i class="fa fa-line-chart" aria-hidden="true"></i><span>Threads</span></a></li>
         <li><a href="<?php echo BASE_URL.'admin/topics'; ?>"><i class="fa fa-line-chart" aria-hidden="true"></i><span>Topics</span></a></li>
         <li><a href="<?php echo BASE_URL.'admin/newsletters'; ?>"><i class="fa fa-line-chart" aria-hidden="true"></i><span>Newsletters</span></a></li>
-
-
     </nav>
 </header>
 
 <section class="information_panel">
     <div id="loader"></div>
     <div class="path">
-        <p><i class="fa fa-home" aria-hidden="true"></i> > Contents > CreateMessage</p>
+        <p><i class="fa fa-home" aria-hidden="true"></i> > Contents > Create or modify Message</p>
     </div>
 
     <div class="only_one">
-        <h2>Create Message</h2>
-
+        <h2>Create or modify Message</h2>
 <form class="major_form"
         method="<?php echo $admin_register_message['options']['method']; ?>"
         action="<?php echo $admin_register_message['options']['action']; ?>"
@@ -52,6 +49,17 @@ enctype="<?php echo $admin_register_message['options']['enctype']; ?>">
 
     <?php endif; ?>
 
+    <?php if($attribute['type'] === 'textarea'): ?>
+        <div class="super_editor">
+            <span class="editor_span"><?php echo $attribute["label"]; ?></span>
+            <textarea name="<?php echo $name; ?>"
+                <?php if(isset($attribute["placeholder"])) echo "placeholder=\"".$attribute["placeholder"]."\" " ?>
+                <?php if(isset($attribute["required"])) echo "required=\"".$attribute["required"]."\" " ?>
+                      id="textarea"><?php if(isset($attribute['value'])) echo $attribute['value'] ?></textarea><br>
+        </div>
+
+    <?php endif; ?>
+
     <?php if($attribute['type'] === 'selected'): ?>
             <label><?php echo $attribute["label"]; ?>
             <select name="<?php echo $name; ?>">
@@ -72,7 +80,6 @@ enctype="<?php echo $admin_register_message['options']['enctype']; ?>">
 </form>
     </div>
 </section>
-
 
 <?php if (isset($errors)): ?>
     <?php for($i = 0; $i < count($errors); $i += 1): ?>

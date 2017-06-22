@@ -23,11 +23,11 @@
 <section class="information_panel">
     <div id="loader"></div>
     <div class="path">
-        <p><i class="fa fa-home" aria-hidden="true"></i> > Topics > Create Topic</p>
+        <p><i class="fa fa-home" aria-hidden="true"></i> > Topics > Subscribe to Newsletter</p>
     </div>
 
     <div class="only_one">
-        <h2>Create Topic</h2>
+        <h2>Subscribe to Newsletter</h2>
 
         <form class="major_form"
               method="<?php echo $admin_register_newsletter['options']['method']; ?>"
@@ -38,7 +38,7 @@
 
             <?php foreach ($admin_register_newsletter['struct'] as $name => $attribute): ?>
 
-            <?php if($attribute['type'] === 'text'): ?>
+            <?php if($attribute['type'] === 'text') : ?>
 
                 <label><?php echo $attribute["label"]; ?>
                     <input

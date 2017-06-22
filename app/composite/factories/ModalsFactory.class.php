@@ -93,8 +93,7 @@
               "struct" => [
 
                   "name" => ["label"=>"The name of your topic","type"=>"text", "placeholder"=>"name of your message", "required"=>0, "error_msg"=>"" ],
-                  "description" => ["label"=>"The description of your topic","type"=>"text", "placeholder"=>"description of your topic", "required"=>0, "error_msg"=>"" ]
-                 // "user" => ["label"=>"User who add the Topic","type"=>"text", "placeholder"=>"name of the user", "required"=>0, "error_msg"=>"" ],
+                  "description" => ["label"=>"The description of your topic","type"=>"textarea", "placeholder"=>"description of your topic", "required"=>0, "error_msg"=>"" ]
 
               ]
           ];
@@ -113,7 +112,7 @@
               "struct" => [
 
                   "title" => ["label"=>"The name of your title","type"=>"text", "placeholder"=>"name of your title", "required"=>0, "error_msg"=>"" ],
-                  "description" => ["label"=>"The description of your thread","type"=>"text", "placeholder"=>"description of your thread", "required"=>0, "error_msg"=>"" ],
+                  "description" => ["label"=>"The description of your thread","type"=>"textarea", "placeholder"=>"description of your thread", "required"=>0, "error_msg"=>"" ],
                   "topic" => ["label" => "Choose your topic", "type" => "selected", "name" => "","value"=>"", "id" => "", "placeholder" => "name of your topic", "required" => 0, "error_msg" => "topicChoose"]
                   // "user" => ["label"=>"User who add the Topic","type"=>"text", "placeholder"=>"name of the user", "required"=>0, "error_msg"=>"" ],
 
@@ -133,7 +132,7 @@
               ],
               "struct" => [
 
-                  "content" => ["label"=>"The content of your message","type"=>"text", "placeholder"=>"content of your message", "required"=>0, "error_msg"=>"" ],
+                  "content" => ["label"=>"The content of your message","type"=>"textarea", "placeholder"=>"content of your message", "required"=>0, "error_msg"=>"" ],
                   "thread" => ["label" => "Choose your thread", "type" => "selected", "name" => "listofThread", "value"=>"", "id" => "", "placeholder" => "name of your thread", "required" => 0, "error_msg" => "threadChoose"]
 
               ]
@@ -158,27 +157,64 @@
       }
 
 
-      public static function getUpdateTopicForm()
+      public static function getUpdateTopicForm($topic)
       {
           return [
               "options" => [
                   "method"=>"POST",
-                  "action"=> "",
+                  "action"=>BASE_URL."admin/topics/doUpdate/".$topic,
+                  "id"=>"admin_register_topic",
                   "enctype"=>"multipart/form-data",
-                  "submit"=>""
+                  "submit"=>"Update Topic"
               ],
               "struct" => [
 
                   "name" => ["label"=>"The name of your topic","type"=>"text", "placeholder"=>"name of your message", "required"=>0, "error_msg"=>"" ],
-                  "description" => ["label"=>"The description of your topic","type"=>"text", "placeholder"=>"description of your topic", "required"=>0, "error_msg"=>"" ]
-                  // "user" => ["label"=>"User who add the Topic","type"=>"text", "placeholder"=>"name of the user", "required"=>0, "error_msg"=>"" ],
+                  "description" => ["label"=>"The description of your topic","type"=>"textarea", "placeholder"=>"description of your topic", "required"=>0, "error_msg"=>"" ]
+
+              ]
+          ];
+      }
+      public static function getUpdateThreadForm($thread)
+      {
+          return [
+              "options" => [
+                  "method"=>"POST",
+                  "action"=> BASE_URL."admin/threads/doUpdate/".$thread,
+                  "id"=>"admin_register_thread",
+                  "enctype"=>"multipart/form-data",
+                  "submit"=>"Update Thread"
+              ],
+              "struct" => [
+
+                  "title" => ["label"=>"The name of your title","type"=>"text", "placeholder"=>"name of your title", "required"=>0, "error_msg"=>"" ],
+                  "description" => ["label"=>"The description of your thread","type"=>"textarea", "placeholder"=>"description of your thread", "required"=>0, "error_msg"=>"" ],
+                  "topic" => ["label" => "Choose your topic", "type" => "selected", "name" => "", "id" => "", "placeholder" => "name of your topic", "required" => 0, "error_msg" => "topicChoose"]
 
               ]
           ];
       }
 
+      public static function getUpdateMessageForm($message)
+      {
+          return [
+              "options" => [
+                  "method"=>"POST",
+                  "action"=> BASE_URL."admin/messages/doUpdate/".$message,
+                  "id"=>"admin_register_message",
+                  "enctype"=>"multipart/form-data",
+                  "submit"=>"Update Message"
+              ],
+              "struct" => [
 
-      public static function PostThreadUserForm(){}
+                  "content" => ["label"=>"The content of your message","type"=>"textarea", "placeholder"=>"content of your message", "required"=>0, "error_msg"=>"" ],
+                  "thread" => ["label" => "Choose your thread", "type" => "selected", "name" => "listofThread", "value"=>"", "id" => "", "placeholder" => "name of your thread", "required" => 0, "error_msg" => "threadChoose"]
+
+              ]
+          ];
+      }
+
+     // public static function PostThreadUserForm(){}
 
     public static function getAddContentForm()
     {

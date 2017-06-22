@@ -23,7 +23,7 @@
 <section class="information_panel">
     <div id="loader"></div>
     <div class="path">
-        <p><i class="fa fa-home" aria-hidden="true"></i> > Topics > Create Topic</p>
+        <p><i class="fa fa-home" aria-hidden="true"></i> > Topics > Create or modify Topic</p>
     </div>
 
     <div class="only_one">
@@ -38,7 +38,7 @@
 
             <?php foreach ($admin_register_topic['struct'] as $name => $attribute): ?>
 
-                <?php if($attribute['type'] === 'text'): ?>
+                <?php if($attribute['type'] === 'text') : ?>
 
                     <label><?php echo $attribute["label"]; ?>
                         <input
