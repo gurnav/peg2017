@@ -26,8 +26,8 @@
             <a href="#">Présentation</a>
             <a href="#">Articles</a>
             <a href="#">Galerie</a>
-            <a href="#">Inscription</a>
-            <a href="#">Connexion</a>
+            <a href="<?=LINK_FRONT; ?>register">Inscription</a>
+            <a href="<?=LINK_FRONT; ?>login">Connexion</a>
             <!--<a><button onclick="document.getElementById('id01').style.display='block'">Login</button></a>-->
         </nav>
     </div>
@@ -66,6 +66,8 @@
                 <img src="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'images'.DS.'photo3.jpg' ?>" />
             </a>
         </article>
+
+
     </section>
 
 

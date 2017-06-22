@@ -17,19 +17,15 @@
   define("ROOT", dirname(__DIR__) . PATH_RELATIVE);
 
     /* LINK which point to the public directory */
-    define("LINK_IMG", "http://localhost/peg2017/app/public/assets/img/");
-    define("LINK_CSS", "http://localhost/peg2017/app/public/assets/css/");
-    define("LINK_JS", "http://localhost/peg2017/app/public/assets//js/");
-    define("LINK_VID", "http://localhost/peg2017/app/public/assets//video/");
-    define("LINK_IMG_ART", "http://localhost/peg2017/app/public/assets/img/articles/");
-    define("LINK_IMG_CAT", "http://localhost/peg2017/app/public/assets//img/categories/");
-    define("LINK_IMG_AVATAR", "http://localhost/peg2017/app/public/assets/img/avatar/");
+    define("LINK_IMG", "http://localhost/esgi-geographic/app/public/assets/images/");
+    define("LINK_CSS", "http://localhost/esgi-geographic/app/public/assets/css/");
+    define("LINK_JS", "http://localhost/esgi-geographic/app/public/assets//js/");
 
     /* LINK which point to the controllers */
-    define("LINK_FRONT", "http://localhost/peg2017/app/front/");
-    define("LINK_ARTICLE", "http://localhost/peg2017/front/article/");
-    define("LINK_CATEGORY", "http://localhost/peg2017/front/categories/");
-    define("LINK_USER", "http://localhost/peg2017/users/");
+    define("LINK_FRONT", "http://localhost/esgi-geographic/");
+    define("LINK_ARTICLE", "http://localhost/esgi-geographic/article/");
+    define("LINK_CATEGORY", "http://localhost/esgi-geographic/categories/");
+    define("LINK_USER", "http://localhost/esgi-geographic/users/");
 
     /* LINK for handling upload */
     define("ROUTE_DIR_CONTENTS", BASE_URL."uploads/contents/");

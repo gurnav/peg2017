@@ -5,6 +5,8 @@
   use Core\Controllers\Controller;
   use Core\Views\View;
   use Core\Util\Helpers;
+  use App\Admin\Models\Users;
+  use App\Admin\Models\Contents;
 
   class ArticleController extends Controller
   {
@@ -17,7 +19,7 @@
               $v->setViewFront("article");
 
               //Recupere les informations selon l'url de l'article
-              $article = new articles();
+              $article = new Contents();
               $article_now = $article->getOneBy(['url'=>$url]);
               $v->assign('article_now', $article_now);
 
@@ -27,7 +29,7 @@
               $v->assign('article_categories', $article_categories);
 
               //Recupere le nom d'utilisateur ayant cree l'article selon l'id_user de l'article
-              $user = new users();
+              $user = new Users();
               $users = $user->getOneBy(['id'=>$article_now['id_user']]);
               $v->assign('users', $users);
 
