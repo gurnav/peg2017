@@ -24,7 +24,7 @@
     public function indexAction()
     {
       $v = new View('users/users', 'admin');
-      $users = Users::getAll();
+      $users = Users::getAll(true);
 
       $v->assign('users', $users);
 

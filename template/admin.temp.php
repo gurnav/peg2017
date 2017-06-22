@@ -5,7 +5,7 @@
     <title><?php echo App::$title ?></title>
     <meta name="description" content="description">
 
-    <link rel="stylesheet" href="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'css'.DS.'style.css' ?>" media="screen">
+    <link rel="stylesheet" href="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'css'.DS.'style_back.css' ?>" media="screen">
 
     <!-- fonts -->
 	  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
@@ -43,7 +43,7 @@
 
     <!-- JS -->
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'js'.DS.'scripts.js' ?>"></script>
+    <script type="text/javascript" src="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'js'.DS.'scripts_back.js' ?>"></script>
     <script src="https://cdn.ckeditor.com/4.6.2/basic/ckeditor.js"></script>
   </body>
 </html>

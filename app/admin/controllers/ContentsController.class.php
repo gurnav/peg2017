@@ -21,7 +21,7 @@
     public function indexAction()
     {
         $v = new View('contents/contents', 'admin');
-        $contents = Contents::getAll();
+        $contents = Contents::getAll(true);
 
         for($i = 0; $i < count($contents); $i += 1)
         {

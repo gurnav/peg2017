@@ -26,7 +26,7 @@
       {
           $v = new View('multimedias/multimedias', 'admin');
 
-          $medias = Multimedias::getAll();
+          $medias = Multimedias::getAll(true);
 
           $v->assign('medias', $medias);
       }

@@ -163,7 +163,9 @@
     public static function forbidden()
     {
         http_response_code(403);
-        die('Acces not allowed');
+        header("refresh:5;url=".BASE_URL);
+        echo "ACCES FORBIDDEN \n\n";
+        echo "You'll be redirected in about 5 secs. If not, click <a href=\"".BASE_URL."\">here</a>.";
     }
 
     /**
@@ -173,7 +175,9 @@
     public static function notFound()
     {
         http_response_code(404);
-        die('Page not found');
+        header("refresh:5;Location: ".$_SERVER['HTTP_REFERER']);
+        echo "ACCES FORBIDDEN \n";
+        echo "You'll be redirected in about 5 secs. If not, click <a href=\"".$_SERVER['HTTP_REFERER']."\">here</a>.";
     }
 
     /*

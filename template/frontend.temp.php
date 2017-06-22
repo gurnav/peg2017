@@ -5,10 +5,10 @@
     <title><?php echo App::$title ?></title>
     <meta name="description" content="description">
 
-    <link rel="stylesheet" href="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'css'.DS.'style.css' ?>" media="screen">
+    <link rel="stylesheet" href="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'css'.DS.'style_front.css' ?>" media="screen">
 
     <!-- fonts -->
-	  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'css'.DS.'font-awesome-4.7.0'.DS.'css'.DS.'font-awesome.min.css' ?>" media="screen">
 
 	<!-- viewport for better responsive -->
@@ -18,13 +18,39 @@
 
   <noscript>JavaScript is Disabled. Please put it on.</noscript>
 
+  <header>
+	<div id="burger_menu">≡</div>
+	<div class="menu">
+		<nav id="nav_bar" class="nav_bar">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="#">Actualités</a></li>
+			<li><a href="#">Présentation</a></li>
+			<li><a href="#">Articles</a></li>
+			<li><a href="#">Galerie</a></a></li>
+            <?php if (isset($_SESSION['user'])): ?>
+                <li><a href="<?php echo BASE_URL.'login/logout'; ?>"><button>log<i class="fa fa-power-off" aria-hidden="true"></i>ut</button></a></li>
+                <li><a href="<?php echo BASE_URL.'profile'; ?>">Profile</a></li>
+            <?php endif; ?>
+            <?php if (!isset($_SESSION['user'])): ?>
+                <li><a href="#">Inscription</a></li>
+                <li><a href="#">Connexion</a></li>
+            <?php endif; ?>
+		</nav>
+	</div>
+</header>
+
   <body>
 
     <?php include 'app'.DS.App::$prefix.DS.'views'.DS.$this->view.'.view.php'; ?>
 
+
+    <footer>
+		<p>© All rights reserved. ESGI - Geographic .</p>
+	</footer>
+
     <!-- JS -->
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'js'.DS.'scripts.js' ?>"></script>
+    <script type="text/javascript" src="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'js'.DS.'scripts_front.js' ?>"></script>
     <script src="https://cdn.ckeditor.com/4.6.2/basic/ckeditor.js"></script>
   </body>
 </html>
