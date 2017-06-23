@@ -132,10 +132,12 @@ section{
     background: #eff3f6;
     position: relative;
     min-height: 100vh;
+
 }
 
 .information_panel div{
     overflow: auto;
+    margin-bottom: 3%;
 }
 
 .information_panel div h2{
@@ -710,6 +712,7 @@ section{
     }
     .information_panel .more_information div {
         width: 100%;
+        margin: 3%;
     }
 
     .information_panel .all_icon div {
@@ -765,6 +768,7 @@ section{
 
     .information_panel{
         width: 100%;
+
     }
 
     .information_panel .four_icon div{

@@ -1,4 +1,3 @@
-
 <section class="information_panel">  <!-- Pb affichage des petite datatable-->
 
     <div class="path">
@@ -48,7 +47,7 @@
                 </tbody>
             </table>
 
-            <input type="button" value="VIEW MORE" class="view_more" onclick="window.location.href='<?php echo BASE_URL.'admin/messages'; ?>';" />
+            <input type="button" value="VIEW MORE" class="view_more" onclick="window.location.href='<?php echo BASE_URL.'admin/message'; ?>';" />
     </div>
             <div>
                 <h2>Threads</h2>
@@ -81,8 +80,7 @@
                 <input type="button" value="VIEW MORE" class="view_more" onclick="window.location.href='<?php echo BASE_URL.'admin/threads'; ?>';" />
             </div>
 
-
-            <div class="management">
+            <div>
                 <h2>Topics</h2>
                 <table class="six_columns">
                     <thead>
