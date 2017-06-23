@@ -22,18 +22,18 @@
 	<div id="burger_menu">≡</div>
 	<div class="menu">
 		<nav id="nav_bar" class="nav_bar">
-			<li><a href="index.html">Home</a></li>
-			<li><a href="#">Actualités</a></li>
-			<li><a href="#">Présentation</a></li>
-			<li><a href="#">Articles</a></li>
-			<li><a href="#">Galerie</a></a></li>
+			<li><a href="<?=LINK_FRONT; ?>">Home</a></li>
+			<li><a href="<?=LINK_FRONT; ?>news">Actualités</a></li>
+			<li><a href="<?=LINK_FRONT; ?>about">Présentation</a></li>
+			<li><a href="<?=LINK_ARTICLE; ?>">Articles</a></li>
+			<li><a href="<?=LINK_FRONT; ?>medias">Galerie</a></a></li>
             <?php if (isset($_SESSION['user'])): ?>
                 <li><a href="<?php echo BASE_URL.'login/logout'; ?>"><button>log<i class="fa fa-power-off" aria-hidden="true"></i>ut</button></a></li>
                 <li><a href="<?php echo BASE_URL.'profile'; ?>">Profile</a></li>
             <?php endif; ?>
             <?php if (!isset($_SESSION['user'])): ?>
-                <li><a href="#">Inscription</a></li>
-                <li><a href="#">Connexion</a></li>
+                <li><a href="<?=LINK_FRONT; ?>register">Inscription</a></li>
+                <li><a href="<?=LINK_FRONT; ?>login">Connexion</a></li>
             <?php endif; ?>
 		</nav>
 	</div>
