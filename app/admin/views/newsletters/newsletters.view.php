@@ -45,7 +45,7 @@
                     <td><?php echo $subscribe['id']; ?></td>
                     <td><?php echo $subscribe['email']; ?></td>
                     <td>
-                        <a href="<?php echo BASE_URL.'admin/newsletters/delete/'.$subscribe['id']; ?>"><button title="Delete"><i class="fa fa-times" aria-hidden="true"></i></button></a>
+                        <button class="Delete" title="Delete" value="<?php echo BASE_URL.'admin/newsletters/delete/'.$subscribe['id']; ?>"><i class="fa fa-times" aria-hidden="true"></i></button>
                     </td>
                 </tr>
             <?php endforeach ?>

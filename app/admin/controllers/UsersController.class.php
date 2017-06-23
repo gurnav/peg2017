@@ -21,7 +21,7 @@ use App\Composite\Factories\ModalsFactory;
      */
     public function indexAction()
     {
-      $v = new View('users/users');
+      $v = new View('users/users');  //faire appel au template admin partout dans les vues
       $users = Users::getAll();
 
       $v->assign('users', $users);

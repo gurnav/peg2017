@@ -65,8 +65,9 @@
                     <td><?php echo $thread['username']; ?></td>
                     <td><?php echo $thread['topicname']; ?></td>
                     <td>
+                        <span></span>
                     <a href="<?php echo BASE_URL.'admin/threads/update/'.$thread['id']; ?>"><button title="Modify"><i class="fa fa-cogs" aria-hidden="true"></i></button></a>
-                    <a href="<?php echo BASE_URL.'admin/threads/delete/'.$thread['id']; ?>"><button title="Delete"><i class="fa fa-times" aria-hidden="true"></i></button></a>
+                        <button class="Delete" title="Delete" value="<?php echo BASE_URL.'admin/threads/delete/'.$thread['id']; ?>"><i class="fa fa-times" aria-hidden="true"></i></button>
                     </td>
                 </tr>
             <?php endforeach ?>

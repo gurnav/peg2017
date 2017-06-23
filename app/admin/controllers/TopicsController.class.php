@@ -17,7 +17,7 @@
     public function indexAction()
     {
 
-        $v = new View('forum/topics');
+        $v = new View('forum/topics'); // utiliser un template (admin)
         $topics = Topics::getAll();
 
         for($i =0;$i < count($topics);$i++)

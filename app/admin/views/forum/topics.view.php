@@ -11,7 +11,7 @@
         <li><a href="<?php echo BASE_URL.'admin/contents'; ?>"><i class="fa fa-life-ring" aria-hidden="true"></i><span>Pages &amp; Articles</span></a></li>
         <li><a href="<?php echo BASE_URL.'admin/stats'; ?>"><i class="fa fa-line-chart" aria-hidden="true"></i><span>Statistics</span></a></li>
         <li><a href="<?php echo BASE_URL.'admin/management'; ?>"><i class="fa fa-line-chart" aria-hidden="true"></i><span>Forum Management</span></a></li>
-        <li><a href="<?php echo BASE_URL.'admin/messages'; ?>"><i class="fa fa-line-chart" aria-hidden="true"></i><span>Messages</span></a></li>
+        <li><a href="<?php echo BASE_URL.'admin/message'; ?>"><i class="fa fa-line-chart" aria-hidden="true"></i><span>Messages</span></a></li>
         <li><a href="<?php echo BASE_URL.'admin/threads'; ?>"><i class="fa fa-line-chart" aria-hidden="true"></i><span>Threads</span></a></li>
         <li><a href="<?php echo BASE_URL.'admin/topics'; ?>"><i class="fa fa-line-chart" aria-hidden="true"></i><span>Topics</span></a></li>
         <li><a href="<?php echo BASE_URL.'admin/newsletters'; ?>"><i class="fa fa-line-chart" aria-hidden="true"></i><span>Newsletters</span></a></li>
@@ -37,7 +37,7 @@
                 <th>Name</th>
                 <th>Description</th>
                 <th>User</th>
-                <th>Action</th>
+                <th class="important_one">Action</th>
                <!-- <th class="important_one">Status</th>-->
             </tr>
             </thead>
@@ -49,8 +49,11 @@
                     <td><?php echo $topic['description']; ?></td>
                     <td><?php echo $topic['username']; ?></td>
                     <td>
+                    <span></span> <!--Bug affichage sans span dans le td-->
                     <a href="<?php echo BASE_URL.'admin/topics/update/'.$topic['id']; ?>"><button title="Modify"><i class="fa fa-cogs" aria-hidden="true"></i></button></a>
-                    <a href="<?php echo BASE_URL.'admin/topics/delete/'.$topic['id']; ?>"><button title="Delete"><i class="fa fa-times" aria-hidden="true"></i></button></a>
+                        <button class="Delete" title="Delete" value="<?php echo BASE_URL.'admin/users/topics/'.$topic['id']; ?>"><i class="fa fa-times" aria-hidden="true"></i></button>
+
+                        <!--marche pas a finir regarder comment c fait sur content-->
                     </td>
                 </tr>
             <?php endforeach ?>
