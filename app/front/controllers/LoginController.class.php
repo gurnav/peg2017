@@ -59,12 +59,12 @@
     public function loginAction()
     {
 
-        $auth_user = Auth::login($_POST['username'], $_POST['password']);
+        $auth_user = Auth::login($_POST['username'], $_POST['user_pwd']);
 
         if ($auth_user === 0)
         {
-          $user = new Users();
-          $user->populate(['username' => $_POST['username']]);
+          // $user = new Users();
+          // $user->populate(['username' => $_POST['username']]);
           unset($_SESSION['login']);
           Routing::index();
       } elseif ($auth_user === -1) {
