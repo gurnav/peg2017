@@ -18,7 +18,7 @@ class ManagementController extends Controller
     public function indexAction()
     {
 
-        $v = new View('forum/management');
+        $v = new View('forum/management','admin');
 
         $messages = Messages::getAll();
 

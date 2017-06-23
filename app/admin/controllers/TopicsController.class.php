@@ -17,7 +17,7 @@
     public function indexAction()
     {
 
-        $v = new View('forum/topics'); // utiliser un template (admin)
+        $v = new View('forum/topics','admin'); // utiliser un template (admin)
         $topics = Topics::getAll();
 
         for($i =0;$i < count($topics);$i++)
@@ -32,7 +32,7 @@
 
     public function addAction()
     {
-        $v = new View ('forum/add_topic');
+        $v = new View ('forum/add_topic','admin');
 
         $admin_register_topic = ModalsFactory::getAddTopicForm();
         if (!empty($_SESSION['addTopic'])) {
@@ -58,7 +58,7 @@
       public function updateAction($id_topic)
       {
 
-          $v = new View('forum/add_topic');
+          $v = new View('forum/add_topic','admin');
 
           $topic = new Topics();
           $id_topic = $id_topic[0];

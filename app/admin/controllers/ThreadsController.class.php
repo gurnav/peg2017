@@ -16,7 +16,7 @@ class ThreadsController extends Controller
     public function indexAction()
     {
 
-        $v = new View("forum/threads");
+        $v = new View('forum/threads','admin');
         $threads = Threads::getAll();
 
 
@@ -40,7 +40,7 @@ class ThreadsController extends Controller
 
     public function addAction()
     {
-        $v = new View ('forum/add_thread');
+        $v = new View ('forum/add_thread','admin');
         $topics = Topics::getAll();
 
         $admin_register_thread = ModalsFactory::getAddThreadForm();
@@ -66,7 +66,7 @@ class ThreadsController extends Controller
     public function updateAction($id_thread)
     {
 
-        $v = new View('forum/add_thread');
+        $v = new View('forum/add_thread','admin');
 
         $thread = new Threads();
         $id_thread = $id_thread[0];

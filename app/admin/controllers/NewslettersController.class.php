@@ -14,7 +14,7 @@ class NewslettersController extends Controller
 {
     public function indexAction()
     {
-        $v = new View('newsletters/newsletters');
+        $v = new View('newsletters/newsletters','admin');
         $subscribes = Newsletters::getAll();
         $v->assign("subscribes", $subscribes);
 
@@ -41,7 +41,7 @@ class NewslettersController extends Controller
 
     public function addAction()
     {
-        $v = new View ('newsletters/add_newsletter');
+        $v = new View ('newsletters/add_newsletter','admin');
         $admin_register_newsletter = ModalsFactory::getAddNewsletterForm();
         if (!empty($_SESSION['addNewsletter'])) {
             $admin_register_newsletter['struct']['email']['value'] = $_SESSION['addNewsletter']['email'];

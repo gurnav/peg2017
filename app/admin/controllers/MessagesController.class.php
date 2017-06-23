@@ -17,7 +17,7 @@ class MessagesController extends Controller
     public function indexAction()
     {
 
-        $v = new View('forum/messages');
+        $v = new View('forum/messages','admin');
         $messages = Messages::getAll();
 
         for($i =0;$i < count($messages);$i++)
@@ -38,7 +38,7 @@ class MessagesController extends Controller
 
     public function addAction()
     {
-        $v = new View ('forum/add_message');
+        $v = new View ('forum/add_message','admin');
 
         $threads = Threads::getAll();
         $admin_register_message = ModalsFactory::getAddMessageForm();
@@ -61,7 +61,7 @@ class MessagesController extends Controller
 
     public function updateAction($id_message)
     {
-        $v = new View('forum/add_message');
+        $v = new View('forum/add_message','admin');
         $message = new Messages();
         $id_message = $id_message[0];
         $message = $message->populate(['id' => $id_message]);
