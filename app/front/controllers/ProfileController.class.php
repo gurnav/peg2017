@@ -5,6 +5,8 @@
   use Core\Controllers\Controller;
   use Core\Util\Helpers;
   use Core\Views\View;
+  use Core\Auth\DBAuth;
+  use Core\Route\Routing;
   use App\Front\Models\Users;
 
   /**
@@ -13,6 +15,23 @@
   class ProfileController extends Controller
   {
 
+      /**
+       * Constructor of the ProfileController
+       * Used for acces rights checking
+       * @return Void
+       */
+      public function __construct()
+      {
+          if (!DBAuth::isLogged()) {
+              Route::forbidden();
+          }
+      }
+
+
+      /**
+       * Action for showing the profile of the user
+       * @return Void
+       */
       public function indexAction()
       {
           $user = new Users();
@@ -21,6 +40,7 @@
           Helpers::debugVar($user);
           die();
       }
+
 
       /**
        * Function who allow a user to modify his profile
@@ -38,8 +58,8 @@
               $v->assign('errors', $_SESSION['errors']);
               unset($_SESSION['errors']);
           }
-
       }
+
 
       /**
        * Function for changing the Username
@@ -69,6 +89,7 @@
           }
       }
 
+
       /**
        * Function for changing the Firstname
        * @return Void
@@ -97,6 +118,7 @@
           }
       }
 
+
       /**
        * Function for changing the lastname
        * @return Void
@@ -123,8 +145,8 @@
           } else {
               header('Location: '.BASE_URL.'profile/edit');
           }
-
       }
+
 
       /**
        * Function for changing the email
@@ -152,8 +174,8 @@
           } else {
               header('Location: '.BASE_URL.'profile/edit');
           }
-
       }
+
 
       /**
        * Function for changing the password
@@ -191,6 +213,7 @@
           }
       }
 
+
       /**
        * Function that allow an user to change his image
        * @return Void
@@ -219,5 +242,6 @@
                header('Location: '.BASE_URL.'profile/edit');
            }
        }
+
 
   }

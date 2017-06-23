@@ -32,7 +32,10 @@
      */
     public function login($username, $password)
     {
-        $query = $this->qb->select('id', 'username', 'password', 'rights')->from(DB_PREFIX.'users')->where('username = :username');
+        $query = $this->qb->select('id', 'username', 'password', 'rights')
+            ->from(DB_PREFIX.'users')
+            ->where('username = :username')
+            ->where('deleted = 0');
         $user = $this->qb->prepare($query, [':username' => $username], null, true);
 
         if (!empty($user)) {
@@ -82,7 +85,7 @@
     public static function isAdminLogged()
     {
         $adminLogged = False;
-        
+
         if (isset($_SESSION['user'])) {
             if ($_SESSION['user']['type'] === 'admin') {
                 $adminLogged = True;
