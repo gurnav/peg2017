@@ -16,7 +16,7 @@
       * Constructor of the Comments model class
       * @return Void
       */
-     public function __construct($id = -1, $content = null, $content_id = -1, $users_id = -1)
+     public function __construct($id = -1, $content = "", $content_id = -1, $users_id = -1)
      {
          parent::__construct($id, $content, $content_id, $users_id);
 
@@ -25,13 +25,14 @@
      /**
       * Get all comments related to a content from the database as an array of Comments object
       * TODO Either change the code implementation with Join or Table implementation
-      * @param Integer : $id The id of the content to filter with
-      * @return Comments Array : $comments All comments in the database for a specific content
+      * @return Users : $user All The user related to the comments
       */
-     public function getAllCommentsByContent($id)
+     public function getUserByComments()
      {
-       $query = $this->qb->select('*')->from($this->getTable())->where('content_id='.$id);
-       return $this->qb->query($query, get_class($this));
+       $query = $this->qb->select('*')
+           ->from(DB_PREFIX."users")
+           ->where("id = '".$this->getUsers_id()."'");
+       return $this->qb->query($query, "App\Front\Models\Users", true);
      }
 
   }

@@ -94,7 +94,7 @@
 
                 "status" => ["label" => "Choose status", "type" => "text", "name" => "status", "id" => "add_status", "placeholder" => "status", "required" => 0, "msgerror" => ""],
 
-                "type" =>["label" => "Choose type", "type" => "text", "name" => "type", "id" => "", "placeholder" => "type", "required" => 0, "msgerror" => ""],
+                "type" =>["label" => "Choose type", "type" => "select", "name" => "type", "id" => "", "placeholder" => "type", "required" => 0, "msgerror" => ""],
 
                 "category" => ["label" => "The category", "type" => "text", "name" => "", "id" => "", "placeholder" => "", "required" => 0, "msgerror" => "category"],
 
@@ -118,7 +118,7 @@
 
                   "title"=>["label"=>"The title : ", "type"=>"text", "placeholder"=>"Title", "required"=>"required" ],
 
-                  "category"=>[ "label"=>"The Category : ", "type"=>"text", "placeholder"=>"Category", "required"=>"required" ],
+                  "category"=>[ "label"=>"The Category : ", "type"=>"select", "placeholder"=>"Category", "required"=>"required" ],
 
                   "content"=>[ "label"=>"The content : ", "type"=>"textarea", "placeholder"=>"Content", "required"=>"required" ],
               ]

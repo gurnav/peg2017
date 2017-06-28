@@ -75,6 +75,6 @@
     public function __destruct()
     {
         extract($this->data);
-        include 'template/'.$this->template.'.temp.php';
+        include ROOT.'template/'.$this->template.'.temp.php';
     }
   }

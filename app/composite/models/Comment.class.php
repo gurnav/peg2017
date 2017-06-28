@@ -55,7 +55,7 @@
               }
           } else {
               Helpers::log("A non string type has been entered as content in comment n° : " . $this->getId());
-              throw new \Exception("You can't enter a number as a content !");
+              throw new \Exception("You can't enter a non string type as a comments !");
           }
 
       }

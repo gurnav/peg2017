@@ -132,6 +132,8 @@
           }
           if ($class_name === null) {
               $req->setFetchMode(PDO::FETCH_OBJ);
+          } else if ($class_name === null && $one === false) {
+              $req->setFetchMode(PDO::FETCH_ASSOC);
           } else {
               $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, $class_name);
           }
@@ -142,7 +144,8 @@
             }*/
               $datas = $req->fetch();
           } else {
-              $datas = $req->fetchAll(PDO::FETCH_ASSOC);
+              // $datas = $req->fetchAll(PDO::FETCH_ASSOC);
+              $datas = $req->fetchAll();
           }
           return $datas;
         } catch (\Exception $e) {
@@ -173,6 +176,8 @@
           }
           if ($class_name === null) {
               $req->setFetchMode(PDO::FETCH_OBJ);
+          } else if ($class_name === null && $one === false) {
+              $req->setFetchMode(PDO::FETCH_ASSOC);
           } else {
               $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, $class_name);
           }
