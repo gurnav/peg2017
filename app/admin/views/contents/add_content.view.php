@@ -31,6 +31,22 @@
                 </div>
                 <?php endif; ?>
 
+                <?php if($attribute['type'] === 'select'): ?>
+                    <div>
+                        <span><?php echo $attribute["label"]; ?><span>
+                        <select name="<?php echo $name; ?>"
+                            <?php if(isset($attribute["required"])) echo "required=\"".$attribute["required"]."\" " ?>
+                            >
+                            <?php foreach ($categories as $value): ?>
+                                <option value="<?php echo strtolower($value['name']); ?>"
+                                    <?php if ($attribute['value'] === $value['name']) echo 'selected'; ?>>
+                                    <?php echo strtolower($value['name']); ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                <?php endif; ?>
+
                 <?php if($attribute['type'] === 'textarea'): ?>
                     <div class="super_editor">
                         <span class="editor_span"><?php echo $attribute["label"]; ?></span>

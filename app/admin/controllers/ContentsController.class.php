@@ -1,14 +1,18 @@
 <?php
 
+
   namespace App\Admin\Controllers;
 
+
+  use App\Admin\Models\Users;
+  use App\Admin\Models\Contents;
+  use App\Admin\Models\Categories;
+  use App\Composite\Factories\ModalsFactory;
+  use Core\HTML\Modals;
   use Core\Controllers\Controller;
   use Core\Views\View;
   use Core\Util\Helpers;
-  use App\Admin\Models\Contents;
-  use App\Composite\Factories\ModalsFactory;
-  use Core\HTML\Modals;
-  use App\Admin\Models\Users;
+
 
   class ContentsController extends Controller
   {
@@ -23,8 +27,7 @@
         $v = new View('contents/contents', 'admin');
         $contents = Contents::getAll(true);
 
-        for($i = 0; $i < count($contents); $i += 1)
-        {
+        for($i = 0; $i < count($contents); $i += 1) {
             $contents[$i]["username"] = Users::getUsernameById($contents[$i]["users_id"]);
         }
 
@@ -49,6 +52,9 @@
             unset($_SESSION['addContent']);
         }
 
+        $categories = Categories::getAll();
+
+        $v->assign('categories', $categories);
         $v->assign('admin_register_content', $admin_register_content);
 
         if(isset($_SESSION['errors']) && !empty($_SESSION['errors']))
@@ -81,6 +87,9 @@
           $admin_register_content['struct']['category']['value'] = $content->getCategoryNameById();
           $admin_register_content['struct']['content']['value'] = $content->getContent();
 
+          $categories = Categories::getAll();
+
+          $v->assign('categories', $categories);
           $v->assign('admin_register_content', $admin_register_content);
 
           if(isset($_SESSION['errors']) && !empty($_SESSION['errors'])) {
