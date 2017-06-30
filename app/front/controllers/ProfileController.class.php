@@ -22,9 +22,7 @@
        */
       public function __construct()
       {
-          if (!DBAuth::isLogged()) {
-              Route::forbidden();
-          }
+
       }
 
 
@@ -32,10 +30,11 @@
        * Action for showing the profile of the user
        * @return Void
        */
-      public function indexAction()
+      public function indexAction($username)
       {
+          $username = $username[0];
           $user = new Users();
-          $user = $user->populate(['id' => $_SESSION['user']['id']]);
+          $user = $user->populate(['username' => $username]);
 
           Helpers::debugVar($user);
           die();
@@ -46,18 +45,26 @@
        * Function who allow a user to modify his profile
        * @return Void
        */
-      public function editAction()
+      public function editAction($username)
       {
-          $user = new Users();
-          $v = new View("users/profile");
+          $username = $username[0];
 
-          $user = $user->populate(['id' => $_SESSION['user']['id']]);
-          $v->assign('user', $user);
+          if ($username === $_SESSION['user']['username'])
+          {
+              $user = new Users();
+              $v = new View("users/profile");
 
-          if (isset($_SESSION['errors'])) {
-              $v->assign('errors', $_SESSION['errors']);
-              unset($_SESSION['errors']);
+              $user = $user->populate(['id' => $_SESSION['user']['id']]);
+              $v->assign('user', $user);
+
+              if (isset($_SESSION['errors'])) {
+                  $v->assign('errors', $_SESSION['errors']);
+                  unset($_SESSION['errors']);
+              }
+          } else {
+              Route::forbidden();
           }
+
       }
 
 
