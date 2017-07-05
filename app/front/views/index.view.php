@@ -10,6 +10,7 @@
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'css'.DS.'main.css' ?>" />
     <link rel="stylesheet" href="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'css'.DS.'modal.css' ?>" />
+    <!--<link rel="alternate" type="application/rss+xml" title="Mon flux RSS" href="<?php echo PATH_RELATIVE.'public'.'flux_rss.rss'?>" />-->
     <noscript>
         <link rel="stylesheet" href="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'css'.DS.'noscript.css' ?>" />
     </noscript>

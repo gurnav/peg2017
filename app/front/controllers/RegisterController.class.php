@@ -11,7 +11,7 @@
   use Core\Route\Routing;
   use App\Front\Models\Users;
   use App\Composite\Factories\ModalsFactory;
-  use App\Front\Models\Email;
+  use Core\Email\Email;
 
 
   /**
@@ -131,9 +131,11 @@
            array_push($_SESSION['errors'], $e->getMessage());
          }
 
-        //on récupère l'id de l'utilisateur
+
+        /*//on récupère l'id de l'utilisateur
+         $user = $user->populate(['email' => ])
         $thisuser = new users();
-        $tab = $thisuser->getOneBy(['mail'=>$args['email']]);
+        $tab = $thisuser->getOne(['mail'=>$args['email']]);
         //envoie de l'email de validation
         $email = new email();
         //On renseigne le sujet et le message de l'email
@@ -151,7 +153,7 @@
         //envoie de l'email
         $email->envoieEmail();
         echo 'Bienvenue '.$args['login'].', vous allez recevoir un email pour valider votre compte';
-
+*/
 
          // If no error login and send him / her on the home page
          if(empty($_SESSION['errors']))

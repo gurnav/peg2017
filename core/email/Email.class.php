@@ -1,8 +1,12 @@
 <?php
 
-//require('lib/PHPMailer/class.smtp.php');
- use App\Lib\PHPMailer\;
-//require('lib/PHPMailer/class.phpmailer.php');
+
+namespace Core\Email;
+
+require('lib/PHPMailer/class.smtp.php');
+// use App\Lib\PHPMailer;
+require('lib/PHPMailer/class.phpmailer.php');
+
 
 class Email{
     protected $id;

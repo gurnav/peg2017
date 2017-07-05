@@ -177,7 +177,7 @@
     {
         http_response_code(404);
         header("refresh:5;Location: ".$_SERVER["HTTP_REFERER"]);
-        echo "ACCES FORBIDDEN \n";
+        echo "ERROR 404 \n";
         echo "You'll be redirected in about 5 secs. If not, click <a href=\"".$_SERVER["HTTP_REFERER"]."\">here</a>.";
         die();
     }
