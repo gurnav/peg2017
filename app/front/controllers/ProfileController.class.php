@@ -16,28 +16,18 @@
   {
 
       /**
-       * Constructor of the ProfileController
-       * Used for acces rights checking
-       * @return Void
-       */
-      public function __construct()
-      {
-
-      }
-
-
-      /**
        * Action for showing the profile of the user
        * @return Void
        */
-      public function indexAction($username)
+      public function showAction($username)
       {
           $username = $username[0];
-          $user = new Users();
-          $user = $user->populate(['username' => $username]);
 
-          Helpers::debugVar($user);
-          die();
+          $v = new View('users/profile');
+          $user = new Users();
+
+          $user = $user->populate(['username' => $username]);
+          $v->assign('user', $user);
       }
 
 
@@ -49,22 +39,26 @@
       {
           $username = $username[0];
 
-          if ($username === $_SESSION['user']['username'])
+          if (DBAuth::isLogged())
           {
-              $user = new Users();
-              $v = new View("users/profile");
+              if ($username === $_SESSION['user']['username'])
+              {
+                  $user = new Users();
+                  $v = new View("users/edit_profile");
 
-              $user = $user->populate(['id' => $_SESSION['user']['id']]);
-              $v->assign('user', $user);
+                  $user = $user->populate(['id' => $_SESSION['user']['id']]);
+                  $v->assign('user', $user);
 
-              if (isset($_SESSION['errors'])) {
-                  $v->assign('errors', $_SESSION['errors']);
-                  unset($_SESSION['errors']);
+                  if (isset($_SESSION['errors'])) {
+                      $v->assign('errors', $_SESSION['errors']);
+                      unset($_SESSION['errors']);
+                  }
+              } else {
+                  Routing::forbidden();
               }
           } else {
-              Route::forbidden();
+              Routing::forbidden();
           }
-
       }
 
 

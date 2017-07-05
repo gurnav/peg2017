@@ -16,7 +16,7 @@
 				<?php $user = $comment->getUserByComments(); ?>
 				<div class="comment">
 					<div class="profil_area">
-						<h4><a href="<?php echo BASE_URL.'profile/'.strtolower($user->getUsername()); ?>">
+						<h4><a href="<?php echo BASE_URL.'profile/show/'.strtolower($user->getUsername()); ?>">
 							<?php echo $user->getUsername(); ?></a>
 						</h4>
 						<img src="<?php echo UPLOADS_DIR_USERS.$user->getUserImg(); ?>">

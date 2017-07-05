@@ -1,60 +1,20 @@
-<h2>Welcome <?php echo $user->getUsername(); ?></h2>
-<br>
+<div class="body_item">
 
-<p>You can consult or modify your profile here.</p>
-<br>
 
-<form action="<?php echo BASE_URL.'profile/changeUsername'; ?>" method="post">
-    <span>Username : </span>
-    <input type="text" name="username" value="<?php echo $user->getUsername(); ?>">
-    <input type="submit" value="Change username">
-</form>
-<br>
+	<div class="resume_profil" >
+	<header>
+		<h2>Your informations : </h2>
+	</header>
+		<div class="public">
+			<p><img src="<?php echo ROUTE_DIR_USERS.$user->getUserImg(); ?>"><i class="fa fa-user" aria-hidden="true"></i> Username: <span><?php echo $user->getUsername(); ?></span></p>
+		</div>
+		<div class="private">
+			<p><i class="fa fa-tag" aria-hidden="true"></i> Firstname: <span><?php echo $user->getFirstname(); ?></span></p>
+			<p><i class="fa fa-list-alt" aria-hidden="true"></i> Lastname: <span><?php echo $user->getLastname(); ?></span></p>
+			<p><i class="fa fa-user" aria-hidden="true"></i> Email: <span><?php echo $user->getEmail(); ?></span></p>
+			<!-- <p><i class="fa fa-key" aria-hidden="true"></i> Password: <span>********</span></p> -->
+		</div>
+	</div>
 
-<form action="<?php echo BASE_URL.'profile/changeLastname'; ?>" method="post">
-    <span>Lastname : </span>
-    <input type="text" name="lastname" value="<?php echo $user->getLastname(); ?>">
-    <input type="submit" value="Change lastname">
-</form>
-<br>
 
-<form action="<?php echo BASE_URL.'profile/changeFirstname'; ?>" method="post">
-    <span>Firstname : </span>
-    <input type="text" name="firstname" value="<?php echo $user->getFirstname(); ?>">
-    <input type="submit" value="Change firstname">
-</form>
-<br>
-
-<form action="<?php echo BASE_URL.'profile/changeEmail'; ?>" method="post">
-    <span>Email : </span>
-    <input type="text" name="email" value="<?php echo $user->getEmail(); ?>">
-    <input type="submit" value="Change email">
-</form>
-<br>
-
-<form action="<?php echo BASE_URL.'profile/changePassword'; ?>" method="post">
-    <span>Password : </span>
-    <input type="password" name="password">
-    <br>
-    <span>Password confirmation : </span>
-    <input type="password" name="password_conf">
-    <br>
-    <span>New Password : </span>
-    <input type="password" name="new_password">
-    <br>
-    <input type="submit" value="Change password">
-</form>
-<br>
-
-<form action="<?php echo BASE_URL.'profile/changeImg'; ?>" method="post">
-    <span>Image profile : </span>
-    <input type="file" name="user_img">
-    <input type="submit" value="Change image">
-</form>
-<br>
-
-<?php if (isset($errors)): ?>
-    <?php foreach ($errors as $error): ?>
-        <p><?php echo $error; ?></p>
-    <?php endforeach; ?>
-<?php endif; ?>
+</div>
