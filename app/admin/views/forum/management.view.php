@@ -47,7 +47,7 @@
                 </tbody>
             </table>
 
-            <input type="button" value="VIEW MORE" class="view_more" onclick="window.location.href='<?php echo BASE_URL.'admin/message'; ?>';" />
+            <input type="button" value="VIEW MORE" class="view_more" onclick="window.location.href='<?php echo BASE_URL.'admin/messages'; ?>';" />
     </div>
             <div>
                 <h2>Threads</h2>

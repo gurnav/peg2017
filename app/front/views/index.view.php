@@ -23,6 +23,7 @@
         <nav id="nav">
             <a href="#">Home</a>
             <a href="#">Actualités</a>
+            <a href="<?php echo BASE_URL.'forum'; ?>">Forum</a>
             <a href="#">Présentation</a>
             <a href="#">Articles</a>
             <a href="#">Galerie</a>
