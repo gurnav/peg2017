@@ -384,6 +384,66 @@ header #home div h1{
 	width: 86%;
 }
 
+/* Profil */
+
+.resume_profil{
+	width: 90%;
+	margin: 2% auto;
+	background: white;
+	border-radius: 4px;
+	border: solid 5px transparent;
+}
+
+.resume_profil header{
+	overflow: auto;
+	padding: 2%;
+}
+
+.resume_profil header h2{
+	float: left;
+	font-size: 1.5rem;
+	font-weight: 400;
+}
+
+.resume_profil .public{
+	overflow: auto;
+	width: 50%;
+	margin: auto;
+}
+
+.resume_profil .public img{
+	display: inline-block;
+	width: 42%;
+	margin: 0 5%;
+	vertical-align: middle;
+}
+
+.resume_profil .public p{
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 1.5rem;
+}
+
+.resume_profil .public span{
+	font-size: 1.2rem;
+	color: #a0a0a0;
+}
+
+.resume_profil .public{
+	overflow: auto;
+}
+
+.resume_profil .private p{
+	width: 30%;
+	margin: 2% auto;
+	font-size: 1.5rem;
+}
+
+.resume_profil .private span{
+	font-size: 1.2rem;
+	color: #a0a0a0;
+}
+
 
 /* Footer */
 

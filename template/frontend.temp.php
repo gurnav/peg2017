@@ -26,7 +26,7 @@
             <li><a href="<?php echo BASE_URL.'contents/all_articles' ?>">Articles</a></li>
             <li><a href="<?php echo BASE_URL.'contents/all_news' ?>">News</a></li>
             <li><a href="<?php echo BASE_URL.'contents/all_pages' ?>">Pages</a></li>
-            <li><a href="<?php echo BASE_URL.'contents/galery' ?>">Galerie</a></a></li>
+			<li><a href="<?php echo BASE_URL.'contents/gallery' ?>">Gallery</a></a></li>
             <?php if (isset($_SESSION['user'])): ?>
                 <li><a href="<?php echo BASE_URL.'profile'; ?>">Profile</a></li>
                 <li><a href="<?php echo BASE_URL.'login/logout'; ?>"><button>log<i class="fa fa-power-off" aria-hidden="true"></i>ut</button></a></li>

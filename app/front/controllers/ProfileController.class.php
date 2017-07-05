@@ -16,29 +16,18 @@
   {
 
       /**
-       * Constructor of the ProfileController
-       * Used for acces rights checking
-       * @return Void
-       */
-      public function __construct()
-      {
-          if (!DBAuth::isLogged()) {
-              Route::forbidden();
-          }
-      }
-
-
-      /**
        * Action for showing the profile of the user
        * @return Void
        */
-      public function indexAction()
+      public function showAction($username)
       {
-          $user = new Users();
-          $user = $user->populate(['id' => $_SESSION['user']['id']]);
+          $username = $username[0];
 
-          Helpers::debugVar($user);
-          die();
+          $v = new View('users/profile');
+          $user = new Users();
+
+          $user = $user->populate(['username' => $username]);
+          $v->assign('user', $user);
       }
 
 
@@ -46,17 +35,29 @@
        * Function who allow a user to modify his profile
        * @return Void
        */
-      public function editAction()
+      public function editAction($username)
       {
-          $user = new Users();
-          $v = new View("users/profile");
+          $username = $username[0];
 
-          $user = $user->populate(['id' => $_SESSION['user']['id']]);
-          $v->assign('user', $user);
+          if (DBAuth::isLogged())
+          {
+              if ($username === $_SESSION['user']['username'])
+              {
+                  $user = new Users();
+                  $v = new View("users/edit_profile");
 
-          if (isset($_SESSION['errors'])) {
-              $v->assign('errors', $_SESSION['errors']);
-              unset($_SESSION['errors']);
+                  $user = $user->populate(['id' => $_SESSION['user']['id']]);
+                  $v->assign('user', $user);
+
+                  if (isset($_SESSION['errors'])) {
+                      $v->assign('errors', $_SESSION['errors']);
+                      unset($_SESSION['errors']);
+                  }
+              } else {
+                  Routing::forbidden();
+              }
+          } else {
+              Routing::forbidden();
           }
       }
 
