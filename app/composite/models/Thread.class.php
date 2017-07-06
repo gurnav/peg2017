@@ -12,29 +12,29 @@
 	 * 	Contents Model who reprensent the Threads table
 	 * 	in the database
 	 */
-	class Threads extends Model
+	class Thread extends Model
 	{
 
 		use UsersIdTrait;
 		use IdTrait;
 
-    protected $id; // id of the thread
-    protected $title; // Title of the thread
-    protected $description; // description of the thread
-    protected $users_id; // The author of the thread represented by its id
-    protected $topics_id; // The topic of the thread represented by its id
+	    protected $id; // id of the thread
+	    protected $title; // Title of the thread
+	    protected $description; // description of the thread
+	    protected $users_id; // The author of the thread represented by its id
+	    protected $topics_id; // The topic of the thread represented by its id
 
       /**
        * Constructor of the Threads model class
        * @return Void
        */
-      public function __construct($id = -1, $title = null, $description = null,
+      public function __construct($id = -1, $title = "", $description = "",
       $users_id = -1, $topics_id = -1)
       {
       	parent::__construct();
 
       	$this->setId($id);
-        $this->setUsersId($users_id);
+        $this->setUsers_id($users_id);
         $this->setTopicsId($topics_id);
       	$this->setTitle($title);
       	$this->setDescription($description);
@@ -77,7 +77,7 @@
       public function setTopicsId($topicsId)
       {
           if (is_int($topicsId)) {
-              $this->topicsId = $topicsId;
+              $this->topics_id = $topicsId;
           } else {
               Helpers::log("A non integer type for a topic id in a thread have tried to be inserted in the DB");
               throw new \Exception("You can't enter a non integer type for a topic id of a thread");
@@ -132,4 +132,25 @@
       }
 
 
-  }
+        public static function getTopicnameById($id)
+        {
+            $qb = new QueryBuilder();
+            $query = "SELECT name from ".DB_PREFIX."topics WHERE id = '".$id."'";
+            $topic = $qb->query($query, null, true);
+            return $topic->name;
+        }
+
+        /**
+         * Simple getter of the Category id by name
+         * @param string : $name The name to be searched
+         * @return string $category_id the id of the linked category
+         */
+        public function getTopicIdByName($name) {
+            $query = "SELECT id from ".DB_PREFIX."topics WHERE name = '".$name."'";
+            $topic_id = $this->qb->query($query, null, true);
+            return $topic_id->id;
+        }
+
+
+
+    }

@@ -30,7 +30,7 @@
        * @return Void
        */
 
-      public function __construct($id = -1, $name = null, $description = null, $users_id = -1)
+      public function __construct($id = -1, $name = "", $description = "", $users_id = -1)
       {
           parent::__construct();
 
@@ -99,6 +99,35 @@
       {
           return $this->description;
       }
+
+
+      public function setUsers_id($userId)
+      {
+          if(is_int($userId))
+          {
+              $this->users_id = $userId;
+          } else {
+              Helpers::log("A non integer type for a Users id  have tried to be inserted in the DB");
+              throw new \Exception("You can't enter a non integer type for a User id");
+          }
+      }
+      public function getUsers_id()
+      {
+          return $this->users_id;
+      }
+
+      /**
+       * Simple getter of the Category name by id
+       * @return string $category_name the name of the linked category
+       */
+      public static function getUsernameById($id)
+      {
+          $qb = new QueryBuilder();
+          $query = "SELECT username from ".DB_PREFIX."users WHERE id = '".$id."'";
+          $user = $qb->query($query, null, true);
+          return $user->username;
+      }
+
 
 
   }
