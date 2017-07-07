@@ -25,8 +25,8 @@
 
         $v->assign('comments', $comments);
 
-        if(!empty($SESSION['errors'])) {
-            $v->assign('errors', $errors);
+        if(!empty($_SESSION['errors'])) {
+            $v->assign('errors',$_SESSION['errors']);
             unset($_SESSION['errors']);
         }
     }

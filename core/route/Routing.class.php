@@ -1,17 +1,14 @@
 <?php
-
-  namespace Core\Route;
-
-  use \App;
-  use Core\Util\Helpers;
-  use Core\Auth\DBAuth;
-
-  /**
-   * Class that manage the CRUD Routing
-   * For EVERY Route
-   */
-  class Routing
-  {
+namespace Core\Route;
+use \App;
+use Core\Util\Helpers;
+use Core\Auth\DBAuth;
+/**
+ * Class that manage the CRUD Routing
+ * For EVERY Route
+ */
+class Routing
+{
     private $uri; // The uri called
     private $uriExploded; // The exploded uri called
     private $prefix; // The prefix called
@@ -21,7 +18,6 @@
     private $action; // The action called
     private $actionName; // The action name lowercased
     private $params; // Parameters in the url
-
     /**
      * The constructor of our routing class which
      * check our url and build it consequently
@@ -38,7 +34,6 @@
         // $this->checkServiceUnavailable();
         $this->runRoute();
     }
-
     /**
      * Setup the uri and explode it
      * @param $uri : String The URi to be set
@@ -49,28 +44,23 @@
         $uri = filter_var($uri, FILTER_SANITIZE_URL);
         //$uri = preg_replace("#".PATH_RELATIVE_PATTERN."#i", "", $uri, 1);
         $uri = preg_replace("#".PATH_RELATIVE_PATTERN."/#", "", $uri, 1);
-
         // TODO: filter_var($uri, FILTER_VALIDATE_URL, FILTER_FLAG_SCHEME_REQUIRED);
         $this->uri = trim($uri, DS);
         $this->uriExploded = explode('/', $this->uri);
     }
-
     /**
      * Setup the prefix whatever it exist or not
      * @return void
      */
     public function setPrefix()
     {
-      if($this->uriExploded[0] !== 'admin') {
-          array_unshift($this->uriExploded, 'front');
-      }
-
-      $this->prefix = $this->uriExploded[0];
-
-      App::setPrefix($this->prefix);
-      unset($this->uriExploded[0]);
+        if($this->uriExploded[0] !== 'admin') {
+            array_unshift($this->uriExploded, 'front');
+        }
+        $this->prefix = $this->uriExploded[0];
+        App::setPrefix($this->prefix);
+        unset($this->uriExploded[0]);
     }
-
     /**
      * Setup the controller whether it exist or not
      * @return void
@@ -82,7 +72,6 @@
         $this->fullControllerName = "App\\".ucfirst($this->prefix)."\\Controllers\\".$this->controllerName;
         unset($this->uriExploded[1]);
     }
-
     /**
      * Setup the action whether it exist or not
      * @return void
@@ -93,7 +82,6 @@
         $this->actionName = $this->action."Action";
         unset($this->uriExploded[2]);
     }
-
     /**
      * Setup the paramater whether it exist or not
      * @return void
@@ -102,7 +90,6 @@
     {
         $this->params = array_merge(array_values($this->uriExploded), $_POST);
     }
-
     /**
      * Check if the route exist in the application or not
      * @return $isRoute : Boolean if the route is valid / exist or not
@@ -121,7 +108,6 @@
         }
         return $isRoute;
     }
-
     /**
      * Execute the route if it exist
      * @return void
@@ -135,7 +121,6 @@
             self::notFound();
         }
     }
-
     /**
      * Check the route if the user have the access rights
      * @return Void
@@ -147,7 +132,6 @@
             }
         }
     }
-
     /**
      * Redirect the user to the index
      * @return Void
@@ -155,7 +139,6 @@
     public static function index() {
         header('Location: '.BASE_URL);
     }
-
     /**
      * Send a Forbiden page
      * @return void
@@ -168,7 +151,6 @@
         echo "You'll be redirected in about 5 secs. If not, click <a href=\"".BASE_URL."\">here</a>.";
         die();
     }
-
     /**
      * Send a notFound page
      * @return void
@@ -177,11 +159,10 @@
     {
         http_response_code(404);
         header("refresh:5;Location: ".$_SERVER["HTTP_REFERER"]);
-        echo "ERROR 404 \n";
+        echo "PAGE NOT FOUND \n";
         echo "You'll be redirected in about 5 secs. If not, click <a href=\"".$_SERVER["HTTP_REFERER"]."\">here</a>.";
         die();
     }
-
     /*
     USELESS
     public static function checkServiceUnavailable()
@@ -192,5 +173,4 @@
         }
     }
     */
-
-  }
+}

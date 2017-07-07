@@ -7,6 +7,7 @@
   use App\Admin\Models\Users;
   use App\Admin\Models\Contents;
   use App\Admin\Models\Categories;
+  use App\Admin\Models\Multimedias;
   use App\Composite\Factories\ModalsFactory;
   use Core\HTML\Modals;
   use Core\Controllers\Controller;
@@ -235,6 +236,21 @@
               $_SESSION['addContent']['status'] = $_POST['status'];
               header('Location: '.BASE_URL.'admin/contents/add');
           }
+      }
+
+      /**
+       * Function which implement a json array representing the gallery
+       * for adding a thumbnail to a content
+       */
+      public function thumbnails_jsonAction()
+      {
+          header('Content-Type: application/json');
+          $medias = Multimedias::getAll();
+
+          for ($i = 0; $i < sizeof($medias); $i += 1) {
+              $medias[$i]['path'] = ROUTE_DIR_CONTENTS.$medias[$i]['path'];
+          }
+          echo json_encode($medias);
       }
 
   }
