@@ -1,62 +1,181 @@
 <?php
 
-
 namespace Core\Email;
 
-require('lib/PHPMailer/class.smtp.php');
+require 'lib/PHPMailer/class.smtp.php';
 // use App\Lib\PHPMailer;
-require('lib/PHPMailer/class.phpmailer.php');
+require ROOT.'core/email/lib/PHPMailer/class.phpmailer.php';
 
 
-class Email{
+/**
+ * Class that manage mails sendings
+ * For EVERY mail
+ */
+class Email {
     protected $id;
     protected $description;
-    protected $sujet;
+    protected $subject;
     protected $message;
-    protected $destinataires;
-    //SETTERS
+    protected $addressee;
+
+    /**
+     * ID Setter for the class only
+     * @param Int : $id The id to be set
+     * @return Void
+     */
     public function setId($id){
         $this->id=intval($id);
     }
+
+    /**
+     * Simple setter for the description
+     * @param : $description The Description to be set
+     * @return Void
+     */
     public function setDescription($description){
         $this->description=trim($description);
     }
-    public function setSujet($sujet){
-        $this->sujet=trim($sujet);
+
+    /**
+     * Simple setter for the subject
+     * @param : $subject The Subject to be set
+     * @return Void
+     */
+    public function setSubject($subject){
+        $this->subject=trim($subject);
     }
+
+    /**
+     * Simple setter for the message
+     * @param : $message The Message to be set
+     * @return Void
+     */
     public function setMessage($message){
         $this->message=trim($message);
     }
-    public function setDestinataires($destinataires){
-        $this->destinataires=trim($destinataires);
+
+    /**
+     * Simple setter for the addressee
+     * @param : $addressee The Addressee to be set
+     * @return Void
+     */
+    public function setAddressee($addressee){
+        $this->addressee=trim($addressee);
     }
-    //GETTERS
+
+
+    /**
+     * Simple id getter
+     * @return Int $id the id of the mail
+     */
     public function getid(){
         return $this->id;
     }
+
+    /**
+     * Simple description getter
+     * @return String $description the description of the mail
+     */
     public function getDescription(){
         return $this->description;
     }
-    public function getSujet(){
-        return $this->sujet;
+
+    /**
+     * Simple subject getter
+     * @return String $subject the subject of the mail
+     */
+    public function getSubject(){
+        return $this->subject;
     }
+
+    /**
+     * Simple message getter
+     * @return String $message the message of the mail
+     */
     public function getMessage(){
         return $this->message;
     }
-    public function getDestinataires(){
-        return $this->destinataires;
+
+    /**
+     * Simple addressee getter
+     * @return String $addressee the addressee of the mail
+     */
+    public function getAddressee(){
+        return $this->addressee;
     }
+
+
     public function envoieEmail(){
-        // require "private/PHPMailer/PHPMailerAutoload.php";
-        $mail = new PHPmailer();
+        require "lib/phpmailerexe/PHPMailerAutoload.php";
+
+        $mail = new \PHPmailer();
         $mail->IsSMTP();
         $mail->IsHTML(true);
 
         $mail->Host = "smtp.gmail.com";
         $mail->Port = 465;
-        //$mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
 
-        $mail->SMTPAuth = true; // authentication enabled
+        // debugging: 1 = errors and messages, 2 = messages only
+        //$mail->SMTPDebug = 1;
+
+        // authentication enabled
+        $mail->SMTPAuth = true;
+
+        // secure transfer enabled REQUIRED for GMail
+        $mail->SMTPSecure = 'ssl';
+
+        // mail to be created
+        $mail->Username   = "esgi-geographic@gmail.com";
+
+        // to be created
+        $mail->Password   = "esgiGeographic";
+        // $mail->SetFrom($expediteur, $prenom.' '.$nom);
+
+
+
+        $mail->From='esgi-geographic@gmail.com';
+        $mail->AddAddress($this->addressee);
+        $mail->AddReplyTo('esgi-geographic@gmail.com');
+
+
+
+        $mail->Subject = $this->subject;
+
+        $mail->CharSet = "utf-8";
+        $mail->Body=$this->message;
+
+        //Teste si le return code est ok.
+        if(!$mail->Send()){
+
+            //Affiche le message d'erreur (ATTENTION:voir section 7)
+            echo $mail->ErrorInfo;
+        }
+        else{
+            echo 'Mail envoye avec succes</br>';
+        }
+
+        $mail->SmtpClose();
+
+        unset($mail);
+    }
+
+
+
+
+    public function envoieEmailComms(){
+
+        $mail = new \PHPmailer();
+        $mail->IsSMTP();
+        $mail->IsHTML(true);
+
+        $mail->Host = "smtp.gmail.com";
+        $mail->Port = 465;
+
+        // debugging: 1 = errors and messages, 2 = messages only
+        //$mail->SMTPDebug = 1;
+
+        // authentication enabled
+        $mail->SMTPAuth = true;
         $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
         $mail->Username   = "esgi-geographic@gmail.com";
 
@@ -66,63 +185,21 @@ class Email{
 
 
         $mail->From='esgi-geographic@gmail.com';
-        $mail->AddAddress($this->destinataires);
+        $mail->AddAddress($this->addressee);
         $mail->AddReplyTo('esgi-geographic@gmail.com');
 
 
 
-        $mail->Subject = $this->sujet;
+        $mail->Subject = $this->subject;
 
         $mail->CharSet = "utf-8";
         $mail->Body=$this->message;
-        if(!$mail->Send()){ //Teste si le return code est ok.
-            echo $mail->ErrorInfo; //Affiche le message d'erreur (ATTENTION:voir section 7)
-        }
-        else{
 
+        //Teste si le return code est ok.
+        if(!$mail->Send()){
 
-            echo 'Mail envoye avec succes</br>';
-
-
-        }
-        $mail->SmtpClose();
-        unset($mail);
-    }
-
-
-
-
-    public function envoieEmailComms(){
-        // require "private/PHPMailer/PHPMailerAutoload.php";
-        $mail = new PHPmailer();
-        $mail->IsSMTP();
-        $mail->IsHTML(true);
-
-        $mail->Host = "smtp.gmail.com";
-        $mail->Port = 465;
-        //$mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
-
-        $mail->SMTPAuth = true; // authentication enabled
-        $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
-        $mail->Username   = "social.media.wedo@gmail.com";
-
-        $mail->Password   = "wedoawesome";
-        // $mail->SetFrom($expediteur, $prenom.' '.$nom);
-
-
-
-        $mail->From='social.media.wedo@gmail.com';
-        $mail->AddAddress($this->destinataires);
-        $mail->AddReplyTo('social.media.wedo@gmail.com');
-
-
-
-        $mail->Subject = $this->sujet;
-
-        $mail->CharSet = "utf-8";
-        $mail->Body=$this->message;
-        if(!$mail->Send()){ //Teste si le return code est ok.
-            echo $mail->ErrorInfo; //Affiche le message d'erreur (ATTENTION:voir section 7)
+            //Affiche le message d'erreur (ATTENTION:voir section 7)
+            echo $mail->ErrorInfo;
         }
         else{
 

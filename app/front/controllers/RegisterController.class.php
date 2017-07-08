@@ -131,30 +131,6 @@
            array_push($_SESSION['errors'], $e->getMessage());
          }
 
-
-        /*//on récupère l'id de l'utilisateur
-         $user = $user->populate(['email' => ])
-        $thisuser = new users();
-        $tab = $thisuser->getOne(['mail'=>$args['email']]);
-        //envoie de l'email de validation
-        $email = new email();
-        //On renseigne le sujet et le message de l'email
-        $email->setSujet("Validation de votre inscription");
-        $email->setDestinataires($args['email']);
-
-        $email->setMessage("Bienvenue sur ESGI-Geographic,<br />
-			Pour activer votre compte, veuillez cliquer sur le lien ci dessous ou bien copier celui-ci dans l'url de votre navigateur. 
-			<br />
-			".LINK_FRONT."activerCompte/".$tab['id']."<br />
-
-			---------------<br />
-			Ceci est un mail automatique, Merci de ne pas y répondre");
-
-        //envoie de l'email
-        $email->envoieEmail();
-        echo 'Bienvenue '.$args['login'].', vous allez recevoir un email pour valider votre compte';
-*/
-
          // If no error login and send him / her on the home page
          if(empty($_SESSION['errors']))
          {
