@@ -18,6 +18,7 @@
     <script src="assets/js/main.js"></script>
 </head>
 <body class="page-landing is-loading">
+<?php if(isset($msg)) echo "<script>alert('".$msg."');</script>" ?>
 <div id="wrapper">
 
     <div id="banner">
@@ -108,6 +109,6 @@
             .
         </div>
     </div>
-</div>
 </body>
+</div>
 </html>

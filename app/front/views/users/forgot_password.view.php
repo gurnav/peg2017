@@ -1,17 +1,17 @@
 <div class="body_item">
 		<article class="presentation">
-			<h1 class="page_title">Connection</h1>
-			<p class="description">Here you can connect to your account</p>
+			<h1 class="page_title">Forgot Password</h1>
+			<p class="description">Here you can get a new password</p>
 		</article>
 
         <form class="form_user"
-          method="<?php echo $user_form['options']['method']; ?>"
-          action="<?php echo $user_form['options']['action']; ?>"
-          <?php if(isset($user_form["options"]["class"])) echo "class=\"".$user_form["options"]["class"]."\" " ?>
-          <?php if(isset($user_form["options"]["id"])) echo "id=\"".$user_form["options"]["id"]."\" " ?>
-          enctype="<?php echo $user_form['options']['enctype']; ?>">
+          method="<?php echo $fp_form['options']['method']; ?>"
+          action="<?php echo $fp_form['options']['action']; ?>"
+          <?php if(isset($fp_form["options"]["class"])) echo "class=\"".$fp_form["options"]["class"]."\" " ?>
+          <?php if(isset($fp_form["options"]["id"])) echo "id=\"".$fp_form["options"]["id"]."\" " ?>
+          enctype="<?php echo $fp_form['options']['enctype']; ?>">
 
-          <?php foreach ($user_form['struct'] as $name => $attribute): ?>
+          <?php foreach ($fp_form['struct'] as $name => $attribute): ?>
 
             <?php if($attribute['type'] === 'email' ||
                       $attribute['type'] === 'text' ||
@@ -31,13 +31,11 @@
 
           <?php endforeach; ?>
 
-          <input class="validate" type="submit" value="<?php echo $user_form["options"]['submit']; ?>">
+          <input class="validate" type="submit" value="<?php echo $fp_form["options"]['submit']; ?>">
 
     </form>
 
 </div>
-
-<a href="<?php echo BASE_URL.'login/forgot_password' ?>">Forgottent password ?</a>
 
 <?php if(isset($error)): ?>
   <p><?php echo $error ?></p>

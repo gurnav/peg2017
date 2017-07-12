@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: singh
- * Date: 30/04/2017
- * Time: 20:02
- */
-
 
 namespace App\Front\Controllers;
 

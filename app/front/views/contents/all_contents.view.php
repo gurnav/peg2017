@@ -12,7 +12,7 @@
         					<h2><?php echo $contents[$j]['title']; ?></h2>
         					<!-- <span></span> -->
         				</header>
-        				<a href="<?php echo BASE_URL.'articles/'.$contents[$i]['id']; ?>">
+        				<a href="<?php echo BASE_URL.'contents/'.$contents[$i]['type'].'/'.$contents[$i]['id']; ?>">
         				    <img src="<?php echo UPLOADS_DIR_CONTENTS.$contents[$i]['thumbnail']; ?>">
         				</a>
         			</article>
