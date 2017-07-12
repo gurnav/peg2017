@@ -11,7 +11,7 @@
 
     public function indexAction()
     {
-
+        $v = new View('stats', 'admin');
     }
 
   }
