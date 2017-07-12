@@ -11,24 +11,11 @@
   {
       public function indexAction($params = null)
       {
-          $v = new view();
-          $v->setView("index");
-/*
-          //SECTION articles - affiche les 3 derniers en base
-          $articles = new articles();
-          $three_last_article = $articles->getAll([],['id'=>'DESC'], 3);
-          $v->assign('three_last_article', $three_last_article);
+          $v = new View('index');
 
-          //Recuperation des noms d'utilisateurs pour chaque article cree sur la page
-          foreach ($three_last_article as $key => $value) {
-              $us = new users();
-              $users = $us->getOneBy(['id'=>$value['id_user']]);
-
-              $pseudo_article[$key]['pseudo'] = $users['pseudo'];
+          if (isset($_SESSION['msg'])) {
+              $v->assign('msg', $_SESSION['msg']);
+              unset($_SESSION['msg']);
           }
-
-          $v->assign('pseudo_article', $pseudo_article);
-*/
-
       }
   }

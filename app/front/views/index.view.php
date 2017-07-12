@@ -17,6 +17,7 @@
     <script src="assets/js/main.js"></script>
 </head>
 <body class="page-landing is-loading">
+<?php if(isset($msg)) echo "<script>alert('".$msg."');</script>" ?>
 <div id="wrapper">
     <div id="header" class="alt ">
         <h1><a href="#">esgi</a></h1>
@@ -118,6 +119,6 @@
             .
         </div>
     </div>
-</div>
 </body>
+</div>
 </html>

@@ -9,6 +9,7 @@
   use Core\Facades\Query;
   use Core\Route\Routing;
   use Core\HTML\Modals;
+  use Core\Email\Email;
   use App\Front\Models\Users;
   use App\Composite\Factories\ModalsFactory;
 
@@ -68,7 +69,7 @@
           unset($_SESSION['login']);
           Routing::index();
       } elseif ($auth_user === -1) {
-          $_SESSION['login']['error'] = "The User doesn't exist";
+          $_SESSION['login']['error'] = "The User doesn't exist or is not validated yet.";
           header('Location: '.BASE_URL.'login');
       } elseif ($auth_user === 1) {
           $_SESSION['login']['username'] = $_POST['username'];
@@ -77,6 +78,66 @@
       }
 
     }
+
+
+    /**
+     * Action which allow an user to have a new passwords by giving his mail
+     * @return void
+     */
+    public function forgot_passwordAction()
+    {
+        $v = new View('users/forgot_password');
+        $fp_form = ModalsFactory::forgotPasswordForm();
+
+        if(!empty($_SESSION['errors'])) {
+            $v->assign('error', $_SESSION['errors']);
+        }
+
+        $v->assign('fp_form', $fp_form);
+    }
+
+    /**
+     * Action which send a new passord to a user
+     * @return void
+     */
+    public function send_new_passwordAction()
+    {
+        $email = $_POST['user_email'];
+
+        $user = new Users();
+        $user = $user->populate(['email' => $email]);
+
+        if ($user->getId() != -1) {
+
+            try {
+                $pwd = str_shuffle('AzErTyUiOp123456');
+                $user->setPassword($pwd);
+                $user->save();
+            } catch (Exception $e) {
+                array_push($_SESSION['errors'], $e->getMessage());
+            }
+
+            $mail = new Email();
+            $mail->setAddressee($email);
+            $mail->setSubject("New Email on : ".SITE_NAME);
+            $mail->setMessage(
+            "Here is your new password on : ".SITE_NAME."<br>"
+            ."Password : ".$pwd."<br>"
+            ."Cheers,<br>"
+            ."The team of ".SITE_NAME);
+            try {
+                $mail->sendMail();
+            } catch (\Exception $e) {
+                array_push($_SESSION['errors'], $e->getMessage());
+            }
+
+            if (empty($_SESSION['errors'])) {
+                $_SESSION['msg'] = 'Your new password have been sent to your email';
+                Routing::index();
+            }
+        }
+    }
+
 
     /**
      * Logout the actual user

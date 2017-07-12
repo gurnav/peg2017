@@ -59,6 +59,22 @@
       ];
     }
 
+    public static function forgotPasswordForm()
+    {
+      return [
+        "options" => [
+          "method"=>"POST",
+          "action"=>"send_new_password",
+          "id"=>"email_user",
+          "enctype"=>"multipart/form-data",
+          "submit"=>"Get a new password"
+          ],
+        "struct" => [
+            "user_email"=>[ "label"=>"Your Email : ", "type"=>"email", "placeholder"=>"Email", "required"=>"required", "i_class"=>"fa fa-envelope"],
+        ]
+      ];
+    }
+
     public static function loginAdminForm()
     {
       return [

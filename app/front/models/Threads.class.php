@@ -2,8 +2,9 @@
 
 	namespace App\Front\Models;
 
-  use Core\Util\Helpers;
+  	use Core\Util\Helpers;
 	use App\Composite\Models\Thread;
+	use App\Composite\Traits\Models\GetAllDataTrait;
 
 	/**
 	 * 	Contents Model who reprensent the Threads table
@@ -11,6 +12,8 @@
 	 */
 	class Threads extends Thread
 	{
+
+		use GetAllDataTrait;
 
       /**
        * Constructor of the Threads model class

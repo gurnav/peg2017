@@ -2,6 +2,7 @@
 
   require "conf.inc.php";
   require "app/App.class.php";
+  require_once "vendor/autoload.php";
 
   $app = new App();
   $app::load();

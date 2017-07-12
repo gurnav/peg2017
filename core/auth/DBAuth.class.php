@@ -32,10 +32,11 @@
      */
     public function login($username, $password)
     {
-        $query = $this->qb->select('id', 'username', 'password', 'rights')
+        $query = $this->qb->select('id', 'username', 'password', 'rights', 'status')
             ->from(DB_PREFIX.'users')
             ->where('username = :username')
-            ->where('deleted = 0');
+            ->where('deleted = 0')
+            ->where('status = 1');
         $user = $this->qb->prepare($query, [':username' => $username], null, true);
 
         if (!empty($user)) {
