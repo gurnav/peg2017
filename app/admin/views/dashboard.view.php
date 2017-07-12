@@ -25,7 +25,7 @@
 
   <div class="stats_graph">
     <h2>Activity Statistics</h2>
-
+      <div id="chartdiv1"></div>
   </div>
 
   <div class="more_information">
@@ -68,7 +68,7 @@
               </tbody>
           </table>
 
-          <button class="view_more">view more</button>
+          <button class="view_more"><a href="<?php echo BASE_URL.'admin/contents'; ?>">view more</a></button>
 
       </div>
 
@@ -113,7 +113,7 @@
         </tbody>
       </table>
 
-      <button class="view_more">view more</button>
+      <button class="view_more"><a href="<?php echo BASE_URL.'admin/users'; ?>">view more</a></button>
 
     </div>
   </div>

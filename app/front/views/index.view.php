@@ -93,9 +93,15 @@
         <ul class="menu">
             <li><a href="#">Help</a></li>
             <li><a href="#">Terms of Use</a></li>
-            <li><a href="#">License</a></li>
+            <li><a href="<?php echo PATH_RELATIVE.'cgu' ?>">CGU</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
+        <ul class="menu">
+            <li><a href="<?php echo PATH_RELATIVE.'rss' ?>"><img src="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'images'.DS.'rss.png' ?>"></a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=100019455224304"><img src="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'images'.DS.'fb.png' ?>"></a></li>
+            <li><a href="#"><img src="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'images'.DS.'insta.png' ?>"></a></li>
+        </ul>
+
         <div class="copyright">
             &copy; All rights reserved.
             <a class="offsite" href="#">ESGI - Geographik</a>
