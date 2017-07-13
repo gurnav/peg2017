@@ -12,7 +12,6 @@
   use Core\Email\Email;
   use App\Front\Models\Users;
   use App\Composite\Factories\ModalsFactory;
-  use Core\Email\Email;
 
 
   /**

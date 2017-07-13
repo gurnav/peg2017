@@ -5,6 +5,7 @@
   use Core\Controllers\Controller;
   use Core\Views\View;
   use App\Models\Users;
+  use App\Front\Controllers;
   use Core\Util\Helpers;
 
   class IndexController extends Controller

@@ -6,20 +6,28 @@
 
   <div class="four_icon">
     <div>
-      <i class="fa fa-camera" aria-hidden="true"></i>
-      <h2><span><?php echo count($multimedias); ?></span>medias<span></span></h2>
+        <a href="<?php echo BASE_URL.'admin/medias'; ?>">
+            <i class="fa fa-camera" aria-hidden="true"></i>
+            <h2><span><?php echo count($multimedias); ?></span>medias<span></span></h2>
+        </a>
     </div>
     <div>
-      <i class="fa fa-upload" aria-hidden="true"></i>
-      <h2><span><?php echo count($contents); ?></span>contents<span></span></h2>
+        <a href="<?php echo BASE_URL.'admin/contents'; ?>">
+            <i class="fa fa-upload" aria-hidden="true"></i>
+            <h2><span><?php echo count($contents); ?></span>contents<span></span></h2>
+        </a>
     </div>
     <div>
-      <i class="fa fa-download" aria-hidden="true"></i>
-      <h2><span><?php echo count($comments); ?></span>comments<span></span></h2>
+        <a href="<?php echo BASE_URL.'admin/comments'; ?>">
+          <i class="fa fa-download" aria-hidden="true"></i>
+          <h2><span><?php echo count($comments); ?></span>comments<span></span></h2>
+        </a>
     </div>
     <div>
-      <i class="fa fa-user-plus" aria-hidden="true"></i>
-      <h2><span><?php echo count($users); ?></span>users<span></span></h2>
+        <a href="<?php echo BASE_URL.'admin/users'; ?>">
+          <i class="fa fa-user-plus" aria-hidden="true"></i>
+          <h2><span><?php echo count($users); ?></span>users<span></span></h2>
+        </a>
     </div>
   </div>
 

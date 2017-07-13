@@ -1,32 +1,41 @@
-<form
-    method="<?php echo $admin_register_category['options']['method']; ?>"
-    action="<?php echo $admin_register_category['options']['action']; ?>"
-    <?php if(isset($admin_register_category["options"]["class"])) echo "class=\"".$admin_register_category["options"]["class"]."\" " ?>
-    <?php if(isset($admin_register_category["options"]["id"])) echo "id=\"".$admin_register_category["options"]["id"]."\" " ?>
-    enctype="<?php echo $admin_register_category['options']['enctype']; ?>">
+<section class="information_panel">
+    <div class="path">
+        <p><i class="fa fa-home" aria-hidden="true"></i> > Category > addCategory</p>
+    </div>
 
-    <?php foreach ($admin_register_category['struct'] as $name => $attribute): ?>
+    <div class="only_one">
+        <h2>Add Category</h2>
 
-        <?php if($attribute['type'] === 'email' ||
-            $attribute['type'] === 'text' ||
-            $attribute['type'] === 'password'): ?>
+        <form class="major_form"
+            method="<?php echo $admin_register_category['options']['method']; ?>"
+            action="<?php echo $admin_register_category['options']['action']; ?>"
+            <?php if(isset($admin_register_category["options"]["class"])) echo "class=\"".$admin_register_category["options"]["class"]."\" " ?>
+            <?php if(isset($admin_register_category["options"]["id"])) echo "id=\"".$admin_register_category["options"]["id"]."\" " ?>
+            enctype="<?php echo $admin_register_category['options']['enctype']; ?>">
 
-            <label><?php echo $attribute["label"]; ?>
-                <input
-                    type="<?php echo $attribute['type']; ?>" name="<?php echo $name; ?>"
-                    <?php if(isset($attribute["placeholder"])) echo "placeholder=\"".$attribute["placeholder"]."\" " ?>
-                    <?php if(isset($attribute["required"])) echo "required=\"".$attribute["required"]."\" " ?>
-                    <?php if(isset($attribute['value'])) echo "value=\"".$attribute['value']."\" " ?>
-                >
-            </label>
-            <br>
-        <?php endif; ?>
+            <?php foreach ($admin_register_category['struct'] as $name => $attribute): ?>
 
-    <?php endforeach; ?>
+                <?php if($attribute['type'] === 'email' ||
+                    $attribute['type'] === 'text' ||
+                    $attribute['type'] === 'password'): ?>
 
-    <input type="submit" value="<?php echo $admin_register_category["options"]['submit']; ?>">
+                    <label><?php echo $attribute["label"]; ?>
+                        <input
+                            type="<?php echo $attribute['type']; ?>" name="<?php echo $name; ?>"
+                            <?php if(isset($attribute["placeholder"])) echo "placeholder=\"".$attribute["placeholder"]."\" " ?>
+                            <?php if(isset($attribute["required"])) echo "required=\"".$attribute["required"]."\" " ?>
+                            <?php if(isset($attribute['value'])) echo "value=\"".$attribute['value']."\" " ?>
+                        >
+                    </label>
+                    <br>
+                <?php endif; ?>
 
-</form>
+            <?php endforeach; ?>
+
+            <input type="submit" value="<?php echo $admin_register_category["options"]['submit']; ?>">
+        </form>
+    </div>
+</section>
 
 
 <?php if (isset($errors)): ?>

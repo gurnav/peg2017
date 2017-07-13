@@ -2,8 +2,6 @@
     text-align: center;
     margin-top: 10px;
 ">
-    <strong>La seule contrepartie à l'utilisation de ces mentions légales, est l'engagement total à laisser le lien crédit subdelirium sur cette page de mentions légales.</strong><br />
-    Vos mentions légales :
     <h2>Informations légales</h2>
     <h3>1. Présentation du site.</h3>
     <p>En vertu de l'article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, il est précisé aux utilisateurs du site <a href="http://www.esgi-geographic.com/">www.esgi-geographic.com</a> l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi :</p>
@@ -13,9 +11,9 @@
         Le responsable publication est une personne physique ou une personne morale.<br />
         <strong>Webmaster</strong> : Dudoux – esgi-geographic@gmail.com<br />
         <strong>Hébergeur</strong> : OVH – 2 rue Kellermann – BP 80157 59053 ROUBAIX CEDEX 1<br />
-        Crédits : Singh Gurnavdeep
-        Dudoux Thomas
-        Louis Jérémy
+        Crédits : Singh Gurnavdeep,
+        Dudoux Thomas,
+        Louis Jérémy,
         Negrerie Paul<br />
         Les mentions légales ont été générées et offertes par Subdelirium <a target="_blank" href="http://www.subdelirium.com/generateur-de-mentions-legales/">Mentions légales</a>
     </p>

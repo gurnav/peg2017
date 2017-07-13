@@ -1,4 +1,12 @@
-<form
+<section class="information_panel">
+    <div class="path">
+        <p><i class="fa fa-home" aria-hidden="true"></i> > Comments > addComment</p>
+    </div>
+
+    <div class="only_one">
+        <h2>Add Comment</h2>
+
+    <form class="major_form"
         method="<?php echo $admin_register_comment['options']['method']; ?>"
         action="<?php echo $admin_register_comment['options']['action']; ?>"
     <?php if(isset($admin_register_comment["options"]["class"])) echo "class=\"".$admin_register_comment["options"]["class"]."\" " ?>
@@ -37,7 +45,9 @@
 
     <input type="submit" value="<?php echo $admin_register_comment["options"]['submit']; ?>">
 
-</form>
+    </form>
+    </div>
+</section>
 
 
 <?php if (isset($errors)): ?>

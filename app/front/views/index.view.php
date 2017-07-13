@@ -1,22 +1,4 @@
-<!DOCTYPE HTML>
-<html>
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-<head>
-    <title>ESGI - Geographik</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <link rel="stylesheet" href="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'css'.DS.'main.css' ?>" />
-    <link rel="stylesheet" href="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'css'.DS.'modal.css' ?>" />
-    <!--<link rel="alternate" type="application/rss+xml" title="Mon flux RSS" href="<?php echo PATH_RELATIVE.'public'.'flux_rss.rss'?>" />-->
-    <noscript>
-        <link rel="stylesheet" href="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'css'.DS.'noscript.css' ?>" />
-    </noscript>
-    <script src="assets/js/libs.js"></script>
-    <script src="assets/js/main.js"></script>
-</head>
+
 <body class="page-landing is-loading">
 <?php if(isset($msg)) echo "<script>alert('".$msg."');</script>" ?>
 <div id="wrapper">
@@ -29,16 +11,25 @@
         </div>
     </div>
     <section id="items">
-        <article class="item">
-            <header>
-                <h2>Article 1</h2>
-                <span class="category">CATEGORIE</span>
-            </header>
-            <a href="#" class="image lazy" style="background-color: #d1bcc0;">
-                <img src="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'images'.DS.'photo1.jpeg' ?>" />
-            </a>
-        </article>
-        <article class="item">
+        <?php for($i = 0; $i < sizeof($contents); $i += 3): ?>
+            <div class="triple_items">
+                <?php for($j = $i; $j < $i + 3; $j += 1): ?>
+                    <?php if(isset($contents[$j])): ?>
+                        <article class="item">
+                            <header>
+                                <h2><?php echo $contents[$j]['title']; ?></h2>
+                                <!-- <span></span> -->
+                            </header>
+                            <a href="<?php echo BASE_URL.'contents/'.$contents[$i]['type'].'/'.$contents[$i]['id']; ?>">
+                                <img src="<?php echo UPLOADS_DIR_CONTENTS.$contents[$i]['thumbnail']; ?>">
+                            </a>
+                        </article>
+                    <?php endif; ?>
+                <?php endfor; ?>
+            </div>
+        <?php endfor; ?>
+
+        <!--<article class="item">
             <header>
                 <h2>Article 2</h2>
                 <span class="category">CATEGORIE</span>
@@ -55,7 +46,7 @@
             <a href="#" class="image lazy" style="background-color: #e6e1e0;">
                 <img src="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'images'.DS.'photo3.jpg' ?>" />
             </a>
-        </article>
+        </article>-->
 
 
     </section>
@@ -89,26 +80,4 @@
             </div>
         </form>
     </div>
-
-    <div id="footer">
-        <ul class="menu">
-            <li><a href="#">Help</a></li>
-            <li><a href="#">Terms of Use</a></li>
-            <li><a href="<?php echo PATH_RELATIVE.'cgu' ?>">CGU</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-        <ul class="menu">
-            <li><a href="<?php echo PATH_RELATIVE.'rss' ?>"><img src="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'images'.DS.'rss.png' ?>"></a></li>
-            <li><a href="https://www.facebook.com/profile.php?id=100019455224304"><img src="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'images'.DS.'fb.png' ?>"></a></li>
-            <li><a href="#"><img src="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'images'.DS.'insta.png' ?>"></a></li>
-        </ul>
-
-        <div class="copyright">
-            &copy; All rights reserved.
-            <a class="offsite" href="#">ESGI - Geographik</a>
-            .
-        </div>
-    </div>
 </body>
-</div>
-</html>

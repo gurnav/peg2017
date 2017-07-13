@@ -7,9 +7,19 @@
 
     <link rel="stylesheet" href="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'css'.DS.'style_front.css' ?>" media="screen">
 
+    <link rel="stylesheet" href="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'css'.DS.'main.css' ?>" />
+    <link rel="stylesheet" href="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'css'.DS.'modal.css' ?>" />
+
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'css'.DS.'font-awesome-4.7.0'.DS.'css'.DS.'font-awesome.min.css' ?>" media="screen">
+
+    <!-- scripts -->
+    <noscript>
+        <link rel="stylesheet" href="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'css'.DS.'noscript.css' ?>" />
+    </noscript>
+    <script src="assets/js/libs.js"></script>
+    <script src="assets/js/main.js"></script>
 
     <!-- viewport for better responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -45,7 +55,25 @@
 
 
 <footer>
-    <p>© All rights reserved. ESGI - Geographic .</p>
+    <div id="footer">
+        <ul class="menu">
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="<?php echo PATH_RELATIVE.'cgu' ?>">CGU</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <ul class="menu">
+            <li><a href="<?php echo PATH_RELATIVE.'rss' ?>"><img src="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'images'.DS.'rss.png' ?>"></a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=100019455224304"><img src="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'images'.DS.'fb.png' ?>"></a></li>
+            <li><a href="#"><img src="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'images'.DS.'insta.png' ?>"></a></li>
+        </ul>
+
+        <div class="copyright">
+            &copy; All rights reserved.
+            <a class="offsite" href="#">ESGI - Geographik</a>
+            .
+        </div>
+    </div>
 </footer>
 
 <!-- JS -->
