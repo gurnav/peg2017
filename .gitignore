@@ -1,6 +1,7 @@
 vendor/
-public/assets/img/
+uploads/
 logs/
 .php_cs.cache
 phpmyadmin/
 .idea/
+public/assets/js/plugins/imageuploader

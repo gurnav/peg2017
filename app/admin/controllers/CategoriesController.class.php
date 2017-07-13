@@ -16,7 +16,7 @@
     public function indexAction()
     {
         $v = new View('categories/categories', 'admin');
-        $categories = Categories::getAll(true);
+        $categories = Categories::getAll();
 
         for($i = 0; $i < count($categories); $i += 1)
         {

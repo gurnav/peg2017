@@ -55,7 +55,12 @@ $( document ).ready(function() {
 
 	// Replace all Text Area with ckeditor
 	if ($(".super_editor").length){
-		CKEDITOR.replace( 'textarea' );
+		// var CKEDITOR_BASEPATH = '127.0.0.1/esgi-geographic/public/assets/plugins';
+		CKEDITOR.plugins.addExternal( 'imageuploader', '/esgi-geographic/public/assets/js/plugins/imageuploader/', 'plugin.js' );
+		// extraPlugins needs to be set too.
+		CKEDITOR.replace( 'textarea', {
+  			extraPlugins: 'imageuploader'
+		});
 	}
 
 

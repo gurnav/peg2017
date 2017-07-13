@@ -117,22 +117,25 @@
                 array_push($_SESSION['errors'], $e->getMessage());
             }
 
-            $mail = new Email();
-            $mail->setAddressee($email);
-            $mail->setSubject("New Email on : ".SITE_NAME);
-            $mail->setMessage(
-            "Here is your new password on : ".SITE_NAME."<br>"
-            ."Password : ".$pwd."<br>"
-            ."Cheers,<br>"
-            ."The team of ".SITE_NAME);
-            try {
-                $mail->sendMail();
-            } catch (\Exception $e) {
-                array_push($_SESSION['errors'], $e->getMessage());
-            }
-
             if (empty($_SESSION['errors'])) {
+
                 $_SESSION['msg'] = 'Your new password have been sent to your email';
+
+                $mail = new Email();
+                $mail->setAddressee($email);
+                $mail->setSubject("New Email on : ".SITE_NAME);
+                $mail->setMessage(
+                "Here is your new password on : ".SITE_NAME."<br>"
+                ."New password : ".$pwd."<br>"
+                ."Cheers,<br>"
+                ."The team of ".SITE_NAME);
+                try {
+                    $mail->sendMail();
+                } catch (\Exception $e) {
+                    $_SESSION['msg'] = 'An error has occured whit the mail sending.
+                    Please contact the site admnistrator to setup a new password account or retry later.';
+                }
+
                 Routing::index();
             }
         }
