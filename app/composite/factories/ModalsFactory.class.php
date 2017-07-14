@@ -245,13 +245,13 @@
 
                 "title" => ["label" => "Title here", "type" => "text", "name" => "contentTitle", "required" => "required", "placeholder" => "Insert your title here"],
 
-                "status" => ["label" => "Choose status", "type" => "text", "name" => "status", "id" => "add_status", "placeholder" => "status", "required" => 0, "msgerror" => ""],
+                "type" =>["label" => "Choose type", "type" => "select", "name" => "type", "id" => "", "placeholder" => "type", "value" => [["name" => "page", "value" => "page"], ["name" => "article", "value" => "article"], ["name" => "news", "value" => "news"]], "required" => 0],
 
-                "type" =>["label" => "Choose type", "type" => "select", "name" => "type", "id" => "", "placeholder" => "type", "required" => 0, "msgerror" => ""],
+                "category" => ["label" => "The category", "type" => "select", "name" => "", "id" => "", "placeholder" => "", "required" => 0],
 
-                "category" => ["label" => "The category", "type" => "text", "name" => "", "id" => "", "placeholder" => "", "required" => 0, "msgerror" => "category"],
+                "status" => ["label" => "Choose status", "type" => "select", "name" => "status", "id" => "add_status", "placeholder" => "status", "value" => [["name" => "Rejected", "value" => "-1"], ["name" => "Pending", "value" => "0"], ["name" => "Validated", "value" => "1"]] ,"required" => 0, "msgerror" => ""],
 
-                "content" => ["label" => "The content", "type" => "textarea", "id" => "content_add_article", "placeholder" => "Description of your article", "required" => 0, "errors_msg" => ""]
+                "content" => ["label" => "The content", "type" => "textarea", "id" => "content_add_article", "placeholder" => "Description of your article", "required" => 0, "errors_msg" => ""],
             ]
         ];
     }
@@ -267,11 +267,11 @@
                   "submit"=>"Update Content"
               ],
               "struct" => [
-                  "status"=>["label"=>"The status : ", "type"=>"text", "placeholder"=>"Firstname", "required"=>"required" ],
-
                   "title"=>["label"=>"The title : ", "type"=>"text", "placeholder"=>"Title", "required"=>"required" ],
 
                   "category"=>[ "label"=>"The Category : ", "type"=>"select", "placeholder"=>"Category", "required"=>"required" ],
+
+                  "status" => ["label" => "Choose status", "type" => "select", "name" => "status", "id" => "add_status", "placeholder" => "status", "value" => [["name" => "Rejected", "value" => "-1"], ["name" => "Pending", "value" => "0"], ["name" => "Validated", "value" => "1"]] ,"required" => 0, "msgerror" => ""],
 
                   "content"=>[ "label"=>"The content : ", "type"=>"textarea", "placeholder"=>"Content", "required"=>"required" ],
               ]

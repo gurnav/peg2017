@@ -73,7 +73,7 @@
       }
 
       try {
-          $category->setUsers_id(intval($_SESSION["admin"]["id"]));
+          $category->setUsers_id(intval($_SESSION["user"]["id"]));
       } catch (\Exception $e) {
           array_push($_SESSION['errors'], $e->getMessage());
       }

@@ -45,17 +45,26 @@
         $v = new View('contents/add_content', 'admin');
 
         $admin_register_content = ModalsFactory::getAddContentForm();
+
+        $temp_categories = Categories::getAll();
+
+        for ($i = 0; $i < sizeof($temp_categories); $i++) {
+            $categories[$i]['name'] = $temp_categories[$i]['name'];
+            $categories[$i]['value'] = $temp_categories[$i]['name'];
+        }
+
+        $admin_register_content['struct']['category']['value'] = $categories;
+
         if(!empty($_SESSION['addContent'])) {
-            $admin_register_content['struct']['status']['value'] = $_SESSION['addContent']['status'];
+            $admin_register_content['struct']['status']['selected'] = $_SESSION['addContent']['status'];
             $admin_register_content['struct']['title']['value'] = $_SESSION['addContent']['title'];
-            $admin_register_content['struct']['category']['value'] = $_SESSION['addContent']['category'];
+            $admin_register_content['struct']['category']['selected'] = $_SESSION['addContent']['category'];
+            $admin_register_content['struct']['type']['selected'] = $_SESSION['addContent']['type'];
             $admin_register_content['struct']['content']['value'] = $_SESSION['addContent']['content'];
             unset($_SESSION['addContent']);
         }
 
-        $categories = Categories::getAll();
-
-        $v->assign('categories', $categories);
+        // $v->assign('categories', $categories);
         $v->assign('admin_register_content', $admin_register_content);
 
         if(isset($_SESSION['errors']) && !empty($_SESSION['errors']))
@@ -80,14 +89,21 @@
           $content = $content->populate(['id' => $id_content]);
 
           $admin_register_content = ModalsFactory::getUpdateContentForm($id_content);
-          $admin_register_content['struct']['status']['value'] = $content->getStatus();
+          $admin_register_content['struct']['status']['selected'] = $content->getStatus();
           $admin_register_content['struct']['title']['value'] = $content->getTitle();
           $admin_register_content['struct']['category']['value'] = $content->getCategoryNameById();
           $admin_register_content['struct']['content']['value'] = $content->getContent();
+          $admin_register_content['struct']['category']['selected'] = $content->getCategoryNameById($content->getCategories_id());
 
-          $categories = Categories::getAll();
+          $temp_categories = Categories::getAll();
 
-          $v->assign('categories', $categories);
+          for ($i = 0; $i < sizeof($temp_categories); $i++) {
+              $categories[$i]['name'] = $temp_categories[$i]['name'];
+              $categories[$i]['value'] = $temp_categories[$i]['name'];
+          }
+
+          $admin_register_content['struct']['category']['value'] = $categories;
+
           $v->assign('admin_register_content', $admin_register_content);
 
           if(isset($_SESSION['errors']) && !empty($_SESSION['errors'])) {
@@ -208,7 +224,13 @@
           }
 
           try {
-              $content->setUsers_id(intval($_SESSION["admin"]["id"]));
+              $content->setType($_POST['type']);
+          } catch (\Exception $e) {
+              array_push($_SESSION['errors'], $e->getMessage());
+          }
+
+          try {
+              $content->setUsers_id(intval($_SESSION["user"]["id"]));
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
@@ -229,6 +251,7 @@
           } else {
               $_SESSION['addContent']['title'] = $_POST['title'];
               $_SESSION['addContent']['category'] = $_POST['category'];
+              $_SESSION['addContent']['type'] = $_POST['type'];
               $_SESSION['addContent']['content'] = $_POST['content'];
               $_SESSION['addContent']['status'] = $_POST['status'];
               header('Location: '.BASE_URL.'admin/contents/add');
@@ -248,6 +271,14 @@
               $medias[$i]['path'] = ROUTE_DIR_CONTENTS.$medias[$i]['path'];
           }
           echo json_encode($medias);
+      }
+
+      /**
+       * Function to brows file for ckeditor
+       */
+      public function browse_multimediasAction()
+      {
+          $v = new View('multimedias/browse_file', 'admin');
       }
 
   }

@@ -37,9 +37,9 @@
                         <select name="<?php echo $name; ?>"
                             <?php if(isset($attribute["required"])) echo "required=\"".$attribute["required"]."\" " ?>
                             >
-                            <?php foreach ($categories as $value): ?>
-                                <option value="<?php echo strtolower($value['name']); ?>"
-                                    <?php if ($attribute['value'] === $value['name']) echo 'selected'; ?>>
+                            <?php foreach ($attribute['value'] as $value): ?>
+                                <option value="<?php echo strtolower($value['value']); ?>"
+                                    <?php if (isset($attribute['selected']) && $attribute['selected'] === $value['value']) echo 'selected'; ?>>
                                     <?php echo strtolower($value['name']); ?>
                                 </option>
                             <?php endforeach; ?>

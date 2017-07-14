@@ -296,10 +296,12 @@
        * @param $file : FILE The image to be inserted on the server and in the DB
        * @return Void
        */
-      public function setUserImg($file)
+      public function setUserImg($file=null)
       {
           $img = "";
-          if ($file !== null) {
+          if ($file === null) {
+              $img = BASE_AVATAR;
+          } else if ($file !== null) {
               $img = Helpers::safeUploadFile($file, UPLOADS_DIR_USERS);
           }
           $this->img = $img;

@@ -127,7 +127,7 @@ class ThreadsController extends Controller
         }
 
         try {
-            $thread->setUsers_id(intval($_SESSION['admin']['id']));
+            $thread->setUsers_id(intval($_SESSION['user']['id']));
         } catch (\Exception $e) {
             array_push($_SESSION['errors'], $e->getMessage());
         }

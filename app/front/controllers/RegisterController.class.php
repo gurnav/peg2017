@@ -121,7 +121,11 @@
          }
 
          try {
-             $user->setUserImg($_FILES['user_img']);
+             if($_FILES['user_img']['size'] == 0) {
+                 $user->setUserImg(null);
+             } else {
+                 $user->setUserImg($_FILES['user_img']);
+             }
          } catch (\Exception $e) {
            array_push($_SESSION['errors'], $e->getMessage());
          }
@@ -146,7 +150,7 @@
              $mail->setMessage(
              "You have been registered to ".SITE_NAME."."."<br>"
              ."\nPlease click on this link to verify and activate your account :"
-             .BASE_URL."verication/email/".$encryptedEmail."<br>"
+             .BASE_URL."verification/email/".$encryptedEmail."<br>"
              ."Cheers,"."<br>"
              ." The team of ".SITE_NAME);
              try {

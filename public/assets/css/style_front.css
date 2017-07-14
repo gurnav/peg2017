@@ -27,7 +27,7 @@ header #burger_menu{
 }
 
 header .menu{
-	background: url("../img/banner.jpeg") no-repeat;
+	background: url("../images/banner.jpeg") no-repeat;
 	background-size: cover;
 	position: relative;
 }

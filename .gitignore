@@ -4,4 +4,4 @@ logs/
 .php_cs.cache
 phpmyadmin/
 .idea/
-public/assets/js/plugins/imageuploader
+public/assets/images
