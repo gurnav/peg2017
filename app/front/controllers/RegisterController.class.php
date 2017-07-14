@@ -133,28 +133,29 @@
            array_push($_SESSION['errors'], $e->getMessage());
          }
 
-         $encryptedEmail = openssl_encrypt($user->getEmail(), "aes-256-cbc", "esgi-geographic");
-
-         $mail = new Email();
-         $mail->setAddressee($user->getEmail());
-         $mail->setSubject("Registering at ".SITE_NAME.".");
-         $mail->setMessage(
-         "You have been registered to ".SITE_NAME."."."<br>"
-         ."\nPlease click on this link to verify and activate your account :"
-         .BASE_URL."verication/email/".$encryptedEmail."<br>"
-         ."Cheers,"."<br>"
-         ." The team of ".SITE_NAME);
-         try {
-             $mail->sendMail();
-         } catch (\Exception $e) {
-             array_push($_SESSION['errors'], $e->getMessage());
-         }
-
          if(empty($_SESSION['errors']))
          {
-            // Auth::login($_POST['username'], $_POST['user_pwd']);
-            unset($_SESSION['register']);
-            $_SESSION['msg'] = 'You have been registered. Please confirm your inscription by clicking on the link in the sent mail';
+             unset($_SESSION['register']);
+             $_SESSION['msg'] = 'You have been registered. Please confirm your inscription by clicking on the link in the sent mail';
+
+             $encryptedEmail = openssl_encrypt($user->getEmail(), "aes-256-cbc", "esgi-geographic");
+
+             $mail = new Email();
+             $mail->setAddressee($user->getEmail());
+             $mail->setSubject("Registering at ".SITE_NAME.".");
+             $mail->setMessage(
+             "You have been registered to ".SITE_NAME."."."<br>"
+             ."\nPlease click on this link to verify and activate your account :"
+             .BASE_URL."verication/email/".$encryptedEmail."<br>"
+             ."Cheers,"."<br>"
+             ." The team of ".SITE_NAME);
+             try {
+                 $mail->sendMail();
+             } catch (\Exception $e) {
+                 $_SESSION['msg'] = 'An error has occured whit the mail sending.
+                 Please contact the site admnistrator to activate your account with the email you used to subscribe with.';
+             }
+
             Routing::index();
          } else {
             $_SESSION['register']['user_email'] = $_POST['user_email'];
