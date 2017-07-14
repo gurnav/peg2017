@@ -69,14 +69,19 @@
                           $status = 'done';
                       }
 
-                      echo "<td><button class=".$status.">".ucfirst($status)."</button></td>";
+                      echo "<td><span class=".$status.">".ucfirst($status)."</span>";
                       ?>
                   </tr>
               <?php endforeach ?>
               </tbody>
           </table>
 
-          <button class="view_more"><a href="<?php echo BASE_URL.'admin/contents'; ?>">view more</a></button>
+          <button class="view_more">
+              <a href="<?php echo BASE_URL.'admin/contents'; ?>" style="
+                text-decoration: none;
+                color: white;
+            ">view more</a>
+          </button>
 
       </div>
 
@@ -114,14 +119,19 @@
                     $status = 'done';
                   }
 
-                  echo "<td><button class=".$status.">".ucfirst($status)."</button></td>";
+                    echo "<td><span class=".$status.">".ucfirst($status)."</span>";
                ?>
             </tr>
         <?php endforeach ?>
         </tbody>
       </table>
 
-      <button class="view_more"><a href="<?php echo BASE_URL.'admin/users'; ?>">view more</a></button>
+      <button class="view_more">
+          <a href="<?php echo BASE_URL.'admin/users'; ?>" style="
+            text-decoration: none;
+            color: white;
+          ">view more</a>
+      </button>
 
     </div>
   </div>

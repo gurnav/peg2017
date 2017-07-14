@@ -68,4 +68,12 @@
         return $this->qb->query($query, "App\Front\Models\Comments");
     }
 
+
+    public static function getLastThreeContents($content_type)
+    {
+        $qb = new QueryBuilder();
+        $query = "SELECT * FROM ".DB_PREFIX."contents WHERE type='".$content_type."' ORDER BY 'date_inserted' LIMIT 3";
+        return $qb->query($query, null, false);
+    }
+
 }

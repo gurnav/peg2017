@@ -14,13 +14,6 @@
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'css'.DS.'font-awesome-4.7.0'.DS.'css'.DS.'font-awesome.min.css' ?>" media="screen">
 
-    <!-- scripts -->
-    <noscript>
-        <link rel="stylesheet" href="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'css'.DS.'noscript.css' ?>" />
-    </noscript>
-    <script src="assets/js/libs.js"></script>
-    <script src="assets/js/main.js"></script>
-
     <!-- viewport for better responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -77,6 +70,12 @@
 </footer>
 
 <!-- JS -->
+<noscript>
+    <link rel="stylesheet" href="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'css'.DS.'noscript.css' ?>" />
+</noscript>
+<script src="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'js'.DS.'libs.js' ?>"></script>
+<script src="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'js'.DS.'main.js' ?>"></script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'js'.DS.'scripts_front.js' ?>"></script>
 <script src="https://cdn.ckeditor.com/4.6.2/basic/ckeditor.js"></script>

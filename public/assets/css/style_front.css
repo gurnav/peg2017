@@ -27,7 +27,7 @@ header #burger_menu{
 }
 
 header .menu{
-	background: url("../img/banner.jpeg") no-repeat;
+	background: url("../images/banner.jpeg") no-repeat;
 	background-size: cover;
 	position: relative;
 }
@@ -444,6 +444,95 @@ header #home div h1{
 	color: #a0a0a0;
 }
 
+#my_zoom{
+	display: none;
+	margin: 0;
+	padding: 0;
+	background: rgba(0,0,0,0.5);
+	z-index: 1;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+#my_zoom div{
+	position: relative;
+	width: 80%;
+	height: 80%;
+	margin: 5% auto 5% auto;
+}
+
+#my_zoom div img{
+	max-width: 100%;
+	max-height: 100%;
+}
+
+#my_zoom #Close{
+	position: absolute;
+	color: white;
+	font-size: 2rem;
+	top: 2%;
+	right: 2%;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	margin: 1%;
+}
+
+#my_zoom #Close i{
+	display: block;
+}
+
+#my_zoom #Close:hover{
+	color: #ff3333;
+}
+
+.simple_error{
+	background: white;
+	width: 60%;
+	margin: 1% auto;
+	border-radius: 3px;
+	border: solid 1px #FF3040;
+}
+
+.simple_error p{
+	padding: 2%;
+	color: #FF3040;
+}
+
+.simple_error a{
+	color: #FF3040;
+}
+
+.simple_error a:hover{
+	color: red;
+}
+
+.bad_page {
+	background: white;
+	height: 80vh;
+	width: 90%;
+	margin: 2% auto;
+	text-align: center;
+}
+
+.bad_page h1{
+	margin: auto;
+	padding-top: 30vh;
+	font-size: 5rem;
+	font-weight: 400;
+	color: #a0a0a0;
+}
+
+
+.bad_page p{
+	margin: auto;
+	font-size: 3rem;
+	font-weight: 400;
+	color: #a0a0a0;
+}
 
 /* Footer */
 

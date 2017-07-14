@@ -6,17 +6,17 @@
 
 
     <div class="statistics">
-        <h2>Statistics</h2>
+        <h2>Web Statistics</h2>
         <div id="chartdiv1"></div>
     </div>
 
     <div class="statistics_bis">
-        <h2>Trucs</h2>
+        <h2>Visits</h2>
         <div id="chartdiv2"></div>
     </div>
 
     <div class="statistics_bis">
-        <h2>Machins</h2>
+        <h2>Percentage</h2>
         <div id="chartdiv3"></div>
     </div>
 

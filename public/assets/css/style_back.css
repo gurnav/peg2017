@@ -121,7 +121,7 @@ section{
 	width: 100%;
 	height: 100%;
 	z-index: 9999;
-	background: url(../img/loader.gif) 50% 50% no-repeat rgba(249,249,249,0.8);
+	background: url("../images/loader.gif") 50% 50% no-repeat rgba(249,249,249,0.8);
 }
 
 /* Index */
@@ -199,7 +199,7 @@ section{
 	right: 0;
 	left: 0;
 	text-align: center;
-	padding: none;
+	/*padding: none;*/
 	margin: auto;
 	text-transform: uppercase;
 }
@@ -731,6 +731,30 @@ section{
 .amcharts-main-div:hover .amcharts-export-menu, .amcharts-stock-div:hover .amcharts-export-menu, .amcharts-export-menu.active {
 	opacity: 1;
 	display: inline-table;
+}
+
+.bad_page {
+	background: white;
+	height: 80vh;
+	width: 90%;
+	margin: 2% auto;
+	text-align: center;
+}
+
+.bad_page h1{
+	margin: auto;
+	padding-top: 30vh;
+	font-size: 5rem;
+	font-weight: 400;
+	color: #a0a0a0;
+}
+
+
+.bad_page p{
+	margin: auto;
+	font-size: 3rem;
+	font-weight: 400;
+	color: #a0a0a0;
 }
 
 
