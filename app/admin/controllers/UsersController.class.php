@@ -7,6 +7,7 @@
   use Core\Util\Helpers;
   use Core\Facades\Query;
   use Core\Database\Models;
+  use Core\Email\Email;
   use App\Admin\Models\Users;
   use App\Composite\Factories\ModalsFactory;
 
@@ -105,7 +106,7 @@
         try {
             $user = $user->populate(['id' => $user_id]);
             $user->delete();
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             array_push($_SESSION['errors'], $e->getMessage());
         }
         header('Location: '.BASE_URL.'admin/users');
@@ -123,7 +124,7 @@
 
       try {
           $user = $user->populate(['id' => $user_id]);
-      } catch (Exception $e) {
+      } catch (\Exception $e) {
           array_push($_SESSION['errors'], $e->getMessage());
       }
 
@@ -159,6 +160,12 @@
 
        try {
          $user->setStatus(intval($_POST['user_status']));
+       } catch (\Exception $e) {
+         array_push($_SESSION['errors'], $e->getMessage());
+       }
+
+       try {
+         $user->setNewsletters(intval($_POST['user_newsletters']));
        } catch (\Exception $e) {
          array_push($_SESSION['errors'], $e->getMessage());
        }
@@ -246,6 +253,12 @@
        }
 
        try {
+         $user->setNewsletters(intval($_POST['user_newsletters']));
+       } catch (\Exception $e) {
+         array_push($_SESSION['errors'], $e->getMessage());
+       }
+
+       try {
            $user->setUserImg($_FILES['user_img']);
        } catch (\Exception $e) {
          array_push($_SESSION['errors'], $e->getMessage());
@@ -273,6 +286,47 @@
         $_SESSION['addUSer']['user_rights'] = $_POST['user_rights'];
         header('Location: '.BASE_URL.'admin/users/add');
       }
+    }
+
+    /**
+     * Allow the admin to write an newsletters to the subscribed users
+     * @return Void
+     */
+    public function write_newslettersAction()
+    {
+        $v = new View('newsletters', 'admin');
+        $admin_newsletters = ModalsFactory::getNewslettersForm();
+        $v->assign('admin_newsletters', $admin_newsletters);
+
+        if(isset($_SESSION['errors']) && !empty($_SESSION['errors'])) {
+            $v->assign('errors', $_SESSION['errors']);
+            unset($_SESSION['errors']);
+        }
+    }
+
+    /**
+     * Send the newsletters to all the subscribers
+     * @return Void
+     */
+    public function doSendNewslettersAction()
+    {
+        $users = Users::getAllNewslettersUsers();
+        $mail = new Email();
+
+        foreach ($users as $user)
+        {
+            $mail->setAddressee($user['email']);
+            $mail->setSubject("Newsletters of ".SITE_NAME." : ".$_POST['title']);
+            $mail->setMessage($_POST['content']);
+            try {
+                $mail->sendMail();
+            } catch (\Exception $e) {
+                array_push($_SESSION['errors'], $e->getMessage());
+            }
+        }
+
+        header('Location: '.BASE_URL.'admin/users/write_newsletters');
+
     }
 
   }

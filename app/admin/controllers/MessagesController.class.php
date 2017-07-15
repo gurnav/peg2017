@@ -90,7 +90,7 @@ class MessagesController extends Controller
         try {
             $message = $message->populate(['id' => $id_message]);
             $message->delete();
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             array_push($_SESSION['errors'], $e->getMessage());
         }
         header('Location: '.BASE_URL.'admin/messages');
@@ -158,7 +158,7 @@ class MessagesController extends Controller
         $_SESSION['errors'] = [];
         try {
             $message = $message->populate(['id' => $id_message]);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             array_push($_SESSION['errors'], $e->getMessage());
         }
         try {

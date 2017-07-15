@@ -124,7 +124,7 @@
           try {
               $content = $content->populate(['id' => $id_content]);
               $content->delete();
-          } catch (Exception $e) {
+          } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
           header('Location: '.BASE_URL.'admin/contents');
@@ -143,7 +143,7 @@
 
           try {
               $content = $content->populate(['id' => $id_content]);
-          } catch (Exception $e) {
+          } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
 
@@ -276,9 +276,15 @@
       /**
        * Function to brows file for ckeditor
        */
-      public function browse_multimediasAction()
+      public function browse_multimedias_ckeditorAction()
       {
-          $v = new View('multimedias/browse_file', 'admin');
+          header('Content-Type: application/json');
+          $medias = Multimedias::getAll();
+
+          for ($i = 0; $i < sizeof($medias); $i += 1) {
+              $images[$i]['image'] = ROUTE_DIR_CONTENTS.$medias[$i]['path'];
+          }
+          echo json_encode($images);
       }
 
   }

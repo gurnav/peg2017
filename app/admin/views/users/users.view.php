@@ -6,7 +6,10 @@
 
 		<div class="only_one">
 			<table class="six_columns">
-				<caption>Users<a href="<?php echo BASE_URL.'admin/users/add'; ?>"><button title="Create user"><i class="fa fa-plus-circle" aria-hidden="true"></i></button></a></caption>
+				<caption>Users
+					<a href="<?php echo BASE_URL.'admin/users/add'; ?>"><button title="Create user"><i class="fa fa-plus-circle" aria-hidden="true"></i></button></a>
+					<a href="<?php echo BASE_URL.'admin/users/write_newsletters'; ?>"><button title="Send newsletters"><i class="fa fa-envelope" aria-hidden="true"></i></button></a>
+				</caption>
 				<thead>
 					<tr>
                         <th>#</th>

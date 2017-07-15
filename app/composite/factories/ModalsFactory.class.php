@@ -35,6 +35,8 @@
 
           "user_pwd2"=>[ "label"=>"Confirm Your password : ", "type"=>"password", "placeholder"=>"Confirm password", "required"=>"required", "i_class"=>"fa fa-key", "errors_msg"=>"" ],
 
+          "user_newsletters"=>["label"=>"Newsletters", "type"=>"radio", "value"=>["Dont subscribe"=>0, "Subscribe"=>1], "checked"=>0, "i_class"=>"fa fa-info" ],
+
           "user_img"=>[ "label"=>"Choose Your avatar : ", "type"=>"file", "required"=>"required", "i_class"=>"fa fa-picture-o", "msgerror"=>"" ],
         ]
       ];
@@ -334,6 +336,8 @@
 
           "user_rights"=>["label"=>"Rights of the user", "type"=>"radio", "required"=>"required", "value"=>["User"=>1, "Writer"=>2, "Admin"=>3], "checked"=>1 ],
 
+          "user_newsletters"=>["label"=>"Newsletters", "type"=>"radio", "value"=>["Dont subscribe"=>0, "Subscribe"=>1], "checked"=>0 ],
+
           "user_status"=>["label"=>"Status of the user", "type"=>"radio", "required"=>"required", "value"=>["Pending"=>0, "Rejected"=>-1, "Validated"=>1], "checked"=>0 ],
 
           "user_img"=>[ "label"=>"Choose The avatar : ", "type"=>"file", "required"=>"required", "msgerror"=>"" ]
@@ -366,6 +370,8 @@
           // "user_pwd2"=>[ "label"=>"Confirm The password : ", "type"=>"password", "placeholder"=>"Confirm password", "required"=>"required" ],
 
           "user_rights"=>["label"=>"Rights of the user : ", "type"=>"radio", "required"=>"required", "value"=>["User"=>1, "Writer"=>2, "Admin"=>3] ],
+
+          "user_newsletters"=>["label"=>"Newsletters", "type"=>"radio", "value"=>["Dont subscribe"=>0, "Subscribe"=>1], "checked"=>0 ],
 
           "user_status"=>["label"=>"Status of the user : ", "type"=>"radio", "required"=>"required", "value"=>["Pending"=>0, "Rejected"=>-1, "Validated"=>1] ],
 
@@ -460,6 +466,25 @@
                 "filename"=>["label"=>"The filename : ", "type"=>"text", "placeholder"=>"filename", "required"=>"required" ],
 
                 "file"=>[ "label"=>"Choose The multimedia : ", "type"=>"file", "required"=>"required" ],
+            ]
+        ];
+    }
+
+    public static function getNewslettersForm()
+    {
+        return [
+            "options" => [
+                "method" => "POST",
+                "action" => BASE_URL."admin/users/doSendNewsletters",
+                "id" => "admin_newsletters",
+                "enctype" => "multipart/form-data",
+                "submit" => "Send Newsletters"
+            ],
+            "struct" => [
+
+                "title" => ["label" => "Title here", "type" => "text", "name" => "contentTitle", "required" => "required", "placeholder" => "Insert your title here"],
+
+                "content" => ["label" => "The content", "type" => "textarea", "id" => "content_newsletters", "placeholder" => "Your newsletters", "required" => "required", "errors_msg" => ""],
             ]
         ];
     }

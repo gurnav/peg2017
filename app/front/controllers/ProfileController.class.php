@@ -78,7 +78,7 @@
           }
 
           try {
-            $user->save();
+            if (!isset($_SESSION['errors'])) $user->save();
           } catch (\Exception $e) {
             array_push($_SESSION['errors'], $e->getMessage());
           }
@@ -107,7 +107,7 @@
           }
 
           try {
-            $user->save();
+            if (!isset($_SESSION['errors'])) $user->save();
           } catch (\Exception $e) {
             array_push($_SESSION['errors'], $e->getMessage());
           }
@@ -136,7 +136,36 @@
           }
 
           try {
-            $user->save();
+            if (!isset($_SESSION['errors'])) $user->save();
+          } catch (\Exception $e) {
+            array_push($_SESSION['errors'], $e->getMessage());
+          }
+
+          if (!isset($_SESSION['errors'])) {
+              header('Location: '.BASE_URL.'profile/show/'.$_SESSION['user']['username']);
+          } else {
+              header('Location: '.BASE_URL.'profile/edit'.$_SESSION['user']['username']);
+          }
+      }
+
+      /**
+       * Function for changing the subscrib status of a user
+       * to the newsletters
+       * @return Void
+       */
+      public function changeNewslettersAction()
+      {
+          $user = new Users();
+          $user = $user->populate(['id' => $_SESSION['user']['id']]);
+
+          try {
+            $user->setNewsletters(intval($_POST['user_newsletters']));
+          } catch (\Exception $e) {
+            array_push($_SESSION['errors'], $e->getMessage());
+          }
+
+          try {
+            if (!isset($_SESSION['errors'])) $user->save();
           } catch (\Exception $e) {
             array_push($_SESSION['errors'], $e->getMessage());
           }
@@ -165,7 +194,7 @@
           }
 
           try {
-            $user->save();
+              if (!isset($_SESSION['errors'])) $user->save();
           } catch (\Exception $e) {
             array_push($_SESSION['errors'], $e->getMessage());
           }
@@ -202,7 +231,7 @@
           }
 
           try {
-            $user->save();
+              if (!isset($_SESSION['errors'])) $user->save();
           } catch (\Exception $e) {
             array_push($_SESSION['errors'], $e->getMessage());
           }
@@ -235,7 +264,7 @@
                }
 
            try {
-             $user->save();
+               if (!isset($_SESSION['errors'])) $user->save();
            } catch (\Exception $e) {
              array_push($_SESSION['errors'], $e->getMessage());
            }

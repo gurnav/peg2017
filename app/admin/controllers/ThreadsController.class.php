@@ -99,7 +99,7 @@ class ThreadsController extends Controller
         try {
             $thread = $thread->populate(['id' => $id_thread]);
             $thread->delete();
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             array_push($_SESSION['errors'], $e->getMessage());
         }
         header('Location: '.BASE_URL.'admin/threads');
@@ -170,7 +170,7 @@ class ThreadsController extends Controller
         $_SESSION['errors'] = [];
         try {
             $thread = $thread->populate(['id' => $id_thread]);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             array_push($_SESSION['errors'], $e->getMessage());
         }
 

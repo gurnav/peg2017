@@ -176,9 +176,10 @@
     public static function notFound()
     {
         http_response_code(404);
-        header("refresh:5;Location: ".$_SERVER["HTTP_REFERER"]);
+        $url = (!isset($_SERVER["HTTP_REFERER"]))?BASE_URL:$_SERVER["HTTP_REFERER"];
+        header("refresh:5;Location: ".$url);
         echo "PAGE NOT FOUND \n";
-        echo "You'll be redirected in about 5 secs. If not, click <a href=\"".$_SERVER["HTTP_REFERER"]."\">here</a>.";
+        echo "You'll be redirected in about 5 secs. If not, click <a href=\"".$url."\">here</a>.";
         die();
     }
 

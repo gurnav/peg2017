@@ -105,7 +105,7 @@
       try {
           $category = $category->populate(['id' => $id_category]);
           $category->delete();
-      } catch (Exception $e) {
+      } catch (\Exception $e) {
           array_push($_SESSION['errors'], $e->getMessage());
       }
       header('Location: '.BASE_URL.'admin/categories');
@@ -143,7 +143,7 @@
 
           try {
               $category = $category->populate(['id' => $id_category]);
-          } catch (Exception $e) {
+          } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
 
