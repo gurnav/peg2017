@@ -8,6 +8,7 @@
   use Core\Facades\Query;
   use Core\Database\Models;
   use Core\Email\Email;
+  use Core\Route\Routing;
   use App\Admin\Models\Users;
   use App\Composite\Factories\ModalsFactory;
 
@@ -17,6 +18,18 @@
    */
   class UsersController extends Controller
   {
+
+      /**
+       * Constructor controllers who check the acces right of
+       * The user
+       * @return Void
+       */
+      public function __construct()
+      {
+          if ($_SESSION['user']['type'] !== 'admin') {
+              Routing::forbidden();
+          }
+      }
 
     /**
      * Action who list all users

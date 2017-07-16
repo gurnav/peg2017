@@ -72,7 +72,8 @@
     public static function getLastThreeContents($content_type)
     {
         $qb = new QueryBuilder();
-        $query = "SELECT * FROM ".DB_PREFIX."contents WHERE type='".$content_type."' ORDER BY 'date_inserted' LIMIT 3";
+        $query = "SELECT * FROM ".DB_PREFIX."contents WHERE (type='".$content_type
+            ."' AND deleted=0 AND status=1) ORDER BY 'date_inserted' LIMIT 3";
         return $qb->query($query, null, false);
     }
 

@@ -3,7 +3,4 @@
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . /esgi-geographic/index.php [L]
-
-  # Transformer un lien .xml en .rss
-  RewriteRule ^(.+).rss$ $1.xml [L]
 </IfModule>

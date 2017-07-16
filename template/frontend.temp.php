@@ -12,7 +12,7 @@
 
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <link rel="stylesheet" href="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'css'.DS.'font-awesome-4.7.0'.DS.'css'.DS.'font-awesome.min.css' ?>" media="screen">
+    <link rel="stylesheet" href="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'css'.DS.'font-awesome'.DS.'css'.DS.'font-awesome.min.css' ?>" media="screen">
 
     <!-- viewport for better responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
