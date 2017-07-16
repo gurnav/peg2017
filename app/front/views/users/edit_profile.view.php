@@ -25,6 +25,14 @@
 </form>
 <br>
 
+<form action="<?php echo BASE_URL.'profile/changeNewsletters'; ?>" method="post">
+    <span>Newsletters : </span>
+    <input type="radio" name="gender" value="1" <?php if ($user->getNewsletters() == 1) echo "checked" ?>> Subscribe<br>
+    <input type="radio" name="gender" value="0" <?php if ($user->getNewsletters() == 0) echo "checked" ?>> Don't subscribe<br>
+    <input type="submit" value="Change subscribe status">
+</form>
+<br>
+
 <form action="<?php echo BASE_URL.'profile/changeEmail'; ?>" method="post">
     <span>Email : </span>
     <input type="text" name="email" value="<?php echo $user->getEmail(); ?>">

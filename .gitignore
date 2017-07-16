@@ -1,7 +1,9 @@
+.idea/
+.php_cs.cache
 vendor/
 uploads/
 logs/
-.php_cs.cache
 phpmyadmin/
-.idea/
-public/assets/js/plugins/imageuploader
+public/assets/images
+public/assets/js/plugins
+public/assets/css/font-awesome-4.7.0

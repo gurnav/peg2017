@@ -31,6 +31,9 @@
             <li><a href="<?php echo BASE_URL.'contents/all_pages' ?>">Pages</a></li>
 			<li><a href="<?php echo BASE_URL.'contents/gallery' ?>">Gallery</a></a></li>
             <?php if (isset($_SESSION['user'])): ?>
+                <?php if ($_SESSION['user']['type'] === 'admin'): ?>
+                    <li><a href="<?php echo BASE_URL.'admin';?>">Admin</a></li>
+                <?php endif; ?>
                 <li><a href="<?php echo BASE_URL.'profile/show/'.$_SESSION['user']['username']; ?>">Profile</a></li>
                 <li><a href="<?php echo BASE_URL.'login/logout'; ?>"><button>log<i class="fa fa-power-off" aria-hidden="true"></i>ut</button></a></li>
             <?php endif; ?>

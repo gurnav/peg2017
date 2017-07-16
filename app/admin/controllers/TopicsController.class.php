@@ -84,7 +84,7 @@
         try {
             $topic = $topic->populate(['id' => $id_topic]);
             $topic->delete();
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             array_push($_SESSION['errors'], $e->getMessage());
         }
         header('Location: '.BASE_URL.'admin/topics');
@@ -103,7 +103,7 @@
           $_SESSION['errors'] = [];
           try {
               $topic = $topic->populate(['id' => $id_topic]);
-          } catch (Exception $e) {
+          } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
 
@@ -159,7 +159,7 @@
           }
 
           try {
-              $topic->setUsers_id(intval($_SESSION['admin']['id']));
+              $topic->setUsers_id(intval($_SESSION['user']['id']));
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }

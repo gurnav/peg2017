@@ -13,10 +13,10 @@
    {
 
      public function __construct($id=-1, $email=null, $password=null, $firstname=null,
-     $username=null, $lastname=null, $permission=0, $status=0)
+     $username=null, $lastname=null, $newsletters = 0, $permission=0, $status=0)
      {
          parent::__construct($id, $email, $password, $firstname, $username, $lastname,
-           $permission, $status);
+           $newsletters, $permission, $status);
 
      }
 

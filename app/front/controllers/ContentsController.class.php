@@ -6,6 +6,7 @@
   use Core\Views\View;
   use Core\Util\Helpers;
   use App\Front\Models\Contents;
+  use App\Front\Models\Comments;
 
   /**
    * Controller for contents related actions
@@ -53,6 +54,11 @@
 
           $v->assign('content', $content);
           $v->assign('comments', $comments);
+
+          if (isset($_SESSION['errors'])) {
+              $v->assign('errors', $_SESSION['errors']);
+              unset($_SESSION['errors']);
+          }
       }
 
 
@@ -84,6 +90,11 @@
 
           $v->assign('content', $content);
           $v->assign('comments', $comments);
+
+          if (isset($_SESSION['errors'])) {
+              $v->assign('errors', $_SESSION['errors']);
+              unset($_SESSION['errors']);
+          }
       }
 
 
@@ -115,6 +126,58 @@
 
           $v->assign('content', $content);
           $v->assign('comments', $comments);
+
+          if (isset($_SESSION['errors'])) {
+              $v->assign('errors', $_SESSION['errors']);
+              unset($_SESSION['errors']);
+          }
+      }
+
+      /**
+       * Send A comment in front with CKEDITOR
+       */
+      public function sendCommentAction()
+      {
+
+          if (!empty($_POST['content'])) {
+
+              $comments = new Comments();
+
+              $comment_content = html_entity_decode($_POST['content']);
+              $comment_content = strip_tags($comment_content, "<p><a><b><ul><li><ol><u><i><h1><h2>
+              <h3><h4><h5><h6><br><div><hr><table><tbody><td><tr><tfoot><th><thead><strong><em>");
+
+              try {
+                  $comments->setContent($comment_content);
+              } catch (\Exception $e) {
+                  array_push($_SESSION['errors'], $e->getMessage());
+              }
+
+              try {
+                  $comments->setContents_id(intval($_POST['content_id']));
+              } catch (\Exception $e) {
+                  array_push($_SESSION['errors'], $e->getMessage());
+              }
+
+              try {
+                  $comments->setUsers_id(intval($_SESSION['user']['id']));
+              } catch (\Exception $e) {
+                  array_push($_SESSION['errors'], $e->getMessage());
+              }
+
+              try {
+                  if (!isset($_SESSION['errors'])) $comments->save();
+              } catch (\Exception $e) {
+                  array_push($_SESSION['errors'], $e->getMessage());
+              }
+
+          } else {
+              array_push($_SESSION['errors'], "You can't post an empty comment");
+          }
+
+          $url = (!isset($_SERVER["HTTP_REFERER"]))?BASE_URL:$_SERVER["HTTP_REFERER"];
+          header('Location: '.$url);
+
       }
 
   }

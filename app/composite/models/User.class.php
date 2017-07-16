@@ -23,6 +23,7 @@
       protected $firstname; // The firstname in the database of the user
       protected $lastname; // The lastname in the database of the user
       protected $username; // The username in the database of the user
+      protected $newsletters; // If the user is subscrided to the newsletters
       protected $rights; // The rights of the user
       protected $status; // The status in the database of the user
       protected $img; // The image of the user
@@ -33,7 +34,7 @@
        * @return Void
        */
       public function __construct($id=-1, $email=null, $password=null, $firstname=null,
-      $username=null, $lastname=null, $rights = 1, $status=0, $img=null)
+      $username=null, $lastname=null, $newsletters = 0, $rights = 1, $status=0, $img=null)
       {
           parent::__construct();
 
@@ -83,6 +84,12 @@
             $this->status = $status;
           } else {
             $this->setStatus($status);
+          }
+
+          if($newsletters === 0) {
+            $this->newsletters = $newsletters;
+          } else {
+            $this->setNewsletters($newsletters);
           }
 
           $this->setUserImg($img);
@@ -290,16 +297,45 @@
           return $this->status;
       }
 
+      /**
+      * Simple setter for the newsletter subscrib status
+      * Check if the status respect the integrity of the database
+      * @param Integer : $setStatus The status to be setted
+      * @return Void
+      */
+     public function setNewsletters($setNewsletters)
+     {
+       if(is_int($setNewsletters))
+       {
+         $this->newsletters = $setNewsletters;
+       } else {
+         Helpers::log("A non integer variable for the newsletters in ". get_class($this)
+           ." have been tried to inserted in the database");
+         throw new \Exception("Incorect newsletters subscribe type !");
+       }
+     }
+
+     /**
+      * Simple newsletter subscrib status getter
+      * @return String $newsletters The newsletter subscrib status
+      */
+     public function getNewsletters()
+     {
+         return $this->newsletters;
+     }
+
 
       /**
        * Set the image of the user based on the inputed file
        * @param $file : FILE The image to be inserted on the server and in the DB
        * @return Void
        */
-      public function setUserImg($file)
+      public function setUserImg($file=null)
       {
           $img = "";
-          if ($file !== null) {
+          if ($file === null || $file['size'] == 0) {
+              $img = BASE_AVATAR;
+          } else if ($file !== null) {
               $img = Helpers::safeUploadFile($file, UPLOADS_DIR_USERS);
           }
           $this->img = $img;

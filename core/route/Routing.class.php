@@ -148,16 +148,13 @@ class Routing
     {
         http_response_code(403);
         header("refresh:5;url=".BASE_URL);
-
         if (App::$prefix === 'admin') {
             $v = new View('403', 'admin');
         } else {
             $v = new View('403');
         }
-
         /*echo "ACCES FORBIDDEN \n\n";
         echo "You'll be redirected in about 5 secs. If not, click <a href=\"".BASE_URL."\">here</a>.";*/
-
     }
     /**
      * Send a notFound page
@@ -167,13 +164,11 @@ class Routing
     {
         http_response_code(404);
         header("refresh:5;Location: ".BASE_URL);
-
         if (App::$prefix === 'admin') {
             $v = new View('404', 'admin');
         } else {
             $v = new View('404');
         }
-
         /*echo "PAGE NOT FOUND \n";
         echo "You'll be redirected in about 5 secs. If not, click <a href=\"".BASE_URL."\">here</a>.";*/
     }

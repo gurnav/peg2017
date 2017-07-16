@@ -29,6 +29,19 @@
                   </div>
             <?php endif; ?>
 
+			<?php if($attribute['type'] === 'radio'): ?>
+				<div>
+					<i class="<?php echo $attribute['i_class']; ?>" aria-hidden="true"></i>
+					<?php foreach ($attribute['value'] as $value => $rights): ?>
+	                  <input
+	                  type="<?php echo $attribute['type']; ?>" name="<?php echo $name; ?>"
+	                  value="<?php echo $rights; ?>" <?php if($attribute['checked'] == $rights) echo "checked"; ?>
+	                  ><?php echo $value; ?>
+	                <?php endforeach; ?>
+				</div>
+ 		    <?php endif; ?>
+
+
           <?php endforeach; ?>
 
           <?php if($attribute['type'] === 'file'): ?>

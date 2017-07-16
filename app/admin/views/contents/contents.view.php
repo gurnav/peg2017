@@ -12,7 +12,7 @@
                 <th>Id</th>
                 <th>Title</th>
                 <th>Type</th>
-                <th>Content</th>
+                <!-- <th>Content</th> -->
                 <th>Date Publication</th>
                 <th>Username</th>
                 <th class="important_one">Verification</th>
@@ -24,7 +24,7 @@
                     <td><?php echo $content['id']; ?></td>
                     <td><?php echo $content['title']; ?></td>
                     <td><?php echo $content['type']; ?></td>
-                    <td><?php echo substr($content['content'], 0, 128)." ..."; ?></td>
+                    <!-- <td><?php echo substr($content['content'], 0, 128)." ..."; ?></td> -->
                     <td><?php echo $content['date_inserted']; ?></td>
                     <td><?php echo $content['username']; ?></td>
                     <?php

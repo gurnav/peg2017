@@ -31,7 +31,7 @@
                   </div>
             <?php endif; ?>
 
-            <?php if($attribute['type'] === 'radio' && $name === 'user_rights'): ?>
+            <?php if($attribute['type'] === 'radio'): ?>
               <label><?php echo $attribute["label"]; ?>
               <?php foreach ($attribute['value'] as $value => $rights): ?>
                 <input
@@ -40,17 +40,6 @@
                 ><?php echo $value; ?>
               <?php endforeach; ?>
               </label><br>
-            <?php endif; ?>
-
-            <?php if($attribute['type'] === 'radio' && $name === 'user_status'): ?>
-              <label><?php echo $attribute["label"]; ?>
-              <?php foreach ($attribute['value'] as $value => $rights): ?>
-                <input
-                type="<?php echo $attribute['type']; ?>" name="<?php echo $name; ?>"
-                value="<?php echo $rights; ?>" <?php if($attribute['checked'] == $rights) echo "checked"; ?>
-                ><?php echo $value; ?>
-              <?php endforeach; ?>
-            </label><br>
             <?php endif; ?>
 
           <?php endforeach; ?>

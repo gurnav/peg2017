@@ -73,13 +73,13 @@
           }
 
           try {
-            $multimedia->setUsers_id(intval($_SESSION['admin']['id']));
+            $multimedia->setUsers_id(intval($_SESSION['user']['id']));
           } catch (\Exception $e) {
             array_push($_SESSION['errors'], $e->getMessage());
           }
 
           try {
-            $multimedia->save();
+              if (empty($_SESSION['errors'])) $multimedia->save();
           } catch (\Exception $e) {
             array_push($_SESSION['errors'], $e->getMessage());
           }
@@ -108,7 +108,7 @@
               $multimedia = $multimedia->populate(['id' => $img_source]);
               $multimedia->delete();
               // unlink(UPLOADS_DIR_CONTENTS.$multimedia->getPath());
-          } catch (Exception $e) {
+          } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }
           header('Location: '.BASE_URL.'admin/medias');

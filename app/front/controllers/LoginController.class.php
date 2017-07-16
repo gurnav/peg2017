@@ -113,7 +113,7 @@
                 $pwd = str_shuffle('AzErTyUiOp123456');
                 $user->setPassword($pwd);
                 $user->save();
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 array_push($_SESSION['errors'], $e->getMessage());
             }
 

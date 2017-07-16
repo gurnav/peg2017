@@ -19,7 +19,7 @@
 						<h4><a href="<?php echo BASE_URL.'profile/show/'.strtolower($user->getUsername()); ?>">
 							<?php echo $user->getUsername(); ?></a>
 						</h4>
-						<img src="<?php echo UPLOADS_DIR_USERS.$user->getUserImg(); ?>">
+						<img src="<?php echo ROUTE_DIR_USERS.$user->getUserImg(); ?>">
 					</div>
 					<div class="text_area">
 						<p><?php echo $comment->getContent(); ?></p>
@@ -28,6 +28,36 @@
 			<?php endforeach; ?>
 		</div>
 		<?php if (isset($_SESSION['user'])): ?>
-			<!-- Send a comments with CKEditor -->
+			<div class="article_solo">
+				<header>
+					<h2>Write a comment</h2>
+				</header>
+
+				<form class="make_commentaries" method="POST" action="<?php echo BASE_URL.'contents/sendComment'; ?>">
+					<div class="super_editor">
+						<textarea name="content" id="textarea" rows="10" cols="80"></textarea>
+					</div>
+					<div>
+						<input type="hidden" name="content_id" value="<?php echo $content->getId(); ?>">
+						<input class="send_commentaries" type="submit" value="Send it !">
+					</div>
+				</form>
+			</div>
+		<?php else : ?>
+			<div class="article_solo">
+				<header>
+					<h2>Write a comment</h2>
+				</header>
+
+				<p>You have to be connected to post a comment.</p>
+
+			</div>
 		<?php endif; ?>
+		<?php if (isset($errors)): ?>
+			<div class="article_solo">
+			<?php foreach($errors as $error): ?>
+				<p><?php echo $error; ?></p>
+			<?php endforeach ?>
+			</div>
+		<?php endif ?>
 </div>

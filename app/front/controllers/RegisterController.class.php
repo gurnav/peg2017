@@ -42,6 +42,7 @@
         $user_form = ModalsFactory::registerUserForm();
         if(!empty($_SESSION['register'])) {
           $user_form['struct']['user_email']['value'] = $_SESSION['register']['user_email'];
+          $user_form['struct']['user_newsletters']['checked'] = $_SESSION['register']['user_newsletters'];
           $user_form['struct']['username']['value'] = $_SESSION['register']['username'];
           $user_form['struct']['firstname']['value'] = $_SESSION['register']['firstname'];
           $user_form['struct']['lastname']['value'] = $_SESSION['register']['lastname'];
@@ -108,6 +109,12 @@
            array_push($_SESSION['errors'], $e->getMessage());
          }
 
+         try {
+           $user->setNewsletters(intval($_POST['user_newsletters']));
+         } catch (\Exception $e) {
+           array_push($_SESSION['errors'], $e->getMessage());
+         }
+
           try {
             $user->setRights(1);
           } catch (\Exception $e) {
@@ -121,7 +128,11 @@
          }
 
          try {
-             $user->setUserImg($_FILES['user_img']);
+             if($_FILES['user_img']['size'] == 0) {
+                 $user->setUserImg(null);
+             } else {
+                 $user->setUserImg($_FILES['user_img']);
+             }
          } catch (\Exception $e) {
            array_push($_SESSION['errors'], $e->getMessage());
          }
@@ -146,7 +157,7 @@
              $mail->setMessage(
              "You have been registered to ".SITE_NAME."."."<br>"
              ."\nPlease click on this link to verify and activate your account :"
-             .BASE_URL."verication/email/".$encryptedEmail."<br>"
+             .BASE_URL."verification/email/".$encryptedEmail."<br>"
              ."Cheers,"."<br>"
              ." The team of ".SITE_NAME);
              try {
@@ -159,6 +170,7 @@
             Routing::index();
          } else {
             $_SESSION['register']['user_email'] = $_POST['user_email'];
+            $_SESSION['register']['user_newsletters'] = $_POST['user_newsletters'];
             $_SESSION['register']['firstname'] = $_POST['firstname'];
             $_SESSION['register']['lastname'] = $_POST['lastname'];
             $_SESSION['register']['username'] = $_POST['username'];

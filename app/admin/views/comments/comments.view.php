@@ -6,7 +6,7 @@
 
     <div class="only_one">
         <table class="six_columns">
-            <caption>Comments<a href="<?php echo BASE_URL.'admin/comments/add'; ?>"><button title="Create comment"><i class="fa fa-plus-circle" aria-hidden="true"></i></button></a></caption>
+            <!-- <caption>Comments<a href="<?php echo BASE_URL.'admin/comments/add'; ?>"><button title="Create comment"><i class="fa fa-plus-circle" aria-hidden="true"></i></button></a></caption> -->
             <thead>
             <tr>
                 <th>#</th>

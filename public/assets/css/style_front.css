@@ -1,550 +1,550 @@
 *{
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 img{
-	max-width: 100%;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 table{
-	width: 100%;
-	border-collapse:collapse;
+    width: 100%;
+    border-collapse:collapse;
 }
 
 section{
-	display: block;
-	overflow: hidden;
+    display: block;
+    overflow: hidden;
 }
 
 /* Header */
 
 header #burger_menu{
-	display: none;
+    display: none;
 }
 
 header .menu{
-	background: url("../images/banner.jpeg") no-repeat;
-	background-size: cover;
-	position: relative;
+    background: url("../images/banner.jpeg") no-repeat;
+    background-size: cover;
+    position: relative;
 }
 
 header #home{
-	height: 100vh;
+    height: 100vh;
 }
 
 header .nav_bar{
-	text-align: center;
-	padding: 2% 0;
+    text-align: center;
+    padding: 2% 0;
 }
 
 header .nav_bar li{
-	list-style: none;
-	display: inline-block;
-	margin-right: 2%;
+    list-style: none;
+    display: inline-block;
+    margin-right: 2%;
 }
 
 header .nav_bar li:last-child{
-	margin-right: 0;
+    margin-right: 0;
 }
 
 
 header .nav_bar li a{
-	text-decoration: none;
-	color: white;
-	font-size: 1.3rem;
-	border-radius: 4px;
-	padding: 0.6em 0.85em;
+    text-decoration: none;
+    color: white;
+    font-size: 1.3rem;
+    border-radius: 4px;
+    padding: 0.6em 0.85em;
 }
 
 header .nav_bar li a:hover{
-	background: rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.15);
 }
 
 header #home div h1{
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	right: 0;
-	left: 0;
-	text-align: center;
-	color: white;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    left: 0;
+    text-align: center;
+    color: white;
 }
 
 /* Universal */
 
 .body_item{
-	background: #e8e8e8;
-	overflow: auto;
+    background: #e8e8e8;
+    overflow: auto;
 }
 
 .body_item .presentation{
-	width: 60%;
-	margin: 5% auto 0 auto;
-	overflow: auto;
+    width: 60%;
+    margin: 5% auto 0 auto;
+    overflow: auto;
 }
 
 .body_item .presentation h1{
-	font-size: 1.5rem;
-	margin-bottom: 2%;
+    font-size: 1.5rem;
+    margin-bottom: 2%;
 }
 
 /* Index */
 
 .triple_items{
-	padding: 5% 10% 0% 10%;
-	overflow: auto;
+    padding: 5% 10% 0% 10%;
+    overflow: auto;
 }
 
 .triple_items .item{
-	width: 30%;
-	float: left;
-	background: white;
-	border-radius: 4px;
-	border: solid 5px transparent;
+    width: 30%;
+    float: left;
+    background: white;
+    border-radius: 4px;
+    border: solid 5px transparent;
 }
 
 .triple_items .item header{
-	overflow: auto;
-	padding: 3%;
+    overflow: auto;
+    padding: 3%;
 }
 
 .triple_items .item header h2{
-	float: left;
-	font-size: 1.2rem;
-	font-weight: 400;
+    float: left;
+    font-size: 1.2rem;
+    font-weight: 400;
 }
 
 .triple_items .item header span{
-	float: right;
-	font-size: 1.2rem;
-	color: #a0a0a0;
+    float: right;
+    font-size: 1.2rem;
+    color: #a0a0a0;
 }
 
 .triple_items .item:nth-child(2){
-	margin: 0 4%;
+    margin: 0 4%;
 }
 
 /* connection back */
 
 .connexion_back{
-	width: 100%;
-	color: #2f3b4c;
+    width: 100%;
+    color: #2f3b4c;
 }
 
 .connexion_back div{
-	width: 40%;
-	margin: 10% auto;
-	background: #f7f7f7;
-	border: solid 1px rgba(200,200,200,0.75);
+    width: 40%;
+    margin: 10% auto;
+    background: #f7f7f7;
+    border: solid 1px rgba(200,200,200,0.75);
 }
 
 .connexion_back div h2{
-	margin: 5% 0;
-	padding: 2% 5%;
-	color: white;
-	background: #7cab0e;
-	text-transform: uppercase;
+    margin: 5% 0;
+    padding: 2% 5%;
+    color: white;
+    background: #7cab0e;
+    text-transform: uppercase;
 }
 
 .connexion_back div form input{
-	font-size: 1.2rem;
+    font-size: 1.2rem;
 }
 
 .connexion_back div form div input{
-	padding-top: 2%;
-	padding-bottom: 2%;
-	padding-left: 10%;
-	background: #f1f1f1;
-	border: none;
-	width: 90%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 10%;
+    background: #f1f1f1;
+    border: none;
+    width: 90%;
 }
 
 .connexion_back div form div{
-	width: 80%;
-	margin: 5% auto;
-	position: relative;
-	border: solid 1px rgba(200,200,200,0.75);
-	border-radius: 2px;
+    width: 80%;
+    margin: 5% auto;
+    position: relative;
+    border: solid 1px rgba(200,200,200,0.75);
+    border-radius: 2px;
 }
 
 .connexion_back div form div i{
-	font-size: 1.2rem;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	padding-top: 2%;
-	padding-left: 2%;
+    font-size: 1.2rem;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding-top: 2%;
+    padding-left: 2%;
 }
 
 .connexion_back div form input:nth-child(3){
-	display: block;
-	width: 50%;
-	padding: 2%;
-	margin: 8% auto;
-	text-transform: uppercase;
-	color: white;
-	background: #7cab0e;
-	border: solid 1px rgba(200,200,200,0.75);
-	border-radius: 2px;
+    display: block;
+    width: 50%;
+    padding: 2%;
+    margin: 8% auto;
+    text-transform: uppercase;
+    color: white;
+    background: #7cab0e;
+    border: solid 1px rgba(200,200,200,0.75);
+    border-radius: 2px;
 }
 
 /* Connexion/Inscription */
 
 .form_user{
-	width: 60%;
-	margin: 0 auto;
-	overflow: auto;
+    width: 60%;
+    margin: 0 auto;
+    overflow: auto;
 }
 
 .form_user input{
-	font-size: 1.2rem;
+    font-size: 1.2rem;
 }
 
 .form_user .validate{
-	margin: 2% auto;
-	width: 30%;
-	color: #009900;
-	background: white;
-	border: solid 2px #009900;
-	text-transform: uppercase;
-	padding: 2%;
-	display: block;
-	cursor: pointer;
-	border-radius: 3px;
-	transition: 0.5s;
+    margin: 2% auto;
+    width: 30%;
+    color: #009900;
+    background: white;
+    border: solid 2px #009900;
+    text-transform: uppercase;
+    padding: 2%;
+    display: block;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: 0.5s;
 }
 
 .form_user .validate:hover{
-	color: white;
-	background: #009900;
-	transition: 0.5s;
+    color: white;
+    background: #009900;
+    transition: 0.5s;
 }
 
 .form_user div input{
-	padding-top: 2%;
-	padding-bottom: 2%;
-	padding-left: 10%;
-	background: #f1f1f1;
-	border: none;
-	width: 90%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 10%;
+    background: #f1f1f1;
+    border: none;
+    width: 90%;
 }
 
 .form_user div{
-	width: 80%;
-	margin: 5% auto;
-	position: relative;
-	border: solid 1px rgba(200,200,200,0.75);
-	border-radius: 2px;
+    width: 80%;
+    margin: 5% auto;
+    position: relative;
+    border: solid 1px rgba(200,200,200,0.75);
+    border-radius: 2px;
 }
 
 .form_user div i{
-	font-size: 1.2rem;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	padding-top: 2%;
-	padding-left: 2%;
+    font-size: 1.2rem;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding-top: 2%;
+    padding-left: 2%;
 }
 
 /* Galerie */
 
 .img_list{
-	margin: 0 12% 0 10%;
-	overflow: auto;
+    margin: 0 12% 0 10%;
+    overflow: auto;
 }
 
 .img_list div{
-	width: 23%;
-	float: left;
-	margin-left: 2%;
-	margin-top: 2%;
-	position: relative;
-	height: 250px;
-	border-bottom: solid 1px rgba(200,200,200,0.75);
-	overflow: hidden;
+    width: 23%;
+    float: left;
+    margin-left: 2%;
+    margin-top: 2%;
+    position: relative;
+    height: 250px;
+    border-bottom: solid 1px rgba(200,200,200,0.75);
+    overflow: hidden;
 }
 
 .img_list div img{
-	width: 100%;
-	height: 100%;
-	-webkit-filter: brightness(80%);
-	-moz-filter: brightness(80%);
-	-o-filter: brightness(80%);
-	-ms-filter: brightness(80%);
-	filter: brightness(80%);
-	-webkit-transition: all .3s ease-out;
-	-moz-transition: all .3s ease-out;
-	-o-transition: all .3s ease-out;
-	-ms-transition: all .3s ease-out;
-	transition: all .3s ease-out;
+    width: 100%;
+    height: 100%;
+    -webkit-filter: brightness(80%);
+    -moz-filter: brightness(80%);
+    -o-filter: brightness(80%);
+    -ms-filter: brightness(80%);
+    filter: brightness(80%);
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    -ms-transition: all .3s ease-out;
+    transition: all .3s ease-out;
 }
 
 .img_list div:hover img{
-	-moz-transform: scale(1.2);
-	-webkit-transform: scale(1.2);
-	-o-transform: scale(1.2);
-	-ms-transform: scale(1.2);
-	transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
 }
 
 .img_list div h4{
-	position: absolute;
-	color: rgba(255,255,255,0.8);
-	top: 30%;
-	right: 0;
-	left: 0;
-	text-align: center;
-	margin: auto;
-	text-transform: uppercase;
+    position: absolute;
+    color: rgba(255,255,255,0.8);
+    top: 30%;
+    right: 0;
+    left: 0;
+    text-align: center;
+    margin: auto;
+    text-transform: uppercase;
 }
 
 .img_list div h4 span{
-	display: block;
-	width: 35%;
-	margin: auto;
-	margin-top: 6%;
-	border-bottom: solid 1px white;
+    display: block;
+    width: 35%;
+    margin: auto;
+    margin-top: 6%;
+    border-bottom: solid 1px white;
 }
 
 /* Article cliqué */
 
 .article_solo{
-	width: 90%;
-	margin: 2% auto;
-	background: white;
-	border-radius: 4px;
-	border: solid 5px transparent;
+    width: 90%;
+    margin: 2% auto;
+    background: white;
+    border-radius: 4px;
+    border: solid 5px transparent;
 }
 
 .article_solo header{
-	overflow: auto;
-	padding: 2%;
+    overflow: auto;
+    padding: 2%;
 }
 
 .article_solo header h1{
-	float: left;
-	font-size: 1.5rem;
-	font-weight: 400;
+    float: left;
+    font-size: 1.5rem;
+    font-weight: 400;
 }
 
 .article_solo header span{
-	float: right;
-	font-size: 1.2rem;
-	color: #a0a0a0;
+    float: right;
+    font-size: 1.2rem;
+    color: #a0a0a0;
 }
 
 .article_solo .description{
-	width: 90%;
-	margin: 2% auto;
+    width: 90%;
+    margin: 2% auto;
 }
 
 .commentaries header{
-	border-bottom: 2px solid #a0a0a0;
+    border-bottom: 2px solid #a0a0a0;
 }
 
 .commentaries header h2{
-	font-size: 1.2rem;
-	font-weight: 400;
+    font-size: 1.2rem;
+    font-weight: 400;
 }
 
 .commentaries .comment{
-	overflow: auto;
-	border-bottom: 2px solid #a0a0a0;
-	padding: 1% 0;
+    overflow: auto;
+    border-bottom: 2px solid #a0a0a0;
+    padding: 1% 0;
 }
 
 .commentaries .comment .profil_area{
-	padding: 1%;
-	overflow: auto;
-	float: left;
-	width: 7%;
+    padding: 1%;
+    overflow: auto;
+    float: left;
+    width: 7%;
 }
 
 .commentaries .comment .profil_area h4{
-	display: block;
-	margin-bottom: 1%;
-	text-align: center;
+    display: block;
+    margin-bottom: 1%;
+    text-align: center;
 }
 
 .commentaries .comment .profil_area img{
-	width: 50%;
+    width: 50%;
 }
 
 .commentaries .comment .text_area{
-	border-left: 1px solid #a0a0a0;
-	padding: 2%;
-	overflow: auto;
-	float: left;
-	width: 86%;
+    border-left: 1px solid #a0a0a0;
+    padding: 2%;
+    overflow: auto;
+    float: left;
+    width: 86%;
 }
 
 /* Profil */
 
 .resume_profil{
-	width: 90%;
-	margin: 2% auto;
-	background: white;
-	border-radius: 4px;
-	border: solid 5px transparent;
+    width: 90%;
+    margin: 2% auto;
+    background: white;
+    border-radius: 4px;
+    border: solid 5px transparent;
 }
 
 .resume_profil header{
-	overflow: auto;
-	padding: 2%;
+    overflow: auto;
+    padding: 2%;
 }
 
 .resume_profil header h2{
-	float: left;
-	font-size: 1.5rem;
-	font-weight: 400;
+    float: left;
+    font-size: 1.5rem;
+    font-weight: 400;
 }
 
 .resume_profil .public{
-	overflow: auto;
-	width: 50%;
-	margin: auto;
+    overflow: auto;
+    width: 50%;
+    margin: auto;
 }
 
 .resume_profil .public img{
-	display: inline-block;
-	width: 42%;
-	margin: 0 5%;
-	vertical-align: middle;
+    display: inline-block;
+    width: 42%;
+    margin: 0 5%;
+    vertical-align: middle;
 }
 
 .resume_profil .public p{
-	display: inline-block;
-	vertical-align: middle;
-	font-size: 1.5rem;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.5rem;
 }
 
 .resume_profil .public span{
-	font-size: 1.2rem;
-	color: #a0a0a0;
+    font-size: 1.2rem;
+    color: #a0a0a0;
 }
 
 .resume_profil .public{
-	overflow: auto;
+    overflow: auto;
 }
 
 .resume_profil .private p{
-	width: 30%;
-	margin: 2% auto;
-	font-size: 1.5rem;
+    width: 30%;
+    margin: 2% auto;
+    font-size: 1.5rem;
 }
 
 .resume_profil .private span{
-	font-size: 1.2rem;
-	color: #a0a0a0;
+    font-size: 1.2rem;
+    color: #a0a0a0;
 }
 
 #my_zoom{
-	display: none;
-	margin: 0;
-	padding: 0;
-	background: rgba(0,0,0,0.5);
-	z-index: 1;
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
+    display: none;
+    margin: 0;
+    padding: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
 }
 
 #my_zoom div{
-	position: relative;
-	width: 80%;
-	height: 80%;
-	margin: 5% auto 5% auto;
+    position: relative;
+    width: 80%;
+    height: 80%;
+    margin: 5% auto 5% auto;
 }
 
 #my_zoom div img{
-	max-width: 100%;
-	max-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 #my_zoom #Close{
-	position: absolute;
-	color: white;
-	font-size: 2rem;
-	top: 2%;
-	right: 2%;
-	background: transparent;
-	border: none;
-	cursor: pointer;
-	margin: 1%;
+    position: absolute;
+    color: white;
+    font-size: 2rem;
+    top: 2%;
+    right: 2%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin: 1%;
 }
 
 #my_zoom #Close i{
-	display: block;
+    display: block;
 }
 
 #my_zoom #Close:hover{
-	color: #ff3333;
+    color: #ff3333;
 }
 
 .simple_error{
-	background: white;
-	width: 60%;
-	margin: 1% auto;
-	border-radius: 3px;
-	border: solid 1px #FF3040;
+    background: white;
+    width: 60%;
+    margin: 1% auto;
+    border-radius: 3px;
+    border: solid 1px #FF3040;
 }
 
 .simple_error p{
-	padding: 2%;
-	color: #FF3040;
+    padding: 2%;
+    color: #FF3040;
 }
 
 .simple_error a{
-	color: #FF3040;
+    color: #FF3040;
 }
 
 .simple_error a:hover{
-	color: red;
+    color: red;
 }
 
 .bad_page {
-	background: white;
-	height: 80vh;
-	width: 90%;
-	margin: 2% auto;
-	text-align: center;
+    background: white;
+    height: 80vh;
+    width: 90%;
+    margin: 2% auto;
+    text-align: center;
 }
 
 .bad_page h1{
-	margin: auto;
-	padding-top: 30vh;
-	font-size: 5rem;
-	font-weight: 400;
-	color: #a0a0a0;
+    margin: auto;
+    padding-top: 30vh;
+    font-size: 5rem;
+    font-weight: 400;
+    color: #a0a0a0;
 }
 
 
 .bad_page p{
-	margin: auto;
-	font-size: 3rem;
-	font-weight: 400;
-	color: #a0a0a0;
+    margin: auto;
+    font-size: 3rem;
+    font-weight: 400;
+    color: #a0a0a0;
 }
 
 /* Footer */
 
 footer{
-	padding: 5% 10%;
-	background: #e8e8e8;
-	overflow: auto;
+    padding: 5% 10%;
+    background: #e8e8e8;
+    overflow: auto;
 }
 
 footer p{
-	text-align: center;
-	color: #a0a0a0;
+    text-align: center;
+    color: #a0a0a0;
 }
 
 /* Responsive Little screen */
