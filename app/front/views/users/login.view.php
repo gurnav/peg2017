@@ -37,7 +37,9 @@
 
 </div>
 
-<a href="<?php echo BASE_URL.'login/forgot_password' ?>"><p>Forgottent password ?</p></a>
+<div class="simple_error">
+    <a href="<?php echo BASE_URL.'login/forgot_password' ?>"><p>Forgotten password ?</p></a>
+</div>
 
 <?php if(isset($error)): ?>
   <p><?php echo $error ?></p>

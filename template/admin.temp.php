@@ -23,6 +23,7 @@
       <header>
           <div class="top_line">
               <p>Welcome <span><?php echo $_SESSION['user']['username']; ?></span></p>
+              <p><i class="fa fa-home" aria-hidden="true"></i> <a href="<?php echo BASE_URL; ?>" style="color: #fff; text-decoration: none">HomePage</a></p>
               <a href="<?php echo BASE_URL.'admin/login/logout'; ?>"><button>log<i class="fa fa-power-off" aria-hidden="true"></i>ut</button></a>
           </div>
           <div id="burger_menu">≡</div>

@@ -56,7 +56,7 @@
             <li><a href="#">Help</a></li>
             <li><a href="#">Terms of Use</a></li>
             <li><a href="<?php echo PATH_RELATIVE.'cgu' ?>">CGU</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="<?php echo PATH_RELATIVE.'contact' ?>">Contact</a></li>
         </ul>
         <ul class="menu">
             <li><a href="<?php echo PATH_RELATIVE.'rss' ?>"><img src="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'images'.DS.'rss.png' ?>"></a></li>

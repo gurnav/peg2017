@@ -149,7 +149,11 @@ class Routing
         http_response_code(403);
         header("refresh:5;url=".BASE_URL);
         if (App::$prefix === 'admin') {
-            $v = new View('403', 'admin');
+            http_response_code(403);
+            header("refresh:5;url=".BASE_URL);
+            echo "ACCES FORBIDDEN \n\n";
+            echo "You'll be redirected in about 5 secs. If not, click <a href=\"".BASE_URL."\">here</a>.";
+            die();
         } else {
             $v = new View('403');
         }
