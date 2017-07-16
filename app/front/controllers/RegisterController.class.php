@@ -163,7 +163,7 @@
              try {
                  $mail->sendMail();
              } catch (\Exception $e) {
-                 $_SESSION['msg'] = 'An error has occured whit the mail sending.
+                 $_SESSION['msg'] = 'An error has occured with the mail sending.
                  Please contact the site admnistrator to activate your account with the email you used to subscribe with.';
              }
 

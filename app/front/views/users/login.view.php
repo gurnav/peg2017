@@ -37,10 +37,12 @@
 
 </div>
 
-<div class="simple_error">
+<div class="simple_text">
     <a href="<?php echo BASE_URL.'login/forgot_password' ?>"><p>Forgotten password ?</p></a>
 </div>
 
 <?php if(isset($error)): ?>
-  <p><?php echo $error ?></p>
+<div class="simple_error">
+    <p><?php echo $error ?></p>
+</div>
 <?php endif ?>

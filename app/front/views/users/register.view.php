@@ -59,6 +59,8 @@
 
 <?php if (isset($errors)): ?>
   <?php for($i = 0; $i < count($errors); $i += 1): ?>
-    <p><?php echo $errors[$i] ?></p>
+        <div class="simple_error">
+            <p><?php echo $errors[$i] ?></p>
+        </div>
   <?php endfor ?>
 <?php endif ?>

@@ -38,5 +38,7 @@
 </div>
 
 <?php if(isset($error)): ?>
-  <p><?php echo $error ?></p>
+    <div class="simple_error">
+        <p><?php echo $error ?></p>
+    </div>
 <?php endif ?>

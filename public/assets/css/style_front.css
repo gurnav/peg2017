@@ -496,6 +496,27 @@ header #home div h1{
     color: #ff3333;
 }
 
+.simple_text{
+    background: white;
+    width: 60%;
+    margin: 1% auto;
+    border-radius: 3px;
+    border: solid 1px #009900;
+}
+
+.simple_text p{
+    padding: 2%;
+    color: #009900;
+}
+
+.simple_text a{
+    color: #009900;
+}
+
+.simple_text a:hover{
+    color: #009900;
+}
+
 .simple_error{
     background: white;
     width: 60%;

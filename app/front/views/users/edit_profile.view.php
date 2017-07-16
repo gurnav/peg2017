@@ -63,6 +63,8 @@
 
 <?php if (isset($errors)): ?>
     <?php foreach ($errors as $error): ?>
-        <p><?php echo $error; ?></p>
+        <div class="simple_error">
+            <p><?php echo $error ?></p>
+        </div>
     <?php endforeach; ?>
 <?php endif; ?>
