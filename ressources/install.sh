@@ -38,6 +38,15 @@ git clone https://github.com/spantaleev/ckeditor-imagebrowser.git public/assets/
 echo "Install the Database"
 mysql -u $3 -p esgiGeographik < ressources/database/esgiGeographik.sql
 
+# Give the good rights
+echo "Giving good rights to files"
+find app -name "*.php" -exec chmod +x {} \;
+find core -name "*.php" -exec chmod +x {} \;
+
+# Giving rights for uploads
+echo "Giving rights for uploads"
+chown -R www-data:www-data uploads
+
 # Exit
 echo "Installation Done ! Exiting"
 exit 0

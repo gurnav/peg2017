@@ -54,7 +54,7 @@
 </form>
 <br>
 
-<form action="<?php echo BASE_URL.'profile/changeImg'; ?>" method="post">
+<form action="<?php echo BASE_URL.'profile/changeImg'; ?>" method="post" enctype="multipart/form-data">
     <span>Image profile : </span>
     <input type="file" name="user_img">
     <input type="submit" value="Change image">

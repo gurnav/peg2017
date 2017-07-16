@@ -253,7 +253,6 @@
            $user = new Users();
            $user = $user->populate(['id' => $_SESSION['user']['id']]);
 
-
            try {
                if ($user->getUserImg() !== BASE_AVATAR) {
                    unlink(UPLOADS_DIR_USERS.$user->getUserImg());

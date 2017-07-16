@@ -154,6 +154,7 @@
                 $finfo->file($file['tmp_name']),
                 array(
                     'jpg' => 'image/jpeg',
+                    'jpeg' => 'image/jpeg',
                     'png' => 'image/png',
                     'gif' => 'image/gif',
                 ),
