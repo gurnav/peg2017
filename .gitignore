@@ -6,4 +6,5 @@ logs/
 phpmyadmin/
 public/assets/images
 public/assets/js/plugins
-public/assets/css/font-awesome-4.7.0
+public/assets/css/font-awesome
+public/assets/fonts
