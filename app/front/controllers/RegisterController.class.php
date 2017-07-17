@@ -149,7 +149,7 @@
              unset($_SESSION['register']);
              $_SESSION['msg'] = 'You have been registered. Please confirm your inscription by clicking on the link in the sent mail';
 
-             $encryptedEmail = openssl_encrypt($user->getEmail(), "aes-256-cbc", "esgi-geographic", 0, "AzErTyU123456");
+             $encryptedEmail = openssl_encrypt($user->getEmail(), "aes-256-cbc", "esgi-geographic", 0, "AzErTyU123456789");
 
              $mail = new Email();
              $mail->setAddressee($user->getEmail());
