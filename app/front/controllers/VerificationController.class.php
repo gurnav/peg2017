@@ -20,7 +20,7 @@
         public function emailAction($args) {
             $v = new View('email_verification');
             $encryptedEmail = $args[0];
-            $email = openssl_decrypt($encryptedEmail, "aes-256-cbc", "esgi-geographic", 0, "AzErTyUiOp123456789");
+            $email = openssl_decrypt($encryptedEmail, "aes-256-cbc", "esgi-geographic", 0, "AzErTyU123456");
 
             $user = new Users();
             $user = $user->populate(['email' => $email]);
