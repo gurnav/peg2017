@@ -60,6 +60,20 @@ class RssController extends Controller
             $xml .= '</item>';
         }
 
+        $xml .= ' <category>Page</category>';
+
+        $pages = Contents::getAllByType('page', true);
+        foreach ($pages as $page)
+        {
+            $xml .= '<item>';
+            $xml .= '<title>'.$page['title'].'</title>';
+            $xml .= '<link>'.BASE_URL.'contents/article/'.$page['id'].'</link>';
+            $xml .= '<guid isPermaLink="true">'.BASE_URL.'contents/article/'.$page['id'].'</guid>';
+            $xml .= '<pubDate>'.(date("D, d M Y H:i:s O", strtotime($page['date_inserted']))).'</pubDate>';
+            $xml .= '<description>'.strip_tags(substr($page['content'], 0, 128)).'</description>';
+            $xml .= '</item>';
+        }
+
         $xml .= '</channel>';
         $xml .= '</rss>';
 
