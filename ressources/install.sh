@@ -18,6 +18,7 @@ mkdir public/assets/js/plugins
 echo "Unzip and install needed files"
 unzip ressources/zip/fonts.zip -d public/assets
 unzip ressources/zip/images.zip -d public/assets/
+unzip ressources/zip/font-awesome.zip -d public/assets/css
 mv public/assets/images/avatar.png uploads/users
 
 # Configure conf.inc.php

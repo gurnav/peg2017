@@ -42,7 +42,7 @@ class RssController extends Controller
             $xml .= '<link>'.BASE_URL.'contents/article/'.$article['id'].'</link>';
             $xml .= '<guid isPermaLink="true">'.BASE_URL.'contents/article/'.$article['id'].'</guid>';
             $xml .= '<pubDate>'.(date("D, d M Y H:i:s O", strtotime($article['date_inserted']))).'</pubDate>';
-            $xml .= '<description>'.substr($article['content'], 0, 128).'</description>';
+            $xml .= '<description>'.strip_tags(substr($article['content'], 0, 128)).'</description>';
             $xml .= '</item>';
         }
 
@@ -56,7 +56,7 @@ class RssController extends Controller
             $xml .= '<link>'.BASE_URL.'contents/article/'.$n['id'].'</link>';
             $xml .= '<guid isPermaLink="true">'.BASE_URL.'contents/article/'.$n['id'].'</guid>';
             $xml .= '<pubDate>'.(date("D, d M Y H:i:s O", strtotime($n['date_inserted']))).'</pubDate>';
-            $xml .= '<description>'.substr($n['content'], 0, 128).'</description>';
+            $xml .= '<description>'.strip_tags(substr($n['content'], 0, 128)).'</description>';
             $xml .= '</item>';
         }
 
