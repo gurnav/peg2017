@@ -579,16 +579,91 @@ footer p{
 
 @media(max-width: 1050px){
 
+    .triple_items .item {
+        width: 95%;
+    }
+
+    .triple_items .item:nth-child(2) {
+        margin: 5% 0%;
+    }
+
+    .img_list div {
+        width: 31%;
+    }
+
 }
 
 /* Responsive Tablet */
 
 @media(max-width: 800px){
 
+    #my_zoom #Close{
+        top: 10px;
+        right: 1%;
+    }
+
+    header #burger_menu{
+        display: block;
+        background: rgba(0,0,0,0.4);
+        text-align: center;
+        font-size: 2rem;
+        color: white;
+        font-weight: bold;
+    }
+
+    header .on{
+        color: #a0a0a0 !important;
+        background: black !important;
+    }
+
+    header .nav_bar{
+        display: block;
+        width: 100%;
+        position: absolute;
+        -webkit-transform: translate3d(0,-500px,0);
+        transform: translate3d(0,-500px,0);
+        transition: all 0.3s;
+        z-index: 999;
+        background: rgba(0,0,0,0.4);
+    }
+    header .nav_bar li {
+        display: block;
+        margin: 2%;
+    }
+    header .nav_bar li:last-child {
+        margin: 2%;
+    }
+
+    header .nav_bar li a {
+        padding: 1% 0%;
+        display: block;
+    }
+
+    .open{
+        -webkit-transform: translate3d(0,0,0) !important;
+        transform: translate3d(0,0,0) !important;
+    }
+
+    .img_list div {
+        width: 48%;
+    }
+
+    .form_user {
+        width: 70%;
+    }
+
 }
 
 /* Responsive Phone */
 
 @media (max-width: 450px){
+
+    .img_list div {
+        width: 98%;
+    }
+
+    .form_user {
+        width: 90%;
+    }
 
 }

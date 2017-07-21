@@ -1,20 +1,27 @@
 $( document ).ready(function() {
 
-	// Zoom image when click on the button
+    // Burger Menu
 
-	$(".img_list div").click(function(){
-		$("#my_zoom img").attr("src",$(this).children('img').attr("src"));
-		$("#my_zoom").show();
-	});
+    $("#burger_menu").click(function(){
+        $("#burger_menu").toggleClass('on');
+        $("#nav_bar").toggleClass('open');
+    });
 
-	$("#Close").click(function(){
-		$("#my_zoom").hide();
-	});
+    // Zoom image when click on the button
+
+    $(".img_list div").click(function(){
+        $("#my_zoom img").attr("src",$(this).children('img').attr("src"));
+        $("#my_zoom").show();
+    });
+
+    $("#Close").click(function(){
+        $("#my_zoom").hide();
+    });
 
 
-	// Replace all Text Area with ckeditor
-	if ($(".super_editor").length){
-		CKEDITOR.replace( 'textarea' );
-	}
+    // Replace all Text Area with ckeditor
+    if ($(".super_editor").length){
+        CKEDITOR.replace( 'textarea' );
+    }
 
 });
