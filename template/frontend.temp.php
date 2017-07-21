@@ -53,7 +53,7 @@
 <footer>
     <div id="footer">
         <ul class="menu">
-            <li><a href="#">Help</a></li>
+            <li><a href="<?php echo PATH_RELATIVE.'help' ?>">Help</a></li>
             <li><a href="#">Terms of Use</a></li>
             <li><a href="<?php echo PATH_RELATIVE.'cgu' ?>">CGU</a></li>
             <li><a href="<?php echo PATH_RELATIVE.'contact' ?>">Contact</a></li>

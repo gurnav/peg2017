@@ -42,6 +42,23 @@
       ];
     }
 
+    public static function ContactForm()
+    {
+      return [
+          "options" => [
+              "method"=>"POST",
+              "action"=>"contact/contact",
+              "id"=>"contact_user",
+              "enctype"=>"multipart/form-data",
+              "submit"=>"Send"
+          ],
+          "struct" => [
+              "user_email"=>[ "label"=>"Your Email : ", "type"=>"email", "placeholder"=>"Email", "required"=>"required", "i_class"=>"fa fa-envelope", "errors_msg"=>""],
+              "msg"=>[ "label"=>"Your Message : ", "type"=>"textarea", "placeholder"=>"Your Message here", "required"=>"required", "errors_msg"=>""]
+          ]
+      ];
+    }
+
 
     public static function loginUserForm()
     {
