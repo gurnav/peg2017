@@ -7,14 +7,14 @@
     <div class="filters">
         <div class="content">
             <form name="filter_form" action="" method="get" id="filter_form_artistes">
-
-
+                <i class="fa fa-search" aria-hidden="true"></i>
                 <label>Trier par type</label>
                 <select name="type">
                     <option value="all" <?php if(!empty($_GET['type']) && $_GET['type'] == 'all' ) { echo 'selected'; } ?>>All</option>
                     <option value="news" <?php if(!empty($_GET['type']) && $_GET['type'] == 'electro' ) { echo 'selected'; } ?>>News</option>
                     <option value="article" <?php if(!empty($_GET['type']) && $_GET['type'] == 'pop' ) { echo 'selected'; } ?>>Articles</option>
                     <option value="page" <?php if(!empty($_GET['type']) && $_GET['type'] == 'rock' ) { echo 'selected'; } ?>>Pages</option>
+
                 </select>
 
                 <select name="type">

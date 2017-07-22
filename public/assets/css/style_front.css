@@ -32,8 +32,18 @@ header .menu{
     position: relative;
 }
 
-header #home{
+#home{
     height: 100vh;
+}
+
+#home div h1{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    left: 0;
+    text-align: center;
+    color: white;
 }
 
 header .nav_bar{
@@ -62,16 +72,6 @@ header .nav_bar li a{
 
 header .nav_bar li a:hover{
     background: rgba(255,255,255,0.15);
-}
-
-header #home div h1{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 0;
-    left: 0;
-    text-align: center;
-    color: white;
 }
 
 /* Universal */

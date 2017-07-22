@@ -5,9 +5,9 @@
 
     <div id="banner">
         <div class="inner">
-            <div>
+            <!--<div>
                 <h1>ESGI-Geographic</h1>
-            </div>
+            </div>-->
         </div>
     </div>
 
@@ -18,17 +18,17 @@
                 <p class="content_title"><i class="fa fa-server" aria-hidden="true"></i> Articles</p>
             </div>
             <div>
-                <?php foreach ($articles as $article): ?>
-                        <article class="item">
-                            <header>
-                                <h2><?php echo $article->title; ?></h2>
-                                <!-- <span></span> -->
-                            </header>
-                                <a href="<?php echo BASE_URL.'contents/'.$article->type.'/'.$article->id; ?>">
-                                <img src="<?php echo UPLOADS_DIR_CONTENTS.$article->thumbnail; ?>">
-                            </a>
-                        </article>
-                <?php endforeach; ?>
+            <?php foreach ($articles as $article): ?>
+                    <article class="item">
+                        <header>
+                            <h2><?php echo $article->title; ?></h2>
+                            <!-- <span></span> -->
+                        </header>
+                            <a href="<?php echo BASE_URL.'contents/'.$article->type.'/'.$article->id; ?>">
+                            <img src="<?php echo UPLOADS_DIR_CONTENTS.$article->thumbnail; ?>">
+                        </a>
+                    </article>
+            <?php endforeach; ?>
             </div>
             <div class="linkto">
                 <p class="content_link"><a href="<?php echo BASE_URL.'contents/all_articles' ?>">View  More</a></p>
