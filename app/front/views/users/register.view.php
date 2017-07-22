@@ -31,12 +31,15 @@
 
 			<?php if($attribute['type'] === 'radio'): ?>
 				<div>
-					<i class="<?php echo $attribute['i_class']; ?>" aria-hidden="true"></i>
-					<?php foreach ($attribute['value'] as $value => $rights): ?>
-	                  <input
-	                  type="<?php echo $attribute['type']; ?>" name="<?php echo $name; ?>"
-	                  value="<?php echo $rights; ?>" <?php if($attribute['checked'] == $rights) echo "checked"; ?>
-	                  ><?php echo $value; ?>
+                    <label><i class="<?php echo $attribute['i_class']; ?>" aria-hidden="true"></i> Newsletter</label>
+                    <?php foreach ($attribute['value'] as $value => $rights): ?>
+                      <div class="radio_newsletter">
+                        <input
+                        type="<?php echo $attribute['type']; ?>" name="<?php echo $name; ?>"
+                        value="<?php echo $rights; ?>" <?php if($attribute['checked'] == $rights) echo "checked"; ?>
+                        >
+                        <?php echo $value; ?>
+                      </div>
 	                <?php endforeach; ?>
 				</div>
  		    <?php endif; ?>

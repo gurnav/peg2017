@@ -802,6 +802,7 @@ section{
         text-align: center;
         font-size: 2rem;
         color: #bec1d0;
+        cursor: pointer;
     }
 
     .on{

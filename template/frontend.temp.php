@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'css'.DS.'style_front.css' ?>" media="screen">
 
     <link rel="stylesheet" href="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'css'.DS.'main.css' ?>" />
-    <link rel="stylesheet" href="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'css'.DS.'modal.css' ?>" />
 
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
@@ -29,7 +28,6 @@
             <li><a href="<?php echo BASE_URL.'contents/all_articles' ?>">Articles</a></li>
             <li><a href="<?php echo BASE_URL.'contents/all_news' ?>">News</a></li>
             <li><a href="<?php echo BASE_URL.'contents/all_pages' ?>">Pages</a></li>
-			<li><a href="<?php echo BASE_URL.'contents/gallery' ?>">Gallery</a></a></li>
             <?php if (isset($_SESSION['user'])): ?>
                 <?php if ($_SESSION['user']['type'] === 'admin'): ?>
                     <li><a href="<?php echo BASE_URL.'admin';?>">Admin</a></li>

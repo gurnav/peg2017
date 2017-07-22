@@ -10,14 +10,6 @@
 	format("truetype"),url("../fonts/px/pxcf26.svg?-isqnsc#px")
 	format("svg")}
 
-html,body,div,span,applet,object,iframe,h1,h2,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video
-{
-	margin:0;
-	padding:0;
-	border:0;
-	font-size:100%;
-	font:inherit;
-vertical-align:baseline}
 
 article,footer,header,menu,nav,section
 {
@@ -42,29 +34,8 @@ body
 body
 {
 	background:#e8e8e8;
-min-width:320px}
-
-body.is-loading *,body.is-loading *:before,body.is-loading *:after
-{
-	-moz-transition:none !important;
-	-webkit-transition:none !important;
-	-ms-transition:none !important;
-	transition:none !important;
-	-moz-animation:none !important;
-	-webkit-animation:none !important;
-	-ms-animation:none !important;
-animation:none !important}
-
-body.is-resizing *,body.is-resizing *:before,body.is-resizing *:after
-{
-	-moz-transition:none !important;
-	-webkit-transition:none !important;
-	-ms-transition:none !important;
-	transition:none !important;
-	-moz-animation:none !important;
-	-webkit-animation:none !important;
-	-ms-animation:none !important;
-animation:none !important}
+	min-width:320px
+}
 
 body,input,select,textarea
 {
@@ -103,20 +74,6 @@ letter-spacing:-0.01em}
 	font-size:11.5pt}
 }
 
-a
-{
-	-moz-transition:color .15s ease-in-out,border-color .15s ease-in-out;
-	-webkit-transition:color .15s ease-in-out,border-color .15s ease-in-out;
-	-ms-transition:color .15s ease-in-out,border-color .15s ease-in-out;
-	transition:color .15s ease-in-out,border-color .15s ease-in-out;
-	color:#52cbee;
-	text-decoration:none;
-	border-bottom:dotted 1px}
-
-a:hover
-{
-	color:#52cbee !important;
-border-bottom-color:transparent !important}
 
 strong,b
 {
@@ -127,9 +84,6 @@ em,i
 {
 font-style:italic}
 
-p,ul,ol,dl,table,blockquote
-{
-margin:0 0 2em 0}
 
 h1,h2,h4,h5,h6
 {
@@ -137,7 +91,8 @@ h1,h2,h4,h5,h6
 	font-weight:400;
 	line-height:1.75em;
 	margin-bottom:1em;
-color:#555}
+    color:#555
+}
 
 h1 a,h2 a,h4 a,h5 a,h6 a
 {
@@ -311,17 +266,6 @@ opacity:1.0}
 {
 opacity:1.0}
 
-.item
-{
-	position:relative;
-	background:#fff;
-	border-radius:4px;
-	width:25%;
-	max-width:30em;
-	display:inline-block;
-	margin:1.5em;
-	border:solid 0.35em #fff;
-cursor:default}
 
 .item header
 {

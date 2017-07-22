@@ -44,7 +44,7 @@ header .nav_bar{
 header .nav_bar li{
     list-style: none;
     display: inline-block;
-    margin-right: 2%;
+    /*margin-right: 2%;*/
 }
 
 header .nav_bar li:last-child{
@@ -99,12 +99,55 @@ header #home div h1{
     overflow: auto;
 }
 
+.triple_items .title{
+    margin-bottom: 2%;
+    text-align: left;
+}
+
+.triple_items .title .content_title{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.triple_items .linkto{
+    margin-top: 2%;
+    margin-bottom: 5%;
+}
+
+.triple_items .linkto .content_link{
+    text-align: center;
+}
+
+.triple_items .linkto a{
+    text-decoration: none;
+    background: inherit;
+    color: #662200;
+    border-radius: 5px;
+    border: solid 2px #662200;
+    padding: 1%;
+    display: block;
+    width: 15%;
+    font-size: 1.2rem;
+    margin: auto;
+    text-transform: uppercase;
+}
+
+.triple_items .linkto a:hover {
+    transition: 0.5s;
+    color: white;
+    background: #662200;
+}
+
 .triple_items .item{
     width: 30%;
     float: left;
     background: white;
     border-radius: 4px;
     border: solid 5px transparent;
+}
+
+.triple_items div{
+    overflow: auto;
 }
 
 .triple_items .item header{
@@ -125,8 +168,9 @@ header #home div h1{
 }
 
 /*.triple_items .item:nth-child(2){
-    margin: 0 4%;
+    margin: 0 3%;
 }*/
+
 
 /* connection back */
 
@@ -232,6 +276,7 @@ header #home div h1{
     background: #f1f1f1;
     border: none;
     width: 100%;
+    color: black;
 }
 
 .form_user>div{
@@ -243,7 +288,7 @@ header #home div h1{
     background: #f1f1f1;
 }
 
-.form_user div i{
+.form_user div>i{
     font-size: 1.2rem;
     position: absolute;
     top: 0;
@@ -251,6 +296,16 @@ header #home div h1{
     left: 0;
     padding-top: 2%;
     padding-left: 2%;
+}
+
+.form_user div label{
+    display: block;
+    font-size: 1.2rem;
+    padding: 3%;
+}
+
+.form_user div label i{
+    margin-right: 5%;
 }
 
 .form_user>div .editor_span{
@@ -399,6 +454,7 @@ header #home div h1{
     background: white;
     border-radius: 4px;
     border: solid 5px transparent;
+    overflow: auto;
 }
 
 .resume_profil header{
@@ -412,23 +468,34 @@ header #home div h1{
     font-weight: 400;
 }
 
-.resume_profil .public{
-    overflow: auto;
-    width: 50%;
-    margin: auto;
-}
-
 .resume_profil .public img{
-    display: inline-block;
-    width: 42%;
-    margin: 0 5%;
-    vertical-align: middle;
+    float: right;
+    width: 40%;
 }
 
 .resume_profil .public p{
-    display: inline-block;
-    vertical-align: middle;
     font-size: 1.5rem;
+    margin-bottom: 3%;
+}
+
+.resume_profil .public p a{
+    text-decoration: none;
+    background: inherit;
+    color: #662200;
+    border-radius: 5px;
+    border: solid 2px #662200;
+    padding: 1%;
+    display: block;
+    width: 22%;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.resume_profil .public p a:hover{
+    transition: 0.5s;
+    color: white;
+    background: #662200;
 }
 
 .resume_profil .public span{
@@ -438,6 +505,8 @@ header #home div h1{
 
 .resume_profil .public{
     overflow: auto;
+    width: 50%;
+    float: left;
 }
 
 .resume_profil .private p{
@@ -562,6 +631,89 @@ header #home div h1{
     color: #a0a0a0;
 }
 
+/* FILTERS  */
+.filters{
+    background-color: rgba(0,0,0,0.9);
+    color: #FFF;
+    padding: 20px 0px;
+    width: 80%;
+    display: block;
+    margin: 20px auto 40px auto;
+    border-radius: 10px;
+}
+.filters form{
+    margin: 0;
+    text-align: center;
+}
+.filters select{
+    background-color: rgb(10,10,10);
+    border: 1px solid #222;
+    color: #FFF;
+    padding: 8px 16px;
+    line-height: 20px;
+    margin-right: 20px;
+    -webkit-appearance: none;
+    padding-right: 36px;
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    border-radius: 0px;
+}
+.filters .text{
+    background-color: rgb(10,10,10);
+    border: 1px solid #222;
+    color: #FFF;
+    padding: 8px 16px;
+    line-height: 20px;
+    margin-right: 20px;
+    -webkit-appearance: none;
+    padding-right: 36px;
+}
+
+input[type=text] {
+    width: 130px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    background-color: rgb(10,10,10);
+    border: 1px solid #222;
+    color: #FFF;
+    padding: 8px 16px;
+    line-height: 20px;
+    margin-right: 20px;
+    -webkit-appearance: none;
+    padding-right: 36px;
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    border-radius: 0px;
+}
+
+.filters .submit{
+    padding: 0.6%;
+    width: 15%;
+    border: 1px solid #222;
+    background: inherit;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.filters .submit:hover{
+    background: #e8e8e8;
+    color: #000;
+}
+
+.form_user div .radio_newsletter input{
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    background: #f1f1f1;
+    border: none;
+    width: initial;
+    margin-bottom: 3%;
+}
+
+.form_user div .radio_newsletter{
+    text-align: center;
+}
+
 /* Footer */
 
 footer{
@@ -580,15 +732,22 @@ footer p{
 @media(max-width: 1050px){
 
     .triple_items .item {
-        width: 95%;
+        width: 70%;
+        display: block;
+        margin: auto;
+        float: initial;
     }
 
     .triple_items .item:nth-child(2) {
-        margin: 5% 0%;
+        margin: 5% auto;
     }
 
     .img_list div {
         width: 31%;
+    }
+
+    .triple_items .linkto a{
+        width: 25%;
     }
 
 }
@@ -609,6 +768,7 @@ footer p{
         font-size: 2rem;
         color: white;
         font-weight: bold;
+        cursor: pointer;
     }
 
     header .on{
@@ -620,8 +780,8 @@ footer p{
         display: block;
         width: 100%;
         position: absolute;
-        -webkit-transform: translate3d(0,-500px,0);
-        transform: translate3d(0,-500px,0);
+        -webkit-transform: translate3d(0,-550px,0);
+        transform: translate3d(0,-550px,0);
         transition: all 0.3s;
         z-index: 999;
         background: rgba(0,0,0,0.4);
@@ -652,6 +812,95 @@ footer p{
         width: 70%;
     }
 
+    .triple_items .linkto a{
+        width: 35%;
+        padding-top: 3%;
+        padding-bottom: 3%;
+    }
+
+    /* FILTERS  */
+    .filters{
+        background-color: rgba(0,0,0,0.9);
+        color: #FFF;
+        padding: 20px 0px;
+        width: 80%;
+        display: block;
+        margin: 20px auto 40px auto;
+        border-radius: 10px;
+    }
+    .filters form{
+        margin: 0;
+        text-align: center;
+    }
+    .filters select{
+        width: 40%;
+        background-color: rgb(10,10,10);
+        border: 1px solid #222;
+        color: #FFF;
+        padding: 8px 16px;
+        line-height: 20px;
+        -webkit-appearance: none;
+        padding-right: 36px;
+        background-repeat: no-repeat;
+        background-position: right 8px center;
+        border-radius: 0;
+        display: block;
+        margin: 2% auto;
+    }
+    .filters .text{
+        background-color: rgb(10,10,10);
+        border: 1px solid #222;
+        color: #FFF;
+        padding: 8px 16px;
+        line-height: 20px;
+        margin-right: 20px;
+        -webkit-appearance: none;
+        padding-right: 36px;
+    }
+
+    input[type=text] {
+        width: 40%;
+        -webkit-transition: width 0.4s ease-in-out;
+        transition: width 0.4s ease-in-out;
+        background-color: rgb(10,10,10);
+        border: 1px solid #222;
+        color: #FFF;
+        padding: 8px 16px;
+        line-height: 20px;
+        -webkit-appearance: none;
+        padding-right: 36px;
+        background-repeat: no-repeat;
+        background-position: right 8px center;
+        border-radius: 0;
+        display: block;
+        margin: 2% auto;
+    }
+
+    .filters .submit{
+        padding: 3% 0;
+        width: 40%;
+        border: 1px solid #222;
+        background: inherit;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+
+    .filters .submit:hover{
+        background: #e8e8e8;
+        color: #000;
+    }
+
+    .resume_profil .public{
+        text-align: center;
+        width: 100%;
+    }
+    .resume_profil .public img{
+        float: initial;
+    }
+
+    .resume_profil .public p a{
+        margin: auto;
+    }
 }
 
 /* Responsive Phone */
@@ -664,6 +913,88 @@ footer p{
 
     .form_user {
         width: 90%;
+    }
+
+    .triple_items .linkto a{
+        width: 45%;
+        padding-top: 3%;
+        padding-bottom: 3%;
+    }
+
+    /* FILTERS  */
+    .filters{
+        background-color: rgba(0,0,0,0.9);
+        color: #FFF;
+        padding: 20px 0px;
+        width: 80%;
+        display: block;
+        margin: 20px auto 40px auto;
+        border-radius: 10px;
+    }
+    .filters form{
+        margin: 0;
+        text-align: center;
+    }
+    .filters select{
+        width: 40%;
+        background-color: rgb(10,10,10);
+        border: 1px solid #222;
+        color: #FFF;
+        padding: 8px 16px;
+        line-height: 20px;
+        -webkit-appearance: none;
+        padding-right: 36px;
+        background-repeat: no-repeat;
+        background-position: right 8px center;
+        border-radius: 0;
+        display: block;
+        margin: 2% auto;
+    }
+    .filters .text{
+        background-color: rgb(10,10,10);
+        border: 1px solid #222;
+        color: #FFF;
+        padding: 8px 16px;
+        line-height: 20px;
+        margin-right: 20px;
+        -webkit-appearance: none;
+        padding-right: 36px;
+    }
+
+    input[type=text] {
+        width: 40%;
+        -webkit-transition: width 0.4s ease-in-out;
+        transition: width 0.4s ease-in-out;
+        background-color: rgb(10,10,10);
+        border: 1px solid #222;
+        color: #FFF;
+        padding: 8px 16px;
+        line-height: 20px;
+        -webkit-appearance: none;
+        padding-right: 36px;
+        background-repeat: no-repeat;
+        background-position: right 8px center;
+        border-radius: 0;
+        display: block;
+        margin: 2% auto;
+    }
+
+    .filters .submit{
+        padding: 3% 0;
+        width: 40%;
+        border: 1px solid #222;
+        background: inherit;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+
+    .filters .submit:hover{
+        background: #e8e8e8;
+        color: #000;
+    }
+
+    .resume_profil .public p a{
+        width: 32%;
     }
 
 }
