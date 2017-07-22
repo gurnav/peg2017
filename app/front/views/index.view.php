@@ -5,9 +5,9 @@
 
     <div id="banner">
         <div class="inner">
-            <ul class="actions big">
-                <li><a href="#" class="button big scrolly">Start</a></li>
-            </ul>
+            <div>
+                <h1>ESGI-Geographic</h1>
+            </div>
         </div>
     </div>
 

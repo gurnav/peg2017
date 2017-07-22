@@ -757,6 +757,14 @@ section{
     color: #a0a0a0;
 }
 
+.only_mobile{
+    display: none;
+}
+
+.only_desktop{
+    display: inherit;
+}
+
 
 /* Responsive Little screen */
 
@@ -806,8 +814,8 @@ section{
         height: inherit;
         width: 100%;
         position: absolute;
-        -webkit-transform: translate3d(0,-600px,0);
-        transform: translate3d(0,-600px,0);
+        -webkit-transform: translate3d(0,-850px,0);
+        transform: translate3d(0,-850px,0);
         transition: all 0.3s;
         z-index: 999;
         background: white;
@@ -871,6 +879,14 @@ section{
 
     .information_panel .statistics_bis{
         width: 94%;
+    }
+
+    .only_mobile{
+        display: inherit;
+    }
+
+    .only_desktop{
+        display: none;
     }
 }
 

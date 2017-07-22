@@ -14,20 +14,22 @@
                 <th>Description</th>
                 <th>Date Publication</th>
                 <th>Username</th>
+                <th>Action</th>
             </tr>
             </thead>
             <tbody>
             <?php foreach ($categories as $category): ?>
+                <tr>
                 <td><?php echo $category['id']; ?></td>
                 <td><?php echo $category['name']; ?></td>
                 <td><?php echo $category['description']; ?></td>
                 <td><?php echo $category['date_inserted']; ?></td>
                 <td><?php echo $category['username']; ?></td>
 
-                <a href="<?php echo BASE_URL.'admin/categories/update/'.$category['id']; ?>"><button title="Modify"><i class="fa fa-cogs" aria-hidden="true"></i></button></a>
-
-                <!--<a href="<?php echo BASE_URL.'admin/categories/delete/'.$category['id']; ?>"><button title="Delete"><i class="fa fa-times" aria-hidden="true"></i></button></a>-->
-                <button class="Delete" title="Delete" value="<?php echo BASE_URL.'admin/categories/delete/'.$category['id']; ?>"><i class="fa fa-times" aria-hidden="true"></i></button>
+                <td><span class="done"> Done </span>
+                    <a href="<?php echo BASE_URL.'admin/categories/update/'.$category['id']; ?>"><button title="Modify"><i class="fa fa-cogs" aria-hidden="true"></i></button></a>
+                    <button class="Delete" title="Delete" value="<?php echo BASE_URL.'admin/categories/delete/'.$category['id']; ?>"><i class="fa fa-times" aria-hidden="true"></i></button>
+                </td>
                 </tr>
             <?php endforeach ?>
             </tbody>

@@ -29,11 +29,9 @@
 
         <div class="super_editor">
             <span class="editor_span">Message :</span>
-            <input type="<?php echo $attribute['type']; ?>" name="<?php echo $name; ?>"
-                <?php if(isset($attribute["placeholder"])) echo "placeholder=\"".$attribute["placeholder"]."\" " ?>
+            <textarea name="<?php echo $name; ?>" id="textarea" rows="10" cols="80"
                 <?php if(isset($attribute["required"])) echo "required=\"".$attribute["required"]."\" " ?>
-                <?php if(isset($attribute['value'])) echo "value=\"".$attribute['value']."\" " ?>
-               id="textarea" rows="10" cols="80">
+            ><?php if(isset($attribute['value'])) echo "value=\"".$attribute['value']."\" " ?></textarea>
         </div>
 
         <input class="validate" type="submit" value="<?php echo $user_form["options"]['submit']; ?>">
@@ -41,9 +39,7 @@
 </div>
 
 <?php if (isset($errors)): ?>
-    <?php for($i = 0; $i < count($errors); $i += 1): ?>
         <div class="simple_error">
-            <p><?php echo $errors[$i] ?></p>
+            <p><?php echo $errors ?></p>
         </div>
-    <?php endfor ?>
 <?php endif ?>

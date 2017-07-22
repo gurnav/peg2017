@@ -22,8 +22,8 @@
 <noscript>JavaScript is Disabled. Please put it on.</noscript>
 
 <header>
-    <div id="burger_menu">≡</div>
     <div class="menu">
+        <div id="burger_menu">≡</div>
         <nav id="nav_bar" class="nav_bar">
             <li><a href="<?php echo BASE_URL ?>">Home</a></li>
             <li><a href="<?php echo BASE_URL.'contents/all_articles' ?>">Articles</a></li>
@@ -35,7 +35,7 @@
                     <li><a href="<?php echo BASE_URL.'admin';?>">Admin</a></li>
                 <?php endif; ?>
                 <li><a href="<?php echo BASE_URL.'profile/show/'.$_SESSION['user']['username']; ?>">Profile</a></li>
-                <li><a href="<?php echo BASE_URL.'login/logout'; ?>"><button>log<i class="fa fa-power-off" aria-hidden="true"></i>ut</button></a></li>
+                <li><a href="<?php echo BASE_URL.'login/logout'; ?>">Log<i class="fa fa-power-off" aria-hidden="true"></i>ut</></a></li>
             <?php endif; ?>
             <?php if (!isset($_SESSION['user'])): ?>
                 <li><a href="<?php echo BASE_URL.'register' ?>">Register</a></li>
