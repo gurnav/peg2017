@@ -20,16 +20,14 @@
             <tbody>
             <?php foreach ($topics as $topic): ?>
                 <tr>
-                    <td><?php echo $topic['id']; ?></td>
-                    <td><?php echo $topic['name']; ?></td>
-                    <td><?php echo $topic['description']; ?></td>
-                    <td><?php echo $topic['username']; ?></td>
+                    <td><?php echo $topic->id; ?></td>
+                    <td><?php echo $topic->name; ?></td>
+                    <td><?php echo $topic->description; ?></td>
+                    <td><?php echo $topic->username; ?></td>
                     <td>
                     <span></span> <!--Bug affichage sans span dans le td-->
-                    <a href="<?php echo BASE_URL.'admin/topics/update/'.$topic['id']; ?>"><button title="Modify"><i class="fa fa-cogs" aria-hidden="true"></i></button></a>
-                        <button class="Delete" title="Delete" value="<?php echo BASE_URL.'admin/users/topics/'.$topic['id']; ?>"><i class="fa fa-times" aria-hidden="true"></i></button>
-
-                        <!--marche pas a finir regarder comment c fait sur content-->
+                    <a href="<?php echo BASE_URL.'admin/topics/update/'.$topic->id; ?>"><button title="Modify"><i class="fa fa-cogs" aria-hidden="true"></i></button></a>
+                        <button class="Delete" title="Delete" value="<?php echo BASE_URL.'admin/topics/delete/'.$topic->id; ?>"><i class="fa fa-times" aria-hidden="true"></i></button>
                     </td>
                 </tr>
             <?php endforeach ?>
@@ -41,4 +39,3 @@
     </div>
 
 </section>
-

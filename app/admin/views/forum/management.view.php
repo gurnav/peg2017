@@ -1,4 +1,4 @@
-<section class="information_panel">  <!-- Pb affichage des petite datatable-->
+<section class="information_panel">
 
     <div class="path">
         <p><i class="fa fa-home" aria-hidden="true"></i> > Forum Management</p>
@@ -35,14 +35,18 @@
                 </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($messages as $message): ?>
+                <?php $i = 0;
+                foreach ($messages as $message): ?>
                     <tr>
-                        <td><?php echo $message['id']; ?></td>
-                        <td><?php echo $message['username']; ?></td>
-                        <td><?php echo $message['threadname']; ?></td>
-                        <td><?php echo $message['content']; ?></td>
-
+                        <td><?php echo $message->id; ?></td>
+                        <td><?php echo $message->username; ?></td>
+                        <td><?php echo $message->threadname; ?></td>
+                        <td><?php echo $message->content; ?></td>
                     </tr>
+                    <?php
+                        $i++;
+                        if ($i === 10) break;
+                    ?>
                 <?php endforeach ?>
                 </tbody>
             </table>
@@ -64,15 +68,19 @@
                 </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($threads as $thread): ?>
+                <?php $i = 0;
+                foreach ($threads as $thread): ?>
                     <tr>
-                        <td><?php echo $thread['id']; ?></td>
-                        <td><?php echo $thread['title']; ?></td>
-                        <td><?php echo $thread['description']; ?></td>
-                        <td><?php echo $thread['username']; ?></td>
-                        <td><?php echo $thread['topicname']; ?></td>
-
+                        <td><?php echo $thread->id; ?></td>
+                        <td><?php echo $thread->title; ?></td>
+                        <td><?php echo $thread->description; ?></td>
+                        <td><?php echo $thread->username; ?></td>
+                        <td><?php echo $thread->topicname; ?></td>
                     </tr>
+                    <?php
+                        $i++;
+                        if ($i === 10) break;
+                    ?>
                 <?php endforeach ?>
                 </tbody>
             </table>
@@ -93,13 +101,18 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <?php foreach ($topics as $topic): ?>
+                    <?php $i = 0;
+                    foreach ($topics as $topic): ?>
                         <tr>
-                            <td><?php echo $topic['id']; ?></td>
-                            <td><?php echo $topic['name']; ?></td>
-                            <td><?php echo $topic['description']; ?></td>
-                            <td><?php echo $topic['username']; ?></td>
+                            <td><?php echo $topic->id; ?></td>
+                            <td><?php echo $topic->name; ?></td>
+                            <td><?php echo $topic->description; ?></td>
+                            <td><?php echo $topic->username; ?></td>
                         </tr>
+                        <?php
+                            $i++;
+                            if ($i === 10) break;
+                        ?>
                     <?php endforeach ?>
                     </tbody>
                 </table>

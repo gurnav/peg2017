@@ -26,11 +26,26 @@
     public function indexAction()
     {
         $v = new View('contents/contents', 'admin');
-        $contents = Contents::getAll(true);
+        $contents = Contents::getAllContentsWithUsersAndContents();
 
-        for($i = 0; $i < count($contents); $i += 1) {
-            $contents[$i]["username"] = Users::getUsernameById($contents[$i]["users_id"]);
+        $v->assign('contents', $contents);
+    }
+
+    /**
+     * Function for searching in all content
+     * @return Void
+     */
+    public function search()
+    {
+        $v = new View('contents/contents', 'admin');
+
+        if (!empty($_POST['search'])) {
+            $search = $_POST['search'];
+        } else {
+            header('Location: '.BASE_URL.'contents/contents');
         }
+
+        $contents = Contents::searchInContents($search, $_POST['type'], $_POST['contents_type']);
 
         $v->assign('contents', $contents);
     }
@@ -88,15 +103,13 @@
           $id_content = $id_content[0];
           $content = $content->populate(['id' => $id_content]);
 
-          /*Helpers::debugVar($content);
-          die();*/
-
           $admin_register_content = ModalsFactory::getUpdateContentForm($id_content);
           $admin_register_content['struct']['status']['selected'] = $content->getStatus();
           $admin_register_content['struct']['title']['value'] = $content->getTitle();
           $admin_register_content['struct']['category']['value'] = $content->getCategoryNameById();
           $admin_register_content['struct']['content']['value'] = $content->getContent();
           $admin_register_content['struct']['category']['selected'] = $content->getCategoryNameById($content->getCategories_id());
+          $admin_register_content['struct']['thumbnails']['value'] = $content->getThumbnails_id();
 
           $temp_categories = Categories::getAll();
 
@@ -175,6 +188,16 @@
           }
 
           try {
+              if ($_POST['thumbnails'] != '0') {
+                  $content->setThumbnails_id(intval($_POST['thumbnails']));
+              } else {
+                  array_push($_SESSION['errors'], "You have to select a thumbnails");
+              }
+          } catch (\Exception $e) {
+              array_push($_SESSION['errors'], $e->getMessage());
+          }
+
+          try {
               if(empty($_SESSION['errors']))
                   $content->save();
           } catch (\Exception $e) {
@@ -228,6 +251,16 @@
 
           try {
               $content->setType($_POST['type']);
+          } catch (\Exception $e) {
+              array_push($_SESSION['errors'], $e->getMessage());
+          }
+
+          try {
+              if ($_POST['thumbnails'] != '0') {
+                  $content->setThumbnails_id(intval($_POST['thumbnails']));
+              } else {
+                  array_push($_SESSION['errors'], "You have to select a thumbnails");
+              }
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }

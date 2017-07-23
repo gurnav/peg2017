@@ -116,6 +116,29 @@
           return $this->users_id;
       }
 
+
+      /**
+       * Retrieve all topics with their associeted users_id
+       *
+       * @param topics_id The id of the topic that we want further information
+       * @return All topics with their associeted users
+       */
+      public static function getAllTopicsWithUsers($topics_id=null, $one=false) {
+          $qb = new QueryBuilder();
+          $query = "SELECT *, (SELECT COUNT(*) FROM ".DB_PREFIX."threads WHERE "
+            .DB_PREFIX."threads.topics_id = ".(($topics_id===null)?DB_PREFIX."topics.id":$topics_id)
+            ." AND ".DB_PREFIX."threads.deleted = 0 ) AS nbthreads
+          FROM ".DB_PREFIX."topics
+          INNER JOIN (SELECT id AS uid, username, img FROM hbv_users) AS usr ON usr.uid = ".DB_PREFIX."topics.users_id
+          WHERE ( ".DB_PREFIX."topics.deleted = 0";
+          if ($topics_id != null) {
+              $query .= " AND ".DB_PREFIX."topics.id = ".$topics_id;
+          }
+          $query .= " ) ORDER BY ".DB_PREFIX."topics.date_updated, ".DB_PREFIX."topics.date_inserted DESC";
+
+          return $qb->query($query, null, $one);
+      }
+
       /**
        * Simple getter of the Category name by id
        * @return string $category_name the name of the linked category
@@ -129,5 +152,17 @@
       }
 
 
+      public static function getTopicById($id) {
+          $qb = new QueryBuilder();
+          $query = $qb->select('*')
+              ->from(DB_PREFIX."topics")
+              ->where("id = '".$id."'")
+              ->where("deleted = 0");
+
+          // $query .= " ORDER BY date_inserted, date_inserted DESC";
+
+          $topic = $qb->query($query, null, false);
+          return $topic;
+      }
 
   }

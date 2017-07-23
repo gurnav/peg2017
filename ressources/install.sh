@@ -1,9 +1,15 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-if [ "$#" -ne 3 ] || [ "$1" == "--help" ]; then
-    echo "Usage: `basename $0` [HOST] [SITE_NAME] [MYSQL_USER]"
+if [ "$#" -ne 4 ] || [ "$1" == "--help" ]; then
+    echo "Usage: `basename $0` [HOST] [SITE_NAME] [MYSQL_USER] [MYSQL_PWD]"
     exit 0
 fi
+
+host=$1
+site_name=$2
+mysql_user=$3
+mysql_pwd=$4
+
 
 # Create needed directory
 echo "Create needed directory"
@@ -22,25 +28,26 @@ unzip ressources/zip/font-awesome.zip -d public/assets/css
 mv public/assets/images/avatar.png uploads/users
 
 # Configure conf.inc.php
-echo "Configure the web app"
+echo "Configuring the web app"
 sed -i '2,4d' conf.inc.php
-echo define("HOST", "\"$1\""); >> conf.inc.php
-echo define("SITE_NAME", "\"$2\""); >> conf.inc.php
+echo define("HOST", "\"${host}\"") >> conf.inc.php
+echo define("SITE_NAME", "\"${site_name}\"") >> conf.inc.php
 
 # Install PHP dependencies
-echo "Install PHP dependencies"
+echo "Installing PHP dependencies"
 composer install
 
 # Install JS plugins
-echo "Install JS plugins"
+echo "Installing JS plugins"
 git clone https://github.com/spantaleev/ckeditor-imagebrowser.git public/assets/js/plugins/imagebrowser
 
 # Install the Database
-echo "Install the Database"
-mysql -u $3 -p esgiGeographik < ressources/database/esgiGeographik.sql
+echo "Installing the Database"
+mysql --user="${mysql_user}" --password="${mysql_pwd}" esgiGeographik < ressources/database/esgiGeographik.sql
 
 # Give the good rights
 echo "Giving good rights to files"
+find . -name "*.php" -exec chmod +x {} \;
 find app -name "*.php" -exec chmod +x {} \;
 find core -name "*.php" -exec chmod +x {} \;
 

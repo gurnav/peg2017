@@ -19,13 +19,13 @@
             <tbody>
             <?php foreach ($comments as $comment): ?>
                 <tr>
-                    <td><?php echo $comment['id']; ?></td>
-                    <td><?php echo $comment['content']; ?></td>
-                    <td><?php echo $comment['date_inserted']; ?></td>
-                    <td><?php echo $comment['contentname']; ?></td>
-                    <td><?php echo $comment['username']; ?></td>
-                    <a href="<?php echo BASE_URL.'admin/comments/update/'.$comment['id']; ?>"><button title="Modify"><i class="fa fa-cogs" aria-hidden="true"></i></button></a>
-                    <a href="<?php echo BASE_URL.'admin/comments/delete/'.$comment['id']; ?>"><button class="Delete" title="Delete"><i class="fa fa-times" aria-hidden="true"></i></button></a>
+                    <td><?php echo $comment->id; ?></td>
+                    <td><?php echo $comment->content; ?></td>
+                    <td><?php echo $comment->date_inserted; ?></td>
+                    <td><?php echo $comment->contentname; ?></td>
+                    <td><?php echo $comment->username; ?></td>
+                    <a href="<?php echo BASE_URL.'admin/comments/update/'.$comment->id; ?>"><button title="Modify"><i class="fa fa-cogs" aria-hidden="true"></i></button></a>
+                    <a href="<?php echo BASE_URL.'admin/comments/delete/'.$comment->id; ?>"><button class="Delete" title="Delete"><i class="fa fa-times" aria-hidden="true"></i></button></a>
                 </tr>
             <?php endforeach ?>
             </tbody>
@@ -34,5 +34,4 @@
         <button class="view_more">view more</button>
 
     </div>
-
 </section>

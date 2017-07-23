@@ -21,7 +21,7 @@
       public function indexAction()
       {
           $v = new View('contents/all_contents');
-          $contents = Contents::getAll(true);
+          $contents = Contents::getContentsWithUsers();
           $v->assign('contents', $contents);
           $v->assign('type', 'contents');
       }
@@ -33,7 +33,7 @@
       public function all_articlesAction()
       {
           $v = new View('contents/all_contents');
-          $contents = Contents::getAllByType('article', true);
+          $contents = Contents::getContentsWithUsers('article');
           $v->assign('contents', $contents);
           $v->assign('type', 'articles');
       }
@@ -69,7 +69,7 @@
       public function all_newsAction()
       {
           $v = new View('contents/all_contents');
-          $contents = Contents::getAllByType('news', true);
+          $contents = Contents::getContentsWithUsers('news');
           $v->assign('contents', $contents);
           $v->assign('type', 'news');
       }
@@ -105,7 +105,7 @@
       public function all_pagesAction()
       {
           $v = new View('contents/all_contents');
-          $contents = Contents::getAllByType('page', true);
+          $contents = Contents::getContentsWithUsers('page');
           $v->assign('contents', $contents);
           $v->assign('type', 'pages');
       }
@@ -178,6 +178,24 @@
           $url = (!isset($_SERVER["HTTP_REFERER"]))?BASE_URL:$_SERVER["HTTP_REFERER"];
           header('Location: '.$url);
 
+      }
+
+      /**
+       * Function for searching in all content
+       * @return Void
+       */
+      public function search()
+      {
+          $v = new View('contents/all_contents');
+
+          if (!empty($_POST['search'])) {
+              $search = $_POST['search'];
+          } else {
+              header('Location: '.BASE_URL.'contents/all_contents');
+          }
+
+          $contents = Contents::searchInContents($search, $_POST['type'], $_POST['contents_type']);;
+          $v->assign('contents', $contents);
       }
 
   }

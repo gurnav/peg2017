@@ -152,5 +152,93 @@
         }
 
 
+        public static function getThreadsNameByTopicId($id)
+        {
+            $qb = new QueryBuilder();
+            $query = "SELECT title from ".DB_PREFIX."threads WHERE topics_id = '".$id."'";
+            $thread = $qb->query($query, null, true);
+            return $thread->title;
+
+        }
+
+        public static function getThreadById($id) {
+            $qb = new QueryBuilder();
+            $query = $qb->select('*')
+                ->from(DB_PREFIX."threads")
+                ->where("id = '".$id."'")
+                ->where("deleted = 0");
+
+            // $query .= " ORDER BY date_inserted, date_inserted DESC";
+
+            $topic = $qb->query($query, null, false);
+            return $topic;
+        }
+
+        public static function getAllThreadsByTopicId($id) {
+            $qb = new QueryBuilder();
+            $query = $qb->select('*')
+                ->from(DB_PREFIX."threads")
+                ->where("topics_id ='".$id."'")
+                ->where("deleted = 0");
+           	// $query = "SELECT * from ".DB_PREFIX."threads WHERE topics_id = '".$id."' AND deleted = 0";
+        	$query .= " ORDER BY date_inserted, date_inserted DESC";
+
+            $threads = $qb->query($query, null, false);
+            return $threads;
+        }
+
+
+        public static function getNbThreadByTopicId($id) {
+
+            $qb = new QueryBuilder();
+            $query = $qb->select('count(*) as nombre')  //20
+                ->from(DB_PREFIX."threads")
+                ->where("topics_id ='".$id."'")
+                ->where("deleted = 0");
+           	// $query = "SELECT COUNT(id) from ".DB_PREFIX."threads WHERE topics_id = '".$id."' AND deleted = 0";
+
+            $query .= " ORDER BY date_inserted, date_inserted DESC";
+
+            $nbthreads = $qb->query($query, null, false);
+            return $nbthreads;
+        }
+
+		/**
+		 * Get All Threads with theirs associated users by topic id
+		 *
+		 */
+		public static function getThreadByTopicIdWithUser($topics_id, $one=false) {
+
+			$qb = new QueryBuilder();
+            $query = "SELECT *,  (SELECT COUNT(*) FROM ".DB_PREFIX."messages WHERE "
+				.DB_PREFIX."messages.threads_id = ".DB_PREFIX."threads.id AND ".DB_PREFIX."messages.deleted = 0) AS nbmsg
+  		  	FROM ".DB_PREFIX."threads
+            INNER JOIN (SELECT id AS uid, username, img FROM hbv_users) AS usr ON usr.uid = ".DB_PREFIX."threads.users_id
+			WHERE ( ".DB_PREFIX."threads.topics_id = ".$topics_id." AND ".DB_PREFIX."threads.deleted = 0 )".
+            " ORDER BY ".DB_PREFIX."threads.date_updated, ".DB_PREFIX."threads.date_inserted DESC";
+
+            return $qb->query($query, null, $one);
+        }
+
+		/**
+         * Retrieve all threds with their associeted users_id
+         *
+         * @return All threads with their associeted users
+         */
+        public static function getAllThreadsWithUsers($threads_id=null, $one=false) {
+            $qb = new QueryBuilder();
+            $query = "SELECT *,  (SELECT COUNT(*) FROM ".DB_PREFIX."messages WHERE "
+  		  	.DB_PREFIX."messages.threads_id = ".(($threads_id===null)?DB_PREFIX."threads.id":$threads_id)
+  			." AND ".DB_PREFIX."messages.deleted = 0) AS nbmsg
+  		  	FROM ".DB_PREFIX."threads
+            INNER JOIN (SELECT id AS uid, username, img FROM hbv_users) AS usr ON usr.uid = ".DB_PREFIX."threads.users_id
+  		  	WHERE ( ".DB_PREFIX."threads.deleted = 0";
+  		  if ($threads_id != null) {
+                $query .= " AND ".DB_PREFIX."threads.id = ".$threads_id;
+            }
+            $query .= " ) ORDER BY ".DB_PREFIX."threads.date_updated, ".DB_PREFIX."threads.date_inserted DESC";
+
+            return $qb->query($query, null, $one);
+        }
 
     }

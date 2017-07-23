@@ -29,14 +29,6 @@
           $v->assign('comments', $comments);
           $v->assign('contents', $contents);
 
-
       }
-
-      public function welcomeAction()
-      {
-          echo "Welcome !<br>";
-      }
-
-
 
   }

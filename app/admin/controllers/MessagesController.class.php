@@ -13,20 +13,11 @@ use Core\Util\Helpers;
 class MessagesController extends Controller
 {
 
-
     public function indexAction()
     {
 
         $v = new View('forum/messages','admin');
-        $messages = Messages::getAll();
-
-        for($i =0;$i < count($messages);$i++)
-        {
-            $messages[$i]["username"] = Users::getUsernameById($messages[$i]["users_id"]);
-            $messages[$i]["threadname"] = Messages::getThreadnameById($messages[$i]["threads_id"]);
-
-
-        }
+        $messages = Messages::getAllMessagesWithUsersAndThreads();
         $v->assign("messages", $messages);
 
         if(!empty($_SESSION['errors'])) {
@@ -63,14 +54,16 @@ class MessagesController extends Controller
     {
         $v = new View('forum/add_message','admin');
         $message = new Messages();
+
         $id_message = $id_message[0];
         $message = $message->populate(['id' => $id_message]);
+
         $admin_register_message = ModalsFactory::getUpdateMessageForm($id_message);
         $admin_register_message['struct']['content']['value'] = $message->getContent();
 
         $threads = Threads::getAll();
 
-        for($i =0;$i < count($threads);$i++)
+        for($i = 0; $i < count($threads); $i++)
         {
             $admin_register_message['struct']['thread']['value'][]=  $threads[$i]["title"];
         }
@@ -123,8 +116,6 @@ class MessagesController extends Controller
             array_push($_SESSION['errors'], $e->getMessage());
         }
 
-
-
         try {
             if(empty($_SESSION['errors']))
                 $message->save();
@@ -172,9 +163,6 @@ class MessagesController extends Controller
             array_push($_SESSION['errors'], $e->getMessage());
         }
 
-
-
-
         try {
             if(empty($_SESSION['errors']))
                 $message->save();
@@ -191,7 +179,3 @@ class MessagesController extends Controller
         }
     }
 }
-/*  Helpers::debugVar($message->getThreadIdByName($_POST['thread']));
-        Helpers::debugVar($message);
-        Helpers::debugVar($_SESSION);
-        die();*/

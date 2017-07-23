@@ -2,6 +2,8 @@
 namespace App\Admin\Models;
 use App\Composite\Models\Content;
 use App\Composite\Traits\Models\GetAllDataTrait;
+use Core\Database\QueryBuilder;
+
 /**
  *  Contents class for managing contents in the back end
  */
@@ -13,10 +15,10 @@ class Contents extends Content
      * @return Void
      */
     public function __construct($id=-1, $title='', $content='', $status='0',
-                                $type='page', $isCommentable='0', $isLikeable='0', $categories_id=-1, $users_id=-1)
+                                $type='page', $isCommentable='0', $isLikeable='0', $categories_id=-1, $thumbnails_id=0, $users_id=-1)
     {
         parent::__construct($id, $title, $content, $status, $type, $isCommentable, $isLikeable,
-            $categories_id, $users_id);
+            $categories_id, $thumbnails_id, $users_id);
     }
     /**
      * Simple getter of the Category name by id
@@ -36,5 +38,21 @@ class Contents extends Content
         $query = "SELECT id from ".DB_PREFIX."categories WHERE name = '".$name."'";
         $content_id = $this->qb->query($query, null, true);
         return $content_id->id;
+    }
+
+    /**
+     * Get all contents with theirs associaeted users
+     *
+     * @return Array of contents with their associated users
+     */
+    public static function getAllContentsWithUsersAndContents() {
+        $qb = new QueryBuilder();
+        $query = "SELECT * FROM ".DB_PREFIX."contents"
+          ." INNER JOIN (SELECT id AS uid, username FROM ".DB_PREFIX."users) AS users_table
+          ON ".DB_PREFIX."contents.users_id = users_table.uid
+          WHERE ".DB_PREFIX."contents.deleted = 0
+          ORDER BY date_updated, date_inserted";
+
+        return $qb->query($query, null, false);
     }
 }

@@ -16,13 +16,9 @@
     public function indexAction()
     {
         $v = new View('categories/categories', 'admin');
-        $categories = Categories::getAll();
 
-        for($i = 0; $i < count($categories); $i += 1)
-        {
-            $categories[$i]["username"] = Users::getUsernameById($categories[$i]["users_id"]);
-        }
-        //Helpers::debugVar($categories);
+        $categories = Categories::getAllCategoriesWithUsers();
+
         $v->assign('categories', $categories);
 
         if(!empty($_SESSION['errors'])) {

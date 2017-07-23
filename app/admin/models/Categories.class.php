@@ -95,4 +95,20 @@
       public function getDescription(){
           return $this->description;
       }
+
+      /**
+       * Get all categories with theirs associaeted users 
+       *
+       * @return Array of categories with their associated users
+       */
+      public static function getAllCategoriesWithUsers() {
+          $qb = new QueryBuilder();
+          $query = "SELECT * FROM ".DB_PREFIX."categories"
+            ." INNER JOIN (SELECT id AS uid, username FROM ".DB_PREFIX."users) AS users_table
+            ON ".DB_PREFIX."categories.users_id = users_table.uid
+            WHERE ".DB_PREFIX."categories.deleted = 0
+            ORDER BY date_inserted";
+
+          return $qb->query($query, null, false);
+      }
   }

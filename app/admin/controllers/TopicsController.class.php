@@ -16,18 +16,9 @@
 
     public function indexAction()
     {
-
         $v = new View('forum/topics','admin'); // utiliser un template (admin)
-        $topics = Topics::getAll();
-
-        for($i =0;$i < count($topics);$i++)
-        {
-            $topics[$i]["username"] = Users::getUsernameById($topics[$i]["users_id"]);
-
-        }
-
+        $topics = Topics::getAllTopicsWithUsers();
         $v->assign("topics", $topics);
-
     }
 
     public function addAction()
@@ -185,7 +176,3 @@
       }
 
   }
-
- /* Helpers::debugVar($topic);
-  Helpers::debugVar($_SESSION);
-  die();*/

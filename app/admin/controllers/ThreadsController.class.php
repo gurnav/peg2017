@@ -18,16 +18,7 @@ class ThreadsController extends Controller
 
         $v = new View('forum/threads','admin');
         $threads = Threads::getAll();
-
-
-        for($i =0;$i < count($threads);$i++)
-        {
-            $threads[$i]["username"] = Users::getUsernameById($threads[$i]["users_id"]);
-            $threads[$i]["topicname"] = Threads::getTopicnameById($threads[$i]["topics_id"]);
-
-
-        }
-
+        $threads =Threads::getAllThreadsWithUserAndTopics();
         $v->assign("threads", $threads);
 
 
@@ -211,10 +202,4 @@ class ThreadsController extends Controller
 
 
 
-
-
 }
-/*   Helpers::debugVar($thread->getTopicIdByName($_POST['topic']));
-        Helpers::debugVar($thread);
-        Helpers::debugVar($_SESSION);
-        die();*/

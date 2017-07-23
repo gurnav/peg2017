@@ -105,9 +105,9 @@
           $img_id = trim($img[0]);
 
           try {
-              $multimedia = $multimedia->populate(['id' => $img_source]);
-              $multimedia->delete();
-              // unlink(UPLOADS_DIR_CONTENTS.$multimedia->getPath());
+              $multimedia = $multimedia->populate(['id' => $img_id]);
+              $multimedia->delete(true);
+              unlink(UPLOADS_DIR_CONTENTS.$multimedia->getPath());
           } catch (\Exception $e) {
               array_push($_SESSION['errors'], $e->getMessage());
           }

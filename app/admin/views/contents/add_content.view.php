@@ -58,6 +58,21 @@
 
                 <?php endif; ?>
 
+                <?php if($attribute['type'] === 'hidden'): ?>
+                    <div>
+                        <span id='span_label'><?php echo $attribute["label"]; ?> : </span><br>
+                        <button type="button" id="browse_thumbnails" name="thumbnails_browse">Browse thumbails</button>
+                        <input
+                                type="<?php echo $attribute['type']; ?>" name="<?php echo $name; ?>"
+                                id="<?php echo $attribute['id']; ?>"
+                            <?php if(isset($attribute['value'])) echo "value=\"".$attribute['value']."\" " ?>
+                        >
+                        <br>
+                        <div id="browser_t"></div>
+                    </div>
+
+                <?php endif; ?>
+
             <?php endforeach; ?>
 
             <input type="submit" value="<?php echo $admin_register_content["options"]['submit']; ?>">

@@ -16,7 +16,7 @@
      * @param Boolean $order_by_date Allow to order the result by date
      * @return Contents Array : $contents All contents in the database
      */
-    public static function getAll($order_by_date=false)
+    public static function getAll($order_by_date=false, $limit=0)
     {
       $qb = new QueryBuilder();
       // $class = get_class($this);
@@ -25,6 +25,9 @@
       $query = $qb->select('*')->from(DB_PREFIX.lcfirst($class_name))->where("deleted = 0");
       if ($order_by_date === true) {
           $query .= " ORDER BY date_updated, date_inserted DESC";
+      }
+      if ($limit !== 0) {
+          $query .= " LIMIT ".$limit;
       }
       return $qb->query($query, $class_name);
     }
