@@ -19,7 +19,6 @@
             </thead>
             <tbody>
             <?php foreach ($comments as $comment): ?>
-                <>
                     <td><?php echo $comment->id; ?></td>
                     <td><?php echo $comment->content; ?></td>
                     <td><?php echo $comment->date_inserted; ?></td>
