@@ -60,7 +60,9 @@
 
                 <?php if($attribute['type'] === 'hidden'): ?>
                     <div>
-                        <span id='span_label'><?php echo $attribute["label"]; ?> : </span><br>
+                        <p id='span_label'><?php echo $attribute["label"]; ?> : </p>
+                        <img id="choosen_image" src="" alt="">
+                        <br>
                         <button type="button" id="browse_thumbnails" name="thumbnails_browse">Browse thumbails</button>
                         <input
                                 type="<?php echo $attribute['type']; ?>" name="<?php echo $name; ?>"

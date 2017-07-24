@@ -12,13 +12,11 @@
                 <th><?php echo $topics->name ?></th>
                 <th>Description :<?php echo $topics->description ?></th>
                 <th>Number of Threads :<?php echo $topics->nbthreads ?></th>
+                <th>Creation Date : <?php echo $topics->date_inserted ?> </th>
                 <th><div class="profil_area">
                         <h4>Created by <?php echo $topics->username ?></h4>
-                        <img src="<?php echo ROUTE_DIR_USERS.$topics->img; ?>">
-                        <!--<img src="img/test.jpg">-->
                     </div>
                 </th>
-                <th>in <?php echo $topics->date_inserted ?></th>
             </tr>
             </tr>
             </thead>
@@ -31,8 +29,6 @@
                 <td>Creation Date : <?php echo $threads[$j]->date_inserted ?> </td>
                     <td><div class="profil_area">
                             <h4>Created by <?php echo $threads[$j]->username ?></h4>
-                            <img src="<?php echo ROUTE_DIR_USERS.$threads[$j]->img; ?>">
-                            <!--<img src="img/test.jpg">-->
                         </div>
                     </td>
                 </tr>

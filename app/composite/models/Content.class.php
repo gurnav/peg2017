@@ -275,6 +275,14 @@
       return $this->thumbnails_id;
     }
 
+    /**
+     * Get all contents matching a certains research
+     *
+     * @param $search The string searched
+     * @param $search_type Where we should search in the contents
+     * @param $contents_type The contents type to search
+     * @return Array of Contents object
+     */
     public static function searchInContents($search, $search_type, $contents_type) {
         $qb = new QueryBuilder();
         if ($search_type === 'title') {

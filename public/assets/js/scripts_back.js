@@ -25,8 +25,7 @@ $( document ).ready(function() {
         let images;
         for (i = 0; i < json_thumbails.length; i++) {
             images += "<img src='" + json_thumbails[i]['path'] + "' alt='" + json_thumbails[i]['name']
-                + "' width='100' height='100' class='selected_img' data-id='" + json_thumbails[i]['id'] +
-                "' style='cursor: pointer;' />";
+                + "' class='selected_img' data-id='" + json_thumbails[i]['id'] + "' />";
         }
         $("#browser_t").append(images);
         $("#browser_t").hide();
@@ -38,8 +37,8 @@ $( document ).ready(function() {
     $(document).on('click', 'img.selected_img', function() {
         $('#content_thumbnails').val($(this).attr('data-id'));
         $("#browser_t").hide('slow');
-        console.log(document.getElementById("span_label").innerHTML);
-        document.getElementById("span_label").innerHTML = 'Choose your thumbnails : ' + $(this).attr('alt');
+        $("#choosen_image").attr('src', $(this).attr('src')) ;
+        $("#choosen_image").attr('alt', $(this).attr('alt'));
     });
 
     // Add active class to link when click

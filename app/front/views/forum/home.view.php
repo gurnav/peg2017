@@ -16,8 +16,6 @@
                 <th>Creation Date : <?php echo $topics[$i]->date_inserted ?></th>
                 <th><div class="profil_area">
                     <h4>Created by <?php echo $topics[$i]->username ?></h4>
-                        <img src="<?php echo ROUTE_DIR_USERS.$topics[$i]->img; ?>">
-                        <!--<img src="img/test.jpg">-->
                     </div>
                 </th>
             </tr>

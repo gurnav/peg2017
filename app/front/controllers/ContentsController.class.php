@@ -184,7 +184,7 @@
        * Function for searching in all content
        * @return Void
        */
-      public function search()
+      public function searchAction()
       {
           $v = new View('contents/all_contents');
 
