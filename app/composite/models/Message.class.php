@@ -64,7 +64,7 @@
        */
       public function setThreadsId($threadsId)
       {
-          if (is_int($threadsId)) {
+          if (is_numeric($threadsId)) {
               $this->threads_id = $threadsId;
           } else {
               Helpers::log("A non integer type for a categories id in a content have tried to be inserted in the DB");

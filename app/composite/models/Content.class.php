@@ -125,7 +125,7 @@
      */
     public function setStatus($status)
     {
-      if($status == '0' || $status == '1') {
+      if(is_numeric($status)) {
         $this->status = $status;
       } else {
         Helpers::log("A non boolean type for a content status have tried to be inserted in the DB");
@@ -230,7 +230,7 @@
      */
     public function setCategories_id($categoriesId)
     {
-      if(is_int($categoriesId))
+      if(is_numeric($categoriesId))
       {
         $this->categories_id = $categoriesId;
       } else {
@@ -257,7 +257,7 @@
      */
     public function setThumbnails_id($thumbnails_id)
     {
-      if(is_int($thumbnails_id))
+      if(is_numeric($thumbnails_id))
       {
         $this->thumbnails_id = $thumbnails_id;
       } else {

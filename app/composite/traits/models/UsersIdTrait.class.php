@@ -20,7 +20,7 @@
      */
     public function setUsers_id($usersId)
     {
-      if(is_int($usersId))
+      if(is_numeric($usersId))
       {
         $this->users_id = $usersId;
       } else {

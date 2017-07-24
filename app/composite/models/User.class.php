@@ -251,7 +251,7 @@
       */
       public function setRights($rights)
       {
-        if(is_int($rights))
+        if(is_numeric($rights))
         {
           $this->rights = $rights;
         } else {
@@ -278,7 +278,7 @@
        */
       public function setStatus($setStatus)
       {
-        if(is_int($setStatus))
+        if(is_numeric($setStatus))
         {
           $this->status = $setStatus;
         } else {
@@ -305,7 +305,7 @@
       */
      public function setNewsletters($setNewsletters)
      {
-       if(is_int($setNewsletters))
+       if(is_numeric($setNewsletters))
        {
          $this->newsletters = $setNewsletters;
        } else {

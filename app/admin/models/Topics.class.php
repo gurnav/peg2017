@@ -103,7 +103,7 @@
 
       public function setUsers_id($userId)
       {
-          if(is_int($userId))
+          if(is_numeric($userId))
           {
               $this->users_id = $userId;
           } else {

@@ -76,7 +76,7 @@
        */
       public function setTopicsId($topicsId)
       {
-          if (is_int($topicsId)) {
+          if (is_numeric($topicsId)) {
               $this->topics_id = $topicsId;
           } else {
               Helpers::log("A non integer type for a topic id in a thread have tried to be inserted in the DB");

@@ -237,9 +237,9 @@
        */
       public function setCategories_id($categoriesId)
       {
-        if(is_int($categoriesId))
+        if(is_numeric($categoriesId))
         {
-          $this->categories_id = $categories_id;
+          $this->categories_id = $categoriesId;
         } else {
           Helpers::log("A non integer type for a categories id in a content have tried to be inserted in the DB");
           throw new \Exception("You can't enter a non integer type for a categories id of a content");

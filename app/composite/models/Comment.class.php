@@ -78,7 +78,7 @@
        */
       public function setContents_id($contents_id)
       {
-          if (is_int($contents_id)) {
+          if (is_numeric($contents_id)) {
               $this->contents_id = $contents_id;
           } else {
               Helpers::log("A non integer type for a categories id in a content have tried to be inserted in the DB");
