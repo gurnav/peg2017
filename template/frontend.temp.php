@@ -28,6 +28,7 @@
             <li><a href="<?php echo BASE_URL.'contents/all_articles' ?>">Articles</a></li>
             <li><a href="<?php echo BASE_URL.'contents/all_news' ?>">News</a></li>
             <li><a href="<?php echo BASE_URL.'contents/all_pages' ?>">Pages</a></li>
+            <li><a href="<?php echo BASE_URL.'forum' ?>">Forum</a></a></li>
             <?php if (isset($_SESSION['user'])): ?>
                 <?php if ($_SESSION['user']['type'] === 'admin'): ?>
                     <li><a href="<?php echo BASE_URL.'admin';?>">Admin</a></li>
@@ -79,6 +80,6 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'js'.DS.'scripts_front.js' ?>"></script>
-<script src="https://cdn.ckeditor.com/4.6.2/basic/ckeditor.js"></script>
+<script src="https://cdn.ckeditor.com/4.7.1/basic/ckeditor.js"></script>
 </body>
 </html>

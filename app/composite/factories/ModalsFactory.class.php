@@ -271,6 +271,8 @@
                 "status" => ["label" => "Choose status", "type" => "select", "name" => "status", "id" => "add_status", "placeholder" => "status", "value" => [["name" => "Rejected", "value" => "-1"], ["name" => "Pending", "value" => "0"], ["name" => "Validated", "value" => "1"]] ,"required" => 0, "msgerror" => ""],
 
                 "content" => ["label" => "The content", "type" => "textarea", "id" => "content_add_article", "placeholder" => "Description of your article", "required" => 0, "errors_msg" => ""],
+
+                "thumbnails" => ["label" => "Choose your thumbnails", "type" => "hidden", "id" => "content_thumbnails", "value" => "0"]
             ]
         ];
     }
@@ -293,6 +295,9 @@
                   "status" => ["label" => "Choose status", "type" => "select", "name" => "status", "id" => "add_status", "placeholder" => "status", "value" => [["name" => "Rejected", "value" => "-1"], ["name" => "Pending", "value" => "0"], ["name" => "Validated", "value" => "1"]] ,"required" => 0, "msgerror" => ""],
 
                   "content"=>[ "label"=>"The content : ", "type"=>"textarea", "placeholder"=>"Content", "required"=>"required" ],
+
+                  "thumbnails" => ["label" => "Choose your thumbnails", "type" => "hidden", "id" => "content_thumbnails"]
+
               ]
           ];
       }

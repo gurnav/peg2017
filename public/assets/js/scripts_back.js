@@ -1,15 +1,47 @@
 $( document ).ready(function() {
 
     // Burger Menu
-
     $("#burger_menu").click(function(){
         $("#burger_menu").toggleClass('on');
         $("#nav_bar").toggleClass('open');
     });
 
+    // Thumbnails browser
+    $('#browse_thumbnails').one("click", function() {
+        let json_thumbails;
+        $.ajax({
+            type: 'GET',
+            url: "thumbnails_json",
+            dataType: 'json',
+            async: false,
+            error: function (msg, string) {
+                alert('Error : ' + string);
+            },
+            success: function (reponse) {
+                json_thumbails = reponse;
+            }
+        });
+
+        let images;
+        for (i = 0; i < json_thumbails.length; i++) {
+            images += "<img src='" + json_thumbails[i]['path'] + "' alt='" + json_thumbails[i]['name']
+                + "' class='selected_img' data-id='" + json_thumbails[i]['id'] + "' />";
+        }
+        $("#browser_t").append(images);
+        $("#browser_t").hide();
+
+    });
+    $('#browse_thumbnails').click( function() {
+        $("#browser_t").toggle('slow');
+    });
+    $(document).on('click', 'img.selected_img', function() {
+        $('#content_thumbnails').val($(this).attr('data-id'));
+        $("#browser_t").hide('slow');
+        $("#choosen_image").attr('src', $(this).attr('src')) ;
+        $("#choosen_image").attr('alt', $(this).attr('alt'));
+    });
 
     // Add active class to link when click
-
     $(function(){
 
         var url = window.location.pathname,
@@ -26,7 +58,6 @@ $( document ).ready(function() {
 
 
     // Fake Loader Screen
-
     setTimeout(function(){
         $('#loader').css("display","none");
     }, 2000);
@@ -54,13 +85,15 @@ $( document ).ready(function() {
 
 
     // Replace all Text Area with ckeditor
-    if ($(".super_editor").length){
-        // var CKEDITOR_BASEPATH = '127.0.0.1/esgi-geographic/public/assets/plugins';
-        CKEDITOR.plugins.addExternal( 'imageuploader', '/esgi-geographic/public/assets/js/plugins/imageuploader/', 'plugin.js' );
-        // extraPlugins needs to be set too.
-        CKEDITOR.replace( 'textarea', {
-            extraPlugins: 'imageuploader'
-        });
+	if ($(".super_editor").length) {
+		let url = document.URL.split("/");
+		CKEDITOR.plugins.addExternal("imagebrowser",
+			"/" + url[3] + "/public/assets/js/plugins/imagebrowser/", "plugin.js")
+		// extraPlugins needs to be set too.
+		CKEDITOR.replace( 'textarea', {
+			'extraPlugins': 'imagebrowser',
+			'imageBrowser_listUrl': '/' + url[3] + '/admin/contents/browse_multimedias_ckeditor'
+        } );
     }
 
     if ($("#chartdiv1").length){

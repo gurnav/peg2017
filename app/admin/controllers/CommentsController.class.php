@@ -14,12 +14,8 @@ class CommentsController extends Controller
     public function indexAction()
     {
         $v = new View('comments/comments', 'admin');
-        $comments = Comments::getAll(true);
-        for($i = 0; $i < count($comments); $i += 1)
-        {
-            $comments[$i]["username"] = Users::getUsernameById($comments[$i]["users_id"]);
-            $comments[$i]["contentname"] = Comments::getContentNameById($comments[$i]["contents_id"]);
-        }
+        $comments = Comments::getAllCategoriesWithUsersAndContents();
+
         $v->assign('comments', $comments);
         if(!empty($_SESSION['errors'])) {
             $v->assign('errors',$_SESSION['errors']);

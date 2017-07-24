@@ -238,6 +238,96 @@ header .nav_bar li a:hover{
     border-radius: 2px;
 }
 
+/* Forum */
+
+.list_subject{
+	overflow: auto;
+	width: 70%;
+	margin: auto;
+	margin-top: 2%;
+	background: white;
+}
+
+.list_subject h2{
+	padding: 3%;
+	padding-bottom: 0;
+}
+
+.list_subject table{
+	 overflow: auto;
+	 width: 95%;
+	 margin: 2%;
+	 border: solid 1px #036f8c;
+	 border-radius: 5px;
+	 border-collapse: separate;
+	border-spacing: 0;
+ }
+
+.list_subject thead{
+	overflow: auto;
+	width: 95%;
+	margin: 2%;
+	border: solid 1px #036f8c;
+	border-radius: 3px;
+}
+.list_subject table thead tr{
+	position: relative;
+	background: #036f8c;
+	color: white;
+	margin-bottom: 100px;
+}
+
+.list_subject table thead tr th:first-child{
+
+
+}
+.list_subject table thead tr th {
+	padding: 9px 6px ;
+
+}
+
+.list_subject table thead tr th a{
+	color: white;
+	display: block;
+	padding: 9px 6px ;
+	margin-bottom: 12%;
+}
+
+.list_subject table tbody tr{
+	position: relative;
+	border-bottom: solid 1px #a0a0a0;
+}
+
+.list_subject table tbody tr:nth-child(2n){
+	background-color: rgba(3,111,140,0.5);
+
+}
+
+.list_subject table tbody tr td {
+	padding: 9px 6px;
+}
+
+
+.list_subject table tbody tr td a{
+	color: black;
+	display: block;
+	margin: 9px 6px;
+}
+
+.list_subject .back_link{
+	margin: 3%;
+	width: 97%;
+}
+
+.list_subject .back_link a{
+	color: #a0a0a0;
+}
+
+.list_subject thead {
+    max-width: 20%;
+}
+
+
 /* Connexion/Inscription */
 
 .form_user{

@@ -21,10 +21,10 @@
        * @return Void
        */
       public function __construct($id=-1, $title='', $content='', $status='0',
-      $type='page', $isCommentable='0', $isLikeable='0', $categories_id=-1, $users_id=-1)
+      $type='page', $isCommentable='0', $isLikeable='0', $categories_id=-1, $thumbnails_id=0, $users_id=-1)
       {
         parent::__construct($id, $title, $content, $status, $type, $isCommentable, $isLikeable,
-            $categories_id, $users_id);
+            $categories_id, $thumbnails_id, $users_id);
       }
 
 
@@ -69,11 +69,23 @@
     }
 
 
-    public static function getLastThreeContents($content_type)
+    /**
+     * Get last three contents
+     *
+     * @param $content_type the type of the content you want to retrieve
+     * @param $limit The number of content you want to retrieve
+     * @return Return an array of contents
+     */
+    public static function getContentsWithUsers($content_type="", $limit=0)
     {
         $qb = new QueryBuilder();
-        $query = "SELECT * FROM ".DB_PREFIX."contents WHERE (type='".$content_type
-            ."' AND deleted=0 AND status=1) ORDER BY 'date_inserted' LIMIT 3";
+        $query = "SELECT * FROM ".DB_PREFIX."contents
+        INNER JOIN (SELECT id AS iid, name, path AS thumbnails FROM ".DB_PREFIX."multimedias) AS multimedias_table
+        ON ".DB_PREFIX."contents.thumbnails_id = multimedias_table.iid
+        WHERE (".((empty($content_type))?"":DB_PREFIX."contents.type='".$content_type."' AND ")
+            .DB_PREFIX."contents.deleted=0 AND ".DB_PREFIX."contents.status=1)
+        ORDER BY 'date_inserted' ".(($limit!==0)?"LIMIT ".$limit:"");
+
         return $qb->query($query, null, false);
     }
 

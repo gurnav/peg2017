@@ -105,13 +105,16 @@
      * @param id : Int the id of our data
      * @return void
      */
-    public function delete()
+    public function delete($deleted=false)
     {
         if ($this->getId() !== -1)
         {
-          // $query = $this->qb->delete()->from($this->getTable())->where('id='.$this->getId());
-          $query = "UPDATE ".$this->getTable()." SET deleted = 1 WHERE id = ".$this->getId();
-          $this->qb->query($query, get_class($this), true);
+            if ($deleted === true) {
+                $query = $this->qb->delete()->from($this->getTable())->where('id='.$this->getId());
+            } elseif ($deleted === false) {
+                $query = "UPDATE ".$this->getTable()." SET deleted = 1 WHERE id = ".$this->getId();
+            }
+            $this->qb->query($query, get_class($this), true);
         } else {
             Helpers::log("Impossible to delete the item => ".get_class($this).".");
             throw new \Exception("Impossible to delete the item");

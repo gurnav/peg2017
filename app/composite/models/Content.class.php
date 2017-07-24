@@ -25,6 +25,7 @@
     protected $isCommentable; // If the content is commentable
     protected $isLikeable; // If the content is likeable
     protected $categories_id; // The category of the content represented by its id
+    protected $thumbnails_id; // The image id which represent the thumbnails for a content
     protected $users_id; // The author of the content represented by its id
 
     /**
@@ -32,7 +33,8 @@
      * @return Void
      */
     public function __construct($id=-1, $title='', $content='', $status='0',
-    $type='page', $isCommentable='0', $isLikeable='0', $categories_id=-1, $users_id=-1)
+        $type='page', $isCommentable='0', $isLikeable='0', $categories_id=-1, $thumbnails_id=0,
+        $users_id=-1)
     {
       parent::__construct();
 
@@ -44,6 +46,7 @@
       $this->setIsCommentable($isCommentable);
       $this->setIsLikeable($isLikeable);
       $this->setCategories_id($categories_id);
+      $this->setThumbnails_id($thumbnails_id);
       $this->setUsers_id($users_id);
     }
 
@@ -217,6 +220,7 @@
     {
       return $this->isLikeable;
     }
+
     /**
      * Simple setter of the Categories id
      * Check if the categories id respect the integrity of the database
@@ -242,6 +246,63 @@
     public function getCategories_id()
     {
       return $this->categories_id;
+    }
+
+    /**
+     * Simple setter of the Categories id
+     * Check if the categories id respect the integrity of the database
+     * So whetever it's a integer or not
+     * @param Integer : $categories id The categories id to be set
+     * @return Void
+     */
+    public function setThumbnails_id($thumbnails_id)
+    {
+      if(is_int($thumbnails_id))
+      {
+        $this->thumbnails_id = $thumbnails_id;
+      } else {
+        Helpers::log("A non integer type for a thumbnails_id id in a content have tried to be inserted in the DB");
+        throw new \Exception("You can't enter a non integer type for a thumbnails id of a content");
+      }
+    }
+
+    /**
+     * Simple categories_id getter
+     * @return Integer $categories_id the id of the linked category
+     */
+    public function getThumbnails_id()
+    {
+      return $this->thumbnails_id;
+    }
+
+    /**
+     * Get all contents matching a certains research
+     *
+     * @param $search The string searched
+     * @param $search_type Where we should search in the contents
+     * @param $contents_type The contents type to search
+     * @return Array of Contents object
+     */
+    public static function searchInContents($search, $search_type, $contents_type) {
+        $qb = new QueryBuilder();
+        if ($search_type === 'title') {
+            $query =  'SELECT * FROM '.DB_PREFIX.'contents';
+            $query .= " INNER JOIN (SELECT id AS uid, username FROM ".DB_PREFIX."users) AS users_table
+            ON ".DB_PREFIX."contents.users_id = users_table.uid";
+            $query .= ' WHERE ( '.DB_PREFIX.'type = '.$contents_type.' AND '.DB_PREFIX.'title LIKE %'.$search.'%';
+            $query .= ' AND '.DB_PREFIX.'deleted = 0 AND '.DB_PREFIX.'status = 1 )';
+            $query .= ' ORDER BY '.DB_PREFIX.'date_updated, '.DB_PREFIX.'date_inserted DESC';
+        } elseif ($search_type === 'category') {
+            $query = "SELECT * FROM ".DB_PREFIX."contents
+                      INNER JOIN ".DB_PREFIX."categories ON ".DB_PREFIX."contents.categories_id = ".DB_PREFIX."categories.id
+                      INNER JOIN (SELECT id AS uid, username FROM ".DB_PREFIX."users) AS users_table
+                      ON ".DB_PREFIX."contents.users_id = users_table.uid
+                      WHERE ( ".DB_PREFIX."conents.type = ".$contents_type." AND ".DB_PREFIX."categories.name = ".$search." AND "
+                        .DB_PREFIX."contents.deleted = 0 AND ".DB_PREFIX."contents.status = 1)
+                      ORDER BY ".DB_PREFIX."contents.date_updated, ".DB_PREFIX."contents.date_inserted DESC";
+        }
+
+        return $qb->query($query, null, false);
     }
 
 

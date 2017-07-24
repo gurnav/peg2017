@@ -83,16 +83,18 @@
 
       public function setContent($content)
       {
-          if(is_string($content)) {
-              if(strlen($content) <= 65535) {
+          if(is_string($content))
+          {
+              if(strlen($content) <= 65535 )
+              {
                   $this->content = trim($content);
               } else {
                   Helpers::log("A word count superior to 65535 has tried to be created in a new message");
-                  throw new \Exception("You can't enter a content with a words count superior to 65535");
+                  throw new \Exception("You can't enter a message with a words count superior to 65535");
               }
           } else {
-              Helpers::log("A number has been entered as content in message n° : " . $this->getId());
-              throw new \Exception("You can't enter a number as a content !");
+              Helpers::log("A non string type has been entered as content in message n° : " . $this->getId());
+              throw new \Exception("You can't enter a non strong type as a massage !");
           }
       }
 
@@ -113,6 +115,53 @@
           $query = "SELECT id from ".DB_PREFIX."threads WHERE title = '".$title."'";
           $thread_id = $this->qb->query($query, null, true);
           return $thread_id->id;
+      }
+
+
+      public static function getNbMessageByThreadId($id) {
+
+          $qb = new QueryBuilder();
+          $query = $qb->select('count(*) as nombre')
+              ->from(DB_PREFIX."messages")
+              ->where("threads_id ='".$id."'")
+              ->where("deleted = 0");
+          //$query = "SELECT * from ".DB_PREFIX."threads WHERE topics_id = '".$id."' AND deleted = 0";
+
+          $query .= " ORDER BY date_inserted, date_inserted DESC";
+          $nbmessages = $qb->query($query, null, false);
+          return $nbmessages;
+      }
+
+      public static function getAllMessagesByThreadId($id) {
+
+          $qb = new QueryBuilder();
+          $query = $qb->select('*')
+              ->from(DB_PREFIX."messages")
+              ->where("threads_id ='".$id."'")
+              ->where("deleted = 0");
+          //$query = "SELECT * from ".DB_PREFIX."threads WHERE topics_id = '".$id."' AND deleted = 0";
+
+          $query .= " ORDER BY date_inserted, date_inserted DESC";
+
+          $messages = $qb->query($query, null, false);
+          return $messages;
+      }
+
+      /**
+       * Get all messages with theirs associated users for a specific threads
+       *
+       * @param threads_id The threads id
+       * @return An array of object
+       */
+      public static function getAllMessagesByThreadIdWithUser($threads_id) {
+
+          $qb = new QueryBuilder();
+          $query = "SELECT * FROM ".DB_PREFIX."messages
+          INNER JOIN (SELECT id AS uid, username, img FROM hbv_users) AS usr ON usr.uid = ".DB_PREFIX."messages.users_id
+          WHERE (".DB_PREFIX."messages.threads_id = ".$threads_id." AND deleted = 0 )".
+          " ORDER BY ".DB_PREFIX."messages.date_updated, ".DB_PREFIX."messages.date_inserted DESC";
+
+          return $qb->query($query, null, false);
       }
 
   }

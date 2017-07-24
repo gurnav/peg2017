@@ -50,7 +50,8 @@
               </tr>
               </thead>
               <tbody>
-              <?php foreach ($contents as $content): ?>
+              <?php $i = 0;
+              foreach ($contents as $content): ?>
                   <tr>
                       <td><?php echo $content['id']; ?></td>
                       <td><?php echo $content['title']; ?></td>
@@ -72,16 +73,15 @@
                       echo "<td><span class=".$status.">".ucfirst($status)."</span>";
                       ?>
                   </tr>
+                  <?php
+                      $i++;
+                      if ($i === 10) break;
+                  ?>
               <?php endforeach ?>
               </tbody>
           </table>
 
-          <button class="view_more">
-              <a href="<?php echo BASE_URL.'admin/contents'; ?>" style="
-                text-decoration: none;
-                color: white;
-            ">view more</a>
-          </button>
+        <input type="button" value="VIEW MORE" class="view_more" onclick="window.location.href='<?php echo BASE_URL.'admin/contents'; ?>';" />
 
       </div>
 
@@ -99,7 +99,8 @@
           </tr>
         </thead>
         <tbody>
-          <?php foreach ($users as $user): ?>
+          <?php $i = 0;
+          foreach ($users as $user): ?>
             <tr>
               <td><?php echo $user['id']; ?></td>
               <td><?php echo $user['firstname']; ?></td>
@@ -122,16 +123,16 @@
                     echo "<td><span class=".$status.">".ucfirst($status)."</span>";
                ?>
             </tr>
+            <?php
+                $i++;
+                if ($i === 10) break;
+            ?>
         <?php endforeach ?>
         </tbody>
       </table>
 
-      <button class="view_more">
-          <a href="<?php echo BASE_URL.'admin/users'; ?>" style="
-            text-decoration: none;
-            color: white;
-          ">view more</a>
-      </button>
+      <input type="button" value="VIEW MORE" class="view_more" onclick="window.location.href='<?php echo BASE_URL.'admin/users'; ?>';" />
+
 
     </div>
   </div>

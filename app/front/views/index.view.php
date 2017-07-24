@@ -4,11 +4,7 @@
 <div id="wrapper">
 
     <div id="banner">
-        <div class="inner">
-            <!--<div>
-                <h1>ESGI-Geographic</h1>
-            </div>-->
-        </div>
+        <div class="inner"></div>
     </div>
 
     <section id="items">
@@ -22,10 +18,9 @@
                     <article class="item">
                         <header>
                             <h2><?php echo $article->title; ?></h2>
-                            <!-- <span></span> -->
                         </header>
                             <a href="<?php echo BASE_URL.'contents/'.$article->type.'/'.$article->id; ?>">
-                            <img src="<?php echo UPLOADS_DIR_CONTENTS.$article->thumbnail; ?>">
+                            <img src="<?php echo ROUTE_DIR_CONTENTS.$article->thumbnails; ?>" alt="<?php echo $article->name; ?>">
                         </a>
                     </article>
             <?php endforeach; ?>
@@ -46,10 +41,9 @@
                     <article class="item">
                         <header>
                             <h2><?php echo $news->title; ?></h2>
-                            <!-- <span></span> -->
                         </header>
                         <a href="<?php echo BASE_URL.'contents/'.$news->type.'/'.$news->id; ?>">
-                            <img src="<?php echo UPLOADS_DIR_CONTENTS.$news->thumbnail; ?>">
+                            <img src="<?php echo ROUTE_DIR_CONTENTS.$news->thumbnails; ?>" alt="<?php echo $news->name; ?>">
                         </a>
                     </article>
                 <?php endforeach; ?>
@@ -73,7 +67,7 @@
                             <!-- <span></span> -->
                         </header>
                         <a href="<?php echo BASE_URL.'contents/'.$page->type.'/'.$page->id; ?>">
-                            <img src="<?php echo UPLOADS_DIR_CONTENTS.$page->thumbnail; ?>">
+                            <img src="<?php echo ROUTE_DIR_CONTENTS.$page->thumbnails; ?>" alt="<?php echo $page->name; ?>">
                         </a>
                     </article>
                 <?php endforeach; ?>

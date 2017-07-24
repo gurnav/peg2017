@@ -13,9 +13,9 @@
       {
           $v = new View('index');
 
-          $articles = Contents::getLastThreeContents('article');
-          $news = Contents::getLastThreeContents('news');
-          $pages = Contents::getLastThreeContents('page');
+          $articles = Contents::getContentsWithUsers('article', 3);
+          $news = Contents::getContentsWithUsers('news', 3);
+          $pages = Contents::getContentsWithUsers('page', 3);
 
           $v->assign('articles', $articles);
           $v->assign('news', $news);

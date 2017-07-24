@@ -51,19 +51,4 @@
         return $this->db;
     }
 
-
-      /**
-       * Simple query that links an article with his category
-       * @return name_category
-       */
-    function getName_Category($id_article){
-
-      $sql = "SELECT categories.name FROM ".DB_PREFIX."categories INNER JOIN link_article_category WHERE link_article_category.id = '".$id_article."' AND categories.id = link_article_category.id";
-
-      $query = $this->pdo->prepare($sql);
-      $query->execute();
-
-      return $query->fetchAll();
-    }
-
   }

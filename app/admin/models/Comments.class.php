@@ -25,4 +25,22 @@
 
      }
 
+     /**
+      * Get all comments with theirs associaeted users and contents
+      *
+      * @return Array of categories with their associated users
+      */
+     public static function getAllCategoriesWithUsersAndContents() {
+         $qb = new QueryBuilder();
+         $query = "SELECT * FROM ".DB_PREFIX."comments"
+           ." INNER JOIN (SELECT id AS uid, username FROM ".DB_PREFIX."users) AS users_table
+           ON ".DB_PREFIX."comments.users_id = users_table.uid
+           INNER JOIN (SELECT id AS cid, title AS contentname FROM ".DB_PREFIX."contents) AS contents_table
+           ON ".DB_PREFIX."comments.contents_id = contents_table.cid
+           WHERE ".DB_PREFIX."comments.deleted = 0
+           ORDER BY date_inserted";
+
+         return $qb->query($query, null, false);
+     }
+
   }

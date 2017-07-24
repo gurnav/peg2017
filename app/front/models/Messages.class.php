@@ -1,7 +1,7 @@
 <?php
 
   namespace App\Front\Models;
-  
+
   use Core\Util\Helpers;
   use App\Composite\Models\Message;
 
@@ -16,7 +16,7 @@
         * Constructor of the Messages model class
         * @return Void
         */
-        public function __construct($id=-1, $users_id=-1,  $threads_id=-1, $content=null)
+        public function __construct($id=-1, $users_id=-1,  $threads_id=-1, $content="")
         {
         	parent::__construct($id, $users_id, $threads_id, $content);
 

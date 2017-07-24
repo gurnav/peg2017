@@ -20,14 +20,14 @@
             <tbody>
             <?php foreach ($messages as $message): ?>
                 <tr>
-                    <td><?php echo $message['id']; ?></td>
-                    <td><?php echo $message['username']; ?></td>
-                    <td><?php echo $message['threadname']; ?></td>
-                    <td><?php echo $message['content']; ?></td>
+                    <td><?php echo $message->id; ?></td>
+                    <td><?php echo $message->username; ?></td>
+                    <td><?php echo $message->threadname; ?></td>
+                    <td><?php echo $message->content; ?></td>
                     <td>
                         <span></span>
-                    <a href="<?php echo BASE_URL.'admin/messages/update/'.$message['id']; ?>"><button title="Modify"><i class="fa fa-cogs" aria-hidden="true"></i></button></a>
-                        <button class="Delete" title="Delete" value="<?php echo BASE_URL.'admin/messages/delete/'.$message['id']; ?>"><i class="fa fa-times" aria-hidden="true"></i></button>
+                    <a href="<?php echo BASE_URL.'admin/messages/update/'.$message->id; ?>"><button title="Modify"><i class="fa fa-cogs" aria-hidden="true"></i></button></a>
+                        <button class="Delete" title="Delete" value="<?php echo BASE_URL.'admin/messages/delete/'.$message->id; ?>"><i class="fa fa-times" aria-hidden="true"></i></button>
                     </td>
                 </tr>
             <?php endforeach ?>
@@ -39,4 +39,3 @@
     </div>
 
 </section>
-
