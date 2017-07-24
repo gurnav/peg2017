@@ -1,6 +1,7 @@
 <section class="information_panel">
     <div class="path">
-        <p><i class="fa fa-home" aria-hidden="true"></i> > Contents > add or modify Content</p>
+        <p><i class="fa fa-home" aria-hidden="true"></i> >
+            <a href="<?php echo BASE_URL.'admin/contents'; ?>">Contents</a> > add or modify Content</p>
     </div>
 
     <div class="only_one">
@@ -19,8 +20,8 @@
                     $attribute['type'] === 'text' ||
                     $attribute['type'] === 'password'): ?>
 
-                <div>
-                    <span><?php echo $attribute["label"]; ?><span>
+                <div class="center">
+                    <label><?php echo $attribute["label"]; ?></label>
                     <input
                             type="<?php echo $attribute['type']; ?>" name="<?php echo $name; ?>"
                         <?php if(isset($attribute["placeholder"])) echo "placeholder=\"".$attribute["placeholder"]."\" " ?>
@@ -32,8 +33,8 @@
                 <?php endif; ?>
 
                 <?php if($attribute['type'] === 'select'): ?>
-                    <div>
-                        <span><?php echo $attribute["label"]; ?><span>
+                    <div >
+                        <label><?php echo $attribute["label"]; ?></label>
                         <select name="<?php echo $name; ?>"
                             <?php if(isset($attribute["required"])) echo "required=\"".$attribute["required"]."\" " ?>
                             >
@@ -59,8 +60,8 @@
                 <?php endif; ?>
 
                 <?php if($attribute['type'] === 'hidden'): ?>
-                    <div>
-                        <p id='span_label'><?php echo $attribute["label"]; ?> : </p>
+                    <div class="center">
+                        <label><?php echo $attribute["label"]; ?> : </label>
                         <img id="choosen_image" src="" alt="">
                         <br>
                         <button type="button" id="browse_thumbnails" name="thumbnails_browse">Browse thumbails</button>

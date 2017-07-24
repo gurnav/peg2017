@@ -1,6 +1,7 @@
 <section class="information_panel">
     <div class="path">
-        <p><i class="fa fa-home" aria-hidden="true"></i> > Contents > Create or modify Message</p>
+        <p><i class="fa fa-home" aria-hidden="true"></i> >
+            <a href="<?php echo BASE_URL.'admin/messages'; ?>">Message</a> > Create or modify Message</p>
     </div>
 
     <div class="only_one">
@@ -40,15 +41,17 @@ enctype="<?php echo $admin_register_message['options']['enctype']; ?>">
     <?php endif; ?>
 
     <?php if($attribute['type'] === 'selected'): ?>
-            <label><?php echo $attribute["label"]; ?>
-            <select name="<?php echo $name; ?>">
-                <?php if(isset($attribute['value']))
-                    foreach ($attribute['value'] as $key => $value) {
-                 ?><option><?php echo $value; ?></option><?php
-                    }
-                    ?>
-            </select>
-            </label>
+            <div class="center">
+                <label><?php echo $attribute["label"]; ?>
+                    <select name="<?php echo $name; ?>">
+                        <?php if(isset($attribute['value']))
+                        foreach ($attribute['value'] as $key => $value) {
+                        ?><option><?php echo $value; ?></option><?php
+                        }
+                        ?>
+                    </select>
+                </label>
+            </div>
         <br>
     <?php endif; ?>
 

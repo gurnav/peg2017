@@ -1,7 +1,7 @@
 <section class="information_panel">
 
       <div class="path">
-          <p><i class="fa fa-home" aria-hidden="true"></i> > Users</p>
+          <p><i class="fa fa-home" aria-hidden="true"></i> > Multimedias</p>
       </div>
 
       <div class="all_icon">

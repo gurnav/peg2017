@@ -40,12 +40,11 @@
               <li><a href="<?php echo BASE_URL.'admin/messages'; ?>"><i class="fa fa-comment-o" aria-hidden="true"></i><span>Messages</span></a></li>
               <li><a href="<?php echo BASE_URL.'admin/threads'; ?>"><i class="fa fa-sort-amount-desc" aria-hidden="true"></i><span>Threads</span></a></li>
               <li><a href="<?php echo BASE_URL.'admin/topics'; ?>"><i class="fa fa-server" aria-hidden="true"></i><span>Topics</span></a></li>
-              <!-- <li><a href="<?php echo BASE_URL.'admin/newsletters'; ?>"><i class="fa fa-envelope-o" aria-hidden="true"></i><span>Newsletters</span></a></li> -->
               <li><a href="<?php echo BASE_URL.'admin/stats'; ?>"><i class="fa fa-line-chart" aria-hidden="true"></i><span>Statistics</span></a></li>
           </nav>
       </header>
 
-      <div id="loader"></div>
+      <!--<div id="loader"></div>-->
 
     <?php include 'app'.DS.App::$prefix.DS.'views'.DS.$this->view.'.view.php'; ?>
 

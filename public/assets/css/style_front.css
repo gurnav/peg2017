@@ -21,7 +21,6 @@ section{
 }
 
 /* Header */
-
 header #burger_menu{
     display: none;
 }
@@ -75,6 +74,26 @@ header .nav_bar li a:hover{
 }
 
 /* Universal */
+
+.page-landing #banner
+{
+    /*padding:0 0 8em 0;*/
+    background-color:#3D3E53;
+    text-align:center;
+    color:#fff;
+    cursor:default;
+    position:relative;
+    overflow:hidden;
+    height: 100vh;}
+
+.page-landing #items
+{
+    padding:5em 0;
+    text-align:center}
+
+.page-landing #banner {
+    background-image: url("../images/banner.jpeg");
+}
 
 .body_item{
     background: #e8e8e8;
@@ -366,8 +385,8 @@ header .nav_bar li a:hover{
     padding-left: 10%;
     background: #f1f1f1;
     border: none;
-    width: 100%;
     color: black;
+    width: 82%;
 }
 
 .form_user>div{
@@ -820,6 +839,30 @@ input[type=text] {
     width: 100%;
 }
 
+div .logo img{
+    width: 50%;
+}
+
+.label-file {
+    cursor: pointer;
+    color: #00b1ca ;
+    font-weight: bold;
+}
+.label-file:hover {
+    color: #25a5c4 ;
+}
+.input-file {
+    display: none;
+}
+
+.div-file{
+    text-align: center;
+    border: none;
+    margin: 2%;
+}
+
+
+
 /* Footer */
 
 footer{
@@ -1013,6 +1056,23 @@ footer p{
         width: 100%;
         text-align: center;
     }
+
+    div .logo img{
+        width: 100%;
+    }
+
+    .connexion_back div {
+        width: 100%;
+    }
+
+    .connexion_back div form div {
+        width: 100%;
+    }
+
+    .form_user .validate {
+        width: 100%;
+        padding: 5%;
+    }
 }
 
 /* Responsive Phone */
@@ -1098,6 +1158,7 @@ footer p{
         background: inherit;
         cursor: pointer;
         transition: 0.5s;
+        color: white;
     }
 
     .filters .submit:hover{
@@ -1108,7 +1169,6 @@ footer p{
     .resume_profil .public p a{
         width: 32%;
     }
-
 }
 
 

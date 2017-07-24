@@ -1,6 +1,7 @@
 <section class="information_panel">
 <div class="path">
-	<p><i class="fa fa-home" aria-hidden="true"></i> > Users > add or modify User</p>
+	<p><i class="fa fa-home" aria-hidden="true"></i> >
+        <a href="<?php echo BASE_URL.'admin/users'; ?>">Users</a> > add or modify User</p>
 </div>
 
     <div class="only_one">
@@ -32,23 +33,28 @@
             <?php endif; ?>
 
             <?php if($attribute['type'] === 'radio'): ?>
-              <label><?php echo $attribute["label"]; ?>
-              <?php foreach ($attribute['value'] as $value => $rights): ?>
-                <input
-                type="<?php echo $attribute['type']; ?>" name="<?php echo $name; ?>"
-                value="<?php echo $rights; ?>" <?php if($attribute['checked'] == $rights) echo "checked"; ?>
-                ><?php echo $value; ?>
-              <?php endforeach; ?>
-              </label><br>
+              <div class="center">
+                  <label><?php echo $attribute["label"]; ?>
+                  <?php foreach ($attribute['value'] as $value => $rights): ?>
+                    <input
+                    type="<?php echo $attribute['type']; ?>" name="<?php echo $name; ?>"
+                    value="<?php echo $rights; ?>" <?php if($attribute['checked'] == $rights) echo "checked"; ?>
+                    ><?php echo $value; ?>
+                  <?php endforeach; ?>
+                  </label>
+              </div>
+              <br>
             <?php endif; ?>
 
           <?php endforeach; ?>
 
           <?php if($attribute['type'] === 'file'): ?>
-            <label><?php echo $attribute['label']; ?>
-            <input
-            type="<?php echo $attribute['type']; ?>" name="<?php echo $name; ?>"
-            ></label><br>
+            <div class="div-file">
+                <i class="fa fa-file-image-o" aria-hidden="true"></i>
+                <label class="label-file"><?php echo $attribute['label']; ?>
+                    <input class="input-file" type="<?php echo $attribute['type']; ?>" name="<?php echo $name; ?>">
+                </label><br>
+            </div>
           <?php endif; ?>
 
           <input type="submit" class="button_style" value="<?php echo $admin_add_user_form["options"]['submit']; ?>">

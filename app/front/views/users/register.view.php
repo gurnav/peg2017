@@ -48,9 +48,11 @@
           <?php endforeach; ?>
 
           <?php if($attribute['type'] === 'file'): ?>
-            <div>
+            <div class="div-file">
               <i class="<?php echo $attribute['i_class']; ?>" aria-hidden="true"></i>
-              <input type="<?php echo $attribute['type']; ?>" name="<?php echo $name; ?>">
+                <label class="label-file"><?php echo $attribute['label']; ?>
+                    <input class="input-file" type="<?php echo $attribute['type']; ?>" name="<?php echo $name; ?>">
+                </label>
             </div>
           <?php endif; ?>
 

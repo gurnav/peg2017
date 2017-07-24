@@ -1,7 +1,8 @@
 <section class="information_panel">
 
     <div class="path">
-        <p><i class="fa fa-home" aria-hidden="true"></i> > Threads > Create or modify Thread</p>
+        <p><i class="fa fa-home" aria-hidden="true"></i> >
+            <a href="<?php echo BASE_URL.'admin/categories'; ?>">Threads</a> > Create or modify Thread</p>
     </div>
 
     <div class="only_one">
@@ -18,7 +19,7 @@
 
                 <?php if($attribute['type'] === 'text'): ?>
 
-                    <div>
+                    <div class="center">
                         <label><?php echo $attribute["label"]; ?>
                         <input
                             type="<?php echo $attribute['type']; ?>" name="<?php echo $name; ?>"
@@ -43,15 +44,17 @@
                 <?php endif; ?>
 
                 <?php if($attribute['type'] === 'selected'): ?>
-                    <label><?php echo $attribute["label"]; ?>
-                        <select name="<?php echo $name; ?>">
-                            <?php if(isset($attribute['value']))
-                                foreach ($attribute['value'] as $key => $value) {
-                                    ?><option><?php echo $value; ?></option><?php
-                                }
-                            ?>
-                        </select>
-                    </label>
+                    <div class="center">
+                        <label><?php echo $attribute["label"]; ?>
+                            <select name="<?php echo $name; ?>">
+                                <?php if(isset($attribute['value']))
+                                    foreach ($attribute['value'] as $key => $value) {
+                                        ?><option><?php echo $value; ?></option><?php
+                                    }
+                                ?>
+                            </select>
+                        </label>
+                    </div>
                     <br>
                 <?php endif; ?>
 

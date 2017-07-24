@@ -1,6 +1,7 @@
 <section class="information_panel">
     <div class="path">
-        <p><i class="fa fa-home" aria-hidden="true"></i> > Comments > modifyComment</p>
+        <p><i class="fa fa-home" aria-hidden="true"></i> >
+            <a href="<?php echo BASE_URL.'admin/comments'; ?>">Comments</a> > modifyComment</p>
     </div>
     <div class="only_one">
         <h2>Modify Comment</h2>
