@@ -506,4 +506,25 @@
         ];
     }
 
+      public static function getSearchForm()
+      {
+          return [
+              "options" => [
+                  "method" => "POST",
+                  "action" => BASE_URL."contents/search",
+                  "id" => "search_form",
+                  "enctype" => "multipart/form-data",
+                  "submit" => "Search"
+              ],
+              "struct" => [
+
+                  "contents_type" => ["label" => "Order by type",  "type" => "select", "name" => "contents_type", "required" => "required", "value" => ["news", "article", "page"]],
+
+                  "type" => ["type" => "select", "name" => "type", "required" => "required", "value" => ["category", "title"]],
+
+                  "search" => ["type" => "text", "name" => "search", "required" => "required", "placeholder" => "Search..."],
+              ]
+          ];
+      }
+
   }

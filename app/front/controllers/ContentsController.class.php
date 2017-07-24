@@ -2,6 +2,7 @@
 
   namespace App\Front\Controllers;
 
+  use App\Composite\Factories\ModalsFactory;
   use Core\Controllers\Controller;
   use Core\Views\View;
   use Core\Util\Helpers;
@@ -22,6 +23,8 @@
       {
           $v = new View('contents/all_contents');
           $contents = Contents::getAll(true);
+
+          $v->assign('search_form', ModalsFactory::getSearchForm());
           $v->assign('contents', $contents);
           $v->assign('type', 'contents');
       }
@@ -34,6 +37,8 @@
       {
           $v = new View('contents/all_contents');
           $contents = Contents::getAllByType('article', true);
+
+          $v->assign('search_form', ModalsFactory::getSearchForm());
           $v->assign('contents', $contents);
           $v->assign('type', 'articles');
       }
@@ -70,6 +75,8 @@
       {
           $v = new View('contents/all_contents');
           $contents = Contents::getAllByType('news', true);
+
+          $v->assign('search_form', ModalsFactory::getSearchForm());
           $v->assign('contents', $contents);
           $v->assign('type', 'news');
       }
@@ -106,6 +113,8 @@
       {
           $v = new View('contents/all_contents');
           $contents = Contents::getAllByType('page', true);
+
+          $v->assign('search_form', ModalsFactory::getSearchForm());
           $v->assign('contents', $contents);
           $v->assign('type', 'pages');
       }

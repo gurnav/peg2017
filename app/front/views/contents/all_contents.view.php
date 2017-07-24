@@ -3,28 +3,47 @@
 		<h1 class="page_title"><?php echo ucfirst($type); ?></h1>
 		<p class="description">Here you can see all the <?php echo $type; ?> that we got on the website</p>
 	</article>
+
     <!-- Filter -->
     <div class="filters">
         <div class="content">
-            <form name="filter_form" action="" method="get" id="filter_form_artistes">
+            <form class="filter_form"
+                  method="<?php echo $search_form['options']['method']; ?>"
+                  action="<?php echo $search_form['options']['action']; ?>"
+                <?php if(isset($search_form["options"]["class"])) echo "class=\"".$search_form["options"]["class"]."\" " ?>
+                <?php if(isset($search_form["options"]["id"])) echo "id=\"".$search_form["options"]["id"]."\" " ?>
+                  enctype="<?php echo $search_form['options']['enctype']; ?>">
                 <i class="fa fa-search" aria-hidden="true"></i>
-                <label>Trier par type</label>
-                <select name="type">
-                    <option value="all" <?php if(!empty($_GET['type']) && $_GET['type'] == 'all' ) { echo 'selected'; } ?>>All</option>
-                    <option value="news" <?php if(!empty($_GET['type']) && $_GET['type'] == 'electro' ) { echo 'selected'; } ?>>News</option>
-                    <option value="article" <?php if(!empty($_GET['type']) && $_GET['type'] == 'pop' ) { echo 'selected'; } ?>>Articles</option>
-                    <option value="page" <?php if(!empty($_GET['type']) && $_GET['type'] == 'rock' ) { echo 'selected'; } ?>>Pages</option>
 
-                </select>
+                <?php foreach ($search_form['struct'] as $name => $attribute): ?>
 
-                <select name="type">
-                    <option value="all" <?php if(!empty($_GET['type']) && $_GET['type'] == 'all' ) { echo 'selected'; } ?>>All</option>
-                    <option value="category" <?php if(!empty($_GET['type']) && $_GET['type'] == 'electro' ) { echo 'selected'; } ?>>Category</option>
-                    <option value="title" <?php if(!empty($_GET['type']) && $_GET['type'] == 'pop' ) { echo 'selected'; } ?>>Title</option>
-                </select>
+                    <?php if ($attribute['type'] === 'select'): ?>
+                        <?php if (isset($attribute["label"])) echo "<label>".$attribute["label"]."</label>"; ?>
+                        <select name="<?php echo $name; ?>">
+                            <?php foreach ($attribute['value'] as $value): ?>
+                                <option value="<?php echo $value; ?>"><?php echo ucfirst($value); ?></option>
+                            <?php endforeach ?>
+                        </select>
 
-                <input type="text" name="search" placeholder="Search..">
-                <input class="submit" type="submit" value="Valider" />
+                    <?php endif ?>
+
+                    <?php if($attribute['type'] === 'email' ||
+                        $attribute['type'] === 'text' ||
+                        $attribute['type'] === 'password'): ?>
+
+                            <?php if (isset($attribute["label"])) echo "<label>".$attribute["label"]."</label>"; ?>
+                            <input
+                                    type="<?php echo $attribute['type']; ?>" name="<?php echo $name; ?>"
+                                <?php if(isset($attribute["placeholder"])) echo "placeholder=\"".$attribute["placeholder"]."\" " ?>
+                                <?php if(isset($attribute["required"])) echo "required=\"".$attribute["required"]."\" " ?>
+                                <?php if(isset($attribute['value'])) echo "value=\"".$attribute['value']."\" " ?>
+                            >
+                    <?php endif; ?>
+
+                <?php endforeach; ?>
+
+                <input type="submit" class="submit" value="<?php echo $search_form["options"]['submit']; ?>">
+
             </form>
         </div>
     </div>
