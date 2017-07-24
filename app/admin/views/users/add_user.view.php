@@ -51,7 +51,7 @@
             ></label><br>
           <?php endif; ?>
 
-          <input type="submit" value="<?php echo $admin_add_user_form["options"]['submit']; ?>">
+          <input type="submit" class="button_style" value="<?php echo $admin_add_user_form["options"]['submit']; ?>">
 
         </form>
     </div>

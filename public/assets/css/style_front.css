@@ -205,6 +205,7 @@ header .nav_bar li a:hover{
     background: #f1f1f1;
     border: none;
     width: 90%;
+    color: black;
 }
 
 .connexion_back div form div{

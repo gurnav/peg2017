@@ -32,7 +32,7 @@
 
             <?php endforeach; ?>
 
-            <input type="submit" value="<?php echo $admin_register_category["options"]['submit']; ?>">
+            <input type="submit" class="button_style" value="<?php echo $admin_register_category["options"]['submit']; ?>">
         </form>
     </div>
 </section>

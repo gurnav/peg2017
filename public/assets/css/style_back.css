@@ -765,6 +765,46 @@ section{
     display: inherit;
 }
 
+.button_style {
+    text-decoration: none;
+    background: inherit;
+    color: #662200;
+    border-radius: 5px;
+    border: solid 2px #662200;
+    padding: 1%;
+    display: block;
+    width: 25%;
+    font-size: 1rem;
+    margin: 2% auto;
+    text-transform: uppercase;
+}
+
+.button_style:hover {
+    transition: 0.5s;
+    color: white;
+    background: #662200;
+    cursor: pointer;
+}
+
+.label-file {
+    cursor: pointer;
+    color: #00b1ca ;
+    font-weight: bold;
+}
+.label-file:hover {
+    color: #25a5c4 ;
+}
+.input-file {
+   display: none;
+}
+
+.major_form .div-file{
+    text-align: center;
+    border: none;
+    margin: 2%;
+}
+
+
 
 /* Responsive Little screen */
 
@@ -784,6 +824,27 @@ section{
 
     .information_panel .six_columns {
         font-size: 0.8rem;
+    }
+
+    .button_style {
+        text-decoration: none;
+        background: inherit;
+        color: #662200;
+        border-radius: 5px;
+        border: solid 2px #662200;
+        padding: 1%;
+        display: block;
+        width: 28%;
+        font-size: 0.8rem;
+        margin: 2% auto;
+        text-transform: uppercase;
+    }
+
+    .button_style:hover {
+        transition: 0.5s;
+        color: white;
+        background: #662200;
+        cursor: pointer;
     }
 
 }
@@ -889,6 +950,27 @@ section{
     .only_desktop{
         display: none;
     }
+
+    .button_style {
+        text-decoration: none;
+        background: inherit;
+        color: #662200;
+        border-radius: 5px;
+        border: solid 2px #662200;
+        padding: 1%;
+        display: block;
+        width: 30%;
+        font-size: 0.8rem;
+        margin: 2% auto;
+        text-transform: uppercase;
+    }
+
+    .button_style:hover {
+        transition: 0.5s;
+        color: white;
+        background: #662200;
+        cursor: pointer;
+    }
 }
 
 /* Responsive Phone */
@@ -941,6 +1023,27 @@ section{
 
     .major_form div input{
         margin-left: 10%;
+    }
+
+    .button_style {
+        text-decoration: none;
+        background: inherit;
+        color: #662200;
+        border-radius: 0;
+        border: solid 2px #662200;
+        padding: 4%;
+        display: block;
+        width: 100%;
+        font-size: 0.8rem;
+        margin: 5% auto;
+        text-transform: uppercase;
+    }
+
+    .button_style:hover {
+        transition: 0.5s;
+        color: white;
+        background: #662200;
+        cursor: pointer;
     }
 
 }

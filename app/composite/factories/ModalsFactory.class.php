@@ -482,7 +482,7 @@
             "struct" => [
                 "filename"=>["label"=>"The filename : ", "type"=>"text", "placeholder"=>"filename", "required"=>"required" ],
 
-                "file"=>[ "label"=>"Choose The multimedia : ", "type"=>"file", "required"=>"required" ],
+                "file"=>[ "label"=>"Choose your multimedia ", "type"=>"file", "required"=>"required" ],
             ]
         ];
     }

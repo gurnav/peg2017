@@ -41,7 +41,7 @@
 
             <?php endforeach; ?>
 
-            <input type="submit" value="<?php echo $admin_register_comment["options"]['submit']; ?>">
+            <input type="submit" class="button_style" value="<?php echo $admin_register_comment["options"]['submit']; ?>">
         </form>
     </div>
 </section>

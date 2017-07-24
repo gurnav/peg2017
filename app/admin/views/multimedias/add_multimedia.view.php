@@ -32,12 +32,14 @@
           <?php endforeach; ?>
 
           <?php if($attribute['type'] === 'file'): ?>
-            <label><?php echo $attribute['label']; ?>
-            <input type="<?php echo $attribute['type']; ?>" name="<?php echo $name; ?>"
-            ></label><br>
+            <div class="div-file">
+                <i class="fa fa-file-image-o" aria-hidden="true"></i>
+                <label class="label-file"><?php echo $attribute['label']; ?>
+                <input class="input-file" type="<?php echo $attribute['type']; ?>" name="<?php echo $name; ?>"></label><br>
+            </div>
           <?php endif; ?>
 
-          <input type="submit" value="<?php echo $admin_add_multimedia_form["options"]['submit']; ?>">
+          <input type="submit" class="button_style" value="<?php echo $admin_add_multimedia_form["options"]['submit']; ?>">
 
         </form>
     </div>

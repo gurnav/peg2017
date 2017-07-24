@@ -60,7 +60,7 @@
 
             <?php endforeach; ?>
 
-            <input type="submit" value="<?php echo $admin_register_content["options"]['submit']; ?>">
+            <input type="submit" class="button_style" value="<?php echo $admin_register_content["options"]['submit']; ?>">
 
         </form>
     </div>
