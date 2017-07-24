@@ -22,7 +22,7 @@
                 <tr>
                     <td><?php echo $topic->id; ?></td>
                     <td><?php echo $topic->name; ?></td>
-                    <td><?php echo $topic->description; ?></td>
+                    <td><?php echo substr($topic->description,0 ,30); ?>...</td>
                     <td><?php echo $topic->username; ?></td>
                     <td>
                     <span></span> <!--Bug affichage sans span dans le td-->

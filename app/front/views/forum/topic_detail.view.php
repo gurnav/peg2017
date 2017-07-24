@@ -46,7 +46,7 @@
                     <div class="super_editor">
                         <label>
                             The title of your Thread :
-                            <input type="text" name="title" placeholder="place of your title" required="required">
+                            <input class="input_forum" type="text" name="title" placeholder="Write your title here" required="required">
                         </label>
                         <div>
                             <h3>The description of your Thread :</h3>

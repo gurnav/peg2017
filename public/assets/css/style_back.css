@@ -831,6 +831,11 @@ section{
     margin: 2%;
 }
 
+.action_special{
+    text-align: center;
+    width: 1em;
+}
+
 
 
 /* Responsive Little screen */

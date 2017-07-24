@@ -54,7 +54,7 @@ enctype="<?php echo $admin_register_message['options']['enctype']; ?>">
 
 <?php endforeach; ?>
 
-<input type="submit" value="<?php echo $admin_register_message["options"]['submit']; ?>">
+<input type="submit" class="button_style" value="<?php echo $admin_register_message["options"]['submit']; ?>">
 
 </form>
     </div>

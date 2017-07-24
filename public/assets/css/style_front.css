@@ -805,6 +805,11 @@ input[type=text] {
     text-align: center;
 }
 
+.super_editor label .input_forum{
+    display: block;
+    width: 100%;
+}
+
 /* Footer */
 
 footer{
