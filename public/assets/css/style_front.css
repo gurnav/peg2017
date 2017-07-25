@@ -864,7 +864,8 @@ input[type=text] {
 
 .super_editor label .input_forum{
     display: block;
-    width: 100%;
+    width: 80%;
+    margin: auto;
 }
 
 div .logo img{
