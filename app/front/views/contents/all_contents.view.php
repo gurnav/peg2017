@@ -48,20 +48,26 @@
         </div>
     </div>
     <!-- Fin filter -->
-    <?php for($i = 0; $i < sizeof($contents); $i += 3): ?>
-        <div class="triple_items">
-            <?php for($j = $i; $j < $i + 3; $j += 1): ?>
-                <?php if(isset($contents[$j])): ?>
-                    <article class="item">
-        				<header>
-        					<h2><?php echo $contents[$j]->title; ?></h2>
-        				</header>
-        				<a href="<?php echo BASE_URL.'contents/'.$contents[$i]->type.'/'.$contents[$i]->id; ?>">
-        				    <img src="<?php echo ROUTE_DIR_CONTENTS.$contents[$i]->thumbnails; ?>">
-        				</a>
-        			</article>
-                <?php endif; ?>
-            <?php endfor; ?>
-        </div>
-    <?php endfor; ?>
+    <?php if (isset($contents) && !empty($contents)): ?>
+        <?php for($i = 0; $i < sizeof($contents); $i += 3): ?>
+            <div class="triple_items">
+                <?php for($j = $i; $j < $i + 3; $j += 1): ?>
+                    <?php if(isset($contents[$j])): ?>
+                        <article class="item">
+            				<header>
+            					<h2><?php echo $contents[$j]->title; ?></h2>
+            				</header>
+            				<a href="<?php echo BASE_URL.'contents/'.$contents[$i]->type.'/'.$contents[$i]->id; ?>">
+            				    <img src="<?php echo ROUTE_DIR_CONTENTS.$contents[$i]->thumbnails; ?>">
+            				</a>
+            			</article>
+                    <?php endif; ?>
+                <?php endfor; ?>
+            </div>
+        <?php endfor; ?>
+
+    <?php else: ?>
+        <div><p class="simple_error">No contents found ...</p></div>
+    <?php endif ?>
+
 </div>

@@ -75,8 +75,6 @@
 <noscript>
     <link rel="stylesheet" href="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'css'.DS.'noscript.css' ?>" />
 </noscript>
-<script src="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'js'.DS.'libs.js' ?>"></script>
-<script src="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'js'.DS.'main.js' ?>"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'js'.DS.'scripts_front.js' ?>"></script>

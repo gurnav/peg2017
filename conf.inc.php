@@ -1,7 +1,11 @@
 <?php
 
+    // Personnal configuration
     define("HOST", "localhost");
     define("SITE_NAME", "esgi-geographic");
+
+    define("EMAIL_ADMIN", "esgigeographic@gmail.com");
+    define("EMAIL_ADMIN_PASSWORD", "esgiGeographic2017");
 
     define('DS', DIRECTORY_SEPARATOR);
     define('PATH_RELATIVE', DS.'esgi-geographic'.DS);
@@ -25,5 +29,3 @@
     define("UPLOADS_DIR_USERS", ROOT."uploads/users/");
 
     define("BASE_AVATAR", "avatar.png");
-
-    // Personnal configuration

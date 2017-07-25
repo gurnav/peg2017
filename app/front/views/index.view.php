@@ -7,6 +7,7 @@
         <div class="inner"></div>
     </div>
 
+    <?php if (isset($articles) && !empty($articles)): ?>
     <section id="items">
         <div class="triple_items">
 
@@ -30,7 +31,9 @@
             </div>
         </div>
     </section>
+    <?php endif ?>
 
+    <?php if (isset($news) && !empty($news)): ?>
     <section id="items">
         <div class="triple_items">
             <div class="title">
@@ -53,7 +56,9 @@
             </div>
         </div>
     </section>
+    <?php endif ?>
 
+    <?php if (isset($pages) && !empty($pages)): ?>
     <section id="items">
         <div class="triple_items">
             <div class="title">
@@ -64,7 +69,6 @@
                     <article class="item">
                         <header>
                             <h2><?php echo $page->title; ?></h2>
-                            <!-- <span></span> -->
                         </header>
                         <a href="<?php echo BASE_URL.'contents/'.$page->type.'/'.$page->id; ?>">
                             <img src="<?php echo ROUTE_DIR_CONTENTS.$page->thumbnails; ?>" alt="<?php echo $page->name; ?>">
@@ -77,6 +81,7 @@
             </div>
         </div>
     </section>
+    <?php endif ?>
 
 </div>
 </body>

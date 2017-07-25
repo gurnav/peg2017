@@ -25,13 +25,13 @@ echo "Unzip and install needed files"
 unzip ressources/zip/fonts.zip -d public/assets
 unzip ressources/zip/images.zip -d public/assets/
 unzip ressources/zip/font-awesome.zip -d public/assets/css
-mv public/assets/images/avatar.png uploads/users
+cp public/assets/images/avatar.png uploads/users
 
 # Configure conf.inc.php
-echo "Configuring the web app"
-sed -i '2,4d' conf.inc.php
-echo define("HOST", "\"${host}\"") >> conf.inc.php
-echo define("SITE_NAME", "\"${site_name}\"") >> conf.inc.php
+# echo "Configuring the web app"
+# sed -i '2,4d' conf.inc.php
+# echo define("HOST", "\"${host}\"") >> conf.inc.php
+# echo define("SITE_NAME", "\"${site_name}\"") >> conf.inc.php
 
 # Install PHP dependencies
 echo "Installing PHP dependencies"

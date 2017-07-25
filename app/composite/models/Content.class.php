@@ -289,15 +289,17 @@
             $query =  'SELECT * FROM '.DB_PREFIX.'contents';
             $query .= " INNER JOIN (SELECT id AS uid, username FROM ".DB_PREFIX."users) AS users_table
             ON ".DB_PREFIX."contents.users_id = users_table.uid";
-            $query .= ' WHERE ( '.DB_PREFIX.'type = '.$contents_type.' AND '.DB_PREFIX.'title LIKE %'.$search.'%';
-            $query .= ' AND '.DB_PREFIX.'deleted = 0 AND '.DB_PREFIX.'status = 1 )';
-            $query .= ' ORDER BY '.DB_PREFIX.'date_updated, '.DB_PREFIX.'date_inserted DESC';
+            $query .= " INNER JOIN (SELECT id AS iid, name, path AS thumbnails FROM ".DB_PREFIX."multimedias) AS multimedias_table ON ".DB_PREFIX."contents.thumbnails_id = multimedias_table.iid ";
+            $query .= ' WHERE ( '.DB_PREFIX.'contents.type = \''.$contents_type.'\' AND '.DB_PREFIX.'contents.title LIKE \'%'.$search.'%\'';
+            $query .= ' AND '.DB_PREFIX.'contents.deleted = 0 AND '.DB_PREFIX.'contents.status = 1 )';
+            $query .= ' ORDER BY '.DB_PREFIX.'contents.date_updated, '.DB_PREFIX.'contents.date_inserted DESC';
         } elseif ($search_type === 'category') {
             $query = "SELECT * FROM ".DB_PREFIX."contents
-                      INNER JOIN ".DB_PREFIX."categories ON ".DB_PREFIX."contents.categories_id = ".DB_PREFIX."categories.id
+                      INNER JOIN (SELECT id AS iid, name, path AS thumbnails FROM ".DB_PREFIX."multimedias) AS multimedias_table ON ".DB_PREFIX."contents.thumbnails_id = multimedias_table.iid
+                      INNER JOIN (SELECT id AS cid, name AS categories_name FROM ".DB_PREFIX."categories) AS categories_table ON ".DB_PREFIX."contents.categories_id = categories_table.cid
                       INNER JOIN (SELECT id AS uid, username FROM ".DB_PREFIX."users) AS users_table
                       ON ".DB_PREFIX."contents.users_id = users_table.uid
-                      WHERE ( ".DB_PREFIX."conents.type = ".$contents_type." AND ".DB_PREFIX."categories.name = ".$search." AND "
+                      WHERE ( ".DB_PREFIX."contents.type = '".$contents_type."' AND categories_table.categories_name = '".$search."' AND "
                         .DB_PREFIX."contents.deleted = 0 AND ".DB_PREFIX."contents.status = 1)
                       ORDER BY ".DB_PREFIX."contents.date_updated, ".DB_PREFIX."contents.date_inserted DESC";
         }
