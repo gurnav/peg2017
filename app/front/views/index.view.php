@@ -1,4 +1,4 @@
-
+<style>header .nav_bar {background: transparent;}</style>
 <body class="page-landing is-loading">
 <?php if(isset($msg)) echo "<script>alert('".$msg."');</script>" ?>
 <div id="wrapper">

@@ -20,10 +20,10 @@
 
 <noscript>JavaScript is Disabled. Please put it on.</noscript>
 
-<header>
+<header class="main">
     <div class="menu">
         <div id="burger_menu">≡</div>
-        <nav id="nav_bar" class="nav_bar">
+        <nav id="nav_bar" class="nav_bar"  <?php  ?> >
             <li><a href="<?php echo BASE_URL ?>">Home</a></li>
             <li><a href="<?php echo BASE_URL.'contents/all_articles' ?>">Articles</a></li>
             <li><a href="<?php echo BASE_URL.'contents/all_news' ?>">News</a></li>
