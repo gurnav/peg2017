@@ -628,9 +628,11 @@ header .nav_bar li a:hover{
 
 .resume_profil .private{
     overflow: auto;
-    width: 50%;
+    width: 100%;
     text-align: center;
-    margin:auto;
+    position: relative;
+    top: -105px;
+    margin-bottom: -90px;
 }
 
 .resume_profil .private span{
@@ -640,10 +642,11 @@ header .nav_bar li a:hover{
 
 .image_profile{
     margin-bottom: 5%;
-    border: 1px grey solid;
     border-radius: 100%;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+    background: rgba(255,255,255, 0.5);
 }
 
 .banner_profile{
@@ -651,6 +654,11 @@ header .nav_bar li a:hover{
     margin-bottom: 5%;
     padding-top: 5%;
     background: url("../images/profile_bg.jpg") no-repeat;
+}
+
+.container_profile{
+    width: 50%;
+    margin: auto;
 }
 
 #my_zoom{
@@ -875,6 +883,50 @@ div .logo img{
 }
 
 
+/** PROFIL**/
+.card.block_profile {
+    border-radius: 5px;
+    position: relative;
+    padding-top: 0;
+    overflow: hidden;
+    text-align: center;
+    background-color: rgba(214, 224, 226, 0.2);
+}
+
+.card.block_profile .entete {
+    background: url("../images/profile.jpg") center center;
+    background-size: cover;
+    height: 155px;
+}
+
+.card.block_profile .avatar {
+    position: relative;
+    top: -50px;
+    margin-bottom: -50px;
+}
+
+.card.block_profile .avatar img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255,255,255,0.5);
+}
+
+.card.block_profile .info {
+    padding: 4px 8px 10px;
+}
+
+.card.block_profile .info .title {
+    margin-bottom: 4px;
+    font-size: 24px;
+    line-height: 1;
+    color: #262626;
+    vertical-align: middle;
+}
 
 /* Footer */
 

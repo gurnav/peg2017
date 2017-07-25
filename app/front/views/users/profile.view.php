@@ -3,14 +3,18 @@
 
 	<div class="resume_profil" >
 	<header>
-		<h1>Profile </h1>
+		<h1 style="text-align: center;">Profile </h1>
 	</header>
+
     <div class="container_profile">
-        <!--<div class="public"><p>Your Informations</p></div>-->
+        <div class="card block_profile">
+            <div class="entete"></div>
 
 		<div class="private">
-
             <img class="image_profile" src="<?php echo ROUTE_DIR_USERS.$user->getUserImg(); ?>">
+        </div>
+
+        <div class="public">
             <p><i class="fa fa-user" aria-hidden="true"></i> Username: <span><?php echo $user->getUsername(); ?></span></p>
             <p><i class="fa fa-user" aria-hidden="true"></i> Email: <span><?php echo $user->getEmail(); ?></span></p>
 
