@@ -51,7 +51,7 @@
 				</tbody>
 			</table>
 
-			<button class="view_more">view more</button>
+			<button class="view_more"><a href="<?php echo BASE_URL.'admin'; ?>">Return</a></button>
 
 		</div>
 

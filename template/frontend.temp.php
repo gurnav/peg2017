@@ -53,7 +53,6 @@
     <div id="footer">
         <ul class="menu">
             <li><a href="<?php echo BASE_URL.'help' ?>">Help</a></li>
-            <li><a href="#">Terms of Use</a></li>
             <li><a href="<?php echo BASE_URL.'cgu' ?>">CGU</a></li>
             <li><a href="<?php echo BASE_URL.'contact' ?>">Contact</a></li>
         </ul>
@@ -65,8 +64,7 @@
 
         <div class="copyright">
             &copy; All rights reserved.
-            <a class="offsite" href="#">ESGI - Geographik</a>
-            .
+            <a class="offsite" href="<?php echo BASE_URL ?>">ESGI - Geographik</a>
         </div>
     </div>
 </footer>

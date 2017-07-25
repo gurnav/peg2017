@@ -362,7 +362,7 @@ header .nav_bar li a:hover{
     font-size: 1.2rem;
 }
 
-.form_user .validate{
+.form_user .validate,.send_commentaries{
     margin: 2% auto;
     width: 30%;
     color: #009900;
@@ -376,7 +376,7 @@ header .nav_bar li a:hover{
     transition: 0.5s;
 }
 
-.form_user .validate:hover{
+.form_user .validate:hover, .send_commentaries:hover{
     color: white;
     background: #009900;
     transition: 0.5s;
@@ -488,13 +488,13 @@ header .nav_bar li a:hover{
 }
 
 /* Article cliqué */
-
 .article_solo{
     width: 90%;
-    margin: 2% auto;
+    margin: 7% auto;
     background: white;
     border-radius: 4px;
     border: solid 5px transparent;
+    box-shadow: 4px 4px 14px 0px black;
 }
 
 .article_solo header{
@@ -557,6 +557,12 @@ header .nav_bar li a:hover{
     overflow: auto;
     float: left;
     width: 86%;
+}
+
+.comment_forum{
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 /* Profil */
@@ -834,6 +840,7 @@ input[type=text] {
     background: inherit;
     cursor: pointer;
     transition: 0.5s;
+    color: #e8e8e8;
 }
 
 .filters .submit:hover{
@@ -990,6 +997,10 @@ footer p{
 
 @media(max-width: 800px){
 
+    .resume_profil{
+        margin: 10% auto;
+    }
+
     .list_subject{
         width: 80%;
     }
@@ -1030,7 +1041,7 @@ footer p{
         transform: translate3d(0,-550px,0);
         transition: all 0.3s;
         z-index: 999;
-        background: rgba(0,0,0,0.4) !important;
+        background: rgba(0,0,0,0.8) !important;
     }
     header .nav_bar li {
         display: block;
@@ -1187,11 +1198,29 @@ footer p{
         width: 100%;
         padding: 5%;
     }
+
+    .commentaries .comment .profil_area img {
+        display: none;
+    }
+
+    .commentaries .comment .profil_area {
+        width: 95%;
+    }
+
+    .article_solo{
+        margin: 15% auto;
+    }
 }
 
 /* Responsive Phone */
 
 @media (max-width: 450px){
+
+    .image_profile {
+        width: 100px;
+        height: 100px;
+        margin-top: 15%;
+    }
 
     .img_list div {
         width: 98%;
@@ -1281,7 +1310,9 @@ footer p{
     }
 
     .resume_profil .public p a{
-        width: 32%;
+        width: 50%;
+        padding: 4%;
+        margin-top: 5%;
     }
 
     .list_subject{
@@ -1294,6 +1325,13 @@ footer p{
 
     .list_subject table tbody tr td:nth-child(3),.list_subject table tbody tr td:nth-child(4),.list_subject table tbody tr td:nth-child(5){
         display: none;
+    }
+
+    .body_item .presentation {
+        width: 60%;
+        margin: 5% auto 0 auto;
+        overflow: auto;
+        padding-top: 10%;
     }
 }
 

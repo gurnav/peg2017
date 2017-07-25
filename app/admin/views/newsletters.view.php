@@ -1,6 +1,6 @@
 <section class="information_panel">
     <div class="path">
-        <p><i class="fa fa-home" aria-hidden="true"></i> > Users > Send newsletters</p>
+        <p><i class="fa fa-home" aria-hidden="true"></i> > <a href="<?php echo BASE_URL.'admin/contents'; ?>">Users</a> > Send newsletters</p>
     </div>
 
     <div class="only_one">
@@ -19,8 +19,8 @@
                     $attribute['type'] === 'text' ||
                     $attribute['type'] === 'password'): ?>
 
-                <div>
-                    <span><?php echo $attribute["label"]; ?><span>
+                <div class="center">
+                    <label><?php echo $attribute["label"]; ?><label>
                     <input
                             type="<?php echo $attribute['type']; ?>" name="<?php echo $name; ?>"
                         <?php if(isset($attribute["placeholder"])) echo "placeholder=\"".$attribute["placeholder"]."\" " ?>
@@ -44,7 +44,7 @@
 
             <?php endforeach; ?>
 
-            <input type="submit" value="<?php echo $admin_newsletters["options"]['submit']; ?>">
+            <input class="button_style" type="submit" value="<?php echo $admin_newsletters["options"]['submit']; ?>">
 
         </form>
     </div>

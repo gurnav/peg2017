@@ -33,7 +33,7 @@
                 <?php endif; ?>
 
                 <?php if($attribute['type'] === 'select'): ?>
-                    <div >
+                    <div class="content_select" >
                         <label><?php echo $attribute["label"]; ?></label>
                         <select name="<?php echo $name; ?>"
                             <?php if(isset($attribute["required"])) echo "required=\"".$attribute["required"]."\" " ?>
