@@ -11,7 +11,6 @@
  */
 class App
 {
-    public static $title = "ESGI-Geographic";
     private static $_instance;
     public static $prefix = "front";
 

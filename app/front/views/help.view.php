@@ -9,7 +9,7 @@
             Access to the Customer Zone of our website<br><br>
 
             To contact support:<br>
-            Contact support by email: <a href="<?php echo PATH_RELATIVE.'contact' ?>">Click here</a><br>
+            Contact support by email: <a href="<?php echo BASE_URL.'contact' ?>">Click here</a><br>
             Contact support by phone at<br>
             +33 (0)1 56 06 90 41<br><br>
             Opening Time du support ESGI-Geographic :<br>

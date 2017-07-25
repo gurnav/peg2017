@@ -8,3 +8,6 @@ public/assets/images
 public/assets/js/plugins
 public/assets/css/font-awesome
 public/assets/fonts
+conf.inc.php
+composer.lock
+.htaccess

@@ -10,6 +10,3 @@
   Core\Util\Helpers::createLogExist();
 
   $routing = new Core\Route\Routing();
-
-  // Core\Util\Helpers::debugVar($routing);
-  // Core\Util\Helpers::debugVar($_SESSION);
