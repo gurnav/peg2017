@@ -972,11 +972,35 @@ footer p{
         width: 25%;
     }
 
+    .list_subject{
+        width: 75%;
+    }
+
+    .list_subject table thead tr th:nth-child(3){
+        display: none;
+    }
+
+    .list_subject table tbody tr td:nth-child(3){
+        display: none;
+    }
+
 }
 
 /* Responsive Tablet */
 
 @media(max-width: 800px){
+
+    .list_subject{
+        width: 80%;
+    }
+
+    .list_subject table thead tr th:nth-child(3),.list_subject table thead tr th:nth-child(4){
+        display: none;
+    }
+
+    .list_subject table tbody tr td:nth-child(3),.list_subject table tbody tr td:nth-child(4){
+        display: none;
+    }
 
     #my_zoom #Close{
         top: 10px;
@@ -1006,7 +1030,7 @@ footer p{
         transform: translate3d(0,-550px,0);
         transition: all 0.3s;
         z-index: 999;
-        background: rgba(0,0,0,0.4);
+        background: rgba(0,0,0,0.4) !important;
     }
     header .nav_bar li {
         display: block;
@@ -1020,7 +1044,24 @@ footer p{
         padding: 1% 0%;
         display: block;
     }
-
+    @media (max-width: 700px)
+    {
+        .container_profile {
+            width: 60%;
+        }
+    }
+    @media (max-width: 600px)
+    {
+        .container_profile {
+            width: 70%;
+        }
+    }
+    @media (max-width: 600px)
+    {
+        .container_profile {
+            width: 85%;
+        }
+    }
     .open{
         -webkit-transform: translate3d(0,0,0) !important;
         transform: translate3d(0,0,0) !important;
@@ -1241,6 +1282,18 @@ footer p{
 
     .resume_profil .public p a{
         width: 32%;
+    }
+
+    .list_subject{
+        width: 90%;
+    }
+
+    .list_subject table thead tr th:nth-child(3),.list_subject table thead tr th:nth-child(4),.list_subject table thead tr th:nth-child(5){
+        display: none;
+    }
+
+    .list_subject table tbody tr td:nth-child(3),.list_subject table tbody tr td:nth-child(4),.list_subject table tbody tr td:nth-child(5){
+        display: none;
     }
 }
 
