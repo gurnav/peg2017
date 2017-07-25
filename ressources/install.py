@@ -53,7 +53,7 @@ mysql_user = input("Inquire the mysql user : ")
 mysql_pwd = input("And the password : ")
 mysql_host = input("Inquire the mysql host")
 os.system("mysql --user=" + mysql_user + " --password=" + mysql_pwd + " -e CREATE DATABASE esgiGeographik")
-os.system("mysql --user=" + mysql_user + " --password=" + mysql_pwd + " esgiGeographik < ressources/database/esgiGeographik.sql")
+os.system("mysql --user=" + mysql_user + " --password=" + mysql_pwd + " esgiGeographik < " + site_name +  + "/ressources/database/esgiGeographik.sql")
 
 print("Giving rights for uploads")
 shutil.chown(site_name + "/uploads", "www-data", "www-data")
@@ -72,7 +72,7 @@ with open("conf.inc.php", "w") as conf_inc_php:
         define('DS', DIRECTORY_SEPARATOR);
 
         // Personnal configuration
-        define('SUB_SITE', '{}');
+        define('SUB_SITE', {});
         define('HOST', '{}');
         define('SITE_NAME', '{}');
 
@@ -99,7 +99,7 @@ with open("conf.inc.php", "w") as conf_inc_php:
         define('ROUTE_DIR_CONTENTS', BASE_URL.'uploads/contents/');
         define('UPLOADS_DIR_CONTENTS', ROOT.'uploads/contents/');
         define('ROUTE_DIR_USERS', BASE_URL.'uploads/users/');
-        define('UPLOADS_DIR_USERS', ROOT.'uploads/users/'');
+        define('UPLOADS_DIR_USERS', ROOT.'uploads/users/');
 
         // Others
         define('BASE_AVATAR', 'avatar.png');
@@ -153,34 +153,4 @@ with open(".htaccess", "w") as htaccess:
 
     </IfModule>
 
-    <IfModule mod_deflate.c>
-      # Compress HTML, CSS, JavaScript, Text, XML and fonts
-      AddOutputFilterByType DEFLATE application/javascript
-      AddOutputFilterByType DEFLATE application/rss+xml
-      AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
-      AddOutputFilterByType DEFLATE application/x-font
-      AddOutputFilterByType DEFLATE application/x-font-opentype
-      AddOutputFilterByType DEFLATE application/x-font-otf
-      AddOutputFilterByType DEFLATE application/x-font-truetype
-      AddOutputFilterByType DEFLATE application/x-font-ttf
-      AddOutputFilterByType DEFLATE application/x-javascript
-      AddOutputFilterByType DEFLATE application/xhtml+xml
-      AddOutputFilterByType DEFLATE application/xml
-      AddOutputFilterByType DEFLATE font/opentype
-      AddOutputFilterByType DEFLATE font/otf
-      AddOutputFilterByType DEFLATE font/ttf
-      AddOutputFilterByType DEFLATE image/svg+xml
-      AddOutputFilterByType DEFLATE image/x-icon
-      AddOutputFilterByType DEFLATE text/css
-      AddOutputFilterByType DEFLATE text/html
-      AddOutputFilterByType DEFLATE text/javascript
-      AddOutputFilterByType DEFLATE text/plain
-      AddOutputFilterByType DEFLATE text/xml
-
-      # Remove browser bugs (only needed for really old browsers)
-      BrowserMatch ^Mozilla/4 gzip-only-text/html
-      BrowserMatch ^Mozilla/4\.0[678] no-gzip
-      BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
-      Header append Vary User-Agent
-    </IfModule>
     """.format(rewrite_rule))
