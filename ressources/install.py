@@ -53,7 +53,7 @@ mysql_user = input("Inquire the mysql user : ")
 mysql_pwd = input("And the password : ")
 mysql_host = input("Inquire the mysql host")
 os.system("mysql --user=" + mysql_user + " --password=" + mysql_pwd + " -e CREATE DATABASE esgiGeographik")
-os.system("mysql --user=" + mysql_user + " --password=" + mysql_pwd + " esgiGeographik < " + site_name +  + "/ressources/database/esgiGeographik.sql")
+os.system("mysql --user=" + mysql_user + " --password=" + mysql_pwd + " esgiGeographik < " + site_name + "/ressources/database/esgiGeographik.sql")
 
 print("Giving rights for uploads")
 shutil.chown(site_name + "/uploads", "www-data", "www-data")

@@ -57,8 +57,8 @@
             				<header>
             					<h2><?php echo $contents[$j]->title; ?> | <?php echo $contents[$j]->category_name; ?></h2>
             				</header>
-            				<a href="<?php echo BASE_URL.'contents/'.$contents[$i]->type.'/'.$contents[$i]->id; ?>">
-            				    <img src="<?php echo ROUTE_DIR_CONTENTS.$contents[$i]->thumbnails; ?>">
+            				<a href="<?php echo BASE_URL.'contents/'.$contents[$j]->type.'/'.$contents[$j]->id; ?>">
+            				    <img src="<?php echo ROUTE_DIR_CONTENTS.$contents[$j]->thumbnails; ?>">
             				</a>
             			</article>
                     <?php endif; ?>
