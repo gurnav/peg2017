@@ -5,7 +5,7 @@
 
     <div id="banner">
         <div class="logo">
-            <img src="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'images'.DS.'logo.png' ?>">
+            <img src="<?php echo (SUB_SITE === true ? PATH_RELATIVE : '/').'public'.DS.'assets'.DS.'images'.DS.'logo.png' ?>">
         </div>
         <h1>esgi-geographic</h1>
     </div>

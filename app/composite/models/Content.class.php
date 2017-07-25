@@ -287,6 +287,8 @@
         $qb = new QueryBuilder();
         if ($search_type === 'title') {
             $query =  'SELECT * FROM '.DB_PREFIX.'contents';
+            $query .= "INNER JOIN (SELECT id AS cid, name AS category_name FROM ".DB_PREFIX."categories) AS categories_table
+            ON ".DB_PREFIX."contents.categories_id = categories_table.cid";
             $query .= " INNER JOIN (SELECT id AS uid, username FROM ".DB_PREFIX."users) AS users_table
             ON ".DB_PREFIX."contents.users_id = users_table.uid";
             $query .= " INNER JOIN (SELECT id AS iid, name, path AS thumbnails FROM ".DB_PREFIX."multimedias) AS multimedias_table ON ".DB_PREFIX."contents.thumbnails_id = multimedias_table.iid ";
