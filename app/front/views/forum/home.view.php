@@ -22,18 +22,18 @@
             </thead>
             <tbody>
             <?php  $cpt=0;
-            for($j = 0; $j < sizeof($threads); $j ++): ?>
-            <tr>
-                <?php if($topics[$i]->id == $threads[$j]->topics_id && $cpt < 3): ?>
-                <td><a href="<?php echo BASE_URL.'forum/thread_detail/'.$threads[$j]->id; ?>"><?php echo $threads[$j]->title ?></a></td>
-                <td><?php echo $threads[$j]->description ?></td>
-                    <td>Number of Messages :<?php echo $threads[$j]->nbmsg?></td>
-                    <td>Creation Date : <?php echo $threads[$j]->date_inserted ?> </td>
-                    <td>Created by <?php echo $threads[$j]->username ?> </td>
-                <?php
-                    $cpt++;
-                endif; ?>
-            </tr>
+            for($j = 0; $j < sizeof($threads); $j ++):
+                if($topics[$i]->id == $threads[$j]->topics_id && $cpt < 3): ?>
+                    <tr>
+                        <td><a href="<?php echo BASE_URL.'forum/thread_detail/'.$threads[$j]->id; ?>"><?php echo $threads[$j]->title ?></a></td>
+                        <td><?php echo $threads[$j]->description ?></td>
+                            <td>Number of Messages :<?php echo $threads[$j]->nbmsg?></td>
+                            <td>Creation Date : <?php echo $threads[$j]->date_inserted ?> </td>
+                            <td>Created by <?php echo $threads[$j]->username ?> </td>
+                    </tr>
+                    <?php
+                        $cpt++;
+                    endif; ?>
             <?php endfor; ?>
         </table>
         <?php endfor; ?>
