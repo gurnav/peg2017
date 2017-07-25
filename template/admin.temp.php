@@ -44,7 +44,7 @@
           </nav>
       </header>
 
-      <!--<div id="loader"></div>-->
+      <div id="loader"></div>
 
     <?php include 'app'.DS.App::$prefix.DS.'views'.DS.$this->view.'.view.php'; ?>
 
