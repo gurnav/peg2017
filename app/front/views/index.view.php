@@ -18,7 +18,7 @@
             <?php foreach ($articles as $article): ?>
                     <article class="item">
                         <header>
-                            <h2><?php echo $article->title; ?></h2>
+                            <h2><?php echo $article->title; ?> | <?php echo $article->category_name; ?></h2>
                         </header>
                             <a href="<?php echo BASE_URL.'contents/'.$article->type.'/'.$article->id; ?>">
                             <img src="<?php echo ROUTE_DIR_CONTENTS.$article->thumbnails; ?>" alt="<?php echo $article->name; ?>">
@@ -43,7 +43,7 @@
                 <?php foreach ($news as $news): ?>
                     <article class="item">
                         <header>
-                            <h2><?php echo $news->title; ?></h2>
+                            <h2><?php echo $news->title; ?> | <?php echo $news->category_name; ?></h2>
                         </header>
                         <a href="<?php echo BASE_URL.'contents/'.$news->type.'/'.$news->id; ?>">
                             <img src="<?php echo ROUTE_DIR_CONTENTS.$news->thumbnails; ?>" alt="<?php echo $news->name; ?>">
@@ -68,7 +68,7 @@
                 <?php foreach ($pages as $page): ?>
                     <article class="item">
                         <header>
-                            <h2><?php echo $page->title; ?></h2>
+                            <h2><?php echo $page->title; ?> | <?php echo $page->category_name; ?></h2>
                         </header>
                         <a href="<?php echo BASE_URL.'contents/'.$page->type.'/'.$page->id; ?>">
                             <img src="<?php echo ROUTE_DIR_CONTENTS.$page->thumbnails; ?>" alt="<?php echo $page->name; ?>">

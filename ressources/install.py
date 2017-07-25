@@ -38,6 +38,8 @@ with zipfile.ZipFile(site_name + "/ressources/zip/images.zip", "r") as zip_ref:
     zip_ref.extractall(site_name + "/public/assets")
 with zipfile.ZipFile(site_name + "/ressources/zip/font-awesome.zip", "r") as zip_ref:
     zip_ref.extractall(site_name + "/public/assets/css")
+with zipfile.ZipFile(site_name + "/ressources/zip/uploads.zip", "r") as zip_ref:
+    zip_ref.extractall(site_name)
 shutil.copyfile(site_name + "/public/assets/images/avatar.png", "uploads/users")
 
 print("Installing JS plugins")
@@ -117,7 +119,68 @@ with open(".htaccess", "w") as htaccess:
       RewriteCond %{REQUEST_FILENAME} !-d
       RewriteRule . {} [L]
 
+      # For HTTPS
+      # RewriteCond %{HTTPS} off
+      # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+      # Header always set Strict-Transport-Security "max-age=63072000; includeSubdomains; preload" env=HTTPS
+
       # Transform .xml in .rss
       RewriteRule ^(.+).rss$ $1.xml [L]
+    </IfModule>
+
+    <IfModule mod_expires.c>
+
+        # Enable expirations
+        ExpiresActive On
+
+        # Default directive
+        ExpiresDefault "access plus 1 month"
+
+        # My favicon
+        ExpiresByType image/x-icon "access plus 1 month"
+
+        # Images
+        ExpiresByType image/gif "access plus 1 month"
+        ExpiresByType image/png "access plus 1 month"
+        ExpiresByType image/jpg "access plus 1 month"
+        ExpiresByType image/jpeg "access plus 1 month"
+
+        # CSS
+        ExpiresByType text/css "access plus 1 month"
+
+        # Javascript
+        ExpiresByType application/javascript "access plus 1 month"
+
+    </IfModule>
+
+    <IfModule mod_deflate.c>
+      # Compress HTML, CSS, JavaScript, Text, XML and fonts
+      AddOutputFilterByType DEFLATE application/javascript
+      AddOutputFilterByType DEFLATE application/rss+xml
+      AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+      AddOutputFilterByType DEFLATE application/x-font
+      AddOutputFilterByType DEFLATE application/x-font-opentype
+      AddOutputFilterByType DEFLATE application/x-font-otf
+      AddOutputFilterByType DEFLATE application/x-font-truetype
+      AddOutputFilterByType DEFLATE application/x-font-ttf
+      AddOutputFilterByType DEFLATE application/x-javascript
+      AddOutputFilterByType DEFLATE application/xhtml+xml
+      AddOutputFilterByType DEFLATE application/xml
+      AddOutputFilterByType DEFLATE font/opentype
+      AddOutputFilterByType DEFLATE font/otf
+      AddOutputFilterByType DEFLATE font/ttf
+      AddOutputFilterByType DEFLATE image/svg+xml
+      AddOutputFilterByType DEFLATE image/x-icon
+      AddOutputFilterByType DEFLATE text/css
+      AddOutputFilterByType DEFLATE text/html
+      AddOutputFilterByType DEFLATE text/javascript
+      AddOutputFilterByType DEFLATE text/plain
+      AddOutputFilterByType DEFLATE text/xml
+
+      # Remove browser bugs (only needed for really old browsers)
+      BrowserMatch ^Mozilla/4 gzip-only-text/html
+      BrowserMatch ^Mozilla/4\.0[678] no-gzip
+      BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+      Header append Vary User-Agent
     </IfModule>
     """.format(rewrite_rule))

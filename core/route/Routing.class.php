@@ -167,7 +167,7 @@ class Routing
     public static function notFound()
     {
         http_response_code(404);
-        header("refresh:5;Location: ".BASE_URL);
+        header("refresh:5;url=".BASE_URL);
         if (App::$prefix === 'admin') {
             $v = new View('404', 'admin');
         } else {
