@@ -81,13 +81,13 @@ class Email extends \PHPMailer {
         // secure transfer enabled REQUIRED for GMail
         $this->SMTPSecure = 'ssl';
         // mail to be created
-        $this->Username   = "esgigeographic@gmail.com";
+        $this->Username   = EMAIL_ADMIN;
         // to be created
-        $this->Password   = "esgiGeographic2017";
+        $this->Password   = EMAIL_ADMIN_PASSWORD;
         // $mail->SetFrom($expediteur, $prenom.' '.$nom);
-        $this->From = 'esgigeographic@gmail.com';
+        $this->From = EMAIL_ADMIN;
         $this->AddAddress($this->addressee);
-        $this->AddReplyTo('esgigeographic@gmail.com');
+        $this->AddReplyTo(EMAIL_ADMIN);
         $this->Subject = $this->subject;
         $this->CharSet = "utf-8";
         $this->Body = $this->message;

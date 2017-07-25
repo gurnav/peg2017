@@ -2,14 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title><?php echo App::$title ?></title>
+    <title><?php echo SITE_NAME; ?></title>
     <meta name="description" content="description">
 
-    <link rel="stylesheet" href="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'css'.DS.'style_back.css' ?>" media="screen">
+    <link rel="stylesheet" href="<?php echo (SUB_SITE === true ? PATH_RELATIVE : '/').'public'.DS.'assets'.DS.'css'.DS.'style_back.css' ?>" media="screen">
 
     <!-- fonts -->
 	  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <link rel="stylesheet" href="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'css'.DS.'font-awesome'.DS.'css'.DS.'font-awesome.min.css' ?>" media="screen">
+    <link rel="stylesheet" href="<?php echo (SUB_SITE === true ? PATH_RELATIVE : '/').'public'.DS.'assets'.DS.'css'.DS.'font-awesome'.DS.'css'.DS.'font-awesome.min.css' ?>" media="screen">
 
 	<!-- viewport for better responsive -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,7 +50,7 @@
 
     <!-- JS -->
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'js'.DS.'scripts_back.js' ?>"></script>
+    <script type="text/javascript" src="<?php echo (SUB_SITE === true ? PATH_RELATIVE : '/').'public'.DS.'assets'.DS.'js'.DS.'scripts_back.js' ?>"></script>
     <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
     <script src="https://www.amcharts.com/lib/3/pie.js"></script>
     <script src="https://www.amcharts.com/lib/3/serial.js"></script>

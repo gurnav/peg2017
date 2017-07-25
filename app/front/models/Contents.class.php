@@ -80,6 +80,8 @@
     {
         $qb = new QueryBuilder();
         $query = "SELECT * FROM ".DB_PREFIX."contents
+        INNER JOIN (SELECT id AS cid, name AS category_name FROM ".DB_PREFIX."categories) AS categories_table
+        ON ".DB_PREFIX."contents.categories_id = categories_table.cid
         INNER JOIN (SELECT id AS iid, name, path AS thumbnails FROM ".DB_PREFIX."multimedias) AS multimedias_table
         ON ".DB_PREFIX."contents.thumbnails_id = multimedias_table.iid
         WHERE (".((empty($content_type))?"":DB_PREFIX."contents.type='".$content_type."' AND ")

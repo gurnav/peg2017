@@ -204,7 +204,11 @@
           }
 
           $contents = Contents::searchInContents($search, $_POST['type'], $_POST['contents_type']);
+
+          $v->assign('search_form', ModalsFactory::getSearchForm());
+          $v->assign('type', 'contents');
           $v->assign('contents', $contents);
+
       }
 
   }

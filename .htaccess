@@ -1,9 +1,0 @@
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /esgi-geographic/index.php [L]
-
-  # Transform .xml in .rss
-  RewriteRule ^(.+).rss$ $1.xml [L]
-</IfModule>
