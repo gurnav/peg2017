@@ -14,7 +14,7 @@
                 <th>Description</th>
                 <th>Date Publication</th>
                 <th>Username</th>
-                <th>Action</th>
+                <th>Action<th></th></th>
             </tr>
             </thead>
             <tbody>
@@ -26,9 +26,9 @@
                     <td><?php echo $category->date_inserted; ?></td>
                     <td><?php echo $category->username; ?></td>
 
-                    <a href="<?php echo BASE_URL.'admin/categories/update/'.$category->id; ?>"><button title="Modify"><i class="fa fa-cogs" aria-hidden="true"></i></button></a>
+                    <td class="action_special"><a href="<?php echo BASE_URL.'admin/categories/update/'.$category->id; ?>"><button title="Modify"><i class="fa fa-cogs" aria-hidden="true"></i></button></a></td>
 
-                    <button class="Delete" title="Delete" value="<?php echo BASE_URL.'admin/categories/delete/'.$category->id; ?>"><i class="fa fa-times" aria-hidden="true"></i></button>
+                    <td class="action_special"><button class="Delete" title="Delete" value="<?php echo BASE_URL.'admin/categories/delete/'.$category->id; ?>"><i class="fa fa-times" aria-hidden="true"></i></button></td>
                 </tr>
             <?php endforeach ?>
             </tbody>

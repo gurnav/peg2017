@@ -4,7 +4,10 @@
 <div id="wrapper">
 
     <div id="banner">
-        <div class="inner"></div>
+        <div class="logo">
+            <img src="<?php echo PATH_RELATIVE.'public'.DS.'assets'.DS.'images'.DS.'logo.png' ?>">
+        </div>
+        <h1>esgi-geographic</h1>
     </div>
 
     <?php if (isset($articles) && !empty($articles)): ?>

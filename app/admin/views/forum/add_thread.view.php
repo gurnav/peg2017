@@ -1,7 +1,8 @@
 <section class="information_panel">
 
     <div class="path">
-        <p><i class="fa fa-home" aria-hidden="true"></i> > Threads > Create or modify Thread</p>
+        <p><i class="fa fa-home" aria-hidden="true"></i> >
+            <a href="<?php echo BASE_URL.'admin/categories'; ?>">Threads</a> > Create or modify Thread</p>
     </div>
 
     <div class="only_one">
@@ -18,15 +19,17 @@
 
                 <?php if($attribute['type'] === 'text'): ?>
 
-                    <label><?php echo $attribute["label"]; ?>
+                    <div class="center">
+                        <label><?php echo $attribute["label"]; ?>
                         <input
                             type="<?php echo $attribute['type']; ?>" name="<?php echo $name; ?>"
                             <?php if(isset($attribute["placeholder"])) echo "placeholder=\"".$attribute["placeholder"]."\" " ?>
                             <?php if(isset($attribute["required"])) echo "required=\"".$attribute["required"]."\" " ?>
                             <?php if(isset($attribute['value'])) echo "value=\"".$attribute['value']."\" " ?>
                         >
-                    </label>
-                    <br>
+                        </label>
+                        <br>
+                    </div>
 
                 <?php endif; ?>
                 <?php if($attribute['type'] === 'textarea'): ?>
@@ -41,21 +44,23 @@
                 <?php endif; ?>
 
                 <?php if($attribute['type'] === 'selected'): ?>
-                    <label><?php echo $attribute["label"]; ?>
-                        <select name="<?php echo $name; ?>">
-                            <?php if(isset($attribute['value']))
-                                foreach ($attribute['value'] as $key => $value) {
-                                    ?><option><?php echo $value; ?></option><?php
-                                }
-                            ?>
-                        </select>
-                    </label>
+                    <div class="center">
+                        <label><?php echo $attribute["label"]; ?>
+                            <select name="<?php echo $name; ?>">
+                                <?php if(isset($attribute['value']))
+                                    foreach ($attribute['value'] as $key => $value) {
+                                        ?><option><?php echo $value; ?></option><?php
+                                    }
+                                ?>
+                            </select>
+                        </label>
+                    </div>
                     <br>
                 <?php endif; ?>
 
             <?php endforeach; ?>
 
-            <input type="submit" value="<?php echo $admin_register_thread["options"]['submit']; ?>">
+            <input type="submit" class="button_style" value="<?php echo $admin_register_thread["options"]['submit']; ?>">
 
         </form>
     </div>

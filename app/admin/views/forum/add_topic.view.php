@@ -1,7 +1,8 @@
 <section class="information_panel">
 
     <div class="path">
-        <p><i class="fa fa-home" aria-hidden="true"></i> > Topics > Create or modify Topic</p>
+        <p><i class="fa fa-home" aria-hidden="true"></i> >
+            <a href="<?php echo BASE_URL.'admin/categories'; ?>">Topics</a> > Create or modify Topic</p>
     </div>
 
     <div class="only_one">
@@ -17,15 +18,16 @@
             <?php foreach ($admin_register_topic['struct'] as $name => $attribute): ?>
 
                 <?php if($attribute['type'] === 'text') : ?>
-
-                    <label><?php echo $attribute["label"]; ?>
-                        <input
-                            type="<?php echo $attribute['type']; ?>" name="<?php echo $name; ?>"
-                            <?php if(isset($attribute["placeholder"])) echo "placeholder=\"".$attribute["placeholder"]."\" " ?>
-                            <?php if(isset($attribute["required"])) echo "required=\"".$attribute["required"]."\" " ?>
-                            <?php if(isset($attribute['value'])) echo "value=\"".$attribute['value']."\" " ?>
-                        >
-                    </label>
+                    <div class="center">
+                        <label><?php echo $attribute["label"]; ?>
+                            <input
+                                type="<?php echo $attribute['type']; ?>" name="<?php echo $name; ?>"
+                                <?php if(isset($attribute["placeholder"])) echo "placeholder=\"".$attribute["placeholder"]."\" " ?>
+                                <?php if(isset($attribute["required"])) echo "required=\"".$attribute["required"]."\" " ?>
+                                <?php if(isset($attribute['value'])) echo "value=\"".$attribute['value']."\" " ?>
+                            >
+                        </label>
+                    </div>
                     <br>
 
                 <?php endif; ?>
@@ -43,7 +45,7 @@
 
             <?php endforeach; ?>
 
-            <input type="submit" value="<?php echo $admin_register_topic["options"]['submit']; ?>">
+            <input type="submit" class="button_style" value="<?php echo $admin_register_topic["options"]['submit']; ?>">
 
         </form>
     </div>

@@ -1,6 +1,8 @@
 <section class="information_panel">
     <div class="path">
-    	<p><i class="fa fa-home" aria-hidden="true"></i> > Users > add multimedia</p>
+        <p><i class="fa fa-home" aria-hidden="true"></i> >
+            <a href="<?php echo BASE_URL.'admin/medias'; ?>">Multimedias</a> > add multimedia
+        </p>
     </div>
 
     <div class="only_one">
@@ -35,7 +37,8 @@
             <div class="div-file">
                 <i class="fa fa-file-image-o" aria-hidden="true"></i>
                 <label class="label-file"><?php echo $attribute['label']; ?>
-                <input class="input-file" type="<?php echo $attribute['type']; ?>" name="<?php echo $name; ?>"></label><br>
+                    <input class="input-file" type="<?php echo $attribute['type']; ?>" name="<?php echo $name; ?>">
+                </label><br>
             </div>
           <?php endif; ?>
 

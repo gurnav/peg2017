@@ -41,7 +41,7 @@
                         <td><?php echo $message->id; ?></td>
                         <td><?php echo $message->username; ?></td>
                         <td><?php echo $message->threadname; ?></td>
-                        <td><?php echo $message->content; ?></td>
+                        <td><?php echo substr($message->content, 0, 30); ?>...</td>
                     </tr>
                     <?php
                         $i++;
@@ -73,7 +73,7 @@
                     <tr>
                         <td><?php echo $thread->id; ?></td>
                         <td><?php echo $thread->title; ?></td>
-                        <td><?php echo $thread->description; ?></td>
+                        <td><?php echo substr($thread->description,0,30); ?>...</td>
                         <td><?php echo $thread->username; ?></td>
                         <td><?php echo $thread->topicname; ?></td>
                     </tr>
@@ -106,7 +106,7 @@
                         <tr>
                             <td><?php echo $topic->id; ?></td>
                             <td><?php echo $topic->name; ?></td>
-                            <td><?php echo $topic->description; ?></td>
+                            <td><?php echo substr($topic->description, 0, 30); ?>...</td>
                             <td><?php echo $topic->username; ?></td>
                         </tr>
                         <?php

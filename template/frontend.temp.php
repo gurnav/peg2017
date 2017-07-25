@@ -73,7 +73,7 @@
 
 <!-- JS -->
 <noscript>
-    <link rel="stylesheet" href="<?php echo (SUB_SITE === true ? PATH_RELATIVE : '/').'public'.DS.'assets'.DS.'css'.DS.'noscript.css' ?>" />
+    <noscript>JavaScript is Disabled. Please put it on.</noscript>
 </noscript>
 <script src="<?php echo (SUB_SITE === true ? PATH_RELATIVE : '/').'public'.DS.'assets'.DS.'js'.DS.'libs.js' ?>"></script>
 <script src="<?php echo (SUB_SITE === true ? PATH_RELATIVE : '/').'public'.DS.'assets'.DS.'js'.DS.'main.js' ?>"></script>

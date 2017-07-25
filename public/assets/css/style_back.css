@@ -628,6 +628,11 @@ section{
 
 /* Create/Modify something */
 
+
+.center{
+    text-align: center;
+}
+
 .information_panel .only_one h2{
     font-size: 2rem;
     text-align: left;
@@ -653,11 +658,12 @@ section{
     font-size: 1.2rem;
     display: inline-block;
     width: 25%;
-    text-align: right;
+    text-align: center;
 }
 
 .major_form div .editor_span{
     margin-top: 2%;
+    width: 100%;
 }
 
 .major_form div input{
@@ -667,7 +673,7 @@ section{
     width: 50%;
 }
 
-.major_form div input[type="radio" i] {
+.major_form div input[type="radio"] {
     width: inherit;
     margin-right: 1%;
     cursor: pointer;
@@ -702,7 +708,6 @@ section{
     -webkit-filter: brightness(80%);
     -moz-filter: brightness(80%);
     -o-filter: brightness(80%);
-    -ms-filter: brightness(80%);
     filter: brightness(80%);
 }
 
@@ -829,6 +834,11 @@ section{
     text-align: center;
     border: none;
     margin: 2%;
+}
+
+.action_special{
+    text-align: center;
+    width: 1em;
 }
 
 

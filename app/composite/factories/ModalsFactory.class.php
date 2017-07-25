@@ -37,7 +37,7 @@
 
           "user_newsletters"=>["label"=>"Newsletters", "type"=>"radio", "value"=>["Dont subscribe"=>0, "Subscribe"=>1], "checked"=>0, "i_class"=>"fa fa-info" ],
 
-          "user_img"=>[ "label"=>"Choose Your avatar : ", "type"=>"file", "required"=>"required", "i_class"=>"fa fa-picture-o", "msgerror"=>"" ],
+          "user_img"=>[ "label"=>"Choose Your avatar ", "type"=>"file", "required"=>"required", "i_class"=>"fa fa-picture-o", "msgerror"=>"" ],
         ]
       ];
     }
@@ -362,7 +362,7 @@
 
           "user_status"=>["label"=>"Status of the user", "type"=>"radio", "required"=>"required", "value"=>["Pending"=>0, "Rejected"=>-1, "Validated"=>1], "checked"=>0 ],
 
-          "user_img"=>[ "label"=>"Choose The avatar : ", "type"=>"file", "required"=>"required", "msgerror"=>"" ]
+          "user_img"=>[ "label"=>"Choose The avatar", "type"=>"file", "required"=>"required", "msgerror"=>"" ]
         ]
       ];
     }

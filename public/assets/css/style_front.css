@@ -21,15 +21,17 @@ section{
 }
 
 /* Header */
-
 header #burger_menu{
     display: none;
 }
 
 header .menu{
-    background: url("../images/banner.jpeg") no-repeat;
+    background: url("../images/banner.jpg") no-repeat;
     background-size: cover;
-    position: relative;
+    z-index: 999;
+    /*background: transparent;*/
+    width: 100%;
+    background-position-y: -125px;
 }
 
 #home{
@@ -75,6 +77,27 @@ header .nav_bar li a:hover{
 }
 
 /* Universal */
+
+.page-landing #banner
+{
+    /*padding:0 0 8em 0;*/
+    background-color:#3D3E53;
+    text-align:center;
+    color:#fff;
+    cursor:default;
+    position:relative;
+    overflow:hidden;
+    height: 100vh;}
+
+.page-landing #items
+{
+    padding:5em 0;
+    text-align:center}
+
+.page-landing #banner {
+    background-image: url("../images/banner.jpg");
+    background-position: center center;
+}
 
 .body_item{
     background: #e8e8e8;
@@ -155,7 +178,7 @@ header .nav_bar li a:hover{
     padding: 3%;
 }
 
-.triple_items .item header h2{
+.triple_items .item header h1{
     float: left;
     font-size: 1.2rem;
     font-weight: 400;
@@ -277,8 +300,8 @@ header .nav_bar li a:hover{
 	margin-bottom: 100px;
 }
 
-.list_subject table thead tr th:first-child{
-
+.list_subject table thead tr:nth-child(2){
+    /*display: none;*/
 
 }
 .list_subject table thead tr th {
@@ -366,8 +389,8 @@ header .nav_bar li a:hover{
     padding-left: 10%;
     background: #f1f1f1;
     border: none;
-    width: 100%;
     color: black;
+    width: 82%;
 }
 
 .form_user>div{
@@ -542,7 +565,7 @@ header .nav_bar li a:hover{
 .resume_profil{
     width: 90%;
     margin: 2% auto;
-    background: white;
+    /*background: white;*/
     border-radius: 4px;
     border: solid 5px transparent;
     overflow: auto;
@@ -559,14 +582,16 @@ header .nav_bar li a:hover{
     font-weight: 400;
 }
 
-.resume_profil .public img{
-    float: right;
-    width: 40%;
+.resume_profil .private p{
+    font-size: 1.5rem;
+    margin-bottom: 3%;
+    color: #000;
 }
 
 .resume_profil .public p{
     font-size: 1.5rem;
     margin-bottom: 3%;
+    color: #000;
 }
 
 .resume_profil .public p a{
@@ -577,6 +602,7 @@ header .nav_bar li a:hover{
     border: solid 2px #662200;
     padding: 1%;
     display: block;
+    margin: auto;
     width: 22%;
     font-size: 1.2rem;
     text-transform: uppercase;
@@ -596,19 +622,43 @@ header .nav_bar li a:hover{
 
 .resume_profil .public{
     overflow: auto;
-    width: 50%;
-    float: left;
+    width: 100%;
+    text-align: center;
 }
 
-.resume_profil .private p{
-    width: 30%;
-    margin: 2% auto;
-    font-size: 1.5rem;
+.resume_profil .private{
+    overflow: auto;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    top: -105px;
+    margin-bottom: -90px;
 }
 
 .resume_profil .private span{
     font-size: 1.2rem;
     color: #a0a0a0;
+}
+
+.image_profile{
+    margin-bottom: 5%;
+    border-radius: 100%;
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+    background: rgba(255,255,255, 0.5);
+}
+
+.banner_profile{
+    height: 15rem;
+    margin-bottom: 5%;
+    padding-top: 5%;
+    background: url("../images/profile_bg.jpg") no-repeat;
+}
+
+.container_profile{
+    width: 50%;
+    margin: auto;
 }
 
 #my_zoom{
@@ -805,6 +855,79 @@ input[type=text] {
     text-align: center;
 }
 
+.super_editor label .input_forum{
+    display: block;
+    width: 100%;
+}
+
+div .logo img{
+    width: 50%;
+}
+
+.label-file {
+    cursor: pointer;
+    color: #00b1ca ;
+    font-weight: bold;
+}
+.label-file:hover {
+    color: #25a5c4 ;
+}
+.input-file {
+    display: none;
+}
+
+.div-file{
+    text-align: center;
+    border: none;
+    margin: 2%;
+}
+
+
+/** PROFIL**/
+.card.block_profile {
+    border-radius: 5px;
+    position: relative;
+    padding-top: 0;
+    overflow: hidden;
+    text-align: center;
+    background-color: rgba(214, 224, 226, 0.2);
+}
+
+.card.block_profile .entete {
+    background: url("../images/profile.jpg") center center;
+    background-size: cover;
+    height: 155px;
+}
+
+.card.block_profile .avatar {
+    position: relative;
+    top: -50px;
+    margin-bottom: -50px;
+}
+
+.card.block_profile .avatar img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255,255,255,0.5);
+}
+
+.card.block_profile .info {
+    padding: 4px 8px 10px;
+}
+
+.card.block_profile .info .title {
+    margin-bottom: 4px;
+    font-size: 24px;
+    line-height: 1;
+    color: #262626;
+    vertical-align: middle;
+}
+
 /* Footer */
 
 footer{
@@ -992,6 +1115,29 @@ footer p{
     .resume_profil .public p a{
         margin: auto;
     }
+
+    .resume_profil .private{
+        overflow: auto;
+        width: 100%;
+        text-align: center;
+    }
+
+    div .logo img{
+        width: 100%;
+    }
+
+    .connexion_back div {
+        width: 100%;
+    }
+
+    .connexion_back div form div {
+        width: 100%;
+    }
+
+    .form_user .validate {
+        width: 100%;
+        padding: 5%;
+    }
 }
 
 /* Responsive Phone */
@@ -1077,6 +1223,7 @@ footer p{
         background: inherit;
         cursor: pointer;
         transition: 0.5s;
+        color: white;
     }
 
     .filters .submit:hover{
@@ -1086,6 +1233,44 @@ footer p{
 
     .resume_profil .public p a{
         width: 32%;
+    }
+}
+
+
+/* Print */
+
+@media print{
+    @font-face {
+        font-family: "ecofont vera sans";
+        src: url("../fonts/ecofont_vera_sans_regular.ttf");
+    }
+
+    @page {
+        margin: 10%;
+        size: a4;
+    }
+
+    * {
+        font-family: "ecofont vera sans";
+        color: black;
+    }
+
+    img {
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+    }
+
+    a{
+        color: black;
+        text-decoration: none;
+    }
+
+    ul li{
+        list-style: none;
+    }
+
+    .body_item{
+        min-height: 0;
     }
 
 }

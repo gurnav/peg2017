@@ -1,6 +1,7 @@
 <section class="information_panel">
     <div class="path">
-        <p><i class="fa fa-home" aria-hidden="true"></i> > Category > addCategory</p>
+        <p><i class="fa fa-home" aria-hidden="true"></i> >
+            <a href="<?php echo BASE_URL.'admin/categories'; ?>">Category</a> > addCategory</p>
     </div>
 
     <div class="only_one">
@@ -19,14 +20,16 @@
                     $attribute['type'] === 'text' ||
                     $attribute['type'] === 'password'): ?>
 
-                    <label><?php echo $attribute["label"]; ?>
-                        <input
-                            type="<?php echo $attribute['type']; ?>" name="<?php echo $name; ?>"
-                            <?php if(isset($attribute["placeholder"])) echo "placeholder=\"".$attribute["placeholder"]."\" " ?>
-                            <?php if(isset($attribute["required"])) echo "required=\"".$attribute["required"]."\" " ?>
-                            <?php if(isset($attribute['value'])) echo "value=\"".$attribute['value']."\" " ?>
-                        >
-                    </label>
+                    <div class="center">
+                        <label><?php echo $attribute["label"]; ?>
+                            <input
+                                type="<?php echo $attribute['type']; ?>" name="<?php echo $name; ?>"
+                                <?php if(isset($attribute["placeholder"])) echo "placeholder=\"".$attribute["placeholder"]."\" " ?>
+                                <?php if(isset($attribute["required"])) echo "required=\"".$attribute["required"]."\" " ?>
+                                <?php if(isset($attribute['value'])) echo "value=\"".$attribute['value']."\" " ?>
+                            >
+                        </label>
+                    </div>
                     <br>
                 <?php endif; ?>
 
