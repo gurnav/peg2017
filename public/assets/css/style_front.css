@@ -386,6 +386,27 @@ header .nav_bar li a:hover{
     transition: 0.5s;
 }
 
+
+.form_user .profile_edit{
+    margin: 2% auto;
+    width: 30%;
+    color: #009900;
+    background: white;
+    border: solid 2px #009900;
+    text-transform: uppercase;
+    padding: 1%;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: 0.5s;
+    font-size: 12px;
+}
+
+.form_user .profile_edit:hover{
+    color: white;
+    background: #009900;
+    transition: 0.5s;
+}
+
 .form_user div input{
     padding-top: 2%;
     padding-bottom: 2%;
@@ -1001,6 +1022,11 @@ footer p{
 /* Responsive Tablet */
 
 @media(max-width: 800px){
+
+    .form_user .profile_edit {
+        padding: 5%;
+        width:100%;
+    }
 
     .bad_page{
         margin: 15% auto;

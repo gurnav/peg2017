@@ -933,6 +933,9 @@ section{
 
 @media(max-width: 800px){
 
+    #loader{
+        display: none;
+    }
     .top_line button{
         letter-spacing: 1px;
     }
