@@ -1002,6 +1002,15 @@ footer p{
 
 @media(max-width: 800px){
 
+    .bad_page{
+        margin: 15% auto;
+    }
+
+    .bad_page h1{
+        padding-top: 5vh;
+        font-size: 3rem;
+    }
+
     .resume_profil{
         margin: 10% auto;
     }
