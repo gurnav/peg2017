@@ -25,7 +25,7 @@
         }
 
         $offset = ($pagination * 10) - 10;
-        $topics = Topics::getAllTopicsWithUsers(null, null, 10, $pagination);
+        $topics = Topics::getAllTopicsWithUsers(null, null, 10, $offset);
 
         $v->assign('count', Topics::getCount()->count);
         $v->assign("topics", $topics);

@@ -34,7 +34,7 @@
         }
 
         $offset = ($pagination * 10) - 10;
-        $contents = Contents::getAllContentsWithUsersAndContents(10, $pagination);
+        $contents = Contents::getAllContentsWithUsersAndContents(10, $offset);
 
         $v->assign('count', Contents::getCount()->count);
         $v->assign('contents', $contents);

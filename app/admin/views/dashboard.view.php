@@ -31,10 +31,10 @@
     </div>
   </div>
 
-  <div class="stats_graph only_desktop">
+  <!-- <div class="stats_graph only_desktop">
     <h2>Activity Statistics</h2>
       <div id="chartdiv1"></div>
-  </div>
+  </div> -->
 
   <div class="more_information">
       <div>
