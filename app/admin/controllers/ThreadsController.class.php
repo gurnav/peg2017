@@ -13,7 +13,7 @@ use Core\Util\Helpers;
 class ThreadsController extends Controller
 {
 
-    public function indexAction()
+    public function indexAction($args)
     {
         $v = new View('forum/threads','admin');
         // $threads = Threads::getAll();

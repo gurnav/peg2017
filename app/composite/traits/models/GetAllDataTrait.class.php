@@ -38,7 +38,7 @@
         // $class = get_class($this);
         $class = explode("\\", self::class);
         $class_name = end($class);
-        $query = "SELECT COUNT(id) AS count FROM ".DB_PREFIX.lcfirst($class_name);
+        $query = "SELECT COUNT(id) AS count FROM ".DB_PREFIX.lcfirst($class_name)." WHERE deleted = 0";
 
         return $qb->query($query, null, true);
     }

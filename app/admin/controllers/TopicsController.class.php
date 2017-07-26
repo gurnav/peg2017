@@ -14,7 +14,7 @@
   class TopicsController extends Controller
   {
 
-    public function indexAction()
+    public function indexAction($args)
     {
         $v = new View('forum/topics','admin');
 

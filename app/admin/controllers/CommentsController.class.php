@@ -11,7 +11,7 @@ use App\Admin\Models\Users;
 
 class CommentsController extends Controller
 {
-    public function indexAction()
+    public function indexAction($args)
     {
         $v = new View('comments/comments', 'admin');
 

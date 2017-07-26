@@ -23,7 +23,7 @@
      * Action who list all contents
      * @return Void
      */
-    public function indexAction()
+    public function indexAction($args)
     {
         $v = new View('contents/contents', 'admin');
 
