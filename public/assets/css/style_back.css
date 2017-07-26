@@ -859,6 +859,31 @@ section{
     width: 1em;
 }
 
+.pagination {
+    display: table;
+    margin: auto;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+.comment_signal{
+    background-color: rgba(255, 0, 0, 0.3);
+}
+
 
 
 /* Responsive Little screen */
@@ -910,6 +935,10 @@ section{
 
     .top_line button{
         letter-spacing: 1px;
+    }
+
+    .pagination a{
+        padding: 5px 10px;
     }
 
     #burger_menu{
