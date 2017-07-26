@@ -19,7 +19,7 @@
             </thead>
             <tbody>
             <?php foreach ($messages as $message): ?>
-                <tr>
+                <tr <?php if ($message->signaled) echo "class='comment_signal'"; ?> >
                     <td><?php echo $message->id; ?></td>
                     <td><?php echo $message->username; ?></td>
                     <td><?php echo $message->threadname; ?></td>
@@ -34,17 +34,19 @@
             </tbody>
         </table>
 
+        <?php if ($count > 10): ?>
+            <div class="pagination">
+            <?php $i = 0;
+            do {
+                $i += 10;
+                echo "<a href='".BASE_URL."admin/messages/index/".($i / 10)."'>".($i / 10)."</a>";
+            } while ($i < $count);
+             ?>
+           </div>
+        <?php endif ?>
+
         <button class="view_more"><a href="<?php echo BASE_URL.'admin'; ?>">return</a></button>
 
     </div>
-
-    <?php if ($count > 10): ?>
-        <?php $i = 0;
-        do {
-            $i += 10;
-            echo "<div><a href='".BASE_URL."admin/categories/index/".($i / 10)."'>".($i / 10)."</a></div>";
-        } while ($i < $count);
-         ?>
-    <?php endif ?>
 
 </section>

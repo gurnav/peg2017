@@ -1,10 +1,10 @@
 <div class="body_item">
 	<article class="article_solo" >
 		<header>
-		<h1><?php echo $content->getTitle(); ?></h1>
+		<h1><?php echo $content->title; ?></h1>
 		</header>
-		<img src="<?php echo $content->getThumbnails_id(); ?>">
-		<p class="description"><?php echo $content->getContent(); ?></p>
+		<img src="<?php echo ROUTE_DIR_CONTENTS.$content->thumbnails; ?>">
+		<p class="description"><?php echo $content->content; ?></p>
 	</article>
 
 	<div class="article_solo commentaries">
@@ -26,7 +26,7 @@
 				</div>
 			<?php endforeach; ?>
 		</div>
-		<?php if (isset($_SESSION['user']) && $content->getIsLikeable() == '1'): ?>
+		<?php if (isset($_SESSION['user'])): ?>
 			<div class="article_solo">
 				<header>
 					<h2>Write a comment</h2>
@@ -55,7 +55,7 @@
 		<?php if (isset($errors)): ?>
 			<div class="article_solo">
 			<?php foreach($errors as $error): ?>
-				<p><?php echo $error; ?></p>
+				<div><p class="simple_error"><?php echo $error; ?></p></div>
 			<?php endforeach ?>
 			</div>
 		<?php endif ?>

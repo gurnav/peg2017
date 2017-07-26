@@ -21,9 +21,9 @@
        * @return Void
        */
       public function __construct($id=-1, $title='', $content='', $status='0',
-      $type='page', $isCommentable='0', $isLikeable='0', $categories_id=-1, $thumbnails_id=0, $users_id=-1)
+      $type='page', $categories_id=-1, $thumbnails_id=0, $users_id=-1)
       {
-        parent::__construct($id, $title, $content, $status, $type, $isCommentable, $isLikeable,
+        parent::__construct($id, $title, $content, $status, $type,
             $categories_id, $thumbnails_id, $users_id);
       }
 
@@ -57,15 +57,16 @@
      * @param int $id : The id of the contents
      * @return Array Comments : Return an array of comments object
      */
-    public function getAllCommentsFromContentID()
+    public static function getAllCommentsFromContentID($contents_id)
     {
-        $query = $this->qb->select('*')
+        $qb = new QueryBuilder();
+        $query = $qb->select('*')
             ->from(DB_PREFIX."comments")
-            ->where("contents_id = '".$this->getId()."'")
+            ->where("contents_id = '".$contents_id."'")
             ->where("deleted = 0");
         $query .= " ORDER BY date_updated, date_inserted DESC";
 
-        return $this->qb->query($query, "App\Front\Models\Comments");
+        return $qb->query($query, "App\Front\Models\Comments");
     }
 
 
@@ -91,4 +92,22 @@
         return $qb->query($query, null, false);
     }
 
+
+    /**
+     * Retrieve a specific contents with his thumbnails
+     *
+     * @param $content_id The content id
+     * @return An object representing the content
+     */
+     public static function getContentWithThumbnails($content_id) {
+         $qb = new QueryBuilder();
+
+         $query = "SELECT * FROM ".DB_PREFIX."contents
+         INNER JOIN (SELECT id AS iid, name, path AS thumbnails FROM ".DB_PREFIX."multimedias) AS multimedias_table
+         ON ".DB_PREFIX."contents.thumbnails_id = multimedias_table.iid
+         WHERE (".DB_PREFIX."contents.id = ".$content_id." AND "
+            .DB_PREFIX."contents.deleted=0 AND ".DB_PREFIX."contents.status=1)";
+
+        return $qb->query($query, null, true);
+     }
 }

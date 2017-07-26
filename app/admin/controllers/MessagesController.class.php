@@ -74,7 +74,7 @@ class MessagesController extends Controller
 
         for($i = 0; $i < count($threads); $i++)
         {
-            $admin_register_message['struct']['thread']['value'][]=  $threads[$i]["title"];
+            $admin_register_message['struct']['thread']['value'][] =  $threads[$i]["title"];
         }
 
         $v->assign('admin_register_message', $admin_register_message);
@@ -125,6 +125,14 @@ class MessagesController extends Controller
             array_push($_SESSION['errors'], $e->getMessage());
         }
 
+        $signaled = (($_POST['signaled'] === 'signaled') ? 1 : 0);
+
+        try {
+            $message->setSignaled($signaled);
+        } catch (\Exception $e) {
+            array_push($_SESSION['errors'], $e->getMessage());
+        }
+
         try {
             if(empty($_SESSION['errors']))
                 $message->save();
@@ -168,6 +176,14 @@ class MessagesController extends Controller
         }
         try {
             $message->setThreadsId(intval($message->getThreadIdByName($_POST['thread'])));
+        } catch (\Exception $e) {
+            array_push($_SESSION['errors'], $e->getMessage());
+        }
+
+        $signaled = (($_POST['signaled'] === 'signaled') ? 1 : 0);
+
+        try {
+            $message->setSignaled($signaled);
         } catch (\Exception $e) {
             array_push($_SESSION['errors'], $e->getMessage());
         }

@@ -34,17 +34,19 @@
             </tbody>
         </table>
 
+        <?php if ($count > 10): ?>
+            <div class="pagination">
+            <?php $i = 0;
+            do {
+                $i += 10;
+                echo "<a href='".BASE_URL."admin/topics/index/".($i / 10)."'>".($i / 10)."</a>";
+            } while ($i < $count);
+             ?>
+           </div>
+        <?php endif ?>
+
         <button class="view_more"><a href="<?php echo BASE_URL.'admin'; ?>">return</a></button>
 
     </div>
-
-    <?php if ($count > 10): ?>
-        <?php $i = 0;
-        do {
-            $i += 10;
-            echo "<div><a href='".BASE_URL."admin/categories/index/".($i / 10)."'>".($i / 10)."</a></div>";
-        } while ($i < $count);
-         ?>
-    <?php endif ?>
 
 </section>

@@ -31,12 +31,13 @@
                 </div>
                 <div class="text_area">
                     <table>
-                        <tr>
+                        <tr <?php if ($messages[$i]->signaled) echo "class='comment_signal'"; ?>>
                     <td class="comment_forum"> <?php echo $messages[$i]->content ?></td>
                     <td class="comment_forum"> Creation Date :<?php echo $messages[$i]->date_inserted ?></td>
                    <?php if (isset($_SESSION['user'])): ?>
+                       <td align="right" width="3%"><button class="Delete" title="Report" value="<?php echo BASE_URL.'forum/reportMessage/'.$messages[$i]->id; ?>"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></button></td>
                          <?php if($_SESSION['user']['username'] === $messages[$i]->username): ?>
-                    <td align="right" width="3%"><button class="Delete" title="Delete" value="<?php echo BASE_URL.'forum/deleteMessage/'.$messages[$i]->id; ?>"><i class="fa fa-close" aria-hidden="true"></i></button></td>
+                             <td align="right" width="3%"><button class="Delete" title="Delete" value="<?php echo BASE_URL.'forum/deleteMessage/'.$messages[$i]->id; ?>"><i class="fa fa-close" aria-hidden="true"></i></button></td>
                         <?php endif;?>
                     <?php endif;?>
                     </tr>

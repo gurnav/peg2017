@@ -16,9 +16,9 @@
         * Constructor of the Messages model class
         * @return Void
         */
-        public function __construct($id=-1, $users_id=-1,  $threads_id=-1, $content="")
+        public function __construct($id=-1, $users_id=-1, $threads_id=-1, $signaled=0, $content="")
         {
-        	parent::__construct($id, $users_id, $threads_id, $content);
+        	parent::__construct($id, $users_id, $threads_id, $signaled, $content);
 
         }
   }

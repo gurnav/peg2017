@@ -22,8 +22,8 @@
     protected $content; // The content
     protected $status; // The Status of the content so whetever it's validated or not
     protected $type; // Type of the content (News, Page, Article)
-    protected $isCommentable; // If the content is commentable
-    protected $isLikeable; // If the content is likeable
+    // protected $isCommentable; // If the content is commentable
+    // protected $isLikeable; // If the content is likeable
     protected $categories_id; // The category of the content represented by its id
     protected $thumbnails_id; // The image id which represent the thumbnails for a content
     protected $users_id; // The author of the content represented by its id
@@ -33,7 +33,7 @@
      * @return Void
      */
     public function __construct($id=-1, $title='', $content='', $status='0',
-        $type='page', $isCommentable='0', $isLikeable='0', $categories_id=-1, $thumbnails_id=0,
+        $type='page', $categories_id=-1, $thumbnails_id=0,
         $users_id=-1)
     {
       parent::__construct();
@@ -43,8 +43,8 @@
       $this->setContent($content);
       $this->setStatus($status);
       $this->setType($type);
-      $this->setIsCommentable($isCommentable);
-      $this->setIsLikeable($isLikeable);
+      // $this->setIsCommentable($isCommentable);
+      // $this->setIsLikeable($isLikeable);
       $this->setCategories_id($categories_id);
       $this->setThumbnails_id($thumbnails_id);
       $this->setUsers_id($users_id);

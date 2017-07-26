@@ -21,19 +21,21 @@
     protected $id; // id of the message
     protected $content; // content of the message
     protected $threads_id; // The thread of the message represented by its id
+    protected $signaled; // If the comment is reported or not
     protected $users_id; // The author of the message represented by its id
 
   /**
     * Constructor of the Messages model class
     * @return Void
     */
-    public function __construct($id=-1, $users_id=-1,  $threads_id=-1, $content="")
+    public function __construct($id=-1, $users_id=-1,  $threads_id=-1, $signaled=0, $content="")
     {
       parent::__construct();
 
       $this->setId($id);
       $this->setUsers_id($users_id);
       $this->setThreadsId($threads_id);
+      $this->setSignaled($signaled);
       $this->setContent($content);
     }
 
@@ -74,13 +76,38 @@
       }
 
       /**
+       * Simple setter of the signaled
+       * Check if the report respect the integrity of the database
+       * So whetever it's a integer or not
+       * @param Integer : $signaled The flag to be set
+       * @return Void
+       */
+      public function setSignaled($signaled)
+      {
+          if (is_numeric($signaled)) {
+              $this->signaled = $signaled;
+          } else {
+              Helpers::log("A non integer type for a report in a content have tried to be inserted in the DB");
+              throw new \Exception("You can't enter a non integer type for a report of a content");
+          }
+      }
+
+      /**
+       * Simple signaled getter
+       * @return Integer $signaled The content
+       */
+      public function getSignaled()
+      {
+        return $this->signaled;
+      }
+
+      /**
        * Simple setter for the content
        * Check if the Content respect the integrity of the database
        * So if that a string and lesser than 65535
        * @param String : $content The content to be set
        * @return Void
        */
-
       public function setContent($content)
       {
           if(is_string($content))
@@ -159,7 +186,7 @@
           $query = "SELECT * FROM ".DB_PREFIX."messages
           INNER JOIN (SELECT id AS uid, username, img FROM hbv_users) AS usr ON usr.uid = ".DB_PREFIX."messages.users_id
           WHERE (".DB_PREFIX."messages.threads_id = ".$threads_id." AND deleted = 0 )".
-          " ORDER BY ".DB_PREFIX."messages.date_updated, ".DB_PREFIX."messages.date_inserted DESC";
+          " ORDER BY ".DB_PREFIX."messages.date_inserted DESC";
 
           return $qb->query($query, null, false);
       }

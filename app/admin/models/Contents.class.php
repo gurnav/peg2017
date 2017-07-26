@@ -15,9 +15,9 @@ class Contents extends Content
      * @return Void
      */
     public function __construct($id=-1, $title='', $content='', $status='0',
-                                $type='page', $isCommentable='0', $isLikeable='0', $categories_id=-1, $thumbnails_id=0, $users_id=-1)
+                                $type='page', $categories_id=-1, $thumbnails_id=0, $users_id=-1)
     {
-        parent::__construct($id, $title, $content, $status, $type, $isCommentable, $isLikeable,
+        parent::__construct($id, $title, $content, $status, $type,
             $categories_id, $thumbnails_id, $users_id);
     }
     /**
@@ -45,13 +45,15 @@ class Contents extends Content
      *
      * @return Array of contents with their associated users
      */
-    public static function getAllContentsWithUsersAndContents() {
+    public static function getAllContentsWithUsersAndContents($limit=null, $offset=null) {
         $qb = new QueryBuilder();
         $query = "SELECT * FROM ".DB_PREFIX."contents"
           ." INNER JOIN (SELECT id AS uid, username FROM ".DB_PREFIX."users) AS users_table
           ON ".DB_PREFIX."contents.users_id = users_table.uid
           WHERE ".DB_PREFIX."contents.deleted = 0
           ORDER BY date_updated, date_inserted";
+          if ($limit !== null) $query .= " LIMIT ".$limit;
+          if ($offset !== null) $query .= " OFFSET ".$offset;
 
         return $qb->query($query, null, false);
     }

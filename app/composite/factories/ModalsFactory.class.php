@@ -166,8 +166,8 @@
               "struct" => [
 
                   "content" => ["label"=>"The content of your message","type"=>"textarea", "placeholder"=>"content of your message", "required"=>0, "error_msg"=>"" ],
-                  "thread" => ["label" => "Choose your thread", "type" => "selected", "name" => "listofThread", "value"=>"", "id" => "", "placeholder" => "name of your thread", "required" => 0, "error_msg" => "threadChoose"]
-
+                  "thread" => ["label" => "Choose your thread", "type" => "selected", "name" => "listofThread", "value"=>"", "id" => "", "placeholder" => "name of your thread", "required" => 0, "error_msg" => "threadChoose"],
+                  "signaled" => ["label" => "Reported ?", "type" => "selected", "name" => "signaled", "value" => ["1" => "Signaled", "0" => "Not Signaled"]]
               ]
           ];
       }
@@ -241,7 +241,8 @@
               "struct" => [
 
                   "content" => ["label"=>"The content of your message","type"=>"textarea", "placeholder"=>"content of your message", "required"=>0, "error_msg"=>"" ],
-                  "thread" => ["label" => "Choose your thread", "type" => "selected", "name" => "listofThread", "value"=>"", "id" => "", "placeholder" => "name of your thread", "required" => 0, "error_msg" => "threadChoose"]
+                  "thread" => ["label" => "Choose your thread", "type" => "selected", "name" => "listofThread", "value"=>"", "id" => "", "placeholder" => "name of your thread", "required" => 0, "error_msg" => "threadChoose"],
+                  "signaled" => ["label" => "Reported ?", "type" => "selected", "name" => "signaled", "value" => ["1" => "Signaled", "0" => "Not Signaled"]]
 
               ]
           ];

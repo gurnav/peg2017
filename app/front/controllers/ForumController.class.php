@@ -158,4 +158,20 @@ use App\Composite\Traits\Models\GetAllDataTrait;
 
       }
 
+      public function reportMessageAction($id_message)
+      {
+          $message = new Messages();
+          $id_message = trim($id_message[0]);
+          try {
+              $message = $message->populate(['id' => $id_message]);
+              $message->setSignaled(1);
+              $message->save();
+          } catch (Exception $e) {
+              array_push($_SESSION['errors'], $e->getMessage());
+          }
+          $url = (!isset($_SERVER["HTTP_REFERER"]))?BASE_URL:$_SERVER["HTTP_REFERER"];
+          header('Location: '.$url);
+
+      }
+
   }

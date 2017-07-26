@@ -52,10 +52,14 @@
       public function articleAction($id_article)
       {
           $v = new View('contents/content');
-          $content = new Contents();
 
+          /**
+          $content = new Contents();
           $content = $content->populate(['id' => $id_article[0]]);
           $comments = $content->getAllCommentsFromContentID();
+          **/
+          $content = Contents::getContentWithThumbnails($id_article[0]);
+          $comments = Contents::getAllCommentsFromContentID($id_article[0]);
 
           $v->assign('content', $content);
           $v->assign('comments', $comments);
@@ -90,10 +94,15 @@
       public function newsAction($id_news)
       {
           $v = new View('contents/content');
-          $content = new Contents();
 
+          /**
+          $content = new Contents();
           $content = $content->populate(['id' => $id_news[0]]);
           $comments = $content->getAllCommentsFromContentID();
+          **/
+
+          $content = Contents::getContentWithThumbnails($id_news[0]);
+          $comments = Contents::getAllCommentsFromContentID($id_news[0]);
 
           $v->assign('content', $content);
           $v->assign('comments', $comments);
@@ -128,10 +137,15 @@
       public function pageAction($id_page)
       {
           $v = new View('contents/content');
-          $content = new Contents();
 
+          /**
+          $content = new Contents();
           $content = $content->populate(['id' => $id_page[0]]);
           $comments = $content->getAllCommentsFromContentID();
+          **/
+
+          $content = Contents::getContentWithThumbnails($id_page[0]);
+          $comments = Contents::getAllCommentsFromContentID($id_page[0]);
 
           $v->assign('content', $content);
           $v->assign('comments', $comments);

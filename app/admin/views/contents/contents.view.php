@@ -50,16 +50,16 @@
             </tbody>
         </table>
 
-        <!-- PAGINATION -->
-        <div class="pagination">
-            <a href="#">&laquo;</a><!-- Previous -->
-            <a class="active"href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">&raquo;</a><!-- Next -->
-        </div>
+        <?php if ($count > 10): ?>
+            <div class="pagination">
+			<?php $i = 0;
+			do {
+				$i += 10;
+				echo "<a href='".BASE_URL."admin/contents/index/".($i / 10)."'>".($i / 10)."</a>";
+			} while ($i < $count);
+			 ?>
+           </div>
+		<?php endif ?>
 
         <button class="view_more"><a href="<?php echo BASE_URL.'admin'; ?>">return</a></button>
 

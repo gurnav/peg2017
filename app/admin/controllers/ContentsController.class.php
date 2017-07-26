@@ -26,8 +26,17 @@
     public function indexAction()
     {
         $v = new View('contents/contents', 'admin');
-        $contents = Contents::getAllContentsWithUsersAndContents();
 
+        if (empty($args)) {
+            $pagination = 1;
+        } else {
+            $pagination = intval($args[0]);
+        }
+
+        $offset = ($pagination * 10) - 10;
+        $contents = Contents::getAllContentsWithUsersAndContents(10, $pagination);
+
+        $v->assign('count', Contents::getCount()->count);
         $v->assign('contents', $contents);
     }
 

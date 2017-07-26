@@ -76,6 +76,10 @@ header .nav_bar li a:hover{
 
 /* Universal */
 
+.comment_signal{
+    background-color: rgba(255, 0, 0, 0.3);
+}
+
 .page-landing #banner
 {
     /*padding:0 0 8em 0;*/
