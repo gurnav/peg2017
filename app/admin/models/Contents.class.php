@@ -55,8 +55,6 @@ class Contents extends Content
           if ($limit !== null) $query .= " LIMIT ".$limit;
           if ($offset !== null) $query .= " OFFSET ".$offset;
 
-          echo $query;
-
         return $qb->query($query, null, false);
     }
 }
