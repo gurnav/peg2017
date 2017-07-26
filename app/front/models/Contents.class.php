@@ -70,7 +70,7 @@
 
 
     /**
-     * Get last three contents
+     * Retrieve an array of contents
      *
      * @param $content_type the type of the content you want to retrieve
      * @param $limit The number of content you want to retrieve

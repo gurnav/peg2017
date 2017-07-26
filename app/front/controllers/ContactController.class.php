@@ -47,14 +47,14 @@ class ContactController extends Controller
 
             foreach ($admin as $ad) {
                 $mail->setAddressee($ad->getEmail());
-                $mail->setSubject("Contacted by a user. ");
-                $mail->setMessage("From : ".$_POST['user_email'].'<br>'.$msg);
-                try {
-                    $mail->sendMail();
-                } catch (\Exception $e) {
-                    $_SESSION['errors'] = 'An error has occured with the mail sending.
-                 Please contact the site admnistrator to activate your account with the email you used to subscribe with.';
-                }
+            }
+            $mail->setSubject("Contacted by a user. ");
+            $mail->setMessage("From : ".$_POST['user_email'].'<br>'.$msg);
+            try {
+                $mail->sendMail();
+            } catch (\Exception $e) {
+                $_SESSION['errors'] = 'An error has occured with the mail sending.
+             Please contact the site admnistrator to activate your account with the email you used to subscribe with.';
             }
             $_SESSION['msg'] = "Your messages have been sent to the administrators";
             Routing::index();

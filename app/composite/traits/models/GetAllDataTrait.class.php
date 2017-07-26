@@ -16,7 +16,7 @@
      * @param Boolean $order_by_date Allow to order the result by date
      * @return Contents Array : $contents All contents in the database
      */
-    public static function getAll($order_by_date=false, $limit=0)
+    public static function getAll($order_by_date=false, $limit=null, $offset=null)
     {
       $qb = new QueryBuilder();
       // $class = get_class($this);
@@ -26,10 +26,21 @@
       if ($order_by_date === true) {
           $query .= " ORDER BY date_updated, date_inserted DESC";
       }
-      if ($limit !== 0) {
-          $query .= " LIMIT ".$limit;
-      }
+      if ($limit !== null) $query .= " LIMIT ".$limit;
+      if ($offset !== null) $query .= " OFFSET ".$offset;
+
       return $qb->query($query, $class_name);
+    }
+
+    public static function getCount()
+    {
+        $qb = new QueryBuilder();
+        // $class = get_class($this);
+        $class = explode("\\", self::class);
+        $class_name = end($class);
+        $query = "SELECT COUNT(id) AS count FROM ".DB_PREFIX.lcfirst($class_name);
+
+        return $qb->query($query, null, true);
     }
 
     /**

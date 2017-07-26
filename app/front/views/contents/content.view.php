@@ -2,9 +2,8 @@
 	<article class="article_solo" >
 		<header>
 		<h1><?php echo $content->getTitle(); ?></h1>
-		<!-- <span></span> -->
 		</header>
-		<img src="<?php echo $content->getTitle(); ?>">
+		<img src="<?php echo $content->getThumbnails_id(); ?>">
 		<p class="description"><?php echo $content->getContent(); ?></p>
 	</article>
 
@@ -27,7 +26,7 @@
 				</div>
 			<?php endforeach; ?>
 		</div>
-		<?php if (isset($_SESSION['user'])): ?>
+		<?php if (isset($_SESSION['user']) && $content->getIsLikeable() == '1'): ?>
 			<div class="article_solo">
 				<header>
 					<h2>Write a comment</h2>

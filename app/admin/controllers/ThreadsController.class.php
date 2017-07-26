@@ -15,18 +15,25 @@ class ThreadsController extends Controller
 
     public function indexAction()
     {
-
         $v = new View('forum/threads','admin');
-        $threads = Threads::getAll();
-        $threads =Threads::getAllThreadsWithUserAndTopics();
-        $v->assign("threads", $threads);
+        // $threads = Threads::getAll();
 
+        if (empty($args)) {
+            $pagination = 1;
+        } else {
+            $pagination = intval($args[0]);
+        }
+
+        $offset = ($pagination * 10) - 10;
+        $threads = Threads::getAllThreadsWithUserAndTopics(10, $offset);
+
+        $v->assign('count', Threads::getCount()->count);
+        $v->assign("threads", $threads);
 
         if(!empty($_SESSION['errors'])) {
             $v->assign('errors', $_SESSION['errors']);
             unset($_SESSION['errors']);
         }
-
     }
 
     public function addAction()

@@ -300,7 +300,7 @@
        */
       public function thumbnails_jsonAction()
       {
-          header('Content-Type: application/json');
+          header('Content-type: application/json; charset=utf-8');
           $medias = Multimedias::getAll();
 
           for ($i = 0; $i < sizeof($medias); $i += 1) {
@@ -314,7 +314,7 @@
        */
       public function browse_multimedias_ckeditorAction()
       {
-          header('Content-Type: application/json');
+          header('Content-type: application/json; charset=utf-8');
           $medias = Multimedias::getAll();
 
           for ($i = 0; $i < sizeof($medias); $i += 1) {

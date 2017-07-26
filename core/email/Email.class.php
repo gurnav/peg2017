@@ -9,7 +9,7 @@ class Email extends \PHPMailer {
 
     protected $subject;
     protected $message;
-    protected $addressee;
+    protected $addressee = [];
 
     public function __construct() {
         parent::__construct();
@@ -39,7 +39,7 @@ class Email extends \PHPMailer {
      * @return Void
      */
     public function setAddressee($addressee) {
-        $this->addressee = trim($addressee);
+        array_push($this->addressee, $addressee);
     }
 
     /**
@@ -76,7 +76,7 @@ class Email extends \PHPMailer {
         $this->IsHTML(true);
         $this->Host = "smtp.gmail.com";
         $this->Port = 465;
-        $this->SMTPDebug = 2;
+        // $this->SMTPDebug = 2;
         $this->SMTPAuth = true;
         // secure transfer enabled REQUIRED for GMail
         $this->SMTPSecure = 'ssl';
@@ -84,10 +84,12 @@ class Email extends \PHPMailer {
         $this->Username   = EMAIL_ADMIN;
         // to be created
         $this->Password   = EMAIL_ADMIN_PASSWORD;
-        // $mail->SetFrom($expediteur, $prenom.' '.$nom);
+        $this->SetFrom(EMAIL_ADMIN, SITE_NAME);
         $this->From = EMAIL_ADMIN;
-        $this->AddAddress($this->addressee);
-        $this->AddReplyTo(EMAIL_ADMIN);
+        foreach ($this->addressee as $addr) {
+            $this->AddAddress($addr);
+            $this->AddReplyTo($addr);
+        }
         $this->Subject = $this->subject;
         $this->CharSet = "utf-8";
         $this->Body = $this->message;

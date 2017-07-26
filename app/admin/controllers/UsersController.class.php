@@ -35,12 +35,21 @@
      * Action who list all users
      * @return Void
      */
-    public function indexAction()
+    public function indexAction($args)
     {
       $v = new View('users/users', 'admin');
-      $users = Users::getAll(true);
+
+      if (empty($args)) {
+          $pagination = 1;
+      } else {
+          $pagination = intval($args[0]);
+      }
+
+      $offset = ($pagination * 10) - 10;
+      $users = Users::getAll(true, 10, $offset);
 
       $v->assign('users', $users);
+      $v->assign('count', Users::getCount()->count);
 
       if(!empty($_SESSION['errors'])) {
         $v->assign('errors', $_SESSION['errors']);
@@ -326,16 +335,15 @@
         $users = Users::getAllNewslettersUsers();
         $mail = new Email();
 
-        foreach ($users as $user)
-        {
+        foreach ($users as $user) {
             $mail->setAddressee($user['email']);
-            $mail->setSubject("Newsletters of ".SITE_NAME." : ".$_POST['title']);
-            $mail->setMessage($_POST['content']);
-            try {
-                $mail->sendMail();
-            } catch (\Exception $e) {
-                array_push($_SESSION['errors'], $e->getMessage());
-            }
+        }
+        $mail->setSubject("Newsletters of ".SITE_NAME." : ".$_POST['title']);
+        $mail->setMessage($_POST['content']);
+        try {
+            $mail->sendMail();
+        } catch (\Exception $e) {
+            array_push($_SESSION['errors'], $e->getMessage());
         }
 
         header('Location: '.BASE_URL.'admin/users/write_newsletters');

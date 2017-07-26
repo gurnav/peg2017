@@ -123,7 +123,7 @@
        * @param topics_id The id of the topic that we want further information
        * @return All topics with their associeted users
        */
-      public static function getAllTopicsWithUsers($topics_id=null, $one=false) {
+      public static function getAllTopicsWithUsers($topics_id=null, $one=false, $limit=null, $offset=null) {
           $qb = new QueryBuilder();
           $query = "SELECT *, (SELECT COUNT(*) FROM ".DB_PREFIX."threads WHERE "
             .DB_PREFIX."threads.topics_id = ".(($topics_id===null)?DB_PREFIX."topics.id":$topics_id)
@@ -135,6 +135,8 @@
               $query .= " AND ".DB_PREFIX."topics.id = ".$topics_id;
           }
           $query .= " ) ORDER BY ".DB_PREFIX."topics.date_updated, ".DB_PREFIX."topics.date_inserted DESC";
+          if ($limit !== null) $query .= " LIMIT ".$limit;
+          if ($offset !== null) $query .= " OFFSET ".$offset;
 
           return $qb->query($query, null, $one);
       }

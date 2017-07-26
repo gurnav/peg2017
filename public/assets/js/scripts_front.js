@@ -28,6 +28,8 @@ $( document ).ready(function() {
     // Replace all Text Area with ckeditor
     if ($(".super_editor").length){
         CKEDITOR.replace( 'textarea' );
+        CKEDITOR.config.entities = false;
+        CKEDITOR.config.entities_latin = false;
     }
 
 });

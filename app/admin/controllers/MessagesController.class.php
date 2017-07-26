@@ -15,9 +15,18 @@ class MessagesController extends Controller
 
     public function indexAction()
     {
-
         $v = new View('forum/messages','admin');
-        $messages = Messages::getAllMessagesWithUsersAndThreads();
+
+        if (empty($args)) {
+            $pagination = 1;
+        } else {
+            $pagination = intval($args[0]);
+        }
+
+        $offset = ($pagination * 10) - 10;
+        $messages = Messages::getAllMessagesWithUsersAndThreads(10, $offset);
+
+        $v->assign('count', Messages::getCount()->count);
         $v->assign("messages", $messages);
 
         if(!empty($_SESSION['errors'])) {

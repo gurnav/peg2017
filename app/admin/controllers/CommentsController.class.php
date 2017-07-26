@@ -14,9 +14,19 @@ class CommentsController extends Controller
     public function indexAction()
     {
         $v = new View('comments/comments', 'admin');
-        $comments = Comments::getAllCategoriesWithUsersAndContents();
 
+        if (empty($args)) {
+            $pagination = 1;
+        } else {
+            $pagination = intval($args[0]);
+        }
+
+        $offset = ($pagination * 10) - 10;
+        $comments = Comments::getAllCategoriesWithUsersAndContents(10, $offset);
+
+        $v->assign('count', Comments::getCount()->count);
         $v->assign('comments', $comments);
+
         if(!empty($_SESSION['errors'])) {
             $v->assign('errors',$_SESSION['errors']);
             unset($_SESSION['errors']);

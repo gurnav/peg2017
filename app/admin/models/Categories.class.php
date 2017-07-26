@@ -97,17 +97,19 @@
       }
 
       /**
-       * Get all categories with theirs associaeted users 
+       * Get all categories with theirs associaeted users
        *
        * @return Array of categories with their associated users
        */
-      public static function getAllCategoriesWithUsers() {
+      public static function getAllCategoriesWithUsers($limit=null, $offset=null) {
           $qb = new QueryBuilder();
           $query = "SELECT * FROM ".DB_PREFIX."categories"
             ." INNER JOIN (SELECT id AS uid, username FROM ".DB_PREFIX."users) AS users_table
             ON ".DB_PREFIX."categories.users_id = users_table.uid
             WHERE ".DB_PREFIX."categories.deleted = 0
             ORDER BY date_inserted";
+            if ($limit !== null) $query .= " LIMIT ".$limit;
+            if ($offset !== null) $query .= " OFFSET ".$offset;
 
           return $qb->query($query, null, false);
       }

@@ -13,12 +13,20 @@
   class CategoriesController extends Controller
   {
 
-    public function indexAction()
+    public function indexAction($args)
     {
         $v = new View('categories/categories', 'admin');
 
-        $categories = Categories::getAllCategoriesWithUsers();
+        if (empty($args)) {
+            $pagination = 1;
+        } else {
+            $pagination = intval($args[0]);
+        }
 
+        $offset = ($pagination * 10) - 10;
+        $categories = Categories::getAllCategoriesWithUsers(10, $offset);
+
+        $v->assign('count', Categories::getCount()->count);
         $v->assign('categories', $categories);
 
         if(!empty($_SESSION['errors'])) {

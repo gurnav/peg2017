@@ -38,4 +38,13 @@
 
     </div>
 
+    <?php if ($count > 10): ?>
+        <?php $i = 0;
+        do {
+            $i += 10;
+            echo "<div><a href='".BASE_URL."admin/categories/index/".($i / 10)."'>".($i / 10)."</a></div>";
+        } while ($i < $count);
+         ?>
+    <?php endif ?>
+
 </section>

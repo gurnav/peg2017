@@ -30,7 +30,7 @@
       *
       * @return Array of categories with their associated users
       */
-     public static function getAllCategoriesWithUsersAndContents() {
+     public static function getAllCategoriesWithUsersAndContents($limit=null, $offset=null) {
          $qb = new QueryBuilder();
          $query = "SELECT * FROM ".DB_PREFIX."comments"
            ." INNER JOIN (SELECT id AS uid, username FROM ".DB_PREFIX."users) AS users_table
@@ -39,6 +39,8 @@
            ON ".DB_PREFIX."comments.contents_id = contents_table.cid
            WHERE ".DB_PREFIX."comments.deleted = 0
            ORDER BY date_inserted";
+         if ($limit !== null) $query .= " LIMIT ".$limit;
+         if ($offset !== null) $query .= " OFFSET ".$offset;
 
          return $qb->query($query, null, false);
      }

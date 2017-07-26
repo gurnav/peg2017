@@ -16,8 +16,18 @@
 
     public function indexAction()
     {
-        $v = new View('forum/topics','admin'); // utiliser un template (admin)
-        $topics = Topics::getAllTopicsWithUsers();
+        $v = new View('forum/topics','admin');
+
+        if (empty($args)) {
+            $pagination = 1;
+        } else {
+            $pagination = intval($args[0]);
+        }
+
+        $offset = ($pagination * 10) - 10;
+        $topics = Topics::getAllTopicsWithUsers(null, null, 10, $pagination);
+
+        $v->assign('count', Topics::getCount()->count);
         $v->assign("topics", $topics);
     }
 

@@ -1,5 +1,7 @@
 $( document ).ready(function() {
 
+    var root = "http://" + location.host
+
     // Burger Menu
     $("#burger_menu").click(function(){
         $("#burger_menu").toggleClass('on');
@@ -9,16 +11,25 @@ $( document ).ready(function() {
     // Thumbnails browser
     $('#browse_thumbnails').one("click", function() {
         let json_thumbails;
+        let url_path =  window.location.pathname.split("/");
+        let url;
+        if (url_path[1] === 'admin') {
+            url = root +  '/' + url_path[1] + '/' + url_path[2];
+        } else {
+            url = root +  '/' + url_path[1] + '/' + url_path[2] + '/' + url_path[3];
+        }
         $.ajax({
             type: 'GET',
-            url: "thumbnails_json",
-            dataType: 'json',
+            url: url + "/thumbnails_json",
+            dataType: 'text',
             async: false,
             error: function (msg, string) {
                 alert('Error : ' + string);
             },
             success: function (reponse) {
-                json_thumbails = reponse;
+                console.log(reponse);
+                json_thumbails = JSON.parse(reponse);
+                console.log(JSON.parse(reponse));
             }
         });
 
@@ -86,14 +97,25 @@ $( document ).ready(function() {
 
     // Replace all Text Area with ckeditor
 	if ($(".super_editor").length) {
-		let url = document.URL.split("/");
-		CKEDITOR.plugins.addExternal("imagebrowser",
-			"/" + url[3] + "/public/assets/js/plugins/imagebrowser/", "plugin.js")
-		// extraPlugins needs to be set too.
+        let url_path =  window.location.pathname.split("/");
+        let url;
+        if (url_path[1] === 'admin') {
+            url = root +  '/' + url_path[1] + '/' + url_path[2];
+        } else {
+            url = root +  '/' + url_path[1] + '/' + url_path[2] + '/' + url_path[3];
+        }
+
+        url_ib = url_path[1] === 'admin' ? '' : '/' + url_path[1];
+
+		CKEDITOR.plugins.addExternal("imagebrowser", url_ib + "/public/assets/js/plugins/imagebrowser/", "plugin.js")
+
 		CKEDITOR.replace( 'textarea', {
 			'extraPlugins': 'imagebrowser',
-			'imageBrowser_listUrl': '/' + url[3] + '/admin/contents/browse_multimedias_ckeditor'
+			'imageBrowser_listUrl': url + '/browse_multimedias_ckeditor'
         } );
+
+        CKEDITOR.config.entities = false;
+        CKEDITOR.config.entities_latin = false;
     }
 
     if ($("#chartdiv1").length){
