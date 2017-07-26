@@ -9,21 +9,21 @@
     <form class="form_user" action="<?php echo BASE_URL.'profile/changeUsername'; ?>" method="post">
         <span>Username : </span>
         <input type="text" name="username" value="<?php echo $user->getUsername(); ?>">
-        <input type="submit" value="Change username">
+        <input class="profile_edit" type="submit" value="Change username">
     </form>
     <br>
 
     <form class="form_user" action="<?php echo BASE_URL.'profile/changeLastname'; ?>" method="post">
         <span>Lastname : </span>
         <input type="text" name="lastname" value="<?php echo $user->getLastname(); ?>">
-        <input type="submit" value="Change lastname">
+        <input class="profile_edit" type="submit" value="Change lastname">
     </form>
     <br>
 
     <form class="form_user" action="<?php echo BASE_URL.'profile/changeFirstname'; ?>" method="post">
         <span>Firstname : </span>
         <input type="text" name="firstname" value="<?php echo $user->getFirstname(); ?>">
-        <input type="submit" value="Change firstname">
+        <input class="profile_edit" type="submit" value="Change firstname">
     </form>
     <br>
 
@@ -31,14 +31,14 @@
         <span>Newsletters : </span>
         <input type="radio" name="gender" value="1" <?php if ($user->getNewsletters() == 1) echo "checked" ?>> Subscribe<br>
         <input type="radio" name="gender" value="0" <?php if ($user->getNewsletters() == 0) echo "checked" ?>> Don't subscribe<br>
-        <input type="submit" value="Change subscribe status">
+        <input class="profile_edit" type="submit" value="Change subscribe status">
     </form>
     <br>
 
     <form class="form_user" action="<?php echo BASE_URL.'profile/changeEmail'; ?>" method="post">
         <span>Email : </span>
         <input type="text" name="email" value="<?php echo $user->getEmail(); ?>">
-        <input type="submit" value="Change email">
+        <input class="profile_edit" type="submit" value="Change email">
     </form>
     <br>
 
@@ -52,14 +52,14 @@
         <span>New Password : </span>
         <input type="password" name="new_password">
         <br>
-        <input type="submit" value="Change password">
+        <input class="profile_edit" type="submit" value="Change password">
     </form>
     <br>
 
     <form class="form_user" action="<?php echo BASE_URL.'profile/changeImg'; ?>" method="post" enctype="multipart/form-data">
         <span>Image profile : </span>
         <input type="file" name="user_img">
-        <input type="submit" value="Change image">
+        <input class="profile_edit" type="submit" value="Change image">
     </form>
     <br>
 </div>
