@@ -37,7 +37,7 @@
 						<textarea name="content" id="textarea" rows="10" cols="80"></textarea>
 					</div>
 					<div>
-						<input type="hidden" name="content_id" value="<?php echo $content->getId(); ?>">
+						<input type="hidden" name="content_id" value="<?php echo $content->id; ?>">
 						<input class="send_commentaries" type="submit" value="Send it !">
 					</div>
 				</form>
