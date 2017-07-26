@@ -32,7 +32,7 @@
             </tbody>
         </table>
 
-        <button class="view_more">view more</button>
+        <button class="view_more"><a href="<?php echo BASE_URL.'admin'; ?>">return</a></button>
 
     </div>
 

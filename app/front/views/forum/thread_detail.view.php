@@ -1,4 +1,4 @@
-<div>
+<div class="list_subject">
 <div class="body_item">
     <article class="article_solo" >
         <header>
@@ -32,11 +32,11 @@
                 <div class="text_area">
                     <table>
                         <tr>
-                    <td> <?php echo $messages[$i]->content ?></td>
-                    <td align="right" width="20%"> Creation Date :<?php echo $messages[$i]->date_inserted ?></td>
+                    <td class="comment_forum"> <?php echo $messages[$i]->content ?></td>
+                    <td class="comment_forum"> Creation Date :<?php echo $messages[$i]->date_inserted ?></td>
                    <?php if (isset($_SESSION['user'])): ?>
                          <?php if($_SESSION['user']['username'] === $messages[$i]->username): ?>
-                    <td align="right" width="3%"><button class="Delete" title="Delete" value="<?php echo BASE_URL.'forum/deleteMessage/'.$messages[$i]->id; ?>"><i class="fa fa-times" aria-hidden="true"></i></button></td>
+                    <td align="right" width="3%"><button class="Delete" title="Delete" value="<?php echo BASE_URL.'forum/deleteMessage/'.$messages[$i]->id; ?>"><i class="fa fa-close" aria-hidden="true"></i></button></td>
                         <?php endif;?>
                     <?php endif;?>
                     </tr>
@@ -72,4 +72,5 @@
         <p>You have to be connected to post a comment.</p>
 
     </div>
+</div>
 <?php endif; ?>

@@ -6,15 +6,15 @@
 
     <div class="four_icon">
         <div>
-            <i class="fa fa-upload" aria-hidden="true"></i>
+            <i class="fa fa-server" aria-hidden="true"></i>
             <h2><span><?php echo count($topics); ?></span>topics<span></span></h2>
         </div>
         <div>
-            <i class="fa fa-download" aria-hidden="true"></i>
+            <i class="fa fa-sort-amount-desc" aria-hidden="true"></i>
             <h2><span><?php echo count($threads); ?></span>threads<span></span></h2>
         </div>
         <div>
-            <i class="fa fa-camera" aria-hidden="true"></i>
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
             <h2><span><?php echo count($messages); ?></span>messages<span></span></h2>
         </div>
     </div>

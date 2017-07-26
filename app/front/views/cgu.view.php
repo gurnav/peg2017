@@ -1,6 +1,6 @@
 <div style="
     text-align: center;
-    margin-top: 10px;
+    margin-top: 15%;
 ">
     <h2>Informations légales</h2>
     <h3>1. Présentation du site.</h3>
